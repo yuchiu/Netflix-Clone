@@ -1,0 +1,31 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    ul {
+        margin: 0;
+        padding: 10px 20px;
+        li {
+            display: inline-block;
+            .logo {
+                margin-right: 30px;
+            } //logo
+            .browse {
+                font-weight: bold;
+                color: $netflixRed;
+                text-decoration: none;
+                padding: 25px;
+            } //browse
+            .searchInput {
+                padding: 5px;
+                color: $netflixWhite;
+                border: 0;
+                background: transparent;
+                outline: none;
+                &:focus {
+                    border: solid 1px $netflixWhite;
+                    border-radius: 3px;
+                } //focus
+            } //searchInput
+        } //li
+    } //ul
+} //navbar

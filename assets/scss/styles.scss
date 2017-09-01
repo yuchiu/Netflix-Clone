@@ -1,0 +1,23 @@
+@import 'var';
+@import 'mixins';
+@import 'list';
+@import 'slider';
+@import 'nav';
+@import 'footer';
+* {
+    margin: 0;
+    color: #fff;
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+#root{
+    
+    background: $netflixBlack;
+}
+
+body{
+    
+  width: 100%;
+}
+

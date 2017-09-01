@@ -1,0 +1,94 @@
+@mixin grid($cols, $mgn) {
+    float: left;
+    margin-right: $mgn;
+    margin-bottom: $mgn;
+    width: ((100% - (($cols - 1)* $mgn))/$cols);
+    &:nth-child(#{$cols}n) {
+        margin-right: 0;
+    }
+    img {
+        width: 100%;
+    }
+}
+
+
+/* '...' means that the numbers of argument is uncertain,
+ it will put value into a list for each arg that passed through
+ */
+
+@mixin mediaQueries($arg...) {
+    @if length($arg)==1 {
+        @media screen and (max-width: nth($arg, 1)) {
+            @content;
+        }
+    }
+    @if length($arg)==2 {
+        @media screen and (max-width: nth($arg, 1)) and (min-width:nth($arg, 2)) {
+            @content;
+        }
+    }
+}
+
+@mixin addListBtn {
+    .addListBtn {
+        background-color: transparent;
+        border-radius: 100%;
+        border: 2px solid $whiteGrey;
+        display: inline-block;
+        cursor: pointer;
+        color: $netflixWhite;
+        font-size: 24px;
+        padding: 2px 12px;
+        text-decoration: none;
+        box-sizing: border-box;
+        transition: 0.3s transform;
+        margin-right: 10px;
+        transform-origin: 50% 50%;
+        &:focus {
+            outline: 0;
+        }
+        &:hover {
+            border: 2px solid $netflixWhite;
+            background-color: transparent;
+            transform: scale(1.1);
+        }
+        
+        
+        &:active {
+            position: relative;
+            top: 1px;
+        }
+
+    }
+}
+
+@mixin playBtn {
+    .playBtn{
+        content: '▶';
+        background-color: transparent;
+        color : $netflixWhite;
+        border-radius: 100%;
+        border: 2px solid $netflixWhite;
+        display: inline-block;
+        cursor: pointer;
+        font-size: 24px;
+        padding: 22px 10px 22px 15px;
+        text-decoration: none;
+        box-sizing: border-box;
+        transition: 0.3s transform;
+        transform-origin: 50% 50%;
+        opacity: 0.3;
+        &:focus {
+            outline: 0;
+        }
+        &:hover {
+            color: $netflixRed;
+            border: 2px solid $netflixWhite;
+            background-color: transparent;
+            transform: scale(1.1);
+            opacity: 1;
+        }
+    
+        
+    }
+}
