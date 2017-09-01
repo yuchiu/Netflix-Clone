@@ -2,6 +2,13 @@ import React from 'react';
 
 class List extends React.Component {
 
+  handleClick(){
+    this
+      .props.actions
+      .fetchMovie(157336)
+  }
+
+
   render() {
     return (
       <div className="list-container">
@@ -24,7 +31,9 @@ class List extends React.Component {
 
               <div className="tile-text-container">
               <div className="playbtn-container">
-              <button className="playBtn">▶</button>
+              <button className="playBtn"
+              onClick={this.handleClick.bind(this)}
+              >▶</button>
               </div>
                 <h5 className="tile-title">West World</h5>
                 <p className="tile-desc">

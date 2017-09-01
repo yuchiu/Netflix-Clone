@@ -1,5 +1,5 @@
 import React from 'react';
-import ResultItem from './ResultItem';
+import SearchItem from './SearchItem';
 
 class SearchResult extends React.Component {
 
@@ -12,13 +12,13 @@ class SearchResult extends React.Component {
     movies = movies[0]
     
     return (
-      <div>
+      <div id="result-container">
         <ul>
 
           {movies
             .movies
             .map((movie, i) => {
-              return <ResultItem key={movie.id} movie={movie}/>
+              return <SearchItem key={movie.id} movie={movie}/>
             })}
         </ul>
       </div>

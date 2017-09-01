@@ -8,10 +8,9 @@ let initialState = {
     search: [
     {
         movies : [],
-        id : 0
+        theMovie:[]
     }
   ]
-
 }
 
 let store = configureStore(initialState)

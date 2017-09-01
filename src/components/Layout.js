@@ -8,19 +8,23 @@ import Nav from  './Nav';
 import List from  './List';
 import Slider from  './Slider';
 import Footer from  './Footer';
-import SearchResult from './SearchResult';
-
+import SearchPage from './SearchPage';
+import MoviePage from './MoviePage';
 
 class Layout extends React.Component {
 
   render() {
+
+
+    
     return (
       <div>
         <Nav actions = {this.props.actions}/>
-        <SearchResult movies = {this.props.search}/>
-        <Slider/>
-        <List/>
-        <Footer/>
+        <SearchPage movies = {this.props.search}/>
+        <Slider />
+        <List actions = {this.props.actions}/>
+        <MoviePage theMovie= {this.props.search}/>
+        <Footer />
       </div>
     )
   }

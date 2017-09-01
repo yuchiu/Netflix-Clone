@@ -15,6 +15,8 @@
                 text-decoration: none;
                 padding: 25px;
             } //browse
+
+
             .searchInput {
                 padding: 5px;
                 color: $netflixWhite;
@@ -22,10 +24,39 @@
                 background: transparent;
                 outline: none;
                 &:focus {
+                    padding : 2px 5px 2px 5px;
                     border: solid 1px $netflixWhite;
                     border-radius: 3px;
                 } //focus
             } //searchInput
+
+
+            
         } //li
     } //ul
 } //navbar
+
+.clearBtn{
+    background-color:transparent;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:14px;
+    font-weight:bold;
+    padding:3px 6px;
+    text-decoration:none;
+    border: none;
+
+    outline: none;
+    &:focus {
+        outline: 0;
+    }
+    &:hover {
+        background-color:transparent;
+    }
+    &:active {
+        position:relative;
+        top:1px;
+    }
+}

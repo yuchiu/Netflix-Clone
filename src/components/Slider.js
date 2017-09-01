@@ -2,6 +2,8 @@ import React from 'react';
 
 class Slider extends React.Component {
 
+
+
   render() {
     return (
       <div className="slider">
@@ -19,6 +21,7 @@ class Slider extends React.Component {
           </ol>
           <div className="carousel-inner" role="listbox">
             <div className="carousel-item active">
+          
               <img
                 className="d-block img-fluid"
                 src="https://s-media-cache-ak0.pinimg.com/originals/26/00/d5/2600d5fda64fb9356b117219ca2bfce9.jpg"

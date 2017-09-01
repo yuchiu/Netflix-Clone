@@ -2,10 +2,17 @@ import React from 'react';
 
 class Nav extends React.Component {
 
+
+
   handleChange(e) {
     this
       .props.actions
       .fetchSearch(e.target.value)
+  }
+
+  handleDelete() {
+
+    console.log('search input is cleared, route back to home page');
   }
 
 
@@ -51,7 +58,9 @@ class Nav extends React.Component {
                   placeholder='title, people, genre'
                   onChange={this
                   .handleChange
-                  .bind(this)}/>
+                  .bind(this)}
+                  />
+                  <button className ="clearBtn" onClick={this.handleDelete.bind(this)}>X</button>
               </form>
 
             </li>
