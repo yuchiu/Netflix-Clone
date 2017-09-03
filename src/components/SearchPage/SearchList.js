@@ -1,13 +1,13 @@
 import React from 'react';
 import SearchItem from './SearchItem';
 
-class SearchResult extends React.Component {
+class SearchList extends React.Component {
 
   render() {
 
     let movies = this
       .props
-      .movies
+      .movieData
       .slice(0, 1);
     movies = movies[0]
     
@@ -27,4 +27,4 @@ class SearchResult extends React.Component {
 
 }
 
-export default SearchResult;
+export default SearchList;

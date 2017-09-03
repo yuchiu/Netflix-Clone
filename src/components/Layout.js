@@ -5,11 +5,17 @@ import {connect} from 'react-redux'
 
 import '../../assets/scss/styles.scss';
 import Nav from  './Nav';
-import List from  './List';
-import Slider from  './Slider';
 import Footer from  './Footer';
-import SearchPage from './SearchPage';
-import MoviePage from './MoviePage';
+
+import HomePage from  './HomePage/';
+import SearchPage from './SearchPage/';
+import MoviePage from './MoviePage/';
+
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch, 
+} from 'react-router-dom'
 
 class Layout extends React.Component {
 
@@ -20,10 +26,9 @@ class Layout extends React.Component {
     return (
       <div>
         <Nav actions = {this.props.actions}/>
-        <SearchPage movies = {this.props.search}/>
-        <Slider />
-        <List actions = {this.props.actions}/>
-        <MoviePage theMovie= {this.props.search}/>
+        <HomePage actions = {this.props.actions}/>
+        <SearchPage movieData = {this.props.search}/>
+        <MoviePage movieData= {this.props.search}/>
         <Footer />
       </div>
     )

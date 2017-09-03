@@ -1,6 +1,6 @@
 import React from 'react';
 
-class MoviePage extends React.Component {
+class Movie extends React.Component {
 
   handleClick() {
     console.log(this
@@ -11,7 +11,7 @@ class MoviePage extends React.Component {
 
     let theMovie = this
     .props
-    .theMovie
+    .movieData
     .slice(0, 1);
     theMovie = theMovie[0]
   
@@ -33,4 +33,4 @@ class MoviePage extends React.Component {
 
 }
 
-export default MoviePage;
+export default Movie;
