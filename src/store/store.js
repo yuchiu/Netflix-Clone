@@ -2,11 +2,15 @@ import {applyMiddleware , compose,  createStore} from 'redux';
 import rootReducer from '../reducers/'
 import {createLogger} from 'redux-logger'
 import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+
 
 
 //add middleware
 let finalCreateStore = compose(
-    applyMiddleware(thunk, createLogger())
+    
+    composeWithDevTools(applyMiddleware(thunk, createLogger()))
 )(createStore)
 
 
@@ -16,4 +20,4 @@ const configureStore = function (initialState = {search:[]}){
 }
 
 
-export default configureStore;
+export {history, configureStore};

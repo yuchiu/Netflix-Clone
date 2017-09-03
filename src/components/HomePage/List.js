@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 class List extends React.Component {
 
@@ -31,9 +32,13 @@ class List extends React.Component {
 
               <div className="tile-text-container">
               <div className="playbtn-container">
-              <button className="playBtn"
+
+
+              <Link className="playBtn btn " to='/movie'
               onClick={this.handleClick.bind(this)}
-              >▶</button>
+              >▶</Link>
+
+              
               </div>
                 <h5 className="tile-title">West World</h5>
                 <p className="tile-desc">

@@ -1,4 +1,7 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
+import {NavLink}  from 'react-router-dom'
+
 
 class Nav extends React.Component {
 
@@ -23,28 +26,30 @@ class Nav extends React.Component {
 
           <ul>
             <li>
-              <a href='./' className="logo"><img
+              <NavLink to='/' className="logo"><img
                 style={{
         width: 110,
         height: 30
       }}
                 src="https://vignette4.wikia.nocookie.net/marvelcinematicuniverse/images/a/a1/Netflix-logo.png/revision/latest?cb=20150221002257"/>
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a className="browse" href='#'>Browse<img
+              <NavLink to='/search' className="browse">Browse<img
                 style={{
         width: 30,
         height: 10
       }}
-                src="http://freaktraining.com/wp-content/uploads/2017/02/RedDownArrow.png"/></a>
+                src="http://freaktraining.com/wp-content/uploads/2017/02/RedDownArrow.png"/>
+                </NavLink>
             </li>
           </ul>
 
           <ul>
             <li>
               <form
-                className="search">
+                className="search"
+                >
                 <img
                   style
                   ={{
@@ -61,6 +66,7 @@ class Nav extends React.Component {
                   .bind(this)}
                   />
                   <button className ="clearBtn" onClick={this.handleDelete.bind(this)}>X</button>
+                  <Link type = 'submit' className ="" to='/search' >go </Link>
               </form>
 
             </li>
