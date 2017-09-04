@@ -10,7 +10,8 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].bundle.js',
-    sourceMapFilename: '[name].bundle.map'
+    sourceMapFilename: '[name].bundle.map',
+    publicPath : '/'
   },
 
   devtool: '#source-map',
@@ -37,6 +38,7 @@ module.exports = {
   },
 
   devServer: {
+    historyApiFallback :true,
     contentBase: path.join(__dirname, 'dist'),
     inline: true,
     hot : true,

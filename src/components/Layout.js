@@ -10,8 +10,9 @@ import Footer from './Footer';
 import HomePage from './HomePage/';
 import SearchPage from './SearchPage/';
 import MoviePage from './MoviePage/';
+import NotFoundPage from './NotFoundPage';
 
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 class Layout extends React.Component {
 
@@ -29,12 +30,16 @@ class Layout extends React.Component {
       <Router>
         <div>
           <Nav actions={this.props.actions}/>
+          <Switch>
           <Route exact path="/" render={theHomePage}/>
-          <Route exact path="/search" render={theSearchPage}/>
-          <Route exact path="/movie" render={theMoviePage}/>
+          <Route path="/search" render={theSearchPage}/>
+          <Route path="/movie" render={theMoviePage}/>
+          <Route component={NotFoundPage}/>
+          </Switch>
           <Footer/>
         </div>
       </Router>
+
     )
   }
 
