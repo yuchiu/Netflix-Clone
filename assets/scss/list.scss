@@ -10,7 +10,7 @@
     font-weight: bold;
 }
 
-.row {
+.listRow {
 
 
     display: flex;
@@ -22,6 +22,9 @@
 }
 
 @include listingTiles;
+
+
+
 
 ::-webkit-scrollbar {
     width: 0px;  /* remove scrollbar space */

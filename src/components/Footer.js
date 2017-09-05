@@ -4,18 +4,13 @@ class Footer extends React.Component {
 
   render() {
     return (
-        <div className = "footer-container">
-          <nav className='navbar'>
-  
-            <ul>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Contact</a></li>
-              <li><a href="#">More</a></li>
-            </ul>
-  
-          </nav>
-        </div>
+      <footer class="footer-container">
+        <nav className="navbar navbar-light bg-faded">
+        <a className="navbar-brand text-danger font-weight-bold" href="/">Neflix</a>
+        <p className="text-muted lead" href="#">&copy;2017. All Rights Reserved by Chiu.</p>
+          <a className="navbar-brand text-muted" href="https://github.com/yuchiu/netflix-clone">github</a>
+        </nav>
+      </footer>
     )
   }
 

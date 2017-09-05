@@ -28,8 +28,8 @@ class SearchItem extends React.Component {
 
               
               </div>
-                <h5 className="tile-title">
-        {this.props.movie.title}</h5>
+                <p className="search-tile-title">
+        {this.props.movie.title}</p>
                 <p className="tile-desc">
                 {this.props.movie.overview}</p>
               </div>

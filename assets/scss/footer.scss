@@ -1,17 +1,11 @@
-.footer-container{
-    margin-top : 150px;
 
 
-    ul{
-        padding : 0;
-        li{
-            a{
-                color: $netflixWhite;
-                text-decoration: none;
-                display: block;
-                padding :10px;
-            }
-        }
+
+footer {
+    margin-top: 150px;
+    p{
+        padding-top: 12px;
+        font-size: 0.7em !important;
     }
-}
-
+  }
+  

@@ -54,7 +54,6 @@ class List extends React.Component {
         </div>
 
         <span
-          id="controlL"
           onClick={this
           .handleLeftClick
           .bind(this)}
@@ -66,7 +65,7 @@ class List extends React.Component {
 
         <div className="module-section clearfix">
           <ul id="content" ref='content'>
-        <div className="row">
+        <div className="listRow">
         {this.renderUpcomingMovies(this.props.movieData)}
         </div>
 
@@ -74,7 +73,6 @@ class List extends React.Component {
           </div>
 
         <span
-          id="controlR"
           onClick={this
           .handleRightClick
           .bind(this)}
