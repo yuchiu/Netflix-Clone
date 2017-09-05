@@ -14,7 +14,7 @@ class SearchItem extends React.Component {
 
       <li >
 
- <div className="tile">
+ <div className="search-tile">
  <img src={`http://image.tmdb.org/t/p/w300//${this.props.movie.poster_path}`}/>
             <div className=" photo-overlay">
 
