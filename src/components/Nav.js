@@ -17,12 +17,6 @@ class Nav extends React.Component {
 
   }
 
-
-  handleKeyPress(e) {
-    if (e.key === 'Enter') {
-      this.handleClick()
-    }
-  }
   handleClick() {
     this
       .props
@@ -65,12 +59,10 @@ class Nav extends React.Component {
                   className="searchInput"
                   type='text'
                   value={this.state.searchInput}
-                  placeholder='title, people, genre'
+                  placeholder='movie title...'
                   onChange={this
                   .handleChange
                   .bind(this)}
-                  
-                onKeyPress={this.handleKeyPress.bind(this)}
                   />
                 <Link
                   className=""

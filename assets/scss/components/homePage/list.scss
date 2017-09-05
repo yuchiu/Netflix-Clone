@@ -1,17 +1,16 @@
 
 .list-container {
     max-width:100%;
-    padding:0px 50px 0px 50px;
+    padding:0px;
     position:relative;
 }
 
 .list-title {
-    margin-top: 40px;
+    padding-left: 40px;
     font-weight: bold;
 }
 
 .listRow {
-
 
     display: flex;
     width: 100%; /////////
@@ -40,10 +39,10 @@ button:focus {outline:0 !important;}
 .left-controls{
     
     position:absolute;
-    top:80;
+    top:40;
     left:0;
     width:4%;
-    height:220px;
+    height:280px;
     z-index:40;
     background: $netflixBlack;
     opacity:0.5;
@@ -57,10 +56,10 @@ button:focus {outline:0 !important;}
   
   .right-controls{
     position:absolute;
-    top:80;
+    top:40;
     right:0;
     width:4%;
-    height:220px;
+    height:280px;
     z-index:40;
     background: $netflixBlack;
     opacity:0.5;

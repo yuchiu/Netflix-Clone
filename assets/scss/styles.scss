@@ -1,11 +1,11 @@
 @import 'var';
 @import 'mixins';
-@import 'list';
-@import 'slider';
-@import 'nav';
-@import 'footer';
-@import 'searchResult';
-@import 'moviePage';
+@import './components/nav';
+@import './components/footer';
+@import './components/homePage/list';
+@import './components/homePage/slider';
+@import './components/searchPage/search';
+@import './components/moviePage/movie';
 * {
     margin: 0;
     bottom : 0;
