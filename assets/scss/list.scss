@@ -1,13 +1,11 @@
 //slider = row
 //slide = tile
 
-.row figure .tile{
-    width: 20%
-}
-
 
 .list-container {
-    margin-left: 130px;
+    max-width:100%;
+    padding:0px 50px 0px 50px;
+    position:relative;
 }
 
 .list-title {
@@ -95,4 +93,62 @@
     margin: 35px 0px 10px 30px;
     text-align: center;
     @include playBtn;
+}
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+/*::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}*/
+
+button:focus {outline:0 !important;}
+  
+.left-controls{
+    
+    position:absolute;
+    top:80;
+    left:0;
+    width:4%;
+    height:220px;
+    z-index:40;
+    background: $netflixBlack;
+    opacity:0.5;
+    cursor:pointer;
+    text-align:center;
+    justify-content:center;
+    color:#fff;
+  
+  }
+  
+  
+  .right-controls{
+    position:absolute;
+    top:80;
+    right:0;
+    width:4%;
+    height:220px;
+    z-index:40;
+    background: $netflixBlack;
+    opacity:0.5;
+    cursor:pointer;
+    text-align:center;
+    justify-content:center;
+    color:#fff;
+  }
+  
+  .module-section{
+    max-width: 100%;
+    overflow-x:scroll;
+    
+  }
+  
+  #content{
+    width:600em;
+list-style-type:none;
+padding:50px 0 50px 0;
+
+
+
 }

@@ -1,23 +1,35 @@
-import React from 'react';
-import {Link} from 'react-router-dom'
-import {NavLink}  from 'react-router-dom'
-
+import React, {PropTypes} from 'react';
+import {Link, NavLink} from 'react-router-dom'
 
 class Nav extends React.Component {
 
-
+  constructor() {
+    super();
+    this.state = {
+      searchInput: ''
+    }
+  }
 
   handleChange(e) {
+
+    
+    this.setState({searchInput: e.target.value});
+
+  }
+
+
+  handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      this.handleClick()
+    }
+  }
+  handleClick() {
     this
-      .props.actions
-      .fetchSearch(e.target.value)
+      .props
+      .actions
+      .fetchSearch(this.state.searchInput);
+    this.setState({searchInput: ''})
   }
-
-  handleDelete() {
-
-    console.log('search input is cleared, route back to home page');
-  }
-
 
   render() {
     return (
@@ -35,39 +47,43 @@ class Nav extends React.Component {
               </NavLink>
             </li>
             <li>
-              <NavLink to='/search' className="browse">Browse<img
+              <NavLink to='/' className="browse">Browse<img
                 style={{
         width: 30,
         height: 10
       }}
                 src="http://freaktraining.com/wp-content/uploads/2017/02/RedDownArrow.png"/>
-                </NavLink>
+              </NavLink>
             </li>
           </ul>
 
           <ul>
             <li>
-              <form
-                className="search"
-                >
-                <img
-                  style
-                  ={{
-                  width: 30,
-                  height: 30
-                }}
-                  src="http://tendenzen.plamen.org/img/search.png"/>
+
                 <input
+                
                   className="searchInput"
                   type='text'
+                  value={this.state.searchInput}
                   placeholder='title, people, genre'
                   onChange={this
                   .handleChange
                   .bind(this)}
+                  
+                onKeyPress={this.handleKeyPress.bind(this)}
                   />
-                  <button className ="clearBtn" onClick={this.handleDelete.bind(this)}>X</button>
-                  <Link type = 'submit' className ="" to='/search' >go </Link>
-              </form>
+                <Link
+                  className=""
+                  to='/search'
+                  onClick={this
+                  .handleClick
+                  .bind(this)}><img
+                  style
+                  ={{
+        width: 30,
+        height: 30
+      }}
+                  src="http://tendenzen.plamen.org/img/search.png"/></Link>
 
             </li>
           </ul>

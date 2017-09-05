@@ -24,6 +24,7 @@
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.30.1",
+    "jquery": "^3.2.1",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.6",
     "react": "^15.6.1",

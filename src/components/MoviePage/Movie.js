@@ -12,8 +12,6 @@ class Movie extends React.Component {
     let theMovie = this
     .props
     .movieData
-    .slice(0, 1);
-    theMovie = theMovie[0]
   
     return (
 

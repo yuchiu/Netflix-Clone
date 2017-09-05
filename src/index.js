@@ -11,7 +11,8 @@ let initialState = {
     search: [
     {
         movies : [],
-        theMovie:[]
+        theMovie:[],
+        upComing:[]
     }
   ]
 }

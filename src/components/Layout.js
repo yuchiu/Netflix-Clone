@@ -18,13 +18,13 @@ class Layout extends React.Component {
 
   render() {
     const theHomePage = (props) => {
-      return (<HomePage actions={this.props.actions} {...props}/>);
+      return (<HomePage actions={this.props.actions}  movieData={this.props.search[0]} {...props}/>);
     }
     const theSearchPage = (props) => {
-      return (<SearchPage movieData={this.props.search} {...props}/>);
+      return (<SearchPage actions={this.props.actions} movieData={this.props.search[0]} {...props}/>);
     }
     const theMoviePage = (props) => {
-      return (<MoviePage movieData={this.props.search} {...props}/>);
+      return (<MoviePage actions={this.props.actions} movieData={this.props.search[0]} {...props}/>);
     }
     return (
       <Router>
@@ -32,8 +32,8 @@ class Layout extends React.Component {
           <Nav actions={this.props.actions}/>
           <Switch>
           <Route exact path="/" render={theHomePage}/>
-          <Route path="/search" render={theSearchPage}/>
-          <Route path="/movie" render={theMoviePage}/>
+          <Route exact path="/search" render={theSearchPage} />
+          <Route exact path="/movie" render={theMoviePage} />
           <Route component={NotFoundPage}/>
           </Switch>
           <Footer/>
@@ -56,49 +56,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Layout);
-
-/**
- *
-      <div>
-        <Nav actions = {this.props.actions}/>
-        <HomePage actions = {this.props.actions}/>
-        <SearchPage movieData = {this.props.search}/>
-        <MoviePage movieData= {this.props.search}/>
-        <Footer />
-      </div>
- *
- *
- */
-
-/**
-  *
-class Layout extends React.Component {
-
-  render() {
-    const theHomePage = (props) => {
-      return (<HomePage actions={this.props.actions} {...props}/>);
-    }
-    const theSearchPage = (props) => {
-      return (<SearchPage movieData={this.props.search} {...props}/>);
-    }
-    const theMoviePage = (props) => {
-      return (<SearchPage movieData={this.props.search} {...props}/>);
-    }
-    return (
-      <Router>
-      <div>
-        <Nav actions = {this.props.actions}/>
-        <Switch>
-          <Route exact path="/" render={theHomePage}/>
-          <Route path="/search" render={theSearchPage}/>
-          <Route path="/movie" render={theMoviePage}/>
-        </Switch>
-        <Footer />
-      </div>
-      </Router>
-    )
-  }
-
-}
-
-  */

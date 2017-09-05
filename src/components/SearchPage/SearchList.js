@@ -8,9 +8,6 @@ class SearchList extends React.Component {
     let movies = this
       .props
       .movieData
-      .slice(0, 1);
-    movies = movies[0]
-    
     return (
       <div id="result-container">
         <ul>
@@ -18,7 +15,7 @@ class SearchList extends React.Component {
           {movies
             .movies
             .map((movie, i) => {
-              return <SearchItem key={movie.id} movie={movie}/>
+              return <SearchItem key={movie.id} movie={movie}  actions={this.props.actions}/>
             })}
         </ul>
       </div>

@@ -6,21 +6,34 @@ const searchReducer = function (search = [], action) {
     case 'FETCH_SEARCH':
       return [
         {
-          movies: action.movies.data.results, //add new  info
-
+          upComing: [],
           theMovie : [],
+          movies: action.movies.data.results, //add new  info
         },
         ...search //append
       ]
-    case 'FETCH_MOVIE':
-      return [
-        {
-          movies : [],
-          theMovie: action.theMovie.data //add new  info
+      case 'FETCH_MOVIE':
+        return [
+          {
+            movies : [],
+            upComing: [],
+            theMovie: action.theMovie.data //add new  info
+  
+          },
+          ...search //append
+        ]
+        case 'FETCH_UPCOMING':
+          return [
+            {
+              movies : [],
+              theMovie : [],
+              upComing: action.upComing.data.results //add new  info
+    
+            },
+            ...search //append
+          ]
 
-        },
-        ...search //append
-      ]
+
     case 'FETCH_ERROR':
       return console.log('errorrrrr');
 
