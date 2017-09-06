@@ -18,13 +18,14 @@ class Layout extends React.Component {
 
   render() {
     const theHomePage = (props) => {
-      return (<HomePage actions={this.props.actions}  movieData={this.props.search[0]} {...props}/>);
+      return (<HomePage actions={this.props.actions} upcoming={this.props.upcoming} {...props}/>);
     }
     const theSearchPage = (props) => {
-      return (<SearchPage actions={this.props.actions} movieData={this.props.search[0]} {...props}/>);
+      return (<SearchPage actions={this.props.actions} search={this.props.search} {...props}/>);
+    
     }
     const theMoviePage = (props) => {
-      return (<MoviePage actions={this.props.actions} movieData={this.props.search[0]} {...props}/>);
+      return (<MoviePage actions={this.props.actions} theMovie={this.props.theMovie} {...props}/>);
     }
     return (
       <Router>

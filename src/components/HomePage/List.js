@@ -9,22 +9,21 @@ class List extends React.Component {
     super();
   }
 
-
+  
   componentWillMount() {
     this
       .props
       .actions
-      .fetchUpComing();
+      .fetchUpcoming();
   }
 
   
   renderUpcomingMovies(upcomingMovies){
-    let upComing = upcomingMovies.upComing
-    return (upComing
+  
+    return (upcomingMovies
       .map((movie, i) => {
         return <ListItem key={movie.id} movie={movie}  actions={this.props.actions}/>
       }))
-  
   
   }
       
@@ -47,6 +46,7 @@ class List extends React.Component {
   render() {
 
 
+
     return (
       <div className="list-container">
         <span
@@ -62,7 +62,7 @@ class List extends React.Component {
         <div className="module-section clearfix">
           <ul id="content" ref='content'>
         <div className="listRow">
-        {this.renderUpcomingMovies(this.props.movieData)}
+        {this.renderUpcomingMovies(this.props.upcoming)}
         </div>
 
         </ul>

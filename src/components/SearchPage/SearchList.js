@@ -5,17 +5,14 @@ class SearchList extends React.Component {
 
   render() {
 
-    let movies = this
-      .props
-      .movieData
     return (
       <div id="result-container">
         <ul>
-
-          {movies
-            .movies
+          {this
+            .props
+            .search
             .map((movie, i) => {
-              return <SearchItem key={movie.id} movie={movie}  actions={this.props.actions}/>
+              return <SearchItem key={movie.id} movie={movie} actions={this.props.actions}/>
             })}
         </ul>
       </div>

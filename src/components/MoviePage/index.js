@@ -6,7 +6,7 @@ class MoviePage extends React.Component {
   render() {
     return (
         <div className = "MoviePage-container">
-            <Movie movieData= {this.props.movieData}/>
+            <Movie actions={this.props.actions} theMovie={this.props.theMovie} />
         </div>
     )
   }

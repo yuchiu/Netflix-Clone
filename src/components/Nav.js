@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import {Link, NavLink} from 'react-router-dom'
 
 class Nav extends React.Component {
@@ -11,8 +11,7 @@ class Nav extends React.Component {
   }
 
   handleChange(e) {
-
-    
+   
     this.setState({searchInput: e.target.value});
 
   }

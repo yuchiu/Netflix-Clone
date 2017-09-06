@@ -4,45 +4,44 @@ class Movie extends React.Component {
 
   render() {
 
-    let theMovie = this.props.movieData
-
+    let theMovie = this.props.theMovie
     return (
 
       <div id="moviePage-container">
         <div id="poster-container">
-          <img src={`http://image.tmdb.org/t/p/w500//${theMovie.theMovie.poster_path}`}/>
+          <img src={`http://image.tmdb.org/t/p/w500//${theMovie.poster_path}`}/>
         </div>
 
         <div id="desc-container">
           <h4>
             <b>
-              {theMovie.theMovie.title}
+              {theMovie.title}
             </b>
           </h4>
           <p>
             <b>
               rating:
             </b>
-            {theMovie.theMovie.vote_average}
+            {theMovie.vote_average}
           </p>
           <p>
             <b>
               runtime:
             </b>
-            {theMovie.theMovie.runtime}
+            {theMovie.runtime}
             minutes
           </p>
           <p>
             <b>
               released date:
             </b>
-            {theMovie.theMovie.release_date}
+            {theMovie.release_date}
           </p>
           <p>
             <b>
               overview:
             </b>
-            {theMovie.theMovie.overview}
+            {theMovie.overview}
           </p>
 
           cast:

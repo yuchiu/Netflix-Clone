@@ -15,7 +15,8 @@ let finalCreateStore = compose(
 
 
 //if initial state did not passed in to configureStore, then it will assign to empty todos array
-const configureStore = function (initialState = {search:[]}){
+const configureStore = function (initialState = {
+    search:[],upcoming:[],theMovie:[], }){
     return finalCreateStore(rootReducer, initialState) 
 }
 

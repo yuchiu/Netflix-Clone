@@ -1,22 +1,11 @@
 import axios from 'axios';
 
+
 const ROOT_URL = 'https://api.themoviedb.org/3';
 const API_KEY = 'api_key=e5693481ef000bfdd855a0f21ad39631'
 
-let actions = {
-  fetchUpComing: () => {
-    return (dispatch) => {
-      axios
-        .get(`${ROOT_URL}/movie/upcoming?${API_KEY}`)
-        .then((response) => {
-          dispatch({type: "FETCH_UPCOMING", upComing: response})
-        })
-        .catch((err) => {
-          dispatch({type: "FETCH_ERROR", upComing: err})
-        })
-    } //return
 
-  },
+let actions = {
 
   fetchSearch: (searchText) => {
     if (searchText.length >= 1) {
@@ -24,31 +13,43 @@ let actions = {
         axios
           .get(`${ROOT_URL}/search/movie?${API_KEY}&language=en-US&query=${searchText}&page=1&include_adult=false`)
           .then((response) => {
-            dispatch({type: "FETCH_SEARCH", movies: response})
+            dispatch({type: "FETCH_SEARCH", payload: response})
           })
           .catch((err) => {
-            dispatch({type: "FETCH_ERROR", movies: err})
+            dispatch({type: "FETCH_ERROR", payload: err})
           }) //if
-
       } //return
     } else {
       return console.log('search input is empty, route back to home page')
     }
   }, //fetchSearch
 
-  fetchMovie: (movieId) => {
+  
+  fetchUpcoming: () => {
     return (dispatch) => {
       axios
-        .get(`${ROOT_URL}/movie/${movieId}?${API_KEY}&language=en-US`)
+        .get(`${ROOT_URL}/movie/upcoming?${API_KEY}`)
         .then((response) => {
-          dispatch({type: "FETCH_MOVIE", theMovie: response})
+          dispatch({type: "FETCH_UPCOMING", payload: response})
         })
         .catch((err) => {
-          dispatch({type: "FETCH_ERROR", theMovie: err})
+          dispatch({type: "FETCH_ERROR", payload: err})
         })
     } //return
-
-  } //fetchMovie
+  },//upcoming
+  
+  fetchTheMovie: (movieId) => {
+    return (dispatch) => {
+      axios
+      .get(`${ROOT_URL}/movie/${movieId}?${API_KEY}&language=en-US`)
+        .then((response) => {
+          dispatch({type: "FETCH_THEMOVIE", payload: response})
+        })
+        .catch((err) => {
+          dispatch({type: "FETCH_ERROR", payload: err})
+        })
+    } //return
+  },//theMovie
 
 } //actions
 

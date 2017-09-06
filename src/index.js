@@ -8,13 +8,9 @@ import {configureStore} from './store/store'
 
 
 let initialState = {
-    search: [
-    {
-        movies : [],
-        theMovie:[],
-        upComing:[]
-    }
-  ]
+  search: [],
+  upcoming: [],
+  theMovie: [],
 }
 
 let store = configureStore(initialState)
