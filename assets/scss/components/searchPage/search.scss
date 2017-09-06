@@ -29,7 +29,7 @@
     }
 }
 
-@include mediaQueries(1680px) {
+@include maxMediaQueries(1680px) {
     .search-tile {
         padding: 2px;
         width: $tileWidth;
@@ -37,7 +37,7 @@
     }
 }
 
-@include mediaQueries(1430px) {
+@include maxMediaQueries(1430px) {
     .search-tile {
         padding: 2px;
         width: $tileWidth*0.85;
@@ -55,7 +55,7 @@
     }
 }
 
-@include mediaQueries(1210px) {
+@include maxMediaQueries(1210px) {
     .search-tile {
         padding: 2px;
         width: $tileWidth*0.7;
@@ -81,7 +81,7 @@
     }
 }
 
-@include mediaQueries(1000px) {
+@include maxMediaQueries(1000px) {
     #result-container {
         margin-left: 5%;
         li {
@@ -99,13 +99,13 @@
         margin-top: 110px;
     }
 }
-@include mediaQueries(750px) {
+@include maxMediaQueries(750px) {
     .search-tile {
         width: $tileWidth*0.9;
         height: $tileHeight*0.9;
     }
 }
-@include mediaQueries(650px) {
+@include maxMediaQueries(650px) {
     #result-container {
         margin-left: 15%;
         li {
@@ -117,7 +117,7 @@
         height: $tileHeight*1.1;
     }
 }
-@include mediaQueries(545px) {
+@include maxMediaQueries(545px) {
     #result-container {
         margin-left: 12%;
         li {
@@ -129,7 +129,7 @@
         height: $tileHeight;
     }
 }
-@include mediaQueries(445px) {
+@include maxMediaQueries(445px) {
     #result-container {
         margin-left: 10%;
         li {
@@ -141,7 +141,7 @@
         height: $tileHeight*0.9;
     }
 }
-@include mediaQueries(395px) {
+@include maxMediaQueries(395px) {
     #result-container {
         margin-left: 3%;
     }

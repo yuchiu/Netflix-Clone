@@ -4,7 +4,7 @@ class Footer extends React.Component {
 
   render() {
     return (
-      <footer class="footer-container">
+      <footer className="footer-container">
         <nav className="navbar navbar-light bg-faded">
         <a className="navbar-brand text-danger font-weight-bold" href="/">Neflix</a>
         <p className="text-muted lead" href="#">&copy;2017. All Rights Reserved by Chiu.</p>

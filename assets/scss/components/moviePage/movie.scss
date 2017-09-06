@@ -1,3 +1,51 @@
-#moviePage-container{
-    margin: 60px;
+#moviePage-container {
+    display: flex;
+}
+
+#poster-container {
+    padding: 3vw;
+}
+
+#desc-container {
+    padding: 3vw;
+}
+
+.cast-item {
+    padding: 1vw;
+    margin-bottom: 1rem;
+    &last-child {
+        margin-bottom: 0;
+    }
+}
+
+@include maxMediaQueries(900px) {
+    #moviePage-container {
+        display: flex;
+        flex-direction: column;
+    }
+    #poster-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@include minMediaQueries(901px) {
+    #poster-container {
+        flex: 35vw;
+    }
+    #desc-container {
+        flex: 65vw;
+    }
+    #cast-container {
+       display: flex;
+       flex-wrap: wrap;
+    }
+    .cast-item{
+        width: 22%;
+        margin-right:1rem;
+    }
+
 }

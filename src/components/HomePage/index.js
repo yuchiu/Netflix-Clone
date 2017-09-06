@@ -8,6 +8,13 @@ class HomePage extends React.Component {
     return (
         <div className = "homePage-container">
             <Slider/>
+        <div className="list-title">
+          <h3>Up Coming</h3>
+        </div>
+            <List actions = {this.props.actions} movieData = {this.props.movieData}/>
+        <div className="list-title">
+          <h3>Trending Now</h3>
+        </div>
             <List actions = {this.props.actions} movieData = {this.props.movieData}/>
         </div>
     )

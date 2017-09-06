@@ -49,10 +49,6 @@ class List extends React.Component {
 
     return (
       <div className="list-container">
-        <div className="list-title">
-          <h3>Up Coming</h3>
-        </div>
-
         <span
           onClick={this
           .handleLeftClick
