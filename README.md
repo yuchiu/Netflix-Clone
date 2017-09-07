@@ -70,3 +70,6 @@ Webpack will watch for changes and update the browser when file changes.
 ####redux:
 - Redux Tutorials, by LearnCode.academy, [link](https://www.youtube.com/playlist?list=PLoYCgNOIyGADILc3iUJzygCqC8Tt3bRXt)
 - React+Redux+Webpack, by Kurt Weiberth, [link](https://www.youtube.com/playlist?list=PLQDnxXqV213JJFtDaG0aE9vqvp6Wm7nBg)
+
+####API:
+- themoviedb, [link](https://www.themoviedb.org/documentation/api)
