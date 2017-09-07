@@ -10,9 +10,9 @@
 
 - user can see detail description when I click on a movie's thumbnail.
 
-- Cast list is included in the description.
+- cast list is included in the description.
 
-- Mobile friendly, responsive to different screen size.
+- responsive to different screen size.
 
 
 ## Demo:
