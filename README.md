@@ -1,4 +1,26 @@
-## My template
+## Netflix Clone
+
+
+User Story: I can see recommended movies on homepage.
+
+User Story: I can search for movies by titles.
+
+User Story: I can see description of a movie when mouse is hovering on movie's thumbnail.
+
+User Story: I can see detail description when I click on a movie's thumbnail.
+
+User Story: Cast list is included in the description.
+
+User Story: Mobile friendly, responsive to different screen size.
+
+
+Demo
+
+![Demo](https://github.com/yuchiu/netflix-clone/blob/master/demo.gif) 
+
+
+
+
 
 
 ### Usage 
