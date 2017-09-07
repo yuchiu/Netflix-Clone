@@ -1,6 +1,6 @@
 # Netflix Clone
 
-##User Story
+## User Story
 
 - user can see recommended movies on homepage.
 
@@ -15,7 +15,7 @@
 - Mobile friendly, responsive to different screen size.
 
 
-##Demo:
+## Demo:
 
 ![Demo](https://github.com/yuchiu/netflix-clone/blob/master/demo.gif) 
 
