@@ -17,6 +17,8 @@
 
 ## Demo:
 
+### Check out this site live on this [Link](http://jazzy-structure.surge.sh/) 
+
 ![Demo](https://github.com/yuchiu/netflix-clone/blob/master/demo.gif) 
 
 
