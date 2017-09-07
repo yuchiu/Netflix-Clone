@@ -1,0 +1,124 @@
+@include maxMediaQueries(1680px) {
+    .search-tile {
+        padding: 2px;
+        width: $tileWidth;
+        height: $tileHeight;
+    }
+}
+
+@include maxMediaQueries(1430px) {
+    .search-tile {
+        padding: 2px;
+        width: $tileWidth*0.85;
+        height: $tileHeight*0.85;
+    }
+    .playbtn-container {
+        margin: 10px 0px 5px 20px;
+    }
+    .tile-btn-container {
+        margin-top: 100px;
+    }
+    .tile-desc {
+        font-size: .55em;
+        line-height: 1.3;
+    }
+}
+
+@include maxMediaQueries(1210px) {
+    .search-tile {
+        padding: 2px;
+        width: $tileWidth*0.7;
+        height: $tileHeight*0.7;
+        &:hover {
+            transform: scale(1.5);
+        }
+    }
+    .search-tile-title {
+        font-size: .8em;
+    }
+    .playbtn-container {
+        margin: 10px 0px 5px 20px;
+    }
+    .tile-btn-container {
+        margin-top: 70px;
+    }
+    .tile-desc {
+        font-size: .55em;
+        line-height: 1.3;
+    }
+}
+
+@include maxMediaQueries(1000px) {
+    #result-container {
+        margin-left: 5%;
+        li {
+            @include grid(2, 4%);
+        }
+    }
+    .search-tile {
+        width: $tileWidth*1.1;
+        height: $tileHeight*1.1;
+    }
+    .playbtn-container {
+        margin: 20px 0px 5px 30px;
+    }
+    .tile-btn-container {
+        margin-top: 110px;
+    }
+}
+
+@include maxMediaQueries(750px) {
+    .search-tile {
+        width: $tileWidth*0.9;
+        height: $tileHeight*0.9;
+    }
+}
+
+@include maxMediaQueries(650px) {
+    #result-container {
+        margin-left: 15%;
+        li {
+            @include grid(1, 8%);
+        }
+    }
+    .search-tile {
+        width: $tileWidth*1.1;
+        height: $tileHeight*1.1;
+    }
+}
+
+@include maxMediaQueries(545px) {
+    #result-container {
+        margin-left: 12%;
+        li {
+            @include grid(1, 10%);
+        }
+    }
+    .search-tile {
+        width: $tileWidth;
+        height: $tileHeight;
+    }
+}
+
+@include maxMediaQueries(445px) {
+    #result-container {
+        margin-left: 10%;
+        li {
+            @include grid(1, 12%);
+        }
+    }
+    .search-tile {
+        width: $tileWidth*0.9;
+        height: $tileHeight*0.9;
+    }
+}
+
+@include maxMediaQueries(395px) {
+    #result-container {
+        margin-left: 3%;
+    }
+    .search-tile {
+        width: $tileWidth*0.8;
+        height: $tileHeight*0.8;
+    }
+}

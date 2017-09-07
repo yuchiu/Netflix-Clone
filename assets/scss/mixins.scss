@@ -1,3 +1,24 @@
+/* responsive layout */
+
+@mixin maxMediaQueries($arg...) {
+    @if length($arg)==1 {
+        @media screen and (max-width: nth($arg, 1)) {
+            @content;
+        }
+    }
+    @if length($arg)==2 {
+        @media screen and (max-width: nth($arg, 1)) and (min-width:nth($arg, 2)) {
+            @content;
+        }
+    }
+}
+
+@mixin minMediaQueries($arg) {
+    @media screen and (min-width: $arg) {
+        @content;
+    }
+}
+
 @mixin grid($cols, $mgn) {
     float: left;
     margin-right: $mgn;
@@ -12,27 +33,10 @@
 }
 
 
-/* '...' means that the numbers of argument is uncertain,
- it will put value into a list for each arg that passed through
- */
+/* end */
 
- @mixin maxMediaQueries($arg...) {
-    @if length($arg)==1 {
-        @media screen and (max-width: nth($arg, 1)) {
-            @content;
-        }
-    }
-    @if length($arg)==2 {
-        @media screen and (max-width: nth($arg, 1)) and (min-width:nth($arg, 2)) {
-            @content;
-        }
-    }
-}
-@mixin minMediaQueries($arg) {
-        @media screen and (min-width:$arg) {
-            @content;
-        }
-}
+
+/* button styles */
 
 @mixin addListBtn {
     .addListBtn {
@@ -57,21 +61,18 @@
             background-color: transparent;
             transform: scale(1.1);
         }
-        
-        
         &:active {
             position: relative;
             top: 1px;
         }
-
     }
 }
 
 @mixin playBtn {
-    .playBtn{
+    .playBtn {
         content: '▶';
         background-color: transparent;
-        color : $netflixWhite;
+        color: $netflixWhite;
         border-radius: 100%;
         border: 2px solid $netflixWhite;
         display: inline-block;
@@ -93,81 +94,81 @@
             transform: scale(1.1);
             opacity: 1;
         }
-    
-        
     }
 }
 
-@mixin listingTiles{
-    
-.tile {
-    position: relative;
-    display: inline-block; /////
-    line-height: 0;
-    cursor: pointer;
-    padding: 5px;
-    overflow: hidden;
-    width: $tileWidth;
-    height: $tileHeight;
-    transition: 0.3s transform;
-    transform-origin: 0% 50%;
-    
-    &:hover {
-        transform: scale(1.7);
 
-    }
-    &:hover~.tile {
-        transform: translate3d(200px, 0, 0);
-    }
-    .tile-img {
-        transition: transform 0.6s ease-out;
-        object-fit: cover; ////
-        width: $tileWidth; ////
-        height: $tileHeight; /////
-    }
-}
+/* end */
 
-.photo-overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding-left: 20px;
-    padding-right: 20px;
-    display: flex;
-    /*centering text inside .photo-overlay */
-    justify-content: space-between;
-    background: rgba(0, 0, 0, .5);
-    opacity: 0;
-    transition: opacity .5s;
-}
 
-.photo-overlay:hover {
-    opacity: 1;
-}
+/* CSS effects and styles of tiles */
 
-.tile-desc {
-    font-size: .6em;
-    line-height: 1.3;
-    margin: 0 0;
-}
-
-.tile-btn-container {
-    margin-top: 130px;
-    @include addListBtn;
-    .addListBtn {
-        font-size: 22px;
-        border: 1px solid $whiteGrey;
-        padding: 10px 4px;
+@mixin listingTiles {
+    .tile {
+        position: relative;
+        display: inline-block;
+        line-height: 0;
+        cursor: pointer;
+        padding: 5px;
+        overflow: hidden;
+        width: $tileWidth;
+        height: $tileHeight;
+        transition: 0.3s transform;
+        transform-origin: 0% 50%;
         &:hover {
-            border: 1px solid $netflixWhite;
+            transform: scale(1.7);
+        }
+        &:hover~.tile {
+            transform: translate3d(200px, 0, 0);
+        }
+        .tile-img {
+            transition: transform 0.6s ease-out;
+            object-fit: cover;
+            width: $tileWidth;
+            height: $tileHeight;
         }
     }
+    .photo-overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+        display: flex;
+        /*centering text inside .photo-overlay */
+        justify-content: space-between;
+        background: rgba(0, 0, 0, .5);
+        opacity: 0;
+        transition: opacity .5s;
+    }
+    .photo-overlay:hover {
+        opacity: 1;
+    }
+    .tile-desc {
+        font-size: .6em;
+        line-height: 1.3;
+        margin: 0 0;
+    }
+    .tile-btn-container {
+        margin-top: 130px;
+        @include addListBtn;
+        .addListBtn {
+            font-size: 22px;
+            border: 1px solid $whiteGrey;
+            padding: 10px 4px;
+            &:hover {
+                border: 1px solid $netflixWhite;
+            }
+        }
+    }
+    .playbtn-container {
+        margin: 35px 0px 10px 30px;
+        text-align: center;
+        @include playBtn;
+    }
 }
-.playbtn-container{
-    margin: 35px 0px 10px 30px;
-    text-align: center;
-    @include playBtn;
-}
-}
+
+
+/* end */

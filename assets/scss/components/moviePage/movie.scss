@@ -1,3 +1,5 @@
+/* base style for movie page, small screen size first */
+
 #moviePage-container {
     display: flex;
 }
@@ -15,7 +17,8 @@
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
- }
+}
+
 .cast-item {
     padding: 1vw;
     margin-bottom: 1rem;
@@ -23,6 +26,13 @@
         margin-bottom: 0;
     }
 }
+
+
+/* end */
+
+
+/* media queries for larger screen size  */
+
 @include maxMediaQueries(975px) {
     #moviePage-container {
         display: flex;
@@ -36,30 +46,31 @@
         text-align: center;
     }
 }
+
 @include maxMediaQueries(1300px, 976px) {
-    
     #desc-container {
         padding: 3vw;
         text-align: left;
     }
     #cast-container {
-       display: flex;
-       flex-wrap: wrap;
+        display: flex;
+        flex-wrap: wrap;
     }
-    .cast-item{
+    .cast-item {
         width: 50%;
     }
 }
+
 @include maxMediaQueries(1500px, 1301px) {
     #desc-container {
         padding: 3vw;
         text-align: left;
     }
     #cast-container {
-       display: flex;
-       flex-wrap: wrap;
+        display: flex;
+        flex-wrap: wrap;
     }
-    .cast-item{
+    .cast-item {
         width: 31%;
     }
 }
@@ -70,11 +81,13 @@
         text-align: left;
     }
     #cast-container {
-       display: flex;
-       flex-wrap: wrap;
+        display: flex;
+        flex-wrap: wrap;
     }
-    .cast-item{
+    .cast-item {
         width: 22%;
     }
-
 }
+
+
+/* end */

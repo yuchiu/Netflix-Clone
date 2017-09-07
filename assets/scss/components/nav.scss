@@ -2,8 +2,9 @@ nav {
     ul {
         padding: 10px;
         display: flex;
-    } 
-} 
+    }
+}
+
 @include maxMediaQueries(750px) {
     nav {
         display: flex;
@@ -22,5 +23,5 @@ nav {
         padding: 2px 5px 2px 5px;
         border: solid 1px $netflixWhite;
         border-radius: 3px;
-    } 
-} 
+    }
+}

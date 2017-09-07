@@ -5,20 +5,21 @@
 @import './components/homePage/list';
 @import './components/homePage/slider';
 @import './components/searchPage/search';
+@import './components/searchPage/searchMQ';
 @import './components/moviePage/movie';
 * {
     margin: 0;
-    bottom : 0;
+    bottom: 0;
     color: #fff;
     list-style: none;
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
 }
-#root{
-    
+
+#root {
     background: $netflixBlack;
 }
 
-body{
-  width: 100%;
+body {
+    width: 100%;
 }

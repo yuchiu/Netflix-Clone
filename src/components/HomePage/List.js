@@ -9,7 +9,6 @@ class List extends React.Component {
     super();
   }
 
-  
   componentWillMount() {
     this
       .props
@@ -17,16 +16,13 @@ class List extends React.Component {
       .fetchUpcoming();
   }
 
-  
-  renderUpcoming(upcomingMovies){
-  
-    return (upcomingMovies
-      .map((movie, i) => {
-        return <ListItem key={movie.id} movie={movie}  actions={this.props.actions}/>
-      }))
-  
+  renderUpcoming(upcomingMovies) {
+
+    return (upcomingMovies.map((movie, i) => {
+      return <ListItem key={movie.id} movie={movie} actions={this.props.actions}/>
+    }))
+
   }
-      
 
   handleLeftClick(e) {
     e.preventDefault();
@@ -35,7 +31,7 @@ class List extends React.Component {
       marginLeft: "+=400px"
     }, "fast");
   }
-  
+
   handleRightClick(e) {
     e.preventDefault();
     const el = findDOMNode(this.refs.content);
@@ -44,8 +40,6 @@ class List extends React.Component {
     }, "fast");
   }
   render() {
-
-
 
     return (
       <div className="list-container">
@@ -58,15 +52,14 @@ class List extends React.Component {
           <b></b>
         </span>
 
-
         <div className="module-section clearfix">
           <ul id="content" ref='content'>
-        <div className="listRow">
-        {this.renderUpcoming(this.props.upcoming)}
-        </div>
+            <div className="listRow">
+              {this.renderUpcoming(this.props.upcoming)}
+            </div>
 
-        </ul>
-          </div>
+          </ul>
+        </div>
 
         <span
           onClick={this
