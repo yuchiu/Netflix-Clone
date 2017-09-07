@@ -5,7 +5,7 @@ const theMovieReducer = function (theMovie = [], action) {
           return theMovie = action.payload.data
     
         case 'FETCH_ERROR':
-          return console.log(action.err);
+          return console.log(action.payload);
     
         default:
           return theMovie;

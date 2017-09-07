@@ -5,7 +5,7 @@ const searchReducer = function (search = [], action) {
       return search = action.payload.data.results;
 
     case 'FETCH_ERROR':
-      return console.log(action.err);
+      return console.log(action.payload);
 
     default:
       return search;

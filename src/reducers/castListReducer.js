@@ -5,7 +5,7 @@ const castListReducer = function (castList = [], action) {
       return castList = action.payload.data.cast;
 
     case 'FETCH_ERROR':
-      return console.log(action.err);
+      return console.log(action.payload);
 
     default:
       return castList;

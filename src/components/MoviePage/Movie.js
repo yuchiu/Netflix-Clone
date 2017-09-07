@@ -1,6 +1,5 @@
 import React from 'react';
-import Cast from './Cast'
-import Genre from './Genre'
+import Cast from './Cast';
 
 class Movie extends React.Component {
 
