@@ -4,7 +4,6 @@ import axios from 'axios';
 const ROOT_URL = 'https://api.themoviedb.org/3';
 const API_KEY = 'api_key=e5693481ef000bfdd855a0f21ad39631'
 
-
 let actions = {
 
   fetchSearch: (searchText) => {
@@ -50,6 +49,19 @@ let actions = {
         })
     } //return
   },//theMovie
+
+  fetchCast: (movieId) => {
+    return (dispatch) => {
+      axios
+      .get(`${ROOT_URL}/movie/${movieId}/credits?${API_KEY}`)
+        .then((response) => {
+          dispatch({type: "FETCH_CASTLIST", payload: response})
+        })
+        .catch((err) => {
+          dispatch({type: "FETCH_ERROR", payload: err})
+        })
+    } //return
+  },//fetchCast
 
 } //actions
 

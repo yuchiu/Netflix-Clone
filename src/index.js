@@ -11,6 +11,7 @@ let initialState = {
   search: [],
   upcoming: [],
   theMovie: [],
+  castList: [],
 }
 
 let store = configureStore(initialState)

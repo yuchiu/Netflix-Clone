@@ -18,7 +18,7 @@ class List extends React.Component {
   }
 
   
-  renderUpcomingMovies(upcomingMovies){
+  renderUpcoming(upcomingMovies){
   
     return (upcomingMovies
       .map((movie, i) => {
@@ -62,7 +62,7 @@ class List extends React.Component {
         <div className="module-section clearfix">
           <ul id="content" ref='content'>
         <div className="listRow">
-        {this.renderUpcomingMovies(this.props.upcoming)}
+        {this.renderUpcoming(this.props.upcoming)}
         </div>
 
         </ul>

@@ -12,6 +12,10 @@ class HomePage extends React.Component {
           <h3>Up Coming</h3>
         </div>
         <List actions={this.props.actions} upcoming={this.props.upcoming} />
+        <div className="list-title">
+          <h3>Trending Now</h3>
+        </div>
+        <List actions={this.props.actions} upcoming={this.props.upcoming} />
       </div>
     )
   }

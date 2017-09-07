@@ -8,8 +8,14 @@
 
 #desc-container {
     padding: 3vw;
+    text-align: center;
 }
 
+#cast-container {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+ }
 .cast-item {
     padding: 1vw;
     margin-bottom: 1rem;
@@ -17,8 +23,7 @@
         margin-bottom: 0;
     }
 }
-
-@include maxMediaQueries(900px) {
+@include maxMediaQueries(975px) {
     #moviePage-container {
         display: flex;
         flex-direction: column;
@@ -31,13 +36,38 @@
         text-align: center;
     }
 }
-
-@include minMediaQueries(901px) {
-    #poster-container {
-        flex: 35vw;
-    }
+@include maxMediaQueries(1300px, 976px) {
+    
     #desc-container {
-        flex: 65vw;
+        padding: 3vw;
+        text-align: left;
+    }
+    #cast-container {
+       display: flex;
+       flex-wrap: wrap;
+    }
+    .cast-item{
+        width: 50%;
+    }
+}
+@include maxMediaQueries(1500px, 1301px) {
+    #desc-container {
+        padding: 3vw;
+        text-align: left;
+    }
+    #cast-container {
+       display: flex;
+       flex-wrap: wrap;
+    }
+    .cast-item{
+        width: 31%;
+    }
+}
+
+@include minMediaQueries(1501px) {
+    #desc-container {
+        padding: 3vw;
+        text-align: left;
     }
     #cast-container {
        display: flex;
@@ -45,7 +75,6 @@
     }
     .cast-item{
         width: 22%;
-        margin-right:1rem;
     }
 
 }

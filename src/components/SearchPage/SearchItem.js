@@ -8,6 +8,10 @@ class SearchItem extends React.Component {
       .props
       .actions
       .fetchTheMovie(this.props.movie.id)
+    this
+      .props
+      .actions
+      .fetchCast(this.props.movie.id);
   }
   render() {
 
@@ -16,7 +20,7 @@ class SearchItem extends React.Component {
       <li >
 
         <div className="search-tile">
-          <img src={`http://image.tmdb.org/t/p/w300//${this.props.movie.poster_path}`}/>
+          <img src={`http://image.tmdb.org/t/p/w300//${this.props.movie.backdrop_path}`}/>
           <div className=" photo-overlay">
 
             <div className="tile-text-container">

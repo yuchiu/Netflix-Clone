@@ -18,24 +18,31 @@ class Layout extends React.Component {
 
   render() {
     const theHomePage = (props) => {
-      return (<HomePage actions={this.props.actions} upcoming={this.props.upcoming} {...props}/>);
+      return (<HomePage
+        actions={this.props.actions}
+        upcoming={this.props.upcoming}
+        {...props}/>);
     }
     const theSearchPage = (props) => {
       return (<SearchPage actions={this.props.actions} search={this.props.search} {...props}/>);
-    
+
     }
     const theMoviePage = (props) => {
-      return (<MoviePage actions={this.props.actions} theMovie={this.props.theMovie} {...props}/>);
+      return (<MoviePage
+        actions={this.props.actions}
+        theMovie={this.props.theMovie}
+        castList={this.props.castList}
+        {...props}/>);
     }
     return (
       <Router>
         <div>
           <Nav actions={this.props.actions}/>
           <Switch>
-          <Route exact path="/" render={theHomePage}/>
-          <Route exact path="/search" render={theSearchPage} />
-          <Route exact path="/movie" render={theMoviePage} />
-          <Route component={NotFoundPage}/>
+            <Route exact path="/" render={theHomePage}/>
+            <Route exact path="/search" render={theSearchPage}/>
+            <Route exact path="/movie" render={theMoviePage}/>
+            <Route component={NotFoundPage}/>
           </Switch>
           <Footer/>
         </div>
