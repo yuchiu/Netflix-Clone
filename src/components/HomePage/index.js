@@ -1,6 +1,10 @@
 import React from 'react';
 import Slider from './Slider'
-import List from './List'
+import UpComingList from './UpComingList'
+import PopularList from './PopularList'
+import TopRatedList from './TopRatedList'
+import NowPlayingList from './NowPlayingList'
+
 
 class HomePage extends React.Component {
 
@@ -11,11 +15,19 @@ class HomePage extends React.Component {
         <div className="list-title">
           <h3>Up Coming</h3>
         </div>
-        <List actions={this.props.actions} upcoming={this.props.upcoming} />
+        <UpComingList actions={this.props.actions} upcoming={this.props.upcoming} />
         <div className="list-title">
-          <h3>Trending Now</h3>
+          <h3>Popular</h3>
         </div>
-        <List actions={this.props.actions} upcoming={this.props.upcoming} />
+        <PopularList actions={this.props.actions} popular={this.props.popular} />
+        <div className="list-title">
+          <h3>Top Rated</h3>
+        </div>
+        <TopRatedList actions={this.props.actions} topRated={this.props.topRated} />
+        <div className="list-title">
+          <h3>Now Playing</h3>
+        </div>
+        <NowPlayingList actions={this.props.actions} nowPlaying={this.props.nowPlaying} />
       </div>
     )
   }

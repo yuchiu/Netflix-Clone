@@ -1,0 +1,62 @@
+
+
+/* media queries for larger screen size  */
+
+@include maxMediaQueries(975px) {
+    #moviePage-container {
+        display: flex;
+        flex-direction: column;
+    }
+    #poster-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@include maxMediaQueries(1300px, 976px) {
+    #desc-container {
+        padding: 3vw;
+        text-align: left;
+    }
+    #cast-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .cast-item {
+        width: 50%;
+    }
+}
+
+@include maxMediaQueries(1500px, 1301px) {
+    #desc-container {
+        padding: 3vw;
+        text-align: left;
+    }
+    #cast-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .cast-item {
+        width: 31%;
+    }
+}
+
+@include minMediaQueries(1501px) {
+    #desc-container {
+        padding: 3vw;
+        text-align: left;
+    }
+    #cast-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .cast-item {
+        width: 22%;
+    }
+}
+
+
+/* end */

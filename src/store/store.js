@@ -11,6 +11,7 @@ let finalCreateStore = compose(composeWithDevTools(applyMiddleware(thunk, create
 // empty todos array
 const configureStore = function (initialState = {
   search: [],
+  popular: [],
   upcoming: [],
   theMovie: [],
   castList: [],

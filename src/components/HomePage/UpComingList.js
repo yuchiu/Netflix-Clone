@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import {findDOMNode} from 'react-dom';
 import $ from 'jquery';
 
-class List extends React.Component {
+class upComingList extends React.Component {
   constructor() {
     super();
   }
@@ -28,7 +28,7 @@ class List extends React.Component {
     e.preventDefault();
     const el = findDOMNode(this.refs.content);
     $(el).animate({
-      marginLeft: "+=400px"
+      marginLeft: "+=350px"
     }, "fast");
   }
 
@@ -36,7 +36,7 @@ class List extends React.Component {
     e.preventDefault();
     const el = findDOMNode(this.refs.content);
     $(el).animate({
-      marginLeft: "-=400px"
+      marginLeft: "-=350px"
     }, "fast");
   }
   render() {
@@ -76,4 +76,4 @@ class List extends React.Component {
 
 }
 
-export default List;
+export default upComingList;

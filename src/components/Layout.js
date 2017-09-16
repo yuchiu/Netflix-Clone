@@ -21,6 +21,9 @@ class Layout extends React.Component {
       return (<HomePage
         actions={this.props.actions}
         upcoming={this.props.upcoming}
+        popular={this.props.popular}
+        topRated={this.props.topRated}
+        nowPlaying={this.props.nowPlaying}
         {...props}/>);
     }
     const theSearchPage = (props) => {

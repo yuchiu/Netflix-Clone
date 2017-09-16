@@ -34,7 +34,46 @@ let actions = {
           dispatch({type: "FETCH_ERROR", payload: err})
         })
     } //return
-  },//upcoming
+  },//fetchUpcoming  
+
+  fetchPopular: () => {
+    return (dispatch) => {
+      axios
+        .get(`${ROOT_URL}/movie/popular?${API_KEY}`)
+        .then((response) => {
+          dispatch({type: "FETCH_POPULAR", payload: response})
+        })
+        .catch((err) => {
+          dispatch({type: "FETCH_ERROR", payload: err})
+        })
+    } //return
+  },//fetchPopular
+
+  fetchTopRated: () => {
+    return (dispatch) => {
+      axios
+        .get(`${ROOT_URL}/movie/top_rated?${API_KEY}`)
+        .then((response) => {
+          dispatch({type: "FETCH_TOPRATED", payload: response})
+        })
+        .catch((err) => {
+          dispatch({type: "FETCH_ERROR", payload: err})
+        })
+    } //return
+  },//fetchTopRated
+
+  fetchNowPlaying: () => {
+    return (dispatch) => {
+      axios
+        .get(`${ROOT_URL}/movie/now_playing?${API_KEY}`)
+        .then((response) => {
+          dispatch({type: "FETCH_NOWPLAYING", payload: response})
+        })
+        .catch((err) => {
+          dispatch({type: "FETCH_ERROR", payload: err})
+        })
+    } //return
+  },//fetchNowPlaying
   
   fetchTheMovie: (movieId) => {
     return (dispatch) => {
@@ -47,7 +86,7 @@ let actions = {
           dispatch({type: "FETCH_ERROR", payload: err})
         })
     } //return
-  },//theMovie
+  },//fetchTheMovie
 
   fetchCast: (movieId) => {
     return (dispatch) => {

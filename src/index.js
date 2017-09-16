@@ -10,6 +10,9 @@ import {configureStore} from './store/store'
 let initialState = {
   search: [],
   upcoming: [],
+  topRated :[],
+  nowPlaying: [],
+  popular: [],
   theMovie: [],
   castList: [],
 }
