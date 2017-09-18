@@ -4,20 +4,12 @@
     #poster {
         width: 80vw;
     }
-    #cast-container {
-        margin-left: 0;
-        padding-left: 0;
-    }
     .desc-item{
         margin-bottom: 1rem;
     }
 }
 
 @include maxMediaQueries(975px) {
-    #cast-container {
-        margin-left: 0;
-        padding-left: 0;
-    }
     #moviePage-container {
         display: flex;
         flex-direction: column;
@@ -35,10 +27,6 @@
 }
 
 @include maxMediaQueries(1300px, 976px) {
-    #cast-container {
-        margin-left: 0;
-        padding-left: 0;
-    }
     #desc-container {
         text-align: left;
     }
@@ -55,10 +43,6 @@
 }
 
 @include maxMediaQueries(1500px, 1301px) {
-    #cast-container {
-        margin-left: 0;
-        padding-left: 0;
-    }
     #desc-container {
         text-align: left;
     }
@@ -88,10 +72,6 @@
 }
 
 @include minMediaQueries(1501px) {
-    #cast-container {
-        margin-left: 0;
-        padding-left: 0;
-    }
     #desc-container {
         text-align: left;
     }
