@@ -17,32 +17,32 @@ class Movie extends React.Component {
 
       <div id="moviePage-container">
         <div id="poster-container">
-          <img src={`http://image.tmdb.org/t/p/w500//${theMovie.poster_path}`}/>
+          <img id="poster" src={`http://image.tmdb.org/t/p/w500//${theMovie.poster_path}`}/>
         </div>
         <div id="desc-container">
-          <h4>
-            <b>
+          <h4 className ="desc-item">
+            <div className ="movie-title">
               {theMovie.title}
-            </b>
+            </div>
           </h4>
-          <p>
-            <b>rating:</b>
+          <p className="desc-item">
+            <b className ="desc-title">Rating:</b>
             {theMovie.vote_average}
           </p>
-          <p>
-            <b>runtime:</b>
+          <p className="desc-item">
+            <b className ="desc-title">Runtime:</b>
             {theMovie.runtime}
             minutes
           </p>
-          <p>
-            <b>released date:</b>
+          <p className="desc-item">
+            <b className ="desc-title">Released date:</b>
             {theMovie.release_date}
           </p>
-          <p id="overview">
-            <b>overview:</b>
+          <p id="overview" className="desc-item">
+            <b className ="desc-title">Overview:</b>
             {theMovie.overview}
           </p>
-          cast:
+            <b className ="desc-title">Cast:</b>
           <ul id="cast-container">
             {casts.map((person, i) => {
               return <Cast key={person.id} person={person}/>

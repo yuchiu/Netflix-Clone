@@ -1,5 +1,10 @@
 # Netflix Clone
 
+
+### Check out this site live on this [Link](http://yc-netflix.surge.sh/) 
+
+![Demo](https://github.com/yuchiu/netflix-clone/blob/master/demo.gif) 
+
 ## User Story
 
 - user can see recommended movies on homepage.
@@ -13,14 +18,6 @@
 - cast list is included in the description.
 
 - responsive to different screen size.
-
-
-## Demo:
-
-### Check out this site live on this [Link](http://netflix-react.surge.sh/) 
-
-![Demo](https://github.com/yuchiu/netflix-clone/blob/master/demo.gif) 
-
 
 ### Usage 
 #### 1. First install everything
