@@ -35,7 +35,7 @@ npm install
 run the webpack dev server
 
 ```
-npm run build
+npm start
 
 ```
 This will get the files running on http://localhost:8080
