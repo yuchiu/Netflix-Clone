@@ -154,7 +154,7 @@
         margin-left: 16%;
     }
 }
-@include maxMediaQueries(435px) {
+@include maxMediaQueries(44px) {
     #result-container {
         margin-left: 15%;
     }
@@ -175,5 +175,20 @@
 @include maxMediaQueries(420px) {
     #result-container {
         margin-left: 11%;
+    }
+}
+@include maxMediaQueries(380px) {
+    #result-container {
+        margin-left: 8%;
+    }
+}
+@include maxMediaQueries(340px) {
+    #result-container {
+        margin-left: 3%;
+    }
+}
+@include maxMediaQueries(300px) {
+    #result-container {
+        margin-left: 0%;
     }
 }
