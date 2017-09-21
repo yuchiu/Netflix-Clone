@@ -4,10 +4,11 @@
 @import './components/footer';
 @import './components/homePage/list';
 @import './components/homePage/slider';
-@import './components/homePage/homeMQ';
 @import './components/searchPage/search';
-@import './components/searchPage/searchMQ';
 @import './components/moviePage/movie';
+@import './components/homePage/homeMQ';
+@import './components/searchPage/searchMQ';
+@import './components/homePage/listMQ';
 @import './components/moviePage/movieMQ';
 * {
     margin: 0;

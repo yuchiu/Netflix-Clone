@@ -1,166 +1,179 @@
-@include maxMediaQueries(1680px) {
+@include maxMediaQueries(1840px) {
     .search-tile {
         padding: 2px;
         width: $tileWidth;
         height: $tileHeight;
     }
+    .search-playbtn-container {
+        margin: 35px 0px 5px 0px;
+    }
 }
 
-@include maxMediaQueries(1430px) {
+@include maxMediaQueries(1590px) {
     .search-tile {
-        padding: 2px;
         width: $tileWidth*0.85;
         height: $tileHeight*0.85;
     }
-    .playbtn-container {
-        margin: 10px 0px 5px 20px;
-    }
-    .tile-btn-container {
-        margin-top: 100px;
-    }
-    .tile-desc {
-        font-size: .55em;
-        line-height: 1.3;
-    }
-}
-
-@include maxMediaQueries(1210px) {
-    .search-tile {
-        padding: 2px;
-        width: $tileWidth*0.7;
-        height: $tileHeight*0.7;
-        &:hover {
-            transform: scale(1.5);
-        }
+    .search-playbtn-container {
+        margin: 15px 0px 5px 0px;
     }
     .search-tile-title {
         font-size: .8em;
     }
-    .playbtn-container {
-        margin: 10px 0px 5px 20px;
-    }
-    .tile-btn-container {
-        margin-top: 70px;
-    }
-    .tile-desc {
-        font-size: .55em;
-        line-height: 1.3;
+    .search-tile-desc {
+        font-size: .6em;
     }
 }
 
-@include maxMediaQueries(1000px) {
-    #result-container {
-        margin-left: 5%;
-        li {
-            @include grid(2, 4%);
-        }
-    }
+@include maxMediaQueries(1370px) {
     .search-tile {
-        width: $tileWidth*1.1;
-        height: $tileHeight*1.1;
-    }
-    .playbtn-container {
-        margin: 28px 0px 5px 30px;
-    }
-    .tile-btn-container {
-        margin-top: 100px;
-    }
-}
-
-@include maxMediaQueries(750px) {
-    .search-tile {
-        width: $tileWidth*0.9;
-        height: $tileHeight*0.9;
-    }
-    .tile {
-        width: $tileWidth*0.8;
-        height: $tileHeight*0.8;
         &:hover {
             transform: scale(1.4);
         }
-        &:hover~.tile {
-            transform: translate3d(90px, 0, 0);
-        }
     }
-    .tile-title {
+    .search-playbtn-container {
+        margin: 10px 0px 5px 0px;
+    }
+    .search-tile-title {
         font-size: .8em;
     }
-    .listRow {
-        &:hover {
-            transform: translate3d(-70px, 0, 0);
-        }
+    .search-tile-desc {
+        font-size: .6em;
     }
 }
 
-@include maxMediaQueries(650px) {
+@include maxMediaQueries(1175px) {
     #result-container {
-        margin-left: 15%;
+        margin-left: 8%;
         li {
-            @include grid(1, 8%);
+            @include grid(2, 4.5%);
         }
     }
     .search-tile {
         width: $tileWidth*1.1;
         height: $tileHeight*1.1;
+        &:hover {
+            transform: scale(1.5);
+        }
+    }
+    .search-playbtn-container {
+        margin: 30px 0px 5px 0px;
+    }
+    .search-tile-title {
+        font-size: 1em;
+    }
+    .search-tile-desc {
+        font-size: .8em;
+    }
+}
+
+@include maxMediaQueries(880px) {
+    #result-container {
+        margin-left: 6%;
+    }
+    .search-playbtn-container {
+        margin: 15px 0px 5px 0px;
+    }
+    .search-tile {
+        width: $tileWidth*0.88;
+        height: $tileHeight*0.88;
+    }
+    .search-tile-title {
+        font-size: .8em;
+    }
+    .search-tile-desc {
+        font-size: .65em;
+    }
+}
+
+@include maxMediaQueries(760px) {
+    #result-container {
+        margin-left: 22%;
+        li {
+            @include grid(1, 12%);
+        }
+    }
+    .search-playbtn-container {
+        margin: 45px 0px 5px 0px;
+    }
+    .search-tile {
+        width: $tileWidth*1.2;
+        height: $tileHeight*1.2;
+    }
+    .search-tile-title {
+        font-size: 1em;
+    }
+    .search-tile-desc {
+        font-size: .8em;
+    }
+}
+
+@include maxMediaQueries(605px) {
+    #result-container {
+        margin-left: 20%;
+    }
+}
+
+@include maxMediaQueries(665px) {
+    #result-container {
+        margin-left: 21%;
+    }
+    .search-tile {
+        width: $tileWidth;
+        height: $tileHeight;
+    }
+    .search-tile-title {
+        font-size: .8em;
+    }
+    .search-tile-desc {
+        font-size: .65em;
+    }
+}
+
+@include maxMediaQueries(605px) {
+    #result-container {
+        margin-left: 18%;
     }
 }
 
 @include maxMediaQueries(545px) {
     #result-container {
-        margin-left: 12%;
-        li {
-            @include grid(1, 10%);
-        }
-    }
-    .search-tile {
-        width: $tileWidth;
-        height: $tileHeight;
-    }
-}
-
-@include maxMediaQueries(445px) {
-    #result-container {
-        margin-left: 10%;
-        li {
-            @include grid(1, 12%);
-        }
+        margin-left: 17%;
     }
     .search-tile {
         width: $tileWidth*0.9;
         height: $tileHeight*0.9;
     }
-    .playbtn-container {
-        margin: 22px 0px 3px 25px;
-    }
-    .tile-btn-container {
-        margin-top: 75px;
-    }
-    .tile {
-        width: $tileWidth*0.75;
-        height: $tileHeight*0.75;
-        &:hover {
-            transform: scale(1.3);
-        }
-        &:hover~.tile {
-            transform: translate3d(65px, 0, 0);
-        }
-    }
-    .tile-title {
-        font-size: .7em;
-    }
-    .listRow {
-        &:hover {
-            transform: translate3d(-60px, 0, 0);
-        }
+    .search-playbtn-container {
+        margin: 15px 0px 3px 0px;
     }
 }
 
-@include maxMediaQueries(395px) {
+@include maxMediaQueries(480px) {
     #result-container {
-        margin-left: 3%;
+        margin-left: 16%;
+    }
+}
+@include maxMediaQueries(435px) {
+    #result-container {
+        margin-left: 15%;
+    }
+    .search-playbtn-container {
+        margin: 10px 0px 5px 0px;
     }
     .search-tile {
         width: $tileWidth*0.8;
         height: $tileHeight*0.8;
+    }
+    .search-tile-title {
+        font-size: .75em;
+    }
+    .search-tile-desc {
+        font-size: .55em;
+    }
+}
+@include maxMediaQueries(420px) {
+    #result-container {
+        margin-left: 11%;
     }
 }

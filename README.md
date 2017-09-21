@@ -1,7 +1,7 @@
 # Netflix Clone
 
 
-### Check out this site live on this [Link](http://yc-netflix.surge.sh/) 
+### Check out this site live on this [Link](netflix-react.surge.sh/) 
 
 ![Demo](https://github.com/yuchiu/netflix-clone/blob/master/demo.gif) 
 
@@ -64,7 +64,6 @@ The bundle files including the output html file will be store in dist directory.
 - Performant CSS Animations: Netflix Case Study, by Eli White's, [link](http://eng.wealthfront.com/2015/06/30/implementing-netflix-redesign/)
 - CSS Animations Neflix carousel, by Matthew James Taylor, [link](https://codepen.io/mattjamestaylor/pen/dodYPr)
 - Netflix Style Carousel, by Jonathan Carroll, [link](https://codepen.io/jonathanlcarroll/pen/aNgRBb?q=Netflix&limit=all&depth=everything&show_forks=false)
-- CSS Flexbox Tutorial, by The Net Ninja, [link](https://www.youtube.com/playlist?list=PL4cUxeGkcC9i3FXJSUfmsNOx8E7u6UuhG)
 
 #### redux:
 - React+Redux+Webpack, by Kurt Weiberth, [link](https://www.youtube.com/playlist?list=PLQDnxXqV213JJFtDaG0aE9vqvp6Wm7nBg)
