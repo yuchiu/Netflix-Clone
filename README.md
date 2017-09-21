@@ -1,7 +1,7 @@
 # Netflix Clone
 
 
-### Check out this site live on this [Link](netflix-react.surge.sh/) 
+### Check out this site live on this [Link](http://netflix-react.surge.sh/) 
 
 ![Demo](https://github.com/yuchiu/netflix-clone/blob/master/demo.gif) 
 
