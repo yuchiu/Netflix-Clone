@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server",
-    "build" : "webpack -w"
+    "build": "webpack -w"
   },
   "author": "",
   "license": "ISC",

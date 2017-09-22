@@ -14,10 +14,13 @@ class ListItem extends React.Component {
         .fetchCast(this.props.movie.id);
   }
   renderTitle(title) {
-    if (title.length > 20) {
-      return <h5 className="tile-title long-title">{title}</h5>
-    } else {
-      return <h5 className="tile-title">{title}</h5>
+    if (title.length < 20) {
+      return <h5 className="search-tile-title">{title}</h5>
+    } else if(title.length <35) {
+      return <h5 className="search-tile-title long-title">{title}</h5>
+    }
+    else{      
+      return <h5 className="search-tile-title longer-title">{title}</h5>
     }
   }
   renderDesc(desc) {
@@ -30,13 +33,12 @@ class ListItem extends React.Component {
 
   }
   renderPic(){
-    let ifPic = this.props.movie.backdrop_path
-    if(ifPic== null){
-      return <img className ="tile-img" 
-      alt = "img not available"
-      src={`http://image.tmdb.org/t/p/w300//${this.props.movie.poster_path}`}/>
+    if(this.props.movie.backdrop_path !== null ){
+      return <img className ="tile-img" src={`http://image.tmdb.org/t/p/w500//${this.props.movie.backdrop_path}`}/>
+    }else if(this.props.movie.poster_path !== null ){
+      return  <img className ="tile-img " src={`http://image.tmdb.org/t/p/w500//${this.props.movie.poster_path}`}/>
     }else{
-      return <img className ="tile-img" src={`http://image.tmdb.org/t/p/w300//${this.props.movie.backdrop_path}`}/>
+      return <img className ="tile-img" src='http://via.placeholder.com/280x160'/>
     }
   }
   render() {

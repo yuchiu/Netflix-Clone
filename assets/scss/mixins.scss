@@ -21,11 +21,12 @@
 
 @mixin grid($cols, $mgn) {
     float: left;
+    text-align: center;
     margin-right: $mgn;
     margin-bottom: $mgn;
-    width: ((100% - (($cols - 1)* $mgn))/$cols);
+    width: ((96% - (($cols - 1)* $mgn))/$cols);
     &:nth-child(#{$cols}n) {
-        margin-right: 0;
+        margin-right: 4%;
     }
     img {
         width: 100%;

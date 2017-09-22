@@ -7,6 +7,9 @@ import $ from 'jquery';
 class upComingList extends React.Component {
   constructor() {
     super();
+    this.state = {
+      margin: 0
+    }
   }
 
   componentWillMount() {
@@ -26,18 +29,28 @@ class upComingList extends React.Component {
 
   handleLeftClick(e) {
     e.preventDefault();
-    const el = findDOMNode(this.refs.content);
-    $(el).animate({
-      marginLeft: "+=350px"
-    }, "fast");
+    if (this.state.margin < 350) {
+      this.setState({
+        margin: this.state.margin + 350
+      })
+      const el = findDOMNode(this.refs.content);
+      $(el).animate({
+        marginLeft: "+=350px"
+      }, "fast");
+    }
   }
 
   handleRightClick(e) {
     e.preventDefault();
-    const el = findDOMNode(this.refs.content);
-    $(el).animate({
-      marginLeft: "-=350px"
-    }, "fast");
+    if (this.state.margin > -4200) {
+      this.setState({
+        margin: this.state.margin - 350
+      })
+      const el = findDOMNode(this.refs.content);
+      $(el).animate({
+        marginLeft: "-=350px"
+      }, "fast");
+    }
   }
   render() {
 
@@ -48,9 +61,7 @@ class upComingList extends React.Component {
           .handleLeftClick
           .bind(this)}
           className="left-controls"
-          role="button">
-          <b></b>
-        </span>
+          role="button"></span>
 
         <div className="module-section clearfix">
           <ul id="content" ref='content'>
@@ -66,9 +77,7 @@ class upComingList extends React.Component {
           .handleRightClick
           .bind(this)}
           className="right-controls"
-          role="button">
-          <b className="form-arrow"></b>
-        </span>
+          role="button"></span>
 
       </div>
     )

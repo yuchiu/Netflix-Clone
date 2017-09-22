@@ -44,7 +44,6 @@
 
 @include maxMediaQueries(1175px) {
     #result-container {
-        margin-left: 8%;
         li {
             @include grid(2, 4.5%);
         }
@@ -68,9 +67,6 @@
 }
 
 @include maxMediaQueries(880px) {
-    #result-container {
-        margin-left: 6%;
-    }
     .search-playbtn-container {
         margin: 15px 0px 5px 0px;
     }
@@ -88,7 +84,6 @@
 
 @include maxMediaQueries(760px) {
     #result-container {
-        margin-left: 22%;
         li {
             @include grid(1, 12%);
         }
@@ -108,16 +103,8 @@
     }
 }
 
-@include maxMediaQueries(605px) {
-    #result-container {
-        margin-left: 20%;
-    }
-}
 
 @include maxMediaQueries(665px) {
-    #result-container {
-        margin-left: 21%;
-    }
     .search-tile {
         width: $tileWidth;
         height: $tileHeight;
@@ -130,16 +117,7 @@
     }
 }
 
-@include maxMediaQueries(605px) {
-    #result-container {
-        margin-left: 18%;
-    }
-}
-
 @include maxMediaQueries(545px) {
-    #result-container {
-        margin-left: 17%;
-    }
     .search-tile {
         width: $tileWidth*0.9;
         height: $tileHeight*0.9;
@@ -149,15 +127,7 @@
     }
 }
 
-@include maxMediaQueries(480px) {
-    #result-container {
-        margin-left: 16%;
-    }
-}
 @include maxMediaQueries(44px) {
-    #result-container {
-        margin-left: 15%;
-    }
     .search-playbtn-container {
         margin: 10px 0px 5px 0px;
     }
@@ -170,25 +140,5 @@
     }
     .search-tile-desc {
         font-size: .55em;
-    }
-}
-@include maxMediaQueries(420px) {
-    #result-container {
-        margin-left: 11%;
-    }
-}
-@include maxMediaQueries(380px) {
-    #result-container {
-        margin-left: 8%;
-    }
-}
-@include maxMediaQueries(340px) {
-    #result-container {
-        margin-left: 3%;
-    }
-}
-@include maxMediaQueries(300px) {
-    #result-container {
-        margin-left: 0%;
     }
 }

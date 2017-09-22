@@ -7,6 +7,9 @@ import $ from 'jquery';
 class TopRatedList extends React.Component {
   constructor() {
     super();
+    this.state = {
+      margin: 0
+    }
   }
 
   componentWillMount() {
@@ -26,18 +29,28 @@ class TopRatedList extends React.Component {
 
   handleLeftClick(e) {
     e.preventDefault();
-    const el = findDOMNode(this.refs.content);
-    $(el).animate({
-      marginLeft: "+=350px"
-    }, "fast");
+    if (this.state.margin < 350) {
+      this.setState({
+        margin: this.state.margin + 350
+      })
+      const el = findDOMNode(this.refs.content);
+      $(el).animate({
+        marginLeft: "+=350px"
+      }, "fast");
+    }
   }
 
   handleRightClick(e) {
     e.preventDefault();
-    const el = findDOMNode(this.refs.content);
-    $(el).animate({
-      marginLeft: "-=350px"
-    }, "fast");
+    if (this.state.margin > -4200) {
+      this.setState({
+        margin: this.state.margin - 350
+      })
+      const el = findDOMNode(this.refs.content);
+      $(el).animate({
+        marginLeft: "-=350px"
+      }, "fast");
+    }
   }
   render() {
 
@@ -49,7 +62,6 @@ class TopRatedList extends React.Component {
           .bind(this)}
           className="left-controls"
           role="button">
-          <b></b>
         </span>
 
         <div className="module-section clearfix">
@@ -67,7 +79,6 @@ class TopRatedList extends React.Component {
           .bind(this)}
           className="right-controls"
           role="button">
-          <b className="form-arrow"></b>
         </span>
 
       </div>
