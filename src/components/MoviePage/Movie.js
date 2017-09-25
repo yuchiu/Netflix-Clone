@@ -1,11 +1,7 @@
 import React from 'react';
-import Cast from '../../components/Cast';
+import Cast from './Cast';
 
 class Movie extends React.Component {
-
-  handleClick() {
-    console.log(this.props.castList)
-  }
   render() {
     let theMovie = this.props.theMovie;
     let genres = this.props.theMovie.genres;

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Layout from './containers/Layout';
+import Layout from './components/Layout';
 
 import {Provider} from 'react-redux';
 import {configureStore} from './store/store'
@@ -8,13 +8,13 @@ import {configureStore} from './store/store'
 
 
 let initialState = {
-  search: [],
   upcoming: [],
   topRated :[],
   nowPlaying: [],
   popular: [],
-  theMovie: [],
-  castList: [],
+  search: [],
+  theMovie: {},
+  castList: []
 }
 
 let store = configureStore(initialState)

@@ -1,5 +1,5 @@
 import constants from '../constants/'
-const theMovieReducer = function (theMovie = [], action) {
+const theMovieReducer = function (theMovie = {}, action) {
     
       switch (action.type) {
         case (constants.FETCH_THEMOVIE):

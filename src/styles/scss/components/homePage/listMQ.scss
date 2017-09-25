@@ -1,3 +1,21 @@
+@include maxMediaQueries(1400px) {
+    .tile {
+        width: $tileWidth*0.95;
+        height: $tileHeight*0.95;
+        &:hover {
+            transform: scale(1.7);
+        }
+        &:hover~.tile {
+            transform: translate3d(190px, 0, 0);
+        }
+    }
+    .listRow {
+        &:hover {
+        transform: translate3d(-110px, 0, 0);
+        }
+    }
+}
+
 @include maxMediaQueries(750px) {
     .playbtn-container {
         margin: 18px 0px 5px 0px;

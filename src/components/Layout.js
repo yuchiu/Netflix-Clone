@@ -5,12 +5,12 @@ import {connect} from 'react-redux'
 
 import '../styles/scss/styles.scss';
 import Nav from './Nav';
-import Footer from '../components/Footer';
+import Footer from './Footer';
 
 import HomePage from './HomePage/';
-import SearchPage from '../components/SearchPage/';
+import SearchPage from './SearchPage/';
 import MoviePage from './MoviePage/';
-import NotFoundPage from '../components/NotFoundPage';
+import NotFoundPage from './NotFoundPage';
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 

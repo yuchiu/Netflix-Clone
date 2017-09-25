@@ -1,5 +1,5 @@
 import React from 'react';
-import ListItem from '../../components/ListItem';
+import ListItem from './ListItem';
 import {Link} from 'react-router-dom'
 import {findDOMNode} from 'react-dom';
 import $ from 'jquery';
