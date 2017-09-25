@@ -1,4 +1,5 @@
 import axios from 'axios';
+import constants from '../constants/'
 
 const ROOT_URL = 'https://api.themoviedb.org/3';
 const API_KEY = 'api_key=e5693481ef000bfdd855a0f21ad39631'
@@ -11,10 +12,10 @@ let actions = {
         axios
           .get(`${ROOT_URL}/search/movie?${API_KEY}&language=en-US&query=${searchText}&page=1&include_adult=false`)
           .then((response) => {
-            dispatch({type: "FETCH_SEARCH", payload: response})
+            dispatch({type: constants.FETCH_SEARCH, payload: response})
           })
           .catch((err) => {
-            dispatch({type: "FETCH_ERROR", payload: err})
+            dispatch({type: constants.FETCH_ERROR, payload: err})
           }) //if
       } //return
     } else {
@@ -28,10 +29,10 @@ let actions = {
       axios
         .get(`${ROOT_URL}/movie/upcoming?${API_KEY}`)
         .then((response) => {
-          dispatch({type: "FETCH_UPCOMING", payload: response})
+          dispatch({type: constants.FETCH_UPCOMING, payload: response})
         })
         .catch((err) => {
-          dispatch({type: "FETCH_ERROR", payload: err})
+          dispatch({type: constants.FETCH_ERROR, payload: err})
         })
     } //return
   },//fetchUpcoming  
@@ -41,10 +42,10 @@ let actions = {
       axios
         .get(`${ROOT_URL}/movie/popular?${API_KEY}`)
         .then((response) => {
-          dispatch({type: "FETCH_POPULAR", payload: response})
+          dispatch({type: constants.FETCH_POPULAR, payload: response})
         })
         .catch((err) => {
-          dispatch({type: "FETCH_ERROR", payload: err})
+          dispatch({type: constants.FETCH_ERROR, payload: err})
         })
     } //return
   },//fetchPopular
@@ -54,10 +55,10 @@ let actions = {
       axios
         .get(`${ROOT_URL}/movie/top_rated?${API_KEY}`)
         .then((response) => {
-          dispatch({type: "FETCH_TOPRATED", payload: response})
+          dispatch({type: constants.FETCH_TOPRATED, payload: response})
         })
         .catch((err) => {
-          dispatch({type: "FETCH_ERROR", payload: err})
+          dispatch({type: constants.FETCH_ERROR, payload: err})
         })
     } //return
   },//fetchTopRated
@@ -67,10 +68,10 @@ let actions = {
       axios
         .get(`${ROOT_URL}/movie/now_playing?${API_KEY}`)
         .then((response) => {
-          dispatch({type: "FETCH_NOWPLAYING", payload: response})
+          dispatch({type: constants.FETCH_NOWPLAYING, payload: response})
         })
         .catch((err) => {
-          dispatch({type: "FETCH_ERROR", payload: err})
+          dispatch({type: constants.FETCH_ERROR, payload: err})
         })
     } //return
   },//fetchNowPlaying
@@ -80,10 +81,10 @@ let actions = {
       axios
       .get(`${ROOT_URL}/movie/${movieId}?${API_KEY}&language=en-US`)
         .then((response) => {
-          dispatch({type: "FETCH_THEMOVIE", payload: response})
+          dispatch({type: constants.FETCH_THEMOVIE, payload: response})
         })
         .catch((err) => {
-          dispatch({type: "FETCH_ERROR", payload: err})
+          dispatch({type: constants.FETCH_ERROR, payload: err})
         })
     } //return
   },//fetchTheMovie
@@ -93,10 +94,10 @@ let actions = {
       axios
       .get(`${ROOT_URL}/movie/${movieId}/credits?${API_KEY}`)
         .then((response) => {
-          dispatch({type: "FETCH_CASTLIST", payload: response})
+          dispatch({type: constants.FETCH_CASTLIST, payload: response})
         })
         .catch((err) => {
-          dispatch({type: "FETCH_ERROR", payload: err})
+          dispatch({type: constants.FETCH_ERROR, payload: err})
         })
     } //return
   },//fetchCast

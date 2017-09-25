@@ -1,10 +1,11 @@
+import constants from '../constants/'
 const castListReducer = function (castList = [], action) {
 
   switch (action.type) {
-    case 'FETCH_CASTLIST':
+    case (constants.FETCH_CASTLIST):
       return castList = action.payload.data.cast;
 
-    case 'FETCH_ERROR':
+    case (constants.FETCH_ERROR):
       return console.log(action.payload);
 
     default:

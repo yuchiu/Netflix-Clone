@@ -3,14 +3,14 @@ import {bindActionCreators} from 'redux';
 import actions from '../actions/'
 import {connect} from 'react-redux'
 
-import '../../assets/scss/styles.scss';
+import '../styles/scss/styles.scss';
 import Nav from './Nav';
-import Footer from './Footer';
+import Footer from '../components/Footer';
 
 import HomePage from './HomePage/';
-import SearchPage from './SearchPage/';
+import SearchPage from '../components/SearchPage/';
 import MoviePage from './MoviePage/';
-import NotFoundPage from './NotFoundPage';
+import NotFoundPage from '../components/NotFoundPage';
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 

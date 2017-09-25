@@ -25,8 +25,8 @@ class ListItem extends React.Component {
   }
   renderDesc(desc) {
     if (desc.length > 150) {
-      desc = desc.substring(0, 150);
-      return <p className="tile-desc">{desc}...</p>
+      desc = desc.substring(0, 135);
+      return <p className="tile-desc">{desc} ... read more</p>
     } else {
       return <p className="tile-desc">{desc}</p>
     }

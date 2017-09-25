@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server",
-    "build": "webpack -w"
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
@@ -22,7 +22,6 @@
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.5",
     "extract-text-webpack-plugin": "^3.0.0",
-    "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.30.1",
     "jquery": "^3.2.1",
     "node-sass": "^4.5.3",

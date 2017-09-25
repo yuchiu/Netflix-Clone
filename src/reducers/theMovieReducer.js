@@ -1,10 +1,11 @@
+import constants from '../constants/'
 const theMovieReducer = function (theMovie = [], action) {
     
       switch (action.type) {
-        case 'FETCH_THEMOVIE':
+        case (constants.FETCH_THEMOVIE):
           return theMovie = action.payload.data
     
-        case 'FETCH_ERROR':
+        case (constants.FETCH_ERROR):
           return console.log(action.payload);
     
         default:

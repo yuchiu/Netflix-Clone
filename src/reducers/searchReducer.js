@@ -1,10 +1,11 @@
+import constants from '../constants/'
 const searchReducer = function (search = [], action) {
 
   switch (action.type) {
-    case 'FETCH_SEARCH':
+    case (constants.FETCH_SEARCH):
       return search = action.payload.data.results;
 
-    case 'FETCH_ERROR':
+    case (constants.FETCH_ERROR):
       return console.log(action.payload);
 
     default:

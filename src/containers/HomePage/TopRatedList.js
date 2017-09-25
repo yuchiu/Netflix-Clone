@@ -1,10 +1,10 @@
 import React from 'react';
-import ListItem from './ListItem';
+import ListItem from '../../components/ListItem';
 import {Link} from 'react-router-dom'
 import {findDOMNode} from 'react-dom';
 import $ from 'jquery';
 
-class PopularList extends React.Component {
+class TopRatedList extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -12,17 +12,16 @@ class PopularList extends React.Component {
     }
   }
 
-
   componentWillMount() {
     this
       .props
       .actions
-      .fetchPopular();
+      .fetchTopRated();
   }
 
-  renderPopular(popularMovies) {
+  renderTopRated(topRatedMovies) {
 
-    return (popularMovies.map((movie, i) => {
+    return (topRatedMovies.map((movie, i) => {
       return <ListItem key={movie.id} movie={movie} actions={this.props.actions}/>
     }))
 
@@ -68,7 +67,7 @@ class PopularList extends React.Component {
         <div className="module-section clearfix">
           <ul id="content" ref='content'>
             <div className="listRow">
-              {this.renderPopular(this.props.popular)}
+              {this.renderTopRated(this.props.topRated)}
             </div>
 
           </ul>
@@ -88,4 +87,4 @@ class PopularList extends React.Component {
 
 }
 
-export default PopularList;
+export default TopRatedList;
