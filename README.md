@@ -1,5 +1,6 @@
 # Netflix Clone
 
+Technology: React ∙ Redux ∙ React-Router ∙ Webpack ∙ Sass ∙ PostCSS ∙ Autoprefixer(local styles with browser support)
 
 ### Check out this site live on this [Link](http://netflix-react.surge.sh/) 
 
