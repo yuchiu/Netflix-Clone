@@ -20,17 +20,25 @@ Technology: React ∙ Redux ∙ React-Router ∙ Webpack ∙ Sass ∙ PostCSS �
 
 - responsive to different screen size.
 
+
 ### Usage 
-#### 1. First install everything
+#### 1. First install package cross-env globally
+
+```
+npm i -g cross-env
+
+```
+Ensure npm scripts works across Linux, Windows, and all environments.
+
+#### 2. install everything else
 
 ```
 npm install
 
 ```
 
-
-#### 2a. run on localhost
-run the webpack dev server
+#### 3a. run on localhost
+develop environment, run webpack dev server
 
 ```
 npm start
@@ -39,15 +47,14 @@ npm start
 This will get the files running on http://localhost:8080
 Webpack will watch for changes and update the browser when file changes.
 
-#### 2b. build dist directory
-run webpack watch
+#### 3b. build dist directory
+production environment, run webpack
 
 ```
-npm build
+npm run build
 
 ```
-The bundle files including the output html file will be store in dist directory.
-
+The minified JS bundle files including the output html file will be store in dist directory.
 
 
 ## Appreciation for all the great online Learning Resources that are provided for free.
