@@ -1,6 +1,8 @@
 # Netflix Clone
 
-React ∙ Redux ∙ React-Router ∙ Webpack ∙ Sass ∙ PostCSS ∙ Autoprefixer(local styles with browser support)
+Search and recommend movies similar to Netflix.
+
+In combinations of React, Redux and React Router to create view layer for single page app. Configured Webpack to provides tools for both dev and prod env, such as Hot-reload, PostCSS, and Autoprefixer to ensure styles are supported across modern browsers.
 
 ### Check out this site live on this [Link](http://netflix-react.surge.sh/) 
 
