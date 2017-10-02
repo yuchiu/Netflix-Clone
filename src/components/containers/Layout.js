@@ -1,16 +1,17 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
-import actions from '../actions/'
+import actions from '../../actions/'
 import {connect} from 'react-redux'
 
-import '../styles/scss/styles.scss';
-import Nav from './Nav';
-import Footer from './Footer';
+import '../../styles/scss/styles.scss';
 
-import HomePage from './HomePage/';
-import SearchPage from './SearchPage/';
-import MoviePage from './MoviePage/';
-import NotFoundPage from './NotFoundPage';
+import Nav from '../presentations/Nav';
+import Footer from '../presentations/Footer';
+
+import HomePage from '../presentations/HomePage/';
+import SearchPage from '../presentations/SearchPage/';
+import MoviePage from '../presentations/MoviePage/';
+import NotFoundPage from '../presentations/NotFoundPage';
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
