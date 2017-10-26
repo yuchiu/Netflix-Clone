@@ -38,6 +38,12 @@ class Layout extends React.Component {
         castList={this.props.castList}
         {...props}/>);
     }
+    const LoginPage = (props) => {
+      return (<LoginPage/>);
+    }
+    const RegisterPage = (props) => {
+      return (<LoginPage/>);
+    }
     return (
       <Router>
         <div>
@@ -46,6 +52,8 @@ class Layout extends React.Component {
             <Route exact path="/" render={theHomePage}/>
             <Route exact path="/search" render={theSearchPage}/>
             <Route exact path="/movie" render={theMoviePage}/>
+            <Route exact path="/login" render={LoginPage}/>
+            <Route exact path="/register" render={RegisterPage}/>
             <Route component={NotFoundPage}/>
           </Switch>
           <Footer/>
