@@ -15,19 +15,19 @@ class HomePage extends React.Component {
         <div className="list-title">
           <h3>Up Coming</h3>
         </div>
-        <UpComingList actions={this.props.actions} upcoming={this.props.upcoming} />
+        <UpComingList movieActions={this.props.movieActions} upcoming={this.props.upcoming} />
         <div className="list-title">
           <h3>Popular</h3>
         </div>
-        <PopularList actions={this.props.actions} popular={this.props.popular} />
+        <PopularList movieActions={this.props.movieActions} popular={this.props.popular} />
         <div className="list-title">
           <h3>Top Rated</h3>
         </div>
-        <TopRatedList actions={this.props.actions} topRated={this.props.topRated} />
+        <TopRatedList movieActions={this.props.movieActions} topRated={this.props.topRated} />
         <div className="list-title">
           <h3>Now Playing</h3>
         </div>
-        <NowPlayingList actions={this.props.actions} nowPlaying={this.props.nowPlaying} />
+        <NowPlayingList movieActions={this.props.movieActions} nowPlaying={this.props.nowPlaying} />
       </div>
     )
   }

@@ -6,11 +6,11 @@ class ListItem extends React.Component {
   handleClick() {
     this
       .props
-      .actions
+      .movieActions
       .fetchTheMovie(this.props.movie.id)
       this
         .props
-        .actions
+        .movieActions
         .fetchCast(this.props.movie.id);
   }
   renderTitle(title) {

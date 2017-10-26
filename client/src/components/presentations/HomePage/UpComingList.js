@@ -15,14 +15,14 @@ class upComingList extends React.Component {
   componentWillMount() {
     this
       .props
-      .actions
+      .movieActions
       .fetchUpcoming();
   }
 
   renderUpcoming(upcomingMovies) {
 
     return (upcomingMovies.map((movie, i) => {
-      return <ListItem key={movie.id} movie={movie} actions={this.props.actions}/>
+      return <ListItem key={movie.id} movie={movie} movieActions={this.props.movieActions}/>
     }))
 
   }

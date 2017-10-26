@@ -7,7 +7,7 @@ class MoviePage extends React.Component {
     return (
       <div className="MoviePage-container">
         <Movie
-          actions={this.props.actions}
+          movieActions={this.props.movieActions}
           castList={this.props.castList}
           theMovie={this.props.theMovie}/>
       </div>

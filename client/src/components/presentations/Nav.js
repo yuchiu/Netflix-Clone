@@ -17,7 +17,7 @@ class Nav extends React.Component {
   handleClick() {
     this
       .props
-      .actions
+      .movieActions
       .fetchSearch(this.state.searchInput);
     this.setState({searchInput: ''})
   }

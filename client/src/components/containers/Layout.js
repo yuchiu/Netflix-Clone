@@ -1,9 +1,9 @@
 import React from 'react';
 import {bindActionCreators} from 'redux';
-import actions from '../../actions/'
 import {connect} from 'react-redux'
 
-import '../../styles/scss/styles.scss';
+import '../../../assets/scss/styles.scss';
+import movieActions from '../../services/actions/movieActions'
 
 import Nav from '../presentations/Nav';
 import Footer from '../presentations/Footer';
@@ -20,7 +20,7 @@ class Layout extends React.Component {
   render() {
     const theHomePage = (props) => {
       return (<HomePage
-        actions={this.props.actions}
+        movieActions={this.props.movieActions}
         upcoming={this.props.upcoming}
         popular={this.props.popular}
         topRated={this.props.topRated}
@@ -28,12 +28,12 @@ class Layout extends React.Component {
         {...props}/>);
     }
     const theSearchPage = (props) => {
-      return (<SearchPage actions={this.props.actions} search={this.props.search} {...props}/>);
+      return (<SearchPage movieActions={this.props.movieActions} search={this.props.search} {...props}/>);
 
     }
     const theMoviePage = (props) => {
       return (<MoviePage
-        actions={this.props.actions}
+        movieActions={this.props.movieActions}
         theMovie={this.props.theMovie}
         castList={this.props.castList}
         {...props}/>);
@@ -41,7 +41,7 @@ class Layout extends React.Component {
     return (
       <Router>
         <div>
-          <Nav actions={this.props.actions}/>
+          <Nav movieActions={this.props.movieActions}/>
           <Switch>
             <Route exact path="/" render={theHomePage}/>
             <Route exact path="/search" render={theSearchPage}/>
@@ -63,7 +63,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(actions, dispatch)
+    movieActions: bindActionCreators(movieActions, dispatch)
   }
 }
 

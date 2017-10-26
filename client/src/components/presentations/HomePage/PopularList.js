@@ -16,14 +16,14 @@ class PopularList extends React.Component {
   componentWillMount() {
     this
       .props
-      .actions
+      .movieActions
       .fetchPopular();
   }
 
   renderPopular(popularMovies) {
 
     return (popularMovies.map((movie, i) => {
-      return <ListItem key={movie.id} movie={movie} actions={this.props.actions}/>
+      return <ListItem key={movie.id} movie={movie} movieActions={this.props.movieActions}/>
     }))
 
   }

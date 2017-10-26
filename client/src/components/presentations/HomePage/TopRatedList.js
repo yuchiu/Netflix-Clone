@@ -15,14 +15,14 @@ class TopRatedList extends React.Component {
   componentWillMount() {
     this
       .props
-      .actions
+      .movieActions
       .fetchTopRated();
   }
 
   renderTopRated(topRatedMovies) {
 
     return (topRatedMovies.map((movie, i) => {
-      return <ListItem key={movie.id} movie={movie} actions={this.props.actions}/>
+      return <ListItem key={movie.id} movie={movie} movieActions={this.props.movieActions}/>
     }))
 
   }

@@ -6,7 +6,7 @@ class SearchPage extends React.Component {
   render() {
     return (
         <div className = "SearchPage-container">
-            <SearchList actions={this.props.actions} search={this.props.search}/>
+            <SearchList movieActions={this.props.movieActions} search={this.props.search}/>
         </div>
     )
   }

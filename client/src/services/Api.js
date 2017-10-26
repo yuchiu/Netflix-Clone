@@ -4,8 +4,8 @@ import constants from '../constants/'
 const ROOT_URL = 'https://api.themoviedb.org/3';
 const API_KEY = 'api_key=e5693481ef000bfdd855a0f21ad39631'
 
-let actions = {
-  fetchSearch: (searchText) => {
+export default {
+  fetchSearch : (searchText) => {
     if (searchText.length >= 1) {
       return (dispatch) => {
         axios
@@ -22,8 +22,7 @@ let actions = {
     }
   }, //fetchSearch
 
-  
-  fetchUpcoming: () => {
+  fetchUpcoming : () => {
     return (dispatch) => {
       axios
         .get(`${ROOT_URL}/movie/upcoming?${API_KEY}`)
@@ -34,9 +33,9 @@ let actions = {
           dispatch({type: constants.FETCH_ERROR, payload: err})
         })
     } //return
-  },//fetchUpcoming  
+  }, //fetchUpcoming
 
-  fetchPopular: () => {
+  fetchPopular : () => {
     return (dispatch) => {
       axios
         .get(`${ROOT_URL}/movie/popular?${API_KEY}`)
@@ -47,9 +46,9 @@ let actions = {
           dispatch({type: constants.FETCH_ERROR, payload: err})
         })
     } //return
-  },//fetchPopular
+  }, //fetchPopular
 
-  fetchTopRated: () => {
+  fetchTopRated : () => {
     return (dispatch) => {
       axios
         .get(`${ROOT_URL}/movie/top_rated?${API_KEY}`)
@@ -60,9 +59,9 @@ let actions = {
           dispatch({type: constants.FETCH_ERROR, payload: err})
         })
     } //return
-  },//fetchTopRated
+  }, //fetchTopRated
 
-  fetchNowPlaying: () => {
+  fetchNowPlaying : () => {
     return (dispatch) => {
       axios
         .get(`${ROOT_URL}/movie/now_playing?${API_KEY}`)
@@ -73,12 +72,12 @@ let actions = {
           dispatch({type: constants.FETCH_ERROR, payload: err})
         })
     } //return
-  },//fetchNowPlaying
-  
-  fetchTheMovie: (movieId) => {
+  }, //fetchNowPlaying
+
+  fetchTheMovie : (movieId) => {
     return (dispatch) => {
       axios
-      .get(`${ROOT_URL}/movie/${movieId}?${API_KEY}&language=en-US`)
+        .get(`${ROOT_URL}/movie/${movieId}?${API_KEY}&language=en-US`)
         .then((response) => {
           dispatch({type: constants.FETCH_THEMOVIE, payload: response})
         })
@@ -86,12 +85,12 @@ let actions = {
           dispatch({type: constants.FETCH_ERROR, payload: err})
         })
     } //return
-  },//fetchTheMovie
+  }, //fetchTheMovie
 
-  fetchCast: (movieId) => {
+  fetchCast : (movieId) => {
     return (dispatch) => {
       axios
-      .get(`${ROOT_URL}/movie/${movieId}/credits?${API_KEY}`)
+        .get(`${ROOT_URL}/movie/${movieId}/credits?${API_KEY}`)
         .then((response) => {
           dispatch({type: constants.FETCH_CASTLIST, payload: response})
         })
@@ -99,8 +98,6 @@ let actions = {
           dispatch({type: constants.FETCH_ERROR, payload: err})
         })
     } //return
-  },//fetchCast
+  }, //fetchCast
 
 } //actions
-
-export default actions;
