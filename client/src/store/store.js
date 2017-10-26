@@ -14,14 +14,14 @@ let finalCreateStore = compose(
   )
 )(createStore)
 
-// if initial state did not passed in to configureStore, then it will assign to
-// empty todos array
 const configureStore = function (initialState = {
-  search: [],
-  popular: [],
   upcoming: [],
+  topRated: [],
+  nowPlaying: [],
+  popular: [],
+  search: [],
   theMovie: {},
-  castList: [],
+  castList: []
 }) {
   return finalCreateStore(rootReducer, initialState)
 }

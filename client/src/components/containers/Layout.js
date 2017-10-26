@@ -9,6 +9,7 @@ import Nav from '../presentations/Nav';
 import Footer from '../presentations/Footer';
 
 import HomePage from '../presentations/HomePage/';
+import AuthPage from '../presentations/AuthPage/';
 import SearchPage from '../presentations/SearchPage/';
 import MoviePage from '../presentations/MoviePage/';
 import NotFoundPage from '../presentations/NotFoundPage';
@@ -38,11 +39,8 @@ class Layout extends React.Component {
         castList={this.props.castList}
         {...props}/>);
     }
-    const LoginPage = (props) => {
-      return (<LoginPage/>);
-    }
-    const RegisterPage = (props) => {
-      return (<LoginPage/>);
+    const AuthPage = (props) => {
+      return (<AuthPage/>);
     }
     return (
       <Router>
@@ -52,8 +50,7 @@ class Layout extends React.Component {
             <Route exact path="/" render={theHomePage}/>
             <Route exact path="/search" render={theSearchPage}/>
             <Route exact path="/movie" render={theMoviePage}/>
-            <Route exact path="/login" render={LoginPage}/>
-            <Route exact path="/register" render={RegisterPage}/>
+            <Route exact path="/auth" render={AuthPage}/>
             <Route component={NotFoundPage}/>
           </Switch>
           <Footer/>
