@@ -1,23 +1,8 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { SearchInput } from "../containers";
 
 class Nav extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      searchInput: ""
-    };
-  }
-
-  handleChange(e) {
-    this.setState({ searchInput: e.target.value });
-  }
-
-  handleClick() {
-    this.props.movieActions.fetchSearch(this.state.searchInput);
-    this.setState({ searchInput: "" });
-  }
-
   render() {
     return (
       <div>
@@ -37,28 +22,7 @@ class Nav extends React.Component {
           </ul>
 
           <ul>
-            <li>
-              <input
-                className="searchInput"
-                type="text"
-                value={this.state.searchInput}
-                placeholder="movie title..."
-                onChange={this.handleChange.bind(this)}
-              />
-              <Link
-                className=" navItem"
-                to="/search"
-                onClick={this.handleClick.bind(this)}
-              >
-                <img
-                  style={{
-                    width: 30,
-                    height: 30
-                  }}
-                  src="http://tendenzen.plamen.org/img/search.png"
-                />
-              </Link>
-            </li>
+            <SearchInput />
           </ul>
         </nav>
       </div>

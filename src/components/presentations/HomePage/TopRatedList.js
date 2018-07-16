@@ -13,13 +13,6 @@ class TopRatedList extends React.Component {
     }
   }
 
-  componentWillMount() {
-    this
-      .props
-      .movieActions
-      .fetchTopRated();
-  }
-
   renderTopRated(topRatedMovies) {
 
     return (topRatedMovies.map((movie, i) => {

@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import Routes from "./components/routes";
+import "../assets/scss/styles.scss";
 
 import store from "./store";
 

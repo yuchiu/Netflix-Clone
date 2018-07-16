@@ -14,13 +14,6 @@ class PopularList extends React.Component {
   }
 
 
-  componentWillMount() {
-    this
-      .props
-      .movieActions
-      .fetchPopular();
-  }
-
   renderPopular(popularMovies) {
 
     return (popularMovies.map((movie, i) => {

@@ -14,13 +14,6 @@ class NowPlayingList extends React.Component {
   }
 
 
-  componentWillMount() {
-    this
-      .props
-      .movieActions
-      .fetchNowPlaying();
-  }
-
   renderNowPlaying(nowPlayingMovies) {
 
     return (nowPlayingMovies.map((movie, i) => {

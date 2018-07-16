@@ -13,12 +13,6 @@ class upComingList extends React.Component {
     }
   }
 
-  componentWillMount() {
-    this
-      .props
-      .movieActions
-      .fetchUpcoming();
-  }
 
   renderUpcoming(upcomingMovies) {
 
