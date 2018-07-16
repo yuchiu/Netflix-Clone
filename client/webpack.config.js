@@ -1,6 +1,8 @@
+/* eslint-disable */
 var webpack = require('webpack');
 var path = require('path');
 var htmlWebpackPlugin = require('html-webpack-plugin');
+var OpenBrowserPlugin = require('open-browser-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -23,15 +25,18 @@ module.exports = {
         exclude: /(node_modules)/,
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'es2015']
+          presets: ['react', 'es2017' , 'stage-0']
         }
       }, {
         test: /\.(css|scss|sass)$/,
         loader: 'style-loader!css-loader!postcss-loader!sass-loader',
         include: path.join(__dirname, 'assets', 'scss')
-      }
-    ]
-  },
+      }, {
+        test: /\.(png|jpg)$/,
+        loader: 'file-loader',
+        include: path.join(__dirname, 'assets', 'img')
+      }]
+    },
 
   devServer: {
     historyApiFallback :true,
@@ -40,7 +45,6 @@ module.exports = {
     hot : true,
     stats: 'errors-only'
   },
-
 
 
   plugins: process.env.NODE_ENV === 'production' ? [
@@ -57,15 +61,18 @@ module.exports = {
       }
     }),
     new htmlWebpackPlugin({
-      template: path.join(__dirname, 'index.html'),
+      template: path.join(__dirname, 'public', 'index.html'),
       hash: true
     })
   ] : [
     new htmlWebpackPlugin({
-      template: path.join(__dirname, 'index.html'),
+      template: path.join(__dirname, 'public', 'index.html'),
       hash: true
     }),
     new webpack.HotModuleReplacementPlugin(),
-  ]
 
+    new OpenBrowserPlugin({
+      url: 'http://localhost:8080'
+    })
+  ]
 }

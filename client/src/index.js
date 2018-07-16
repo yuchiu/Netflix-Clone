@@ -1,15 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Layout from './components/containers/Layout';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import Routes from "./components/routes";
 
-import {Provider} from 'react-redux';
-import {configureStore} from './store/store'
-
+import configureStore from "./store";
 
 const app = (
   <Provider store={configureStore()}>
-    <Layout/>
+    <Routes />
   </Provider>
-)
+);
 
-ReactDOM.render(app, document.getElementById('root'))
+ReactDOM.render(app, document.getElementById("root"));
