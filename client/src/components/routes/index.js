@@ -20,25 +20,25 @@ class Routes extends React.Component {
     const theHomePage = props => (
       <HomePage
         movieActions={this.props.movieActions}
-        upcoming={this.props.upcoming}
-        popular={this.props.popular}
-        topRated={this.props.topRated}
-        nowPlaying={this.props.nowPlaying}
+        upcoming={this.props.hompageListsReducers.upcoming}
+        popular={this.props.hompageListsReducers.popular}
+        topRated={this.props.hompageListsReducers.topRated}
+        nowPlaying={this.props.hompageListsReducers.nowPlaying}
         {...props}
       />
     );
     const theSearchPage = props => (
       <SearchPage
         movieActions={this.props.movieActions}
-        search={this.props.search}
+        searchReducer={this.props.searchReducer}
         {...props}
       />
     );
     const theMoviePage = props => (
       <MoviePage
         movieActions={this.props.movieActions}
-        theMovie={this.props.theMovie}
-        castList={this.props.castList}
+        theMovieReducer={this.props.theMovieReducer}
+        castListReducer={this.props.castListReducer}
         {...props}
       />
     );

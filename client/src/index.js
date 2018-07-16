@@ -3,10 +3,10 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import Routes from "./components/routes";
 
-import configureStore from "./store";
+import store from "./store";
 
 const app = (
-  <Provider store={configureStore()}>
+  <Provider store={store.configure()}>
     <Routes />
   </Provider>
 );

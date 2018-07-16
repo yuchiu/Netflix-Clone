@@ -4,10 +4,11 @@ import Cast from './Cast';
 
 class Movie extends React.Component {
   render() {
-    let theMovie = this.props.theMovie;
-    let genres = this.props.theMovie.genres;
+    let theMovie = this.props.theMovieReducer.theMovie;
+    let genres = this.props.theMovieReducer.theMovie.genres;
     let casts = this
       .props
+      .castListReducer
       .castList
       .slice(0, 4)
     return (

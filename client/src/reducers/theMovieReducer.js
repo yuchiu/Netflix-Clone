@@ -1,15 +1,16 @@
 import constants from "../constants";
 
-const theMovieReducer = function(theMovie = {}, action) {
+const initialState = {
+  theMovie: {}
+};
+
+export default (state = initialState, action) => {
+  const newState = Object.assign({}, state);
   switch (action.type) {
     case constants.FETCH_THEMOVIE:
-      return (theMovie = action.payload.data);
-
-    case constants.FETCH_ERROR:
-      return console.log(action.payload);
-
+      newState.theMovie = action.payload.data;
+      return newState;
     default:
-      return theMovie;
+      return state;
   }
 };
-export default theMovieReducer;

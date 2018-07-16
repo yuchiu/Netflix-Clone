@@ -6,13 +6,10 @@ import castListReducer from "./castListReducer";
 import hompageListsReducers from "./hompageListsReducers";
 
 const rootReducer = combineReducers({
-  upcoming: hompageListsReducers.upcomingReducer,
-  popular: hompageListsReducers.popularReducer,
-  topRated: hompageListsReducers.topRatedReducer,
-  nowPlaying: hompageListsReducers.nowPlayingReducer,
-  search: searchReducer,
-  theMovie: theMovieReducer,
-  castList: castListReducer
+  hompageListsReducers,
+  searchReducer,
+  theMovieReducer,
+  castListReducer
 });
 
 export default rootReducer;

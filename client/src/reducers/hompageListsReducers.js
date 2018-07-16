@@ -1,54 +1,36 @@
 import constants from "../constants";
 
-const hompageListsReducers = {
-  nowPlayingReducer: (nowPlaying = [], action) => {
-    switch (action.type) {
-      case constants.FETCH_NOWPLAYING:
-        return (nowPlaying = action.payload.data.results);
-
-      case constants.FETCH_ERROR:
-        return console.log(action.payload);
-
-      default:
-        return nowPlaying;
-    }
-  },
-  popularReducer: (popular = [], action) => {
-    switch (action.type) {
-      case constants.FETCH_POPULAR:
-        return (popular = action.payload.data.results);
-
-      case constants.FETCH_ERROR:
-        return console.log(action.payload);
-
-      default:
-        return popular;
-    }
-  },
-  topRatedReducer: (topRated = [], action) => {
-    switch (action.type) {
-      case constants.FETCH_TOPRATED:
-        return (topRated = action.payload.data.results);
-
-      case constants.FETCH_ERROR:
-        return console.log(action.payload);
-
-      default:
-        return topRated;
-    }
-  },
-  upcomingReducer: (upcoming = [], action) => {
-    switch (action.type) {
-      case constants.FETCH_UPCOMING:
-        return (upcoming = action.payload.data.results);
-
-      case constants.FETCH_ERROR:
-        return console.log(action.payload);
-
-      default:
-        return upcoming;
-    }
-  }
+const initialState = {
+  nowPlaying: [],
+  popular: [],
+  topRated: [],
+  upcoming: []
 };
 
-export default hompageListsReducers;
+export default (state = initialState, action) => {
+  const newState = Object.assign({}, state);
+
+  switch (action.type) {
+    case constants.FETCH_NOWPLAYING:
+      newState.nowPlaying = action.payload.data.results;
+      return newState;
+
+    case constants.FETCH_POPULAR:
+      newState.popular = action.payload.data.results;
+      return newState;
+
+    case constants.FETCH_TOPRATED:
+      newState.topRated = action.payload.data.results;
+      return newState;
+
+    case constants.FETCH_UPCOMING:
+      newState.upcoming = action.payload.data.results;
+      return newState;
+
+    case constants.FETCH_ERROR:
+      return console.log(action.payload);
+
+    default:
+      return state;
+  }
+};

@@ -7,8 +7,8 @@ class MoviePage extends React.Component {
       <div className="MoviePage-container">
         <Movie
           movieActions={this.props.movieActions}
-          castList={this.props.castList}
-          theMovie={this.props.theMovie}
+          castListReducer={this.props.castListReducer}
+          theMovieReducer={this.props.theMovieReducer}
         />
       </div>
     );

@@ -1,26 +1,17 @@
-import { applyMiddleware, compose, createStore } from "redux";
-import { createLogger } from "redux-logger";
+import { applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
-import { composeWithDevTools } from "redux-devtools-extension";
+import logger from "redux-logger";
 import rootReducer from "../reducers";
 
-// add middleware
-const finalCreateStore = compose(
-  composeWithDevTools(applyMiddleware(thunk, createLogger()))
-)(createStore);
-
-const configureStore = function(
-  initialState = {
-    upcoming: [],
-    topRated: [],
-    nowPlaying: [],
-    popular: [],
-    search: [],
-    theMovie: {},
-    castList: []
+let store = null;
+export default {
+  configure: () => {
+    store = createStore(
+      rootReducer,
+      window.__REDUX_DEVTOOLS_EXTENSION__ &&
+        window.__REDUX_DEVTOOLS_EXTENSION__(),
+      applyMiddleware(thunk, logger)
+    );
+    return store;
   }
-) {
-  return finalCreateStore(rootReducer, initialState);
 };
-
-export default configureStore;

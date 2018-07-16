@@ -1,15 +1,16 @@
 import constants from "../constants";
 
-const searchReducer = function(search = [], action) {
+const initialState = {
+  searchResult: []
+};
+
+export default (state = initialState, action) => {
+  const newState = Object.assign({}, state);
   switch (action.type) {
     case constants.FETCH_SEARCH:
-      return (search = action.payload.data.results);
-
-    case constants.FETCH_ERROR:
-      return console.log(action.payload);
-
+      newState.searchResult = action.payload.data.results;
+      return newState;
     default:
-      return search;
+      return state;
   }
 };
-export default searchReducer;

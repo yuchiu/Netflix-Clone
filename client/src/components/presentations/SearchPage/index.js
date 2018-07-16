@@ -7,7 +7,7 @@ class SearchPage extends React.Component {
       <div className="SearchPage-container">
         <SearchList
           movieActions={this.props.movieActions}
-          search={this.props.search}
+          searchReducer={this.props.searchReducer}
         />
       </div>
     );
