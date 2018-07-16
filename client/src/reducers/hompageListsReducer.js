@@ -27,9 +27,6 @@ export default (state = initialState, action) => {
       newState.upcoming = action.payload.data.results;
       return newState;
 
-    case constants.FETCH_ERROR:
-      return console.log(action.payload);
-
     default:
       return state;
   }

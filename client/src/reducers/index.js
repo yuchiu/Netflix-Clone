@@ -3,10 +3,10 @@ import { combineReducers } from "redux";
 import searchReducer from "./searchReducer";
 import theMovieReducer from "./theMovieReducer";
 import castListReducer from "./castListReducer";
-import hompageListsReducers from "./hompageListsReducers";
+import hompageListsReducer from "./hompageListsReducer";
 
 const rootReducer = combineReducers({
-  hompageListsReducers,
+  hompageListsReducer,
   searchReducer,
   theMovieReducer,
   castListReducer
