@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var path = require('path');
 var htmlWebpackPlugin = require('html-webpack-plugin');
 var OpenBrowserPlugin = require('open-browser-webpack-plugin')
+const Uglify = require("uglifyjs-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -53,26 +54,20 @@ module.exports = {
         'NODE_ENV': JSON.stringify('production')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      minimize: true,
-      compress: {
-        warnings: true,
-        drop_console: true
-      }
-    }),
+    new Uglify(),
     new htmlWebpackPlugin({
-      template: path.join(__dirname, 'public', 'index.html'),
+      template: path.join(__dirname, 'index.html'),
       hash: true
     })
   ] : [
     new htmlWebpackPlugin({
-      template: path.join(__dirname, 'public', 'index.html'),
+      template: path.join(__dirname, 'index.html'),
       hash: true
     }),
     new webpack.HotModuleReplacementPlugin(),
 
     new OpenBrowserPlugin({
-      url: 'http://localhost:8080'
+      url: 'http://localhost:8081'
     })
   ]
 }
