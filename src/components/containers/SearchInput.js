@@ -1,26 +1,25 @@
 import React from "react";
 import { connect } from "react-redux";
+import Proptypes from "prop-types";
 import { Link } from "react-router-dom";
 import { movieActions } from "../../actions";
 import searchIcon from "../../../assets/img/search-icon.png";
 
 class SearchInput extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      input: ""
-    };
-  }
+  state = {
+    input: ""
+  };
 
-  handleChange(e) {
+  handleChange = e => {
     this.setState({ input: e.target.value });
-  }
+  };
 
-  handleClick() {
+  handleClick = () => {
+    const { fetchSearch } = this.props;
     const { input } = this.state;
-    this.props.fetchSearch(input);
+    fetchSearch(input);
     this.setState({ input: "" });
-  }
+  };
 
   render() {
     return (
@@ -30,13 +29,9 @@ class SearchInput extends React.Component {
           type="text"
           value={this.state.input}
           placeholder="movie title..."
-          onChange={this.handleChange.bind(this)}
+          onChange={this.handleChange}
         />
-        <Link
-          className=" navItem"
-          to="/search"
-          onClick={this.handleClick.bind(this)}
-        >
+        <Link className=" navItem" to="/search" onClick={this.handleClick}>
           <img
             style={{
               width: 30,
@@ -49,6 +44,9 @@ class SearchInput extends React.Component {
     );
   }
 }
+SearchInput.propTypes = {
+  fetchSearch: Proptypes.func
+};
 const stateToProps = null;
 
 const dispatchToProps = dispatch => ({
