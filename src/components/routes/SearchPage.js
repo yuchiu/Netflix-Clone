@@ -1,9 +1,12 @@
 import React from "react";
-import { SearchList } from "../presentations/SearchPage";
+import { ViewSearch } from "../containers";
+import { Nav, Footer } from "../presentations";
 
 const SearchPage = () => (
   <div className="SearchPage-container">
-    <SearchList />
+    <Nav />
+    <ViewSearch />
+    <Footer />
   </div>
 );
 

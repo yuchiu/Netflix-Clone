@@ -3,7 +3,6 @@ import { API } from "../utils";
 
 export default {
   fetchUpcoming: () => async dispatch => {
-    console.log("fetching upcoming ");
     const response = await API.fetchMovieData("/movie/upcoming?");
     dispatch({
       type: constants.FETCH_UPCOMING,

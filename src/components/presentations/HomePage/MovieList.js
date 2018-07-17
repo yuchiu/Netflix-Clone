@@ -5,12 +5,9 @@ import $ from "jquery";
 import ListItem from "./ListItem";
 
 class MovieList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      margin: 0
-    };
-  }
+  state = {
+    margin: 0
+  };
 
   renderMovieList = movieList =>
     movieList.map(movie => (

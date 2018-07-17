@@ -1,9 +1,12 @@
 import React from "react";
-import { Movie } from "../presentations/MoviePage";
+import { ViewMovie } from "../containers";
+import { Nav, Footer } from "../presentations";
 
 const MoviePage = () => (
-  <div className="MoviePage-container">
-    <Movie />
+  <div>
+    <Nav />
+    <ViewMovie />
+    <Footer />
   </div>
 );
 

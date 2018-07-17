@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { movieActions } from "../../actions";
+import searchIcon from "../../../assets/img/search-icon.png";
 
 class SearchInput extends React.Component {
   constructor() {
@@ -41,14 +42,14 @@ class SearchInput extends React.Component {
               width: 30,
               height: 30
             }}
-            src="http://tendenzen.plamen.org/img/search.png"
+            src={searchIcon}
           />
         </Link>
       </li>
     );
   }
 }
-const stateToProps = () => ({});
+const stateToProps = null;
 
 const dispatchToProps = dispatch => ({
   fetchSearch: input => {

@@ -1,3 +1,3 @@
-import SearchList from "./SearchList";
+import SearchItem from "./SearchItem";
 
-export { SearchList };
+export { SearchItem };

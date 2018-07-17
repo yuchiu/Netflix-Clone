@@ -1,3 +1,4 @@
-import Movie from "./Movie";
+import Poster from "./Poster";
+import Descriptions from "./Descriptions";
 
-export { Movie };
+export { Descriptions, Poster };
