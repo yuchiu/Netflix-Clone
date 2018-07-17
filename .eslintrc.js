@@ -23,5 +23,6 @@ module.exports = {
       "import/prefer-default-export": 0,
       "no-underscore-dangle": 0,
       "linebreak-style": 0,
+      "react/display-name": 0
     }
   };

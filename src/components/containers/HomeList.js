@@ -1,45 +1,75 @@
 import React from "react";
+import Proptypes from "prop-types";
 import { connect } from "react-redux";
-import {
-  UpComingList,
-  PopularList,
-  TopRatedList,
-  NowPlayingList
-} from "../presentations/HomePage";
-import { movieListActions } from "../../actions";
+import { MovieList, ListHeader } from "../presentations/HomePage";
+import { movieListActions, movieActions } from "../../actions";
 
 class HomeList extends React.Component {
   componentDidMount() {
-    this.props.fetchUpcoming();
-    this.props.fetchPopular();
-    this.props.fetchTopRated();
-    this.props.fetchNowPlaying();
+    const {
+      fetchNowPlaying,
+      fetchPopular,
+      fetchTopRated,
+      fetchUpcoming
+    } = this.props;
+    fetchUpcoming();
+    fetchPopular();
+    fetchTopRated();
+    fetchNowPlaying();
   }
 
   render() {
-    const { nowPlaying, upcoming, topRated, popular } = this.props;
+    const {
+      nowPlaying,
+      upcoming,
+      topRated,
+      popular,
+      fetchTheMovie,
+      fetchCast
+    } = this.props;
     return (
       <div>
-        <div className="list-title">
-          <h3>Up Coming</h3>
-        </div>
-        <UpComingList upcoming={upcoming} />
-        <div className="list-title">
-          <h3>Popular</h3>
-        </div>
-        <PopularList popular={popular} />
-        <div className="list-title">
-          <h3>Top Rated</h3>
-        </div>
-        <TopRatedList topRated={topRated} />
-        <div className="list-title">
-          <h3>Now Playing</h3>
-        </div>
-        <NowPlayingList nowPlaying={nowPlaying} />
+        <ListHeader header="Up Coming" />
+        <MovieList
+          movieList={upcoming}
+          fetchTheMovie={fetchTheMovie}
+          fetchCast={fetchCast}
+        />
+        <ListHeader header="Popular" />
+        <MovieList
+          movieList={popular}
+          fetchTheMovie={fetchTheMovie}
+          fetchCast={fetchCast}
+        />
+        <ListHeader header="Top Rated" />
+        <MovieList
+          movieList={topRated}
+          fetchTheMovie={fetchTheMovie}
+          fetchCast={fetchCast}
+        />
+        <ListHeader header="Now Playing" />
+        <MovieList
+          movieList={nowPlaying}
+          fetchTheMovie={fetchTheMovie}
+          fetchCast={fetchCast}
+        />
       </div>
     );
   }
 }
+HomeList.propTypes = {
+  fetchTheMovie: Proptypes.func,
+  fetchCast: Proptypes.func,
+  fetchUpcoming: Proptypes.func,
+  fetchPopular: Proptypes.func,
+  fetchTopRated: Proptypes.func,
+  fetchNowPlaying: Proptypes.func,
+  nowPlaying: Proptypes.array,
+  upcoming: Proptypes.array,
+  topRated: Proptypes.array,
+  popular: Proptypes.array
+};
+
 const stateToProps = state => ({
   upcoming: state.hompageListsReducer.upcoming,
   topRated: state.hompageListsReducer.topRated,
@@ -59,6 +89,12 @@ const dispatchToProps = dispatch => ({
   },
   fetchNowPlaying: () => {
     dispatch(movieListActions.fetchNowPlaying());
+  },
+  fetchTheMovie: movieId => {
+    dispatch(movieActions.fetchTheMovie(movieId));
+  },
+  fetchCast: movieId => {
+    dispatch(movieActions.fetchCast(movieId));
   }
 });
 

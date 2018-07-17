@@ -8,11 +8,9 @@ class ListItem extends React.Component {
   handleClick() {
     this
       .props
-      .movieActions
       .fetchTheMovie(this.props.movie.id)
       this
         .props
-        .movieActions
         .fetchCast(this.props.movie.id);
   }
   renderTitle(title) {
@@ -21,7 +19,7 @@ class ListItem extends React.Component {
     } else if(title.length <35) {
       return <h5 className="search-tile-title long-title">{title}</h5>
     }
-    else{      
+    else{
       return <h5 className="search-tile-title longer-title">{title}</h5>
     }
   }

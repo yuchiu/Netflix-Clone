@@ -4,6 +4,8 @@ import { API } from "../utils";
 export default {
   fetchTheMovie: movieId => async dispatch => {
     const response = await API.fetchMovieData(`/movie/${movieId}?`);
+    console.log("fetchTheMovie");
+    console.log(response);
     dispatch({
       type: constants.FETCH_THEMOVIE,
       payload: response
@@ -11,6 +13,8 @@ export default {
   },
   fetchCast: movieId => async dispatch => {
     const response = await API.fetchMovieData(`/movie/${movieId}/credits?`);
+    console.log("fetchCast");
+    console.log(response);
     dispatch({
       type: constants.FETCH_CASTLIST,
       payload: response
