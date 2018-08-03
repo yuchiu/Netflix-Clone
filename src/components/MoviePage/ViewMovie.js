@@ -1,7 +1,7 @@
 import React from "react";
 import Proptypes from "prop-types";
 import { connect } from "react-redux";
-import { Poster, Descriptions } from "../presentations/MoviePage";
+import { Poster, Descriptions } from "./presentations";
 
 const ViewMovie = ({ castList, theMovie }) => (
   <div id="moviePage-container">

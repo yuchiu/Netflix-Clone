@@ -1,3 +1,15 @@
+/* vars */
+
+$netflixRed: #b9090b;
+$netflixBlack: #0f0f0f;
+$netflixWhite: #ecf0f1;
+$whiteGrey: #a3a3a1;
+$iconSize: 50px;
+$tileWidth: 280px;
+$tileHeight: 160px;
+
+/* mixins */
+
 /* responsive layout */
 
 @mixin maxMediaQueries($arg...) {
@@ -32,8 +44,6 @@
     width: 100%;
   }
 }
-
-/* end */
 
 /* button styles */
 
@@ -95,8 +105,6 @@
     }
   }
 }
-
-/* end */
 
 /* CSS effects and styles of tiles */
 
@@ -166,5 +174,3 @@
     @include playBtn;
   }
 }
-
-/* end */

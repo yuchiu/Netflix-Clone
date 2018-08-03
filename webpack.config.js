@@ -31,7 +31,7 @@ module.exports = {
       }, {
         test: /\.(css|scss|sass)$/,
         loader: 'style-loader!css-loader!postcss-loader!sass-loader',
-        include: path.join(__dirname, 'assets', 'scss')
+        include: path.join(__dirname, 'src')
       }, {
         test: /\.(png|jpg)$/,
         loader: 'file-loader',
@@ -67,7 +67,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
 
     new OpenBrowserPlugin({
-      url: 'http://localhost:8081'
+      url: 'http://localhost:8080'
     })
   ]
 }

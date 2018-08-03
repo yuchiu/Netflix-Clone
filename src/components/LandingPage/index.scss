@@ -1,0 +1,20 @@
+@import "HomeList";
+@import "./presentations/index";
+
+/* MQ */
+@include maxMediaQueries(750px) {
+  .list-title {
+    padding-left: 20px;
+  }
+  .left-controls {
+    height: 180px;
+    width: 10%;
+  }
+  .right-controls {
+    height: 180px;
+    width: 10%;
+  }
+  #content {
+    padding: 30px 0 30px 0;
+  }
+}

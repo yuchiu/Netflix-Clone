@@ -1,7 +1,7 @@
 import React from "react";
 import Proptypes from "prop-types";
 import { connect } from "react-redux";
-import { SearchItem } from "../presentations/SearchPage";
+import { SearchItem } from "./presentations";
 import { movieActions } from "../../actions";
 
 const ViewSearch = ({ searchResult, fetchTheMovie, fetchCast }) => (

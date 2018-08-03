@@ -1,0 +1,150 @@
+/* tiles CSS transition and transform effects */
+
+.list-container {
+  max-width: 100%;
+  padding: 0px;
+  position: relative;
+}
+
+.list-title {
+  padding-left: 40px;
+  font-weight: bold;
+}
+
+.listRow {
+  display: flex;
+  width: 100%;
+  transition: 0.3s transform;
+  &:hover {
+    transform: translate3d(-120px, 0, 0);
+  }
+}
+
+@include listingTiles;
+.long-title {
+  font-size: 0.9em;
+}
+.longer-title {
+  font-size: 0.75em;
+}
+
+/* netflix-like carousel effects */
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+.left-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4%;
+  height: 280px;
+  z-index: 40;
+  background: $netflixBlack;
+  opacity: 0.5;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  color: #fff;
+  justify-content: center;
+}
+
+.right-controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4%;
+  height: 280px;
+  z-index: 40;
+  background: $netflixBlack;
+  opacity: 0.5;
+  display: flex;
+  cursor: pointer;
+  text-align: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.module-section {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+#content {
+  width: 600em;
+  list-style-type: none;
+  padding: 50px 0 50px 0;
+}
+
+/* MQ */
+@include maxMediaQueries(1400px) {
+  .tile {
+    width: $tileWidth * 0.95;
+    height: $tileHeight * 0.95;
+    &:hover {
+      transform: scale(1.7);
+    }
+    &:hover ~ .tile {
+      transform: translate3d(190px, 0, 0);
+    }
+  }
+  .listRow {
+    &:hover {
+      transform: translate3d(-110px, 0, 0);
+    }
+  }
+}
+
+@include maxMediaQueries(750px) {
+  .playbtn-container {
+    margin: 18px 0px 5px 0px;
+  }
+  .tile {
+    width: $tileWidth * 0.8;
+    height: $tileHeight * 0.8;
+    &:hover {
+      transform: scale(1.4);
+    }
+    &:hover ~ .tile {
+      transform: translate3d(90px, 0, 0);
+    }
+  }
+  .tile-title {
+    font-size: 0.8em;
+  }
+  .listRow {
+    &:hover {
+      transform: translate3d(-70px, 0, 0);
+    }
+  }
+}
+@include maxMediaQueries(445px) {
+  .playbtn-container {
+    margin: 15px 0px 0px 0px;
+  }
+  .tile {
+    width: $tileWidth * 0.75;
+    height: $tileHeight * 0.75;
+    &:hover {
+      transform: scale(1.3);
+    }
+    &:hover ~ .tile {
+      transform: translate3d(65px, 0, 0);
+    }
+  }
+  .tile-title {
+    font-size: 0.7em;
+  }
+  .listRow {
+    &:hover {
+      transform: translate3d(-60px, 0, 0);
+    }
+  }
+}

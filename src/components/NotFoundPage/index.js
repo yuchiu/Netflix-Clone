@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, Footer } from "../presentations";
+import { Nav, Footer } from "../Global";
 
 const NotFound = () => (
   <div>

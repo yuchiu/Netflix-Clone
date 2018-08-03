@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { SearchInput } from "../containers";
-import netflixLogo from "../../../assets/img/Netflix-logo.png";
+import SearchInput from "./SearchInput";
+import netflixLogo from "../../../../assets/img/Netflix-logo.png";
 
 const Nav = () => (
   <div>

@@ -1,7 +1,7 @@
 import React from "react";
 import Proptypes from "prop-types";
 import { connect } from "react-redux";
-import { MovieList, ListHeader } from "../presentations/HomePage";
+import { MovieList, ListHeader } from "./presentations";
 import { movieListActions, movieActions } from "../../actions";
 
 class HomeList extends React.Component {

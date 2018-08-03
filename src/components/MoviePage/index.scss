@@ -1,0 +1,154 @@
+/* base style for movie page, small screen size first */
+
+#moviePage-container {
+  display: flex;
+}
+
+#poster-container {
+  padding: 3vw;
+}
+
+#desc-container {
+  padding: 3vw;
+  text-align: center;
+}
+
+#cast-container {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.cast-item {
+  padding: 1vw;
+  margin-bottom: 1rem;
+  &last-child {
+    margin-bottom: 0;
+  }
+  .cast-profile-img {
+    height: 220px;
+    width: 150px;
+  }
+}
+
+/* media queries for larger screen size  */
+
+@include maxMediaQueries(720px) {
+  #poster {
+    width: 80vw;
+  }
+  .desc-item {
+    margin-bottom: 1rem;
+  }
+}
+
+@include maxMediaQueries(975px) {
+  #moviePage-container {
+    display: flex;
+    flex-direction: column;
+  }
+  #poster-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .desc-item {
+    margin-bottom: 1rem;
+  }
+}
+
+@include maxMediaQueries(1300px, 976px) {
+  #desc-container {
+    text-align: left;
+  }
+  #cast-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .cast-item {
+    width: 50%;
+  }
+  .desc-item {
+    margin-bottom: 1rem;
+  }
+}
+
+@include maxMediaQueries(1500px, 1301px) {
+  #desc-container {
+    text-align: left;
+  }
+  #cast-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .cast-item {
+    width: 25%;
+  }
+  #poster-container {
+    flex: 40vw;
+  }
+  #desc-container {
+    flex: 60vw;
+  }
+  .movie-title {
+    font-size: 2rem;
+  }
+  .desc-item {
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+  }
+  .desc-title {
+    font-size: 1.2rem;
+  }
+}
+
+@include minMediaQueries(1501px) {
+  #desc-container {
+    text-align: left;
+  }
+  #cast-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .cast-item {
+    width: 25%;
+  }
+  #poster-container {
+    padding-left: 5vw;
+    flex: 40vw;
+  }
+  #desc-container {
+    flex: 55vw;
+  }
+  #poster {
+    width: 35vw;
+  }
+  .movie-title {
+    font-size: 2rem;
+  }
+  .desc-item {
+    margin-bottom: 4rem;
+    font-size: 1.1rem;
+  }
+  .desc-title {
+    font-size: 1.3rem;
+  }
+}
+
+@include minMediaQueries(1700px) {
+  .movie-title {
+    font-size: 2.5rem;
+  }
+  .desc-item {
+    margin-bottom: 4.5rem;
+    font-size: 1.3rem;
+  }
+  .desc-title {
+    font-size: 1.5rem;
+  }
+}
+/* end */

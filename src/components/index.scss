@@ -1,0 +1,24 @@
+@import "vars";
+@import "./Global/Footer/index";
+@import "./Global/Nav/index";
+@import "./LandingPage/index";
+@import "./SearchPage/index";
+@import "./MoviePage/index";
+
+/* Global */
+* {
+  margin: 0;
+  bottom: 0;
+  color: #fff;
+  list-style: none;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+}
+
+#root {
+  background: $netflixBlack;
+}
+
+body {
+  width: 100%;
+}
