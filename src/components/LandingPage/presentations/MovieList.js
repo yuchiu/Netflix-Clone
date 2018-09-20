@@ -10,14 +10,7 @@ class MovieList extends React.Component {
   };
 
   renderMovieList = movieList =>
-    movieList.map(movie => (
-      <ListItem
-        key={movie.id}
-        movie={movie}
-        fetchTheMovie={this.props.fetchTheMovie}
-        fetchCast={this.props.fetchCast}
-      />
-    ));
+    movieList.map(movie => <ListItem key={movie.id} movie={movie} />);
 
   handleLeftClick = e => {
     e.preventDefault();
@@ -81,8 +74,6 @@ class MovieList extends React.Component {
 }
 
 MovieList.propTypes = {
-  fetchTheMovie: Proptypes.array,
-  fetchCast: Proptypes.array,
   movieList: Proptypes.array
 };
 export default MovieList;

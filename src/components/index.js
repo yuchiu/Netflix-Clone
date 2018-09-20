@@ -11,9 +11,9 @@ const Router = () => (
   <BrowserRouter>
     <Switch>
       <Route path="/" exact component={LandingPage} />
-      <Route path="/search" exact component={SearchPage} />
-      <Route path="/movie" exact component={MoviePage} />
-      <Route component={NotFoundPage} />
+      <Route path="/search/:searchInput" exact component={SearchPage} />
+      <Route path="/movie/:movieId" exact component={MoviePage} />
+      <Route exact path="/:unfoundLocation" component={NotFoundPage} />
     </Switch>
   </BrowserRouter>
 );

@@ -49,5 +49,16 @@ export default {
         payload: "error occured while fetching to tmdb API"
       });
     }
+  },
+
+  clearTheMovie: () => dispatch => {
+    dispatch({
+      type: constants.CLEAR_THE_MOVIE
+    });
+  },
+  clearSearchResult: () => dispatch => {
+    dispatch({
+      type: constants.CLEAR_SEARCH_RESULT
+    });
   }
 };

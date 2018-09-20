@@ -10,6 +10,11 @@ export default (state = initialState, action) => {
     case constants.FETCH_SEARCH:
       newState.searchResult = action.payload.results;
       return newState;
+
+    case constants.CLEAR_SEARCH_RESULT:
+      newState.searchResult = [];
+      return newState;
+
     default:
       return state;
   }

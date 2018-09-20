@@ -10,6 +10,11 @@ export default (state = initialState, action) => {
     case constants.FETCH_THEMOVIE:
       newState.theMovie = action.payload;
       return newState;
+
+    case constants.CLEAR_THE_MOVIE:
+      newState.theMovie = {};
+      return newState;
+
     default:
       return state;
   }

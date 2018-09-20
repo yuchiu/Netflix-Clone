@@ -1,12 +1,25 @@
 import React from "react";
-import { Nav, Footer } from "@/components/global";
+import PropTypes from "prop-types";
 
-const NotFound = () => (
-  <div>
+import { Nav, Footer } from "@/components/global";
+import Content from "./Content";
+
+const NotFoundPage = ({
+  match: {
+    params: { unfoundLocation }
+  }
+}) => (
+  <React.Fragment>
     <Nav />
-    NotFound
+    <main className="not-found-page">
+      <Content unfoundLocation={unfoundLocation} />
+    </main>
     <Footer />
-  </div>
+  </React.Fragment>
 );
 
-export default NotFound;
+NotFoundPage.propTypes = {
+  match: PropTypes.object.isRequired
+};
+
+export default NotFoundPage;

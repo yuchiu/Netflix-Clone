@@ -1,4 +1,4 @@
-import movieActions from "./movie.actions";
-import movieListActions from "./movieList.actions";
+import movieAction from "./movie.action";
+import movieListAction from "./movieList.action";
 
-export { movieActions, movieListActions };
+export { movieAction, movieListAction };

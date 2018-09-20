@@ -2,7 +2,7 @@ import React from "react";
 import Proptypes from "prop-types";
 import { connect } from "react-redux";
 import { MovieList, ListHeader } from "./presentations";
-import { movieListActions, movieActions } from "@/actions";
+import { movieListAction, movieAction } from "@/actions";
 
 class HomeList extends React.Component {
   componentDidMount() {
@@ -19,47 +19,22 @@ class HomeList extends React.Component {
   }
 
   render() {
-    const {
-      nowPlaying,
-      upcoming,
-      topRated,
-      popular,
-      fetchTheMovie,
-      fetchCast
-    } = this.props;
+    const { nowPlaying, upcoming, topRated, popular } = this.props;
     return (
       <div>
         <ListHeader header="Up Coming" />
-        <MovieList
-          movieList={upcoming}
-          fetchTheMovie={fetchTheMovie}
-          fetchCast={fetchCast}
-        />
+        <MovieList movieList={upcoming} />
         <ListHeader header="Popular" />
-        <MovieList
-          movieList={popular}
-          fetchTheMovie={fetchTheMovie}
-          fetchCast={fetchCast}
-        />
+        <MovieList movieList={popular} />
         <ListHeader header="Top Rated" />
-        <MovieList
-          movieList={topRated}
-          fetchTheMovie={fetchTheMovie}
-          fetchCast={fetchCast}
-        />
+        <MovieList movieList={topRated} />
         <ListHeader header="Now Playing" />
-        <MovieList
-          movieList={nowPlaying}
-          fetchTheMovie={fetchTheMovie}
-          fetchCast={fetchCast}
-        />
+        <MovieList movieList={nowPlaying} />
       </div>
     );
   }
 }
 HomeList.propTypes = {
-  fetchTheMovie: Proptypes.func,
-  fetchCast: Proptypes.func,
   fetchUpcoming: Proptypes.func,
   fetchPopular: Proptypes.func,
   fetchTopRated: Proptypes.func,
@@ -79,22 +54,16 @@ const stateToProps = state => ({
 
 const dispatchToProps = dispatch => ({
   fetchUpcoming: () => {
-    dispatch(movieListActions.fetchUpcoming());
+    dispatch(movieListAction.fetchUpcoming());
   },
   fetchPopular: () => {
-    dispatch(movieListActions.fetchPopular());
+    dispatch(movieListAction.fetchPopular());
   },
   fetchTopRated: () => {
-    dispatch(movieListActions.fetchTopRated());
+    dispatch(movieListAction.fetchTopRated());
   },
   fetchNowPlaying: () => {
-    dispatch(movieListActions.fetchNowPlaying());
-  },
-  fetchTheMovie: movieId => {
-    dispatch(movieActions.fetchTheMovie(movieId));
-  },
-  fetchCast: movieId => {
-    dispatch(movieActions.fetchCast(movieId));
+    dispatch(movieListAction.fetchNowPlaying());
   }
 });
 

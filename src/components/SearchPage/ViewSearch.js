@@ -1,24 +1,40 @@
 import React from "react";
 import Proptypes from "prop-types";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+
 import { SearchItem } from "./presentations";
-import { movieActions } from "@/actions";
+import { movieAction } from "@/actions";
 
-const ViewSearch = ({ searchResult, fetchTheMovie, fetchCast }) => (
-  <div id="result-container">
-    <ul>
-      {searchResult.map(movie => (
-        <SearchItem
-          key={movie.id}
-          movie={movie}
-          fetchTheMovie={fetchTheMovie}
-          fetchCast={fetchCast}
-        />
-      ))}
-    </ul>
-  </div>
-);
+class ViewSearch extends React.Component {
+  componentDidMount() {
+    const {
+      fetchSearch,
+      match: {
+        params: { searchInput }
+      }
+    } = this.props;
+    fetchSearch(searchInput);
+  }
 
+  componentWillUnmount() {
+    const { clearSearchResult } = this.props;
+    clearSearchResult();
+  }
+
+  render() {
+    const { searchResult } = this.props;
+    return (
+      <div id="result-container">
+        <ul>
+          {searchResult.map(movie => (
+            <SearchItem key={movie.id} movie={movie} />
+          ))}
+        </ul>
+      </div>
+    );
+  }
+}
 ViewSearch.propTypes = {
   fetchTheMovie: Proptypes.func,
   fetchCast: Proptypes.func,
@@ -30,15 +46,15 @@ const stateToProps = state => ({
 });
 
 const dispatchToProps = dispatch => ({
-  fetchTheMovie: movieId => {
-    dispatch(movieActions.fetchTheMovie(movieId));
+  fetchSearch: input => {
+    dispatch(movieAction.fetchSearch(input));
   },
-  fetchCast: movieId => {
-    dispatch(movieActions.fetchCast(movieId));
-  }
+  clearSearchResult: () => dispatch(movieAction.clearSearchResult())
 });
 
-export default connect(
-  stateToProps,
-  dispatchToProps
-)(ViewSearch);
+export default withRouter(
+  connect(
+    stateToProps,
+    dispatchToProps
+  )(ViewSearch)
+);
