@@ -12,19 +12,19 @@ export default (state = initialState, action) => {
 
   switch (action.type) {
     case constants.FETCH_NOWPLAYING:
-      newState.nowPlaying = action.payload.data.results;
+      newState.nowPlaying = action.payload.results;
       return newState;
 
     case constants.FETCH_POPULAR:
-      newState.popular = action.payload.data.results;
+      newState.popular = action.payload.results;
       return newState;
 
     case constants.FETCH_TOPRATED:
-      newState.topRated = action.payload.data.results;
+      newState.topRated = action.payload.results;
       return newState;
 
     case constants.FETCH_UPCOMING:
-      newState.upcoming = action.payload.data.results;
+      newState.upcoming = action.payload.results;
       return newState;
 
     default:

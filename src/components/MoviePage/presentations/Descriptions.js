@@ -26,7 +26,9 @@ const Poster = ({ theMovie, castList }) => (
     </p>
     <b className="desc-title">Cast:</b>
     <ul id="cast-container">
-      {castList.map(person => <Cast key={person.id} person={person} />)}
+      {castList.map(person => (
+        <Cast key={person.id} person={person} />
+      ))}
     </ul>
   </div>
 );

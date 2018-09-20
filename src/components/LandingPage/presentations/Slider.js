@@ -30,8 +30,10 @@ const Slider = () => (
                 <b>97% Match 2016 TV-14 season 1</b>
                 <br />
                 <br />
-                Phasellus a nulla vitae augue convallis efficitur.<br />
-                Nam gravida viverra velit venenatis elementum.<br />
+                Phasellus a nulla vitae augue convallis efficitur.
+                <br />
+                Nam gravida viverra velit venenatis elementum.
+                <br />
                 Phasellus egestas volutpa
               </p>
               <p className="sub-title">
@@ -48,7 +50,8 @@ const Slider = () => (
               <p className="castGenreList">volutpat tortor, massa</p>
               <button type="button" className="addListBtn">
                 +
-              </button>MY LIST
+              </button>
+              MY LIST
             </div>
           </div>
         </div>
@@ -65,8 +68,10 @@ const Slider = () => (
                 <b>97% Match 2016 TV-14 season 1</b>
                 <br />
                 <br />
-                Phasellus a nulla vitae augue convallis efficitur.<br />
-                Nam gravida viverra velit venenatis elementum.<br />
+                Phasellus a nulla vitae augue convallis efficitur.
+                <br />
+                Nam gravida viverra velit venenatis elementum.
+                <br />
                 Phasellus egestas volutpa
               </p>
               <p className="sub-title">
@@ -83,7 +88,8 @@ const Slider = () => (
               <p className="castGenreList">tortor, eleifend</p>
               <button type="button" className="addListBtn">
                 +
-              </button>MY LIST
+              </button>
+              MY LIST
             </div>
           </div>
         </div>
@@ -100,8 +106,10 @@ const Slider = () => (
                 <b>97% Match 2016 TV-14 season 1</b>
                 <br />
                 <br />
-                Phasellus a nulla vitae augue convallis efficitur.<br />
-                Nam gravida viverra velit venenatis elementum.<br />
+                Phasellus a nulla vitae augue convallis efficitur.
+                <br />
+                Nam gravida viverra velit venenatis elementum.
+                <br />
                 Phasellus egestas volutpa
               </p>
               <p className="sub-title">
@@ -118,7 +126,8 @@ const Slider = () => (
               <p className="castGenreList">Phasellus, volutpat</p>
               <button type="button" className="addListBtn">
                 +
-              </button>MY LIST
+              </button>
+              MY LIST
             </div>
           </div>
         </div>

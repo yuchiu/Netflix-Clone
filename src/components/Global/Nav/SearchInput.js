@@ -2,8 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import Proptypes from "prop-types";
 import { Link } from "react-router-dom";
-import { movieActions } from "../../../actions";
-import searchIcon from "../../../../assets/img/search-icon.png";
+import { movieActions } from "@/actions";
+import searchIcon from "@/assets/img/search-icon.png";
 
 class SearchInput extends React.Component {
   state = {
@@ -38,6 +38,7 @@ class SearchInput extends React.Component {
               height: 30
             }}
             src={searchIcon}
+            alt="img"
           />
         </Link>
       </li>

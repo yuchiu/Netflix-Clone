@@ -1,6 +1,6 @@
 import React from "react";
-import  ViewSearch  from "./ViewSearch";
-import { Nav, Footer } from "../Global";
+import ViewSearch from "./ViewSearch";
+import { Nav, Footer } from "@/components/global";
 
 const SearchPage = () => (
   <div className="SearchPage-container">

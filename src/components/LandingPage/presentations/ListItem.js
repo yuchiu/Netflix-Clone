@@ -31,6 +31,7 @@ const renderPic = movie => {
     return (
       <img
         className="tile-img"
+        alt="img"
         src={`http://image.tmdb.org/t/p/w500//${movie.backdrop_path}`}
       />
     );
@@ -39,11 +40,18 @@ const renderPic = movie => {
     return (
       <img
         className="tile-img "
+        alt="img"
         src={`http://image.tmdb.org/t/p/w500//${movie.poster_path}`}
       />
     );
   }
-  return <img className="tile-img" src="http://via.placeholder.com/280x160" />;
+  return (
+    <img
+      alt="img"
+      className="tile-img"
+      src="http://via.placeholder.com/280x160"
+    />
+  );
 };
 
 const ListItem = ({ movie, fetchTheMovie, fetchCast }) => (

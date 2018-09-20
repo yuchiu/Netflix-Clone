@@ -1,9 +1,10 @@
 import React from "react";
-import { Nav, Footer } from "../Global";
+import { Nav, Footer } from "@/components/global";
 
 const NotFound = () => (
   <div>
-    <Nav />NotFound
+    <Nav />
+    NotFound
     <Footer />
   </div>
 );

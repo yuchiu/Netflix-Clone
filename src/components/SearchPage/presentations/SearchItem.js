@@ -19,7 +19,12 @@ const renderDesc = desc => {
   if (desc.length > 150) {
     // eslint-disable-next-line no-param-reassign
     desc = desc.substring(0, 150);
-    return <p className="search-tile-desc">{desc}...</p>;
+    return (
+      <p className="search-tile-desc">
+        {desc}
+        ...
+      </p>
+    );
   }
   return <p className="search-tile-desc">{desc}</p>;
 };
@@ -28,6 +33,7 @@ const renderPic = movie => {
   if (movie.backdrop_path !== null) {
     return (
       <img
+        alt="img"
         className="tile-img"
         src={`http://image.tmdb.org/t/p/w500//${movie.backdrop_path}`}
       />
@@ -36,6 +42,7 @@ const renderPic = movie => {
   if (movie.poster_path !== null) {
     return (
       <img
+        alt="img"
         className="tile-img "
         src={`http://image.tmdb.org/t/p/w500//${movie.poster_path}`}
       />

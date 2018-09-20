@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import SearchInput from "./SearchInput";
-import netflixLogo from "../../../../assets/img/Netflix-logo.png";
+import netflixLogo from "@/assets/img/Netflix-logo.png";
 
 const Nav = () => (
   <div>
@@ -15,6 +15,7 @@ const Nav = () => (
                 height: 30
               }}
               src={netflixLogo}
+              alt="img"
             />
           </NavLink>
         </li>

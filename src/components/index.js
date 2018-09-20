@@ -2,9 +2,12 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import "./index.scss";
-import { LandingPage, MoviePage, SearchPage, NotFoundPage } from "./allRoutes";
+import LandingPage from "./LandingPage";
+import MoviePage from "./MoviePage";
+import SearchPage from "./SearchPage";
+import NotFoundPage from "./NotFoundPage";
 
-const Routes = () => (
+const Router = () => (
   <BrowserRouter>
     <Switch>
       <Route path="/" exact component={LandingPage} />
@@ -14,4 +17,4 @@ const Routes = () => (
     </Switch>
   </BrowserRouter>
 );
-export default Routes;
+export default Router;
