@@ -7,7 +7,30 @@ import { SearchItem } from "./presentations";
 import { movieAction } from "@/actions";
 
 class ViewSearch extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentParam: ""
+    };
+    this.fetchSearch = this.fetchSearch.bind(this);
+  }
+
   componentDidMount() {
+    this.fetchSearch();
+  }
+
+  componentDidUpdate() {
+    const {
+      match: {
+        params: { searchInput }
+      }
+    } = this.props;
+    const { currentParam } = this.state;
+
+    if (currentParam !== searchInput) this.fetchSearch();
+  }
+
+  fetchSearch = () => {
     const {
       fetchSearch,
       match: {
@@ -15,11 +38,13 @@ class ViewSearch extends React.Component {
       }
     } = this.props;
     fetchSearch(searchInput);
-  }
+    this.setState({ currentParam: searchInput });
+  };
 
   componentWillUnmount() {
     const { clearSearchResult } = this.props;
     clearSearchResult();
+    this.setState({ currentParam: "" });
   }
 
   render() {
@@ -36,8 +61,6 @@ class ViewSearch extends React.Component {
   }
 }
 ViewSearch.propTypes = {
-  fetchTheMovie: Proptypes.func,
-  fetchCast: Proptypes.func,
   searchResult: Proptypes.array
 };
 

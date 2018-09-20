@@ -1,27 +1,27 @@
 nav {
-    ul {
-        padding: 10px;
-        display: flex;
-    }
+  ul {
+    padding: 10px;
+    display: flex;
+  }
 }
 
 @include maxMediaQueries(750px) {
-    nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .searchInput {
-    padding: 5px;
-    color: $netflixWhite;
-    border: 0;
-    background: transparent;
-    outline: none;
-    &:focus {
-        padding: 2px 5px 2px 5px;
-        border: solid 1px $netflixWhite;
-        border-radius: 3px;
-    }
+  padding: 5px;
+  color: $netflixWhite;
+  border: 0;
+  background: transparent;
+  outline: none;
+  &:focus {
+    padding: 2px 5px 2px 5px;
+    border: solid 1px $netflixWhite;
+    border-radius: 3px;
+  }
 }

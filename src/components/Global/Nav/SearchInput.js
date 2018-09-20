@@ -1,24 +1,31 @@
 import React from "react";
 import Proptypes from "prop-types";
 
-import { Link } from "react-router-dom";
-import searchIcon from "@/assets/img/search-icon.png";
+import "./SearchInput.scss";
+import { withRouter } from "react-router-dom";
 
 class SearchInput extends React.Component {
   state = {
-    input: ""
+    input: "",
+    ENTER_KEY: 13
   };
 
   handleChange = e => {
     this.setState({ input: e.target.value });
   };
 
-  handleClick = () => {
+  handleSubmit = () => {
+    const { input } = this.state;
+    const { history } = this.props;
+    if (input.length === 0) {
+      return;
+    }
+    history.push(`/search/${input}`);
     this.setState({ input: "" });
   };
 
   render() {
-    const { input } = this.state;
+    const { input, ENTER_KEY } = this.state;
     return (
       <li>
         <input
@@ -27,24 +34,16 @@ class SearchInput extends React.Component {
           value={this.state.input}
           placeholder="movie title..."
           onChange={this.handleChange}
+          onKeyDown={e => {
+            if (e.keyCode === ENTER_KEY) this.handleSubmit();
+          }}
         />
-        <Link
-          className=" navItem"
-          to={`/search/${input}`}
-          onClick={this.handleClick}
-        >
-          <img
-            style={{
-              width: 30,
-              height: 30
-            }}
-            src={searchIcon}
-            alt="img"
-          />
-        </Link>
+        <span className="navItem search-icon ">
+          <i className="fas fa-search" onClick={this.handleSubmit} />
+        </span>
       </li>
     );
   }
 }
 
-export default SearchInput;
+export default withRouter(SearchInput);
