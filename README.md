@@ -1,48 +1,24 @@
 # Netflix Clone
 
-### Check out this site live on this [Link](http://netflix-react.surge.sh/)
+## Checkout branch "React-View" for web-client only Netflix Clone with React Redux
 
-![Demo](https://github.com/yuchiu/netflix-clone/blob/master/demo2.gif)
+## Tech Stack(Current Plan for Full-Stack Expansions)
 
-## User Story
+Reactjs ∙ Redux ∙ Node js ∙ Express ∙ Python ∙ Scrapy ∙ Flask ∙ MongoDB ∙ ElasticSearch ∙ Kibana
 
-- user can see recommended movies on homepage.
+## Objectives(Current Plan for Full-Stack Expansions)
 
-- user can see description of a movie when mouse is hovering on movie's thumbnail.
+- user authentications
+- provides movies data with its own server's API instead of TMDB API
+- scrape raw data from imdb
+- data cleaning
+- Persisted ElasticSearch for DB layer
+- display stats with Kibana
 
-- user can search for movies by titles.
+## Future Expansions
 
-- user can see detail description when I click on a movie's thumbnail.
-
-- cast list is included in the description.
-
-- responsive to different screen size.
-
-### Usage
-
-#### 1. install everything else
-
-```
-npm install
-```
-
-#### 2a. run on localhost
-
-develop environment, run webpack dev server
-
-```
-npm start
-```
-
-This will get the files running on http://localhost:8080
-Webpack will watch for changes and update the browser when file changes.
-
-#### 2b. build dist directory
-
-production environment, run webpack
-
-```
-npm run build
-```
-
-The minified JS bundle files including the output html file will be store in dist directory.
+- microservices?
+- message queue for all inter services communications?
+- recommendation system?
+- scrape videos for movies?
+- stream videos?
