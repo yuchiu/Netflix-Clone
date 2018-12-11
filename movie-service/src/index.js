@@ -8,6 +8,7 @@ import bodyParser from "body-parser";
 
 import apiV1Routes from "./router/apiV1";
 import { SERVICE_MOVIE_PORT, NODE_ENV } from "./utils/secrets";
+import ESClient from "./config/ESClient.config";
 
 const app = express();
 
@@ -25,6 +26,14 @@ app.use(compression());
 app.use(logger("dev"));
 app.use(bodyParser.json());
 app.use("/api/v1", apiV1Routes);
+
+ESClient.ping({ requestTimeout: 30000 }, error => {
+  if (error) {
+    console.error(`Elasticsearch connection failed: ${error}`);
+  } else {
+    console.log("Elasticsearch connection success");
+  }
+});
 
 /* listen to port */
 app.listen(SERVICE_MOVIE_PORT, () => {

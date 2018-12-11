@@ -19,6 +19,9 @@ if (process.env.NODE_ENV) {
   node_env = "development";
 }
 export const NODE_ENV = node_env;
-
+export const { SERVICE_MOVIE_HOST } = process.env;
 export const { SERVICE_MOVIE_URL } = process.env;
 export const { SERVICE_MOVIE_PORT } = process.env;
+export const { SERVICE_MOVIE_DB_ELASTICSEARCH_HOST } = process.env;
+export const { SERVICE_MOVIE_DB_ELASTICSEARCH_PORT } = process.env;
+export const { SERVICE_MOVIE_DB_ELASTICSEARCH_LOG } = process.env;
