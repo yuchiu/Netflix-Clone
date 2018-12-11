@@ -8,9 +8,8 @@ Reactjs ∙ Redux ∙ Node js ∙ Express ∙ Python ∙ Scrapy ∙ Flask ∙ Mo
 
 ## Objectives(Current Plan for Full-Stack Expansions)
 
-- user authentications
-- provides movies data with its own server's API instead of TMDB API
 - scrape raw data from imdb
+- provides movies data with our API instead of TMDB API
 - data cleaning
 - Persisted ElasticSearch for DB layer
 - display stats with Kibana

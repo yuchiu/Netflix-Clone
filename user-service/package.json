@@ -1,0 +1,64 @@
+{
+  "name": "user-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/service.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^6.1.0",
+    "jayson": "^2.1.0",
+    "joi": "^14.3.0",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.10",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.6",
+    "eslint": "^5.2.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "prettier": "^1.14.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "jest": true,
+      "node": true
+    },
+    "extends": [
+      "airbnb-base",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {
+      "linebreak-style": 0,
+      "quotes": [
+        "error",
+        "double"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "no-console": 0,
+      "no-unused-vars": 0,
+      "import/prefer-default-export": 0,
+      "no-underscore-dangle": 0,
+      "consistent-return": 0,
+      "no-mutable-exports": 0,
+      "class-methods-use-this": 0,
+      "import/no-unresolved": 0,
+      "import/no-cycle": 0,
+      "no-plusplus": 0,
+      "camelcase": 0,
+      "prefer-destructuring": 0
+    }
+  }
+}
