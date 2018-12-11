@@ -9,6 +9,32 @@ import scrapy
 
 
 class ImdbScraperItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    movie_id = scrapy.Field()
+    title = scrapy.Field()
+
+    film_rating = scrapy.Field()
+    duration = scrapy.Field()
+    genre = scrapy.Field()
+    release_date = scrapy.Field()
+
+    imdb_ratingValue = scrapy.Field()
+    imdb_bestRating = scrapy.Field()
+    imdb_ratingCount = scrapy.Field()
+
+    description = scrapy.Field()
+    storyline = scrapy.Field()
+
+    director = scrapy.Field()
+    creator = scrapy.Field()
+    writer = scrapy.Field()
+    stars = scrapy.Field()
+
+    taglines = scrapy.Field()
+
+    url = scrapy.Field()
+    req_headers = scrapy.Field()
+    res_headers = scrapy.Field()
+    #body = scrapy.Field()
+
+    def __repr__(self):
+        pass

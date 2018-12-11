@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 
+import os
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
+if dir_path[-1] == '/':
+    dir_path = dir_path[:-1]
+
 # Scrapy settings for imdb_scraper project
 #
 # For simplicity, this file contains only settings considered important or
@@ -14,8 +20,9 @@ LOG_LEVEL = 'ERROR'
 # LOG_LEVEL = 'WARNING'
 # LOG_LEVEL = 'INFO'
 # LOG_LEVEL = 'DEBUG'
-LOG_FORMAT = '%(levelname)s: %(message)s'
-LOG_FILE = 'log.txt'
+
+FEED_URI = dir_path+'/logs/%(name)s-%(time)s.csv'
+FEED_FORMAT = 'csv'
 
 BOT_NAME = 'imdb_scraper'
 
@@ -26,9 +33,9 @@ NEWSPIDER_MODULE = 'imdb_scraper.spiders'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'imdb_scraper (+http://www.yourdomain.com)'
 
-USER_AGENT_LIST = './user-agents.txt'
+USER_AGENT_LIST = dir_path+'/../user-agents.txt'
 
-DENIED_DOMAINS = './denied_domains.txt'
+DENIED_DOMAINS = dir_path+'/../denied_domains.txt'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -40,7 +47,7 @@ ROBOTSTXT_OBEY = True
 # See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
 
-DOWNLOAD_DELAY = 2
+DOWNLOAD_DELAY = 1
 # The download delay setting will honor only one of:
 # CONCURRENT_REQUESTS_PER_DOMAIN = 16
 # CONCURRENT_REQUESTS_PER_IP = 16
