@@ -1,0 +1,90 @@
+CRITICAL: Unhandled error in Deferred:
+CRITICAL: 
+Traceback (most recent call last):
+  File "/home/rainman/.local/lib/python2.7/site-packages/twisted/internet/defer.py", line 1418, in _inlineCallbacks
+    result = g.send(result)
+  File "/home/rainman/.local/lib/python2.7/site-packages/scrapy/crawler.py", line 98, in crawl
+    six.reraise(*exc_info)
+  File "/home/rainman/.local/lib/python2.7/site-packages/scrapy/crawler.py", line 80, in crawl
+    self.engine = self._create_engine()
+  File "/home/rainman/.local/lib/python2.7/site-packages/scrapy/crawler.py", line 105, in _create_engine
+    return ExecutionEngine(self, lambda _: self.stop())
+  File "/home/rainman/.local/lib/python2.7/site-packages/scrapy/core/engine.py", line 69, in __init__
+    self.downloader = downloader_cls(crawler)
+  File "/home/rainman/.local/lib/python2.7/site-packages/scrapy/core/downloader/__init__.py", line 88, in __init__
+    self.middleware = DownloaderMiddlewareManager.from_crawler(crawler)
+  File "/home/rainman/.local/lib/python2.7/site-packages/scrapy/middleware.py", line 58, in from_crawler
+    return cls.from_settings(crawler.settings, crawler)
+  File "/home/rainman/.local/lib/python2.7/site-packages/scrapy/middleware.py", line 34, in from_settings
+    mwcls = load_object(clspath)
+  File "/home/rainman/.local/lib/python2.7/site-packages/scrapy/utils/misc.py", line 44, in load_object
+    mod = import_module(module)
+  File "/usr/lib/python2.7/importlib/__init__.py", line 37, in import_module
+    __import__(name)
+ImportError: No module named random_useragent
+ERROR: Error processing {'rating': 7.7, 'poster': u'https://m.media-amazon.com/images/M/MV5BMjI1NDYzNzY2Ml5BMl5BanBnXkFtZTgwODQwODczNTM@._V1_UY268_CR0,0,182,268_AL_.jpg', 'datePublished': u'20 December 2017 (USA)\n', 'casts': [], 'genres': [u'Biography', u'Drama', u'Musical'], 'title': u'The Greatest Showman', 'country': [u'USA'], 'summary': u'Celebrates the birth of show business and tells of a visionary who rose from nothing to create a spectacle that became a worldwide sensation.', 'languages': [u'English'], 'time': 105, 'creators': []}
+Traceback (most recent call last):
+  File "/home/rainman/.local/lib/python2.7/site-packages/twisted/internet/defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "/home/rainman/Documents/Netflix-Clone/data-fetcher/imdb_scraper/imdb_scraper/pipelines.py", line 36, in process_item
+    movie.save(using=es)
+  File "/home/rainman/.local/lib/python2.7/site-packages/elasticsearch_dsl/document.py", line 436, in save
+    index=self._get_index(index),
+  File "/home/rainman/.local/lib/python2.7/site-packages/elasticsearch_dsl/document.py", line 148, in _get_index
+    raise ValidationException('You cannot write to a wildcard index.')
+ValidationException: You cannot write to a wildcard index.
+ERROR: Error processing {'rating': 6.1, 'poster': u'https://m.media-amazon.com/images/M/MV5BNWNiNTczNzEtMjQyZC00MjFmLTkzMDMtODk4ZGMyZmE0N2E4XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg', 'datePublished': u'17 November 2000 (USA)\n', 'casts': [], 'genres': [u'Comedy', u'Family', u'Fantasy'], 'title': u'How the Grinch Stole Christmas', 'country': [u'USA', u'Germany'], 'summary': u'On the outskirts of Whoville, there lives a green, revenge-seeking Grinch who plans on ruining the Christmas holiday for all of the citizens of the town.', 'languages': [u'English'], 'time': 110, 'creators': []}
+Traceback (most recent call last):
+  File "/home/rainman/.local/lib/python2.7/site-packages/twisted/internet/defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "/home/rainman/Documents/Netflix-Clone/data-fetcher/imdb_scraper/imdb_scraper/pipelines.py", line 36, in process_item
+    movie.save(using=es)
+  File "/home/rainman/.local/lib/python2.7/site-packages/elasticsearch_dsl/document.py", line 436, in save
+    index=self._get_index(index),
+  File "/home/rainman/.local/lib/python2.7/site-packages/elasticsearch_dsl/document.py", line 148, in _get_index
+    raise ValidationException('You cannot write to a wildcard index.')
+ValidationException: You cannot write to a wildcard index.
+ERROR: Error processing {'rating': 7.6, 'poster': u'https://m.media-amazon.com/images/M/MV5BMGZkMWQ2MzMtYTkxYS00OThmLWI0ZTQtNmY0ZTkyY2E4MjliXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg', 'datePublished': u'1 December 1989 (USA)\n', 'casts': [], 'genres': [u'Comedy'], 'title': u"National Lampoon's Christmas Vacation", 'country': [u'USA'], 'summary': u"The Griswold family's plans for a big family Christmas predictably turn into a big disaster.", 'languages': [u'English'], 'time': 97, 'creators': []}
+Traceback (most recent call last):
+  File "/home/rainman/.local/lib/python2.7/site-packages/twisted/internet/defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "/home/rainman/Documents/Netflix-Clone/data-fetcher/imdb_scraper/imdb_scraper/pipelines.py", line 36, in process_item
+    movie.save(using=es)
+  File "/home/rainman/.local/lib/python2.7/site-packages/elasticsearch_dsl/document.py", line 436, in save
+    index=self._get_index(index),
+  File "/home/rainman/.local/lib/python2.7/site-packages/elasticsearch_dsl/document.py", line 148, in _get_index
+    raise ValidationException('You cannot write to a wildcard index.')
+ValidationException: You cannot write to a wildcard index.
+ERROR: Error processing {'rating': 7.6, 'poster': u'https://m.media-amazon.com/images/M/MV5BMTY4NjQ5NDc0Nl5BMl5BanBnXkFtZTYwNjk5NDM3._V1_UX182_CR0,0,182,268_AL_.jpg', 'datePublished': u'14 November 2003 (USA)\n', 'casts': [], 'genres': [u'Comedy', u'Drama', u'Romance'], 'title': u'Love Actually', 'country': [u'UK', u'USA', u'France'], 'summary': u'Follows the lives of eight very different couples in dealing with their love lives in various loosely interrelated tales all set during a frantic month before Christmas in London, England.', 'languages': [u'English', u'Portuguese', u'French'], 'time': 129, 'creators': []}
+Traceback (most recent call last):
+  File "/home/rainman/.local/lib/python2.7/site-packages/twisted/internet/defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "/home/rainman/Documents/Netflix-Clone/data-fetcher/imdb_scraper/imdb_scraper/pipelines.py", line 36, in process_item
+    movie.save(using=es)
+  File "/home/rainman/.local/lib/python2.7/site-packages/elasticsearch_dsl/document.py", line 436, in save
+    index=self._get_index(index),
+  File "/home/rainman/.local/lib/python2.7/site-packages/elasticsearch_dsl/document.py", line 148, in _get_index
+    raise ValidationException('You cannot write to a wildcard index.')
+ValidationException: You cannot write to a wildcard index.
+ERROR: Error processing {'rating': 6.9, 'poster': u'https://m.media-amazon.com/images/M/MV5BMzUxNzkzMzQtYjIxZC00NzU0LThkYTQtZjNhNTljMTA1MDA1L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg', 'datePublished': u'7 November 2003 (USA)\n', 'casts': [], 'genres': [u'Comedy', u'Family', u'Fantasy'], 'title': u'Elf', 'country': [u'USA'], 'summary': u'After inadvertently wreaking havoc on the elf community due to his ungainly size, a man raised as an elf at the North Pole is sent to the U.S. in search of his true identity.', 'languages': [u'English'], 'time': 97, 'creators': []}
+Traceback (most recent call last):
+  File "/home/rainman/.local/lib/python2.7/site-packages/twisted/internet/defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "/home/rainman/Documents/Netflix-Clone/data-fetcher/imdb_scraper/imdb_scraper/pipelines.py", line 36, in process_item
+    movie.save(using=es)
+  File "/home/rainman/.local/lib/python2.7/site-packages/elasticsearch_dsl/document.py", line 436, in save
+    index=self._get_index(index),
+  File "/home/rainman/.local/lib/python2.7/site-packages/elasticsearch_dsl/document.py", line 148, in _get_index
+    raise ValidationException('You cannot write to a wildcard index.')
+ValidationException: You cannot write to a wildcard index.
+ERROR: Error processing {'rating': 7.5, 'poster': u'https://m.media-amazon.com/images/M/MV5BMzFkM2YwOTQtYzk2Mi00N2VlLWE3NTItN2YwNDg1YmY0ZDNmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg', 'datePublished': u'16 November 1990 (USA)\n', 'casts': [], 'genres': [u'Comedy', u'Family'], 'title': u'Home Alone', 'country': [u'USA'], 'summary': u'An eight-year-old troublemaker must protect his house from a pair of burglars when he is accidentally left home alone by his family during Christmas vacation.', 'languages': [u'English'], 'time': 103, 'creators': []}
+Traceback (most recent call last):
+  File "/home/rainman/.local/lib/python2.7/site-packages/twisted/internet/defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "/home/rainman/Documents/Netflix-Clone/data-fetcher/imdb_scraper/imdb_scraper/pipelines.py", line 36, in process_item
+    movie.save(using=es)
+  File "/home/rainman/.local/lib/python2.7/site-packages/elasticsearch_dsl/document.py", line 436, in save
+    index=self._get_index(index),
+  File "/home/rainman/.local/lib/python2.7/site-packages/elasticsearch_dsl/document.py", line 148, in _get_index
+    raise ValidationException('You cannot write to a wildcard index.')
+ValidationException: You cannot write to a wildcard index.

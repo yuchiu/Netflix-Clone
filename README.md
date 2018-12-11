@@ -90,7 +90,7 @@
 | pip           | 9.0.1       |
 | nodejs        | 10.7.0      |
 | python        | 2.7         |
-| elasticsearch | 5.5.3       |
+| elasticsearch | 6.3.1       |
 | mongodb       | cloud(mLab) |
 
 ### Building Data Pipeline
