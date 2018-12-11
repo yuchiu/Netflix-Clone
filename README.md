@@ -71,14 +71,16 @@
 - rating system?
 - payment system?
 
+---
+
 ## Getting Started
 
-## Prerequisites
+### Prerequisites
 
 **!important** .env file is required for setting up environment variables for this project  
  an example of .env file is located at root directory
 
-### Tools & Versions
+#### Tools & Versions
 
 | Tools         | Versions    |
 | ------------- | ----------- |
