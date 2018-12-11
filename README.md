@@ -1,23 +1,172 @@
 # Netflix Clone
 
-## Checkout branch "React-View" for web-client only Netflix Clone with React Redux
+- **Checkout branch "React-View" for web-client only Netflix Clone with React Redux**
+- Currently under rework for full-stack expansion
 
-## Tech Stack(Current Plan for Full-Stack Expansions)
+## Quick Link
 
-Reactjs ∙ Redux ∙ Node js ∙ Express ∙ Python ∙ Scrapy ∙ Flask ∙ MongoDB ∙ ElasticSearch ∙ Kibana
+[Tech Stack](#tech-stack)
 
-## Objectives(Current Plan for Full-Stack Expansions)
+[Objectives](#objectives)
+
+- [Current Plan for Full-Stack Expansions](#current-plan-for-full-stack-expansions)
+- [Future Expansions](#future-expansions)
+
+[Getting Started](#getting-started)
+
+- [Prerequisites](#prerequisites)
+
+  - [Tools & Versions](#tools-&-versions)
+
+- [Building Data Pipeline](#building-data-pipeline)
+
+  - [Data Fetcher](#data-fetcher)
+
+- [Serving Application](#serving-application)
+
+  - [Movie Service](#movie-service)
+  - [User Service](#user-service)
+  - [Web Server](#web-server)
+  - [Web Client](#web-client)
+
+[Deployment](#deployment)
+
+[Author](#author)
+
+[Acknowledgments](#acknowledgments)
+
+---
+
+## Tech Stack
+
+- React ∙ Redux
+  - Web Client & Client Data Management
+- Kibana
+  - ElasticSearch stats data visualization
+- Nodejs ∙ Expressjs ∙ Python ∙ Flask
+  - Web Server & Services
+- Scrapy
+  - Web Scraper
+- ElasticSearch ∙ MongoDB
+  - Persisted Data layer
+
+---
+
+## Objectives
+
+### Current Plan for Full-Stack Expansions
 
 - scrape raw data from imdb
 - provides movies data with our API instead of TMDB API
-- data cleaning
 - Persisted ElasticSearch for DB layer
 - display stats with Kibana
 
-## Future Expansions
+### Future Expansions
 
 - microservices?
 - message queue for all inter services communications?
 - recommendation system?
 - scrape videos for movies?
 - stream videos?
+- rating system?
+- payment system?
+
+## Getting Started
+
+## Prerequisites
+
+**!important** .env file is required for setting up environment variables for this project  
+ an example of .env file is located at root directory
+
+### Tools & Versions
+
+| Tools         | Versions    |
+| ------------- | ----------- |
+| npm           | 6.1.0       |
+| pip           | 9.0.1       |
+| nodejs        | 10.7.0      |
+| python        | 2.7         |
+| elasticsearch | 5.1.2       |
+| mongodb       | cloud(mLab) |
+
+### Building Data Pipeline
+
+#### Data Fetcher
+
+- install dependencies
+
+```terminal
+pip install -r requirements.txt
+```
+
+- fetch movie data from IMDB
+
+```terminal
+scrapy crawl "imdb_spider"
+```
+
+### Serving Application
+
+#### Movie Service
+
+- install dependencies & start Movie-Service
+
+```terminal
+cd movie-service
+pip install -r requirements
+python service.py
+```
+
+Application will be serving on http://localhost:3130
+
+#### User Service
+
+- install dependencies & start User-Service
+
+```terminal
+cd user-service
+npm install
+npm start
+```
+
+Application will be serving on http://localhost:3130
+
+#### Web Server
+
+- install dependencies & start Web-Server
+
+```terminal
+cd web-server
+npm install
+npm start
+```
+
+Application will be serving on http://localhost:3030
+
+#### Web Client
+
+- install dependencies & start application
+
+```terminal
+cd web-client
+npm install
+npm start
+```
+
+Application will be serving on http://localhost:3000
+
+## Deployment
+
+- Not set up yet
+
+## Author
+
+- Yu Chiu
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details
+
+## Acknowledgments
+
+- Not set up yet
