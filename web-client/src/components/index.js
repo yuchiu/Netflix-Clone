@@ -1,20 +1,17 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import "./index.scss";
+import "./index.css";
 import LandingPage from "./LandingPage";
-import MoviePage from "./MoviePage";
-import SearchPage from "./SearchPage";
 import NotFoundPage from "./NotFoundPage";
 
-const Router = () => (
+export default () => (
   <BrowserRouter>
-    <Switch>
-      <Route path="/" exact component={LandingPage} />
-      <Route path="/search/:searchInput" exact component={SearchPage} />
-      <Route path="/movie/:movieId" exact component={MoviePage} />
-      <Route exact path="/:unfoundLocation" component={NotFoundPage} />
-    </Switch>
+    <React.Fragment>
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    </React.Fragment>
   </BrowserRouter>
 );
-export default Router;
