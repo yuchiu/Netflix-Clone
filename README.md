@@ -45,10 +45,10 @@
   - Web Client & Client Data Management
 - Kibana
   - ElasticSearch stats data visualization
-- Nodejs ∙ Expressjs ∙ Python ∙ Flask
+- Nodejs ∙ Expressjs
   - Web Server & Services
-- Scrapy
-  - Web Scraper
+- Python ∙ Scrapy
+  - Web Scraper, data processing
 - ElasticSearch ∙ MongoDB
   - Persisted Data layer
 

@@ -1,0 +1,89 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development nodemon --exec babel-node src/index.js",
+    "build": "babel src -d build",
+    "serve": "cross-env NODE_ENV=production SERVER_URL=http://localhost PORT=3030 node build/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.3",
+    "helmet": "^3.13.0",
+    "lodash": "^4.17.10",
+    "mongoose": "^5.2.7",
+    "morgan": "^1.9.0",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "nodemon": "^1.18.3",
+    "prettier": "^1.14.0"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "stage-3"
+    ],
+    "plugins": [
+      [
+        "transform-runtime",
+        {
+          "polyfill": false,
+          "regenerator": true
+        }
+      ]
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "jest": true,
+      "node": true
+    },
+    "extends": [
+      "airbnb-base",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {
+      "quotes": [
+        "error",
+        "double"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "no-console": 0,
+      "no-unused-vars": 0,
+      "import/prefer-default-export": 0,
+      "no-underscore-dangle": 0,
+      "consistent-return": 0,
+      "linebreak-style": 0,
+      "no-mutable-exports": 0,
+      "class-methods-use-this": 0,
+      "import/no-unresolved": 0,
+      "import/no-cycle": 0,
+      "no-plusplus": 0,
+      "camelcase": 0,
+      "prefer-destructuring": 0
+    }
+  }
+}
