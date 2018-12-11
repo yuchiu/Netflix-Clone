@@ -33,7 +33,6 @@ class ImdbscraperPipeline(object):
         movie.countries = item['country']
         movie.languages = item['languages']
         movie.poster = item['poster']
-        movie.plot_keywords = item['plot_keywords']
         movie.save(using=es)
         return item
 
@@ -41,14 +40,12 @@ class ImdbscraperPipeline(object):
 class Movie(DocType):
     title = Text(fields={'raw': {'type': 'keyword'}})
     summary = Text()
-    datePublished = Date()
+    datePublished = Text()
     creators = Keyword(multi=True)
     genres = Keyword(multi=True)
     casts = Keyword(multi=True)
     time = Integer()
     countries = Keyword(multi=True)
-    summary = Text()
-    plot_keywords = Keyword(multi=True)
     languages = Keyword(multi=True)
     rating = Float()
     poster = Keyword()
