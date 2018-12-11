@@ -6,7 +6,7 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 
 from elasticsearch_dsl.document import DocType
-from elasticsearch_dsl.field import Text, Date
+from elasticsearch_dsl.field import Text, Date, Keyword, Integer, Float, Completion
 from elasticsearch_dsl import Index
 from elasticsearch import Elasticsearch
 
@@ -25,6 +25,15 @@ class ImdbscraperPipeline(object):
         movie.title = item['title']
         movie.summary = item['summary']
         movie.datePublished = item['datePublished']
+        movie.genres = item['genres']
+        movie.creators = item['creators']
+        movie.casts = item['casts']
+        movie.time = item['time']
+        movie.rating = item['rating']
+        movie.countries = item['country']
+        movie.languages = item['languages']
+        movie.poster = item['poster']
+        movie.plot_keywords = item['plot_keywords']
         movie.save(using=es)
         return item
 
@@ -33,6 +42,16 @@ class Movie(DocType):
     title = Text(fields={'raw': {'type': 'keyword'}})
     summary = Text()
     datePublished = Date()
+    creators = Keyword(multi=True)
+    genres = Keyword(multi=True)
+    casts = Keyword(multi=True)
+    time = Integer()
+    countries = Keyword(multi=True)
+    summary = Text()
+    plot_keywords = Keyword(multi=True)
+    languages = Keyword(multi=True)
+    rating = Float()
+    poster = Keyword()
 
     class Meta:
         index = 'imdb'
