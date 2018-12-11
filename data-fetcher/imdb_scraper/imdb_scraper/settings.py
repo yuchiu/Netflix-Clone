@@ -65,7 +65,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'imdb_scraper.pipelines.ImdbScraperPipeline': 300,
+    'imdb_scraper.pipelines.ImdbscraperPipeline': 300
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

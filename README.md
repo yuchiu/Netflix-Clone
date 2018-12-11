@@ -3,7 +3,9 @@
 - **Checkout branch "React-View" for web-client only Netflix Clone with React Redux**
 - Currently under rework for full-stack expansion
 
-## Quick Link
+---
+
+## Quick Links
 
 [Tech Stack](#tech-stack)
 
@@ -88,7 +90,7 @@
 | pip           | 9.0.1       |
 | nodejs        | 10.7.0      |
 | python        | 2.7         |
-| elasticsearch | 5.1.2       |
+| elasticsearch | 5.5.3       |
 | mongodb       | cloud(mLab) |
 
 ### Building Data Pipeline
@@ -157,18 +159,28 @@ npm start
 
 Application will be serving on http://localhost:3000
 
+---
+
 ## Deployment
 
 - Not set up yet
+
+---
 
 ## Author
 
 - Yu Chiu
 
+---
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details
 
+---
+
 ## Acknowledgments
 
 - Not set up yet
+
+---
