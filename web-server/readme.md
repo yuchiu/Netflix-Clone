@@ -1,14 +1,15 @@
-## Node-Express-BoilerPlate
+## Web Server
 
 ---
 
-### Usage
+### Getting Started
 
-1.  install dependencies & start application
+- install dependencies & start Web Server
 
-```
+```terminal
+cd web-server
 npm install
 npm start
 ```
 
-Application will be running on http://localhost:3030
+Application will be serving on http://localhost:3030

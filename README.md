@@ -118,11 +118,11 @@ scrapy crawl "imdb_spider"
 
 ```terminal
 cd movie-service
-pip install -r requirements
-python service.py
+npm install
+npm start
 ```
 
-Application will be serving on http://localhost:3130
+Application will be serving on http://localhost:3230
 
 #### User Service
 
