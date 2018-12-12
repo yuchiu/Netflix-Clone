@@ -1,6 +1,6 @@
 export default {
-  testSearchAll: () => ({
-    size: 10,
+  testSearchAll: size => ({
+    size,
     from: 0,
     query: {
       match_all: {}

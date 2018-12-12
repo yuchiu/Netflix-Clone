@@ -1,7 +1,7 @@
 import queryBody from "./queryBody";
 import ESClient from "../config/ESClient.config";
 
-const normalizeResponse = ESResponse =>
+const normalizeData = ESResponse =>
   ESResponse.hits.hits.map((hit, index) => {
     const newHit = {};
     newHit.id = hit._id;
@@ -17,7 +17,7 @@ export default {
     const { movieId } = req.params;
     const response = await ESClient.search({
       index: "imdb",
-      body: queryBody.testSearchAll
+      body: queryBody.testSearchAll(25)
     });
     res.status(200).send({
       meta: {
@@ -25,8 +25,10 @@ export default {
         status: 200,
         message: ""
       },
-      movieId,
-      response
+      data: {
+        movieId,
+        response
+      }
     });
   },
   getMovieCollections: async (req, res) => {
@@ -36,52 +38,61 @@ export default {
       case "popular":
         response = await ESClient.search({
           index: "imdb",
-          body: queryBody.testSearchAll
+          sort: "imdb_ratingCount:desc",
+          body: queryBody.testSearchAll(25)
         });
-
         res.status(200).send({
           meta: {
             type: "success",
             status: 200,
             message: ""
           },
-          total: response.hits.total,
-          timeSpent: response.took,
-          movieCollection: normalizeResponse(response)
+          data: {
+            total: response.hits.total,
+            timeSpent: response.took,
+            collectionLength: response.hits.hits.length,
+            movieCollection: normalizeData(response)
+          }
         });
         break;
       case "rating":
         response = await ESClient.search({
           index: "imdb",
-          body: queryBody.testSearchAll
+          sort: "imdb_ratingValue:desc",
+          body: queryBody.testSearchAll(25)
         });
-
         res.status(200).send({
           meta: {
             type: "success",
             status: 200,
             message: ""
           },
-          total: response.hits.total,
-          timeSpent: response.took,
-          movieCollection: normalizeResponse(response)
+          data: {
+            total: response.hits.total,
+            timeSpent: response.took,
+            collectionLength: response.hits.hits.length,
+            movieCollection: normalizeData(response)
+          }
         });
         break;
-      case "latest":
+      case "trending":
+        // not scrape movie's release date yet,it will return by index's default order
         response = await ESClient.search({
           index: "imdb",
-          body: queryBody.testSearchAll
+          body: queryBody.testSearchAll(25)
         });
-
         res.status(200).send({
           meta: {
             type: "success",
             status: 200,
             message: ""
           },
-          total: response.hits.total,
-          timeSpent: response.took,
-          movieCollection: normalizeResponse(response)
+          data: {
+            total: response.hits.total,
+            timeSpent: response.took,
+            collectionLength: response.hits.hits.length,
+            movieCollection: normalizeData(response)
+          }
         });
         break;
       default:

@@ -50,7 +50,7 @@ class ImdbscraperPipeline(object):
         movie.release_date = item['release_date']
         movie.imdb_ratingValue = item['imdb_ratingValue']
         movie.imdb_bestRating = item['imdb_bestRating']
-        movie.imdb_ratioCount = item['imdb_ratingCount']
+        movie.imdb_ratingCount = item['imdb_ratingCount']
         movie.description = item['description']
         movie.storyline = item['storyline']
         movie.director = item['director']
