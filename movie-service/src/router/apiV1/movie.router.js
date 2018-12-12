@@ -1,9 +1,14 @@
 import express from "express";
 
-import { movieController } from "../../controllers/";
+import catchExceptions from "../../utils/catchExceptions";
+import { movieController } from "../../controllers";
 
 const router = express.Router();
 
-router.get("/", movieController.getMovieList);
+router.get("/:movieId", catchExceptions(movieController.getMovie));
+router.get(
+  "/collections/:collectionType",
+  catchExceptions(movieController.getMovieCollections)
+);
 
 export default router;

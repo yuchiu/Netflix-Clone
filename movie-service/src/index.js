@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import helmet from "helmet";
 import compression from "compression";
 import bodyParser from "body-parser";
+import { devErrorHandler } from "./middlewares/errorHandler";
 
 import apiV1Routes from "./router/apiV1";
 import { SERVICE_MOVIE_PORT, NODE_ENV } from "./utils/secrets";
@@ -25,6 +26,7 @@ app.use(helmet());
 app.use(compression());
 app.use(logger("dev"));
 app.use(bodyParser.json());
+app.use(devErrorHandler);
 app.use("/api/v1", apiV1Routes);
 
 ESClient.ping({ requestTimeout: 30000 }, error => {

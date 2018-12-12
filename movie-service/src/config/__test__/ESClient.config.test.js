@@ -20,6 +20,18 @@ function testIndices() {
     })
     .catch(err => console.error(`Error connecting to the es client: ${err}`));
 }
+
+function testMapping() {
+  return ESClient.indices
+    .getMapping({ index: "imdb" })
+    .then(result => {
+      console.log("|Test Mapping|");
+      console.log("-----------------------------------");
+      console.log("Response Body: ");
+      console.log(JSON.stringify(result));
+    })
+    .catch(err => console.error(`Error connecting to the es client: ${err}`));
+}
 function testSearchAll() {
   ESClient.search({
     index: "imdb",
@@ -47,5 +59,6 @@ function testSearchAll() {
 
 (() => {
   testIndices();
+  testMapping();
   testSearchAll();
 })();
