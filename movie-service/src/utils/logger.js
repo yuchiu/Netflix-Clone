@@ -1,5 +1,5 @@
 import winston, { createLogger } from "winston";
-import { NODE_ENV } from "./secrets";
+import { NODE_ENV } from "../config/secrets";
 
 const logger = createLogger({
   transports: [

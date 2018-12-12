@@ -2,7 +2,7 @@ const jayson = require("jayson");
 const mongoose = require("mongoose");
 
 const controller = require("./controllers");
-const secrets = require("./utils/secrets");
+const secrets = require("./config/secrets");
 
 // create a server
 const server = jayson.server({

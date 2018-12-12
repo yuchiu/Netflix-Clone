@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const registerRule = require("../middlewares/registerRule");
+const registerRule = require("../utils/registerRule");
 
 const User = require("../models/User");
 
@@ -16,7 +16,7 @@ const jwtSignUser = user => {
     console.log(err);
   }
 };
-const userSummary = user => {
+const normalizeUser = user => {
   const summary = {
     username: user.username,
     email: user.email,
@@ -25,7 +25,7 @@ const userSummary = user => {
   return summary;
 };
 
-const userController = {
+module.exports = {
   async signUpUser(args, callback) {
     try {
       const credentials = args;
@@ -83,7 +83,7 @@ const userController = {
           status: 200,
           message: ""
         },
-        user: userSummary(user),
+        user: normalizeUser(user),
         token: jwtSignUser(user)
       };
       callback(null, response);
@@ -143,7 +143,7 @@ const userController = {
           status: 200,
           message: ""
         },
-        user: userSummary(user),
+        user: normalizeUser(user),
         token: jwtSignUser(user)
       };
       callback(null, response);
@@ -166,10 +166,8 @@ const userController = {
         status: 200,
         message: ""
       },
-      user: userSummary(user)
+      user: normalizeUser(user)
     };
     callback(null, response);
   }
 };
-
-module.exports = userController;

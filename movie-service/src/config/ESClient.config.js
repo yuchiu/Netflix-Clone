@@ -3,7 +3,7 @@ import {
   SERVICE_MOVIE_URL,
   SERVICE_MOVIE_DB_ELASTICSEARCH_PORT,
   SERVICE_MOVIE_DB_ELASTICSEARCH_LOG
-} from "../utils/secrets";
+} from "./secrets";
 
 const client = new elasticsearch.Client({
   host: `${SERVICE_MOVIE_URL}:${SERVICE_MOVIE_DB_ELASTICSEARCH_PORT}`,

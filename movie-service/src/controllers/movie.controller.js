@@ -13,13 +13,13 @@ const normalizeData = ESResponse =>
   });
 
 export default {
-  getMovie: async (req, res) => {
-    const { movieId } = req.params;
+  getMovie: async (reqData, callback) => {
+    const { movieId } = reqData;
     const response = await ESClient.search({
       index: "imdb",
       body: queryBody.testSearchAll(25)
     });
-    res.status(200).send({
+    callback(null, {
       meta: {
         type: "success",
         status: 200,
@@ -31,17 +31,17 @@ export default {
       }
     });
   },
-  getMovieCollections: async (req, res) => {
-    const { collectionType } = req.params;
+  getMovieCollections: async (reqData, callback) => {
+    const { collectionName } = reqData;
     let response;
-    switch (collectionType) {
+    switch (collectionName) {
       case "popular":
         response = await ESClient.search({
           index: "imdb",
           sort: "imdb_ratingCount:desc",
           body: queryBody.testSearchAll(25)
         });
-        res.status(200).send({
+        callback(null, {
           meta: {
             type: "success",
             status: 200,
@@ -61,7 +61,8 @@ export default {
           sort: "imdb_ratingValue:desc",
           body: queryBody.testSearchAll(25)
         });
-        res.status(200).send({
+
+        callback(null, {
           meta: {
             type: "success",
             status: 200,
@@ -81,7 +82,7 @@ export default {
           index: "imdb",
           body: queryBody.testSearchAll(25)
         });
-        res.status(200).send({
+        callback(null, {
           meta: {
             type: "success",
             status: 200,
@@ -96,11 +97,11 @@ export default {
         });
         break;
       default:
-        res.status(403).send({
+        callback(null, {
           meta: {
             type: "error",
             status: 403,
-            message: `collection type "${collectionType}" is not valid`
+            message: `collection type "${collectionName}" is not valid`
           }
         });
     }

@@ -21,6 +21,8 @@ const NODE_ENV = node_env;
 
 const { JWT_SECRET } = process.env;
 
+const { SERVICE_USER_NAME } = process.env;
+const { SERVICE_USER_HOST } = process.env;
 const { SERVICE_USER_URL } = process.env;
 const { SERVICE_USER_PORT } = process.env;
 
@@ -37,6 +39,8 @@ module.exports = {
   NODE_ENV,
   JWT_SECRET,
   MONGODB_URI,
+  SERVICE_USER_NAME,
+  SERVICE_USER_HOST,
   SERVICE_USER_URL,
   SERVICE_USER_PORT
 };

@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import fs from "fs";
-import logger from "./logger";
+import logger from "../utils/logger";
 
 if (fs.existsSync("../.env")) {
   logger.debug("Using .env file to supply config environment variables");
@@ -38,8 +38,12 @@ if (process.env.WEB_SERVER_PORT) {
 }
 export const SERVER_PORT = server_port;
 
+export const { SERVICE_USER_NAME } = process.env;
+export const { SERVICE_USER_HOST } = process.env;
 export const { SERVICE_USER_URL } = process.env;
 export const { SERVICE_USER_PORT } = process.env;
 
+export const { SERVICE_MOVIE_NAME } = process.env;
+export const { SERVICE_MOVIE_HOST } = process.env;
 export const { SERVICE_MOVIE_URL } = process.env;
 export const { SERVICE_MOVIE_PORT } = process.env;

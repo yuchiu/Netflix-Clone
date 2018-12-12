@@ -7,7 +7,7 @@ import compression from "compression";
 import bodyParser from "body-parser";
 
 import apiV1Routes from "./router/apiV1";
-import { SERVER_PORT, NODE_ENV } from "./utils/secrets";
+import { SERVER_PORT, NODE_ENV } from "./config/secrets";
 
 const app = express();
 

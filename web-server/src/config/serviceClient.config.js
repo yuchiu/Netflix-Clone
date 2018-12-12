@@ -1,19 +1,19 @@
 import jayson from "jayson";
 import {
-  SERVICE_USER_URL,
+  SERVICE_USER_HOST,
   SERVICE_USER_PORT,
-  SERVICE_MOVIE_URL,
+  SERVICE_MOVIE_HOST,
   SERVICE_MOVIE_PORT
-} from "../utils/secrets";
+} from "./secrets";
 
 // create a rpc client
 
 export const userService = jayson.client.http({
-  hostname: "localhost",
+  hostname: SERVICE_USER_HOST,
   port: SERVICE_USER_PORT
 });
 
-export const realEstateService = jayson.client.http({
-  hostname: "localhost",
+export const movieService = jayson.client.http({
+  hostname: SERVICE_MOVIE_HOST,
   port: SERVICE_MOVIE_PORT
 });

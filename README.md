@@ -43,14 +43,14 @@
 
 - React ∙ Redux
   - Web Client & Client Data Management
-- Kibana
-  - ElasticSearch stats data visualization
 - Nodejs ∙ Expressjs
   - Web Server & Services
 - Python ∙ Scrapy
   - Web Scraper, data processing
 - ElasticSearch ∙ MongoDB
-  - Persisted Data layer
+  - Persisted Data for Movies and Users
+- Kibana
+  - ElasticSearch stats data visualization
 
 ---
 
