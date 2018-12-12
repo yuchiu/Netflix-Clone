@@ -2,7 +2,7 @@
 
 ### Check out this site live on this [Link](http://netflix-react.surge.sh/)
 
-![Demo](https://github.com/yuchiu/netflix-clone/blob/master/demo2.gif)
+![Demo](https://github.com/yuchiu/Netflix-Clone/blob/React-View/demo2.gif)
 
 ## User Story
 
