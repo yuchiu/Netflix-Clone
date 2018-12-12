@@ -5,7 +5,7 @@ import "./index.css";
 import LandingPage from "./LandingPage";
 import NotFoundPage from "./NotFoundPage";
 
-export default () => (
+const Router = () => (
   <BrowserRouter>
     <React.Fragment>
       <Switch>
@@ -15,3 +15,4 @@ export default () => (
     </React.Fragment>
   </BrowserRouter>
 );
+export default Router;

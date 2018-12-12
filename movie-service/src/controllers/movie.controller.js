@@ -49,6 +49,7 @@ export default {
           },
           data: {
             total: response.hits.total,
+            collectionName,
             timeSpent: response.took,
             collectionLength: response.hits.hits.length,
             movieCollection: normalizeData(response)
@@ -70,6 +71,7 @@ export default {
           },
           data: {
             total: response.hits.total,
+            collectionName,
             timeSpent: response.took,
             collectionLength: response.hits.hits.length,
             movieCollection: normalizeData(response)
@@ -90,6 +92,7 @@ export default {
           },
           data: {
             total: response.hits.total,
+            collectionName,
             timeSpent: response.took,
             collectionLength: response.hits.hits.length,
             movieCollection: normalizeData(response)
