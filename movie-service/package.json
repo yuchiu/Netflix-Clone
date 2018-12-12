@@ -6,6 +6,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development nodemon --exec babel-node src/index.js",
     "build": "babel src -d build",
+    "test-esclient": "node ./src/config/__test__/ESClient.config.test.js",
     "serve": "cross-env NODE_ENV=production SERVER_URL=http://localhost PORT=3030 node build/index.js"
   },
   "author": "",
