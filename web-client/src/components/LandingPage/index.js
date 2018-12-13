@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 
 import { movieAction } from "../../actions";
 import { movieSelector } from "../../selectors";
-import CollectionList from "./CollectionList";
 
 class LandingPage extends React.Component {
   componentDidMount() {
@@ -15,14 +14,38 @@ class LandingPage extends React.Component {
   }
 
   render() {
-    const { movieCollectionList } = this.props;
-    console.log(movieCollectionList.trending);
+    const {
+      trendingCollectionList,
+      popularCollectionList,
+      ratingCollectionList
+    } = this.props;
     return (
       <div className="landing-page">
         Netflix Clone
         <br />
-        Trending
-        <CollectionList movieCollectionList={movieCollectionList} />
+        <h1>Trending</h1>
+        {trendingCollectionList.map((movie, i) => (
+          <div key={`collection-trending-${i}`}>
+            <h4>{movie.data.title}</h4>
+            <div>{movie.data.taglines}</div>
+          </div>
+        ))}
+        <br />
+        <h1>Popular</h1>
+        {popularCollectionList.map((movie, i) => (
+          <div key={`collection-popular-${i}`}>
+            <h4>{movie.data.title}</h4>
+            <div>{movie.data.taglines}</div>
+          </div>
+        ))}
+        <br />
+        <h1>Rating</h1>
+        {ratingCollectionList.map((movie, i) => (
+          <div key={`collection-rating-${i}`}>
+            <h4>{movie.data.title}</h4>
+            <div>{movie.data.taglines}</div>
+          </div>
+        ))}
       </div>
     );
   }
@@ -30,7 +53,9 @@ class LandingPage extends React.Component {
 
 LandingPage.propTypes = {
   selectedMovie: PropTypes.object.isRequired,
-  movieCollectionList: PropTypes.object.isRequired,
+  trendingCollectionList: PropTypes.array.isRequired,
+  popularCollectionList: PropTypes.array.isRequired,
+  ratingCollectionList: PropTypes.array.isRequired,
 
   fetchMovie: PropTypes.func.isRequired,
   fetcheMovieCollection: PropTypes.func.isRequired
@@ -38,7 +63,10 @@ LandingPage.propTypes = {
 
 const stateToProps = state => ({
   selectedMovie: movieSelector.getSelectedMovie(state),
-  movieCollectionList: movieSelector.getMovieCollectionList(state)
+  isLoading: movieSelector.getMovieIsLoading(state),
+  trendingCollectionList: movieSelector.getTrendingCollectionList(state),
+  popularCollectionList: movieSelector.getPopularCollectionList(state),
+  ratingCollectionList: movieSelector.getRatingCollectionList(state)
 });
 
 const dispatchToProps = dispatch => ({

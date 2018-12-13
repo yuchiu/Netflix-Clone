@@ -8,13 +8,17 @@ import { getError } from "./error.selector";
 import {
   getMovieIsLoading,
   getSelectedMovie,
-  getMovieCollectionList
+  getTrendingCollectionList,
+  getPopularCollectionList,
+  getRatingCollectionList
 } from "./movie.selector";
 
 const movieSelector = {
   getMovieIsLoading: state => getMovieIsLoading(state),
   getSelectedMovie: state => getSelectedMovie(state),
-  getMovieCollectionList: state => getMovieCollectionList(state)
+  getTrendingCollectionList: state => getTrendingCollectionList(state),
+  getPopularCollectionList: state => getPopularCollectionList(state),
+  getRatingCollectionList: state => getRatingCollectionList(state)
 };
 
 const userSelector = {

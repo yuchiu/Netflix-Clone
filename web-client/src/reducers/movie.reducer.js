@@ -2,11 +2,9 @@ import actionTypes from "../actionTypes";
 
 const initialState = {
   selectedMovie: {},
-  movieCollectionList: {
-    trending: [],
-    popular: [],
-    rating: []
-  },
+  trendingCollectionList: [],
+  popularCollectionList: [],
+  ratingCollectionList: [],
   isLoading: false
 };
 
@@ -30,8 +28,19 @@ export default (state = initialState, action) => {
 
     case actionTypes.MOVIE_COLLECTION_FETCH_SUCCESS:
       newState.isLoading = false;
-      newState.movieCollectionList[action.payload.collectionName] =
-        action.payload.movieCollection;
+      switch (action.payload.collectionName) {
+        case "trending":
+          newState.trendingCollectionList = action.payload.movieCollection;
+          break;
+        case "popular":
+          newState.popularCollectionList = action.payload.movieCollection;
+          break;
+        case "rating":
+          newState.ratingCollectionList = action.payload.movieCollection;
+          break;
+        default:
+          break;
+      }
       return newState;
 
     /* Fetch Errors */
