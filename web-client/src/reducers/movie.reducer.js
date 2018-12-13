@@ -23,7 +23,7 @@ export default (state = initialState, action) => {
     /* Fetch Success */
     case actionTypes.MOVIE_FETCH_SUCCESS:
       newState.isLoading = false;
-      newState.selectedMovie = action.payload;
+      newState.selectedMovie = action.payload.selectedMovie;
       return newState;
 
     case actionTypes.MOVIE_COLLECTION_FETCH_SUCCESS:

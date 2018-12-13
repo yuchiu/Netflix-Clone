@@ -44,7 +44,7 @@
 - React ∙ Redux
   - Web Client & Client Data Management
 - Nodejs ∙ Expressjs
-  - Web Server & Services
+  - Web Server & Services in SOA Architecture
 - Python ∙ Scrapy
   - Web Scraper, data processing
 - ElasticSearch ∙ MongoDB
@@ -58,9 +58,11 @@
 
 ### Current Plan for Full-Stack Expansions
 
+- service oriented architecure
+- REST for client service communication, JSON RPC for inter service communication
 - scrape raw data from imdb
-- provides movies data with our API instead of TMDB API
-- Persisted ElasticSearch for DB layer
+- provides processed movies data with our movie service API
+- persisted ElasticSearch for movie's database
 - display stats with Kibana
 
 ### Future Expansions

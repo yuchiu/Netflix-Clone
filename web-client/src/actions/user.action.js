@@ -2,8 +2,8 @@ import actionTypes from "../actionTypes";
 import { userService } from "./services";
 
 export default {
-  tryAutoSignIn: () => async dispatch => {
-    const response = await userService.tryAutoSignIn();
+  fetchTryAutoSignIn: () => async dispatch => {
+    const response = await userService.fetchTryAutoSignIn();
     const { data } = response;
     dispatch({
       type: actionTypes.USER_FETCH_TRY_AUTO_LOGIN,

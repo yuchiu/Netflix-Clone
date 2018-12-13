@@ -1,7 +1,7 @@
 import { apiV1 } from "./API";
 
 export default {
-  tryAutoSignIn: async () => {
+  fetchTryAutoSignIn: async () => {
     const response = await apiV1().get(`/users/auth`);
     return response;
   },
