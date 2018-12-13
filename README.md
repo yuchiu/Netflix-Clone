@@ -1,7 +1,7 @@
 # Netflix Clone
 
 - **Checkout branch "React-View" for web-client only Netflix Clone with React Redux**
-- Currently under rework for full-stack expansion
+- **Currently under rework for full-stack expansion**
 
 ---
 
@@ -41,16 +41,20 @@
 
 ## Tech Stack
 
-- React ∙ Redux
-  - Web Client & Client Data Management
-- Nodejs ∙ Expressjs
-  - Web Server & Services in SOA Architecture
-- Python ∙ Scrapy
-  - Web Scraper, data processing
-- ElasticSearch ∙ MongoDB
-  - Persisted Data for Movies and Users
-- Kibana
-  - ElasticSearch stats data visualization
+- [React](https://github.com/facebook/react) ∙ [Redux](https://github.com/reduxjs/redux)
+  - web client & client data management
+- [Node.js](https://github.com/nodejs) ∙ [Expressjs](https://github.com/expressjs/express) ∙ [Jayson](https://github.com/tedeh/jayson)
+  - web server & services in service oriented architecure
+- [Python](https://github.com/python) ∙ [Scrapy](https://github.com/scrapy/scrapy)
+  - web scraper, data pipeline
+- [ElasticSearch](https://github.com/elastic/elasticsearch)
+  - persisted database for movies
+- [Postgres](https://github.com/postgres/postgres) ∙ [Sequelize](https://github.com/sequelize/sequelize)
+  - persisted database for users
+- [Kibana](https://github.com/elastic/kibana)
+  - ElasticSearch analytics data visualization
+- [Docker](https://github.com/docker)
+  - containerization
 
 ---
 
@@ -62,18 +66,21 @@
 - REST for client service communication, JSON RPC for inter service communication
 - scrape raw data from imdb
 - provides processed movies data with our movie service API
-- persisted ElasticSearch for movie's database
+- persisted ElasticSearch for movie's database for optimized search functionality
 - display stats with Kibana
+- containerize services and database with Docker
 
 ### Future Expansions
 
 - microservices?
-- message queue for all inter services communications?
-- recommendation system?
+- Message Queue for all inter service communications?
+- Machine Learning recommendation system?
+- Machine Learning classification for movie collections?
 - scrape videos for movies?
 - stream videos?
 - rating system?
 - payment system?
+- CI pipeline with Jenkins?
 
 ---
 
@@ -86,14 +93,17 @@
 
 #### Tools & Versions
 
-| Tools         | Versions    |
-| ------------- | ----------- |
-| npm           | 6.1.0       |
-| pip           | 9.0.1       |
-| nodejs        | 10.7.0      |
-| python        | 2.7         |
-| elasticsearch | 6.3.1       |
-| mongodb       | cloud(mLab) |
+| Tools                                  | Versions   |
+| -------------------------------------- | ---------- |
+| npm                                    | 6.1.0      |
+| pip                                    | 9.0.1      |
+| nodejs                                 | 10.7.0     |
+| python                                 | 2.7        |
+| elasticsearch                          | 6.3.1      |
+| postgres                               | 10.5       |
+| **Optional for production deployment** |
+| docker                                 | 18.06.1-ce |
+| docker-compose                         | 1.22.0     |
 
 ### Building Data Pipeline
 
@@ -105,7 +115,7 @@
 pip install -r requirements.txt
 ```
 
-- fetch movie data from IMDB
+- start scraper pipeline for fetching raw data from IMDB, process and store to ElasticSearch
 
 ```terminal
 cd imdb_scraper
@@ -115,6 +125,8 @@ scrapy crawl "imdb_spider"
 ### Serving Application
 
 #### Movie Service
+
+- dependent on ElasticSearch as data source
 
 - install dependencies & start Movie-Service
 
@@ -127,6 +139,8 @@ npm start
 Application will be serving on http://localhost:3230
 
 #### User Service
+
+- dependent on PostgreSQL as data source
 
 - install dependencies & start User-Service
 
