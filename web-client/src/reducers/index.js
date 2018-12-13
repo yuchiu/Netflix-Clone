@@ -10,4 +10,6 @@ const rootReducer = combineReducers({
   errorReducer
 });
 
+export { movieReducer, userReducer, errorReducer };
+
 export default rootReducer;

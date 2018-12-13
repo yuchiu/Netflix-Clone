@@ -5,7 +5,7 @@ export default {
     const response = await apiV1().get(`/movies/${movieId}`);
     return response;
   },
-  fetcheMovieCollection: async collectionName => {
+  fetchMovieCollection: async collectionName => {
     const response = await apiV1().get(`/movies/collections/${collectionName}`);
     return response;
   }

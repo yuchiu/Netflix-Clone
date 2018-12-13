@@ -22,12 +22,12 @@ export default {
     }
   },
 
-  fetcheMovieCollection: collectionName => async dispatch => {
+  fetchMovieCollection: collectionName => async dispatch => {
     dispatch({
       type: actionTypes.MOVIE_COLLECTION_FETCH
     });
     try {
-      const response = await movieService.fetcheMovieCollection(collectionName);
+      const response = await movieService.fetchMovieCollection(collectionName);
       const { data } = response.data;
       dispatch({
         type: actionTypes.MOVIE_COLLECTION_FETCH_SUCCESS,

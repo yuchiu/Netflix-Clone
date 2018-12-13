@@ -7,7 +7,7 @@ const initialState = {
   selectedMovie: {},
   trendingCollectionList: [],
   popularCollectionList: [],
-  ratingCollectionList: [],
+  topRatingCollectionList: [],
   isLoading: false
 };
 
@@ -24,7 +24,7 @@ describe("movie.reducer initial state", () => {
       selectedMovie: {},
       trendingCollectionList: [],
       popularCollectionList: [],
-      ratingCollectionList: [],
+      topRatingCollectionList: [],
       isLoading: true
     };
     Reducer(movieReducer)
@@ -55,7 +55,7 @@ describe("movie.reducer initial state", () => {
       selectedMovie: {},
       trendingCollectionList: [],
       popularCollectionList: [],
-      ratingCollectionList: [],
+      topRatingCollectionList: [],
       isLoading: true
     };
     const result = {
@@ -70,7 +70,7 @@ describe("movie.reducer initial state", () => {
           }
         }
       ],
-      ratingCollectionList: [],
+      topRatingCollectionList: [],
       isLoading: false
     };
     Reducer(movieReducer)
@@ -90,7 +90,7 @@ describe("movie.reducer initial state", () => {
       selectedMovie: {},
       trendingCollectionList: [],
       popularCollectionList: [],
-      ratingCollectionList: [],
+      topRatingCollectionList: [],
       isLoading: true
     };
     Reducer(movieReducer)
@@ -115,7 +115,7 @@ describe("movie.reducer initial state", () => {
       selectedMovie: {},
       trendingCollectionList: [],
       popularCollectionList: [],
-      ratingCollectionList: [],
+      topRatingCollectionList: [],
       isLoading: true
     };
     const result = {
@@ -128,7 +128,7 @@ describe("movie.reducer initial state", () => {
       },
       trendingCollectionList: [],
       popularCollectionList: [],
-      ratingCollectionList: [],
+      topRatingCollectionList: [],
       isLoading: false
     };
     Reducer(movieReducer)

@@ -10,7 +10,7 @@ describe("movie.action", () => {
     jest.resetAllMocks();
   });
   it("should fetch movie collection list from server", async () => {
-    movieService.fetcheMovieCollection.mockReturnValueOnce({
+    movieService.fetchMovieCollection.mockReturnValueOnce({
       data: {
         data: {
           collectionLength: 1,
@@ -29,7 +29,7 @@ describe("movie.action", () => {
         }
       }
     });
-    const dispatches = await Thunk(movieAction.fetcheMovieCollection).execute();
+    const dispatches = await Thunk(movieAction.fetchMovieCollection).execute();
     expect(dispatches.length).toBe(2);
     expect(dispatches[0].getAction()).toEqual({
       type: actionTypes.MOVIE_COLLECTION_FETCH

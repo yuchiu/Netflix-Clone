@@ -7,6 +7,8 @@
     "dotenv": "^6.2.0",
     "expect": "^23.6.0",
     "fetch-mock": "^7.2.5",
+    "jest-fetch-mock": "^2.0.1",
+    "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",

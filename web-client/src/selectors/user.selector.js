@@ -1,10 +1,11 @@
 /* state selectors */
-const getCurrentUser = state => state.userReducer.currentUser;
-const getCurrentUsername = state => state.userReducer.currentUser.username;
-const getIsUserLoggedIn = state => state.userReducer.isUserLoggedIn;
-const getUserIsLoading = state => state.userReducer.isLoading;
+export const getCurrentUser = state => state.userReducer.currentUser;
+export const getCurrentUsername = state =>
+  state.userReducer.currentUser.username;
+export const getIsUserLoggedIn = state => state.userReducer.isUserLoggedIn;
+export const getUserIsLoading = state => state.userReducer.isLoading;
 
-export {
+export default {
   getCurrentUser,
   getCurrentUsername,
   getIsUserLoggedIn,

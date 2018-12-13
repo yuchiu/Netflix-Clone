@@ -1,4 +1,6 @@
 /* state selectors */
-const getError = state => state.errorReducer.error;
+export const getError = state => state.errorReducer.error;
 
-export { getError };
+export default {
+  getError
+};

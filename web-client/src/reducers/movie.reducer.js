@@ -4,7 +4,7 @@ const initialState = {
   selectedMovie: {},
   trendingCollectionList: [],
   popularCollectionList: [],
-  ratingCollectionList: [],
+  topRatingCollectionList: [],
   isLoading: false
 };
 
@@ -36,7 +36,7 @@ export default (state = initialState, action) => {
           newState.popularCollectionList = action.payload.movieCollection;
           break;
         case "rating":
-          newState.ratingCollectionList = action.payload.movieCollection;
+          newState.topRatingCollectionList = action.payload.movieCollection;
           break;
         default:
           break;

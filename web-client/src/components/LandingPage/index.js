@@ -7,17 +7,17 @@ import { movieSelector } from "../../selectors";
 
 class LandingPage extends React.Component {
   componentDidMount() {
-    const { fetcheMovieCollection } = this.props;
-    fetcheMovieCollection("trending");
-    fetcheMovieCollection("popular");
-    fetcheMovieCollection("rating");
+    const { fetchMovieCollection } = this.props;
+    fetchMovieCollection("trending");
+    fetchMovieCollection("popular");
+    fetchMovieCollection("rating");
   }
 
   render() {
     const {
       trendingCollectionList,
       popularCollectionList,
-      ratingCollectionList
+      topRatingCollectionList
     } = this.props;
     return (
       <div className="landing-page">
@@ -39,8 +39,8 @@ class LandingPage extends React.Component {
           </div>
         ))}
         <br />
-        <h1>Rating</h1>
-        {ratingCollectionList.map((movie, i) => (
+        <h1>Top Rating</h1>
+        {topRatingCollectionList.map((movie, i) => (
           <div key={`collection-rating-${i}`}>
             <h4>{movie.data.title}</h4>
             <div>{movie.data.taglines}</div>
@@ -55,10 +55,10 @@ LandingPage.propTypes = {
   selectedMovie: PropTypes.object.isRequired,
   trendingCollectionList: PropTypes.array.isRequired,
   popularCollectionList: PropTypes.array.isRequired,
-  ratingCollectionList: PropTypes.array.isRequired,
+  topRatingCollectionList: PropTypes.array.isRequired,
 
   fetchMovie: PropTypes.func.isRequired,
-  fetcheMovieCollection: PropTypes.func.isRequired
+  fetchMovieCollection: PropTypes.func.isRequired
 };
 
 const stateToProps = state => ({
@@ -66,15 +66,15 @@ const stateToProps = state => ({
   isLoading: movieSelector.getMovieIsLoading(state),
   trendingCollectionList: movieSelector.getTrendingCollectionList(state),
   popularCollectionList: movieSelector.getPopularCollectionList(state),
-  ratingCollectionList: movieSelector.getRatingCollectionList(state)
+  topRatingCollectionList: movieSelector.getTopRatingCollectionList(state)
 });
 
 const dispatchToProps = dispatch => ({
   fetchMovie: movieId => {
     dispatch(movieAction.fetchMovie(movieId));
   },
-  fetcheMovieCollection: collectionName => {
-    dispatch(movieAction.fetcheMovieCollection(collectionName));
+  fetchMovieCollection: collectionName => {
+    dispatch(movieAction.fetchMovieCollection(collectionName));
   }
 });
 
