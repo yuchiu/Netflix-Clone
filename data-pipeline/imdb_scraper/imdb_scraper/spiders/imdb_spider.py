@@ -8,13 +8,14 @@ import logging
 import string
 
 import scrapy
+from dateutil import parser
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors.lxmlhtml import LxmlLinkExtractor
 from imdb_scraper.items import ImdbScraperItem  # pylint: disable=E0401
 from scrapy.utils.project import get_project_settings
 
 # logging.basicConfig()
-#logger = logging.getLogger('imdb')
+# logger = logging.getLogger('imdb')
 # logger.setLevel(logging.INFO)
 
 
@@ -38,7 +39,7 @@ class imdb_spider(CrawlSpider):
     no_ext = ['']
     tags = ['a', 'area', 'audio', 'embed', 'iframe', 'img',
             'input', 'script', 'source', 'track', 'video', 'form']
-    #attrs = ['href', 'src', 'action']
+    # attrs = ['href', 'src', 'action']
     attrs = ['href']
 
     people_links = {}
@@ -61,7 +62,7 @@ class imdb_spider(CrawlSpider):
 
     def parse_movie(self, response):
 
-        #logger.info(">>>>> Movie: {}".format(response.request.url))
+        # logger.info(">>>>> Movie: {}".format(response.request.url))
         print("[  MOVIE  ]  {}".format(response.request.url))
 
         # inputs
@@ -77,7 +78,6 @@ class imdb_spider(CrawlSpider):
             '//div[@class="subtext"]/a[not(@title="See more release dates")]/text()').extract()))))
         release_date = response.xpath(
             '//div[@class="subtext"]/a[@title="See more release dates"]/text()').extract_first()
-
         imdb_ratingValue = response.xpath(
             '//span[@itemprop="ratingValue"]/text()').extract_first()
         imdb_bestRating = response.xpath(
@@ -121,6 +121,8 @@ class imdb_spider(CrawlSpider):
             '//div[@id="titleStoryLine"]/div[@class="txt-block"]/text()').extract()).strip()
         url = response.request.url
 
+        poster = response.xpath(
+            '//div[@class="poster"]//a/@href').extract_first()
         req_headers = self.headers_format(response.request.headers)
         res_headers = self.headers_format(response.headers)
 
@@ -129,25 +131,66 @@ class imdb_spider(CrawlSpider):
         if not movie_id or not title:
             return
 
+        # convert released_date unicode into string
+        film_rating = film_rating.encode('ascii', 'ignore')
         film_rating = film_rating.strip() if film_rating and type(film_rating) is str else ''
+
+        # convert released_date unicode into string
+        release_date = release_date.encode('ascii', 'ignore')
         release_date = release_date.strip() if release_date and type(
             release_date) is str else ''
-        duration = duration.strip() if duration and type(duration) is str else ''
+
+        # if it's a movie, it will be in "11, MARCH 2013 (USA)"format
+        # split string into time only without country name, then convert into datetime and unix time
+        if release_date[0].isdigit() == True:
+            release_date_unix_time = parser.parse(release_date.split("(")[0])
+            release_date_unix_time = time.mktime(
+                release_date_unix_time.timetuple())
+        # if it's a TV series, it will be in "TV SERIES (2013 - ?)"format
+        # split string into only 4 digit year, then convert into datetime and unix time
+        else:
+            release_date_unix_time = parser.parse(
+                "1, Jan "+release_date.split("(")[1][0:4])
+            release_date_unix_time = time.mktime(
+                release_date_unix_time.timetuple())
+
+        # convert duration unicode into string
+        if(duration is not None):
+            duration = duration.encode('ascii', 'ignore')
+            duration = duration.strip() if duration and type(duration) is str else ''
+            # duration is in "1h 40min" format, split int out from string into array ["1","40"]
+            hour_min = (re.findall(r'\d+', duration))
+            # if hour_min array has 2 elements, then first element will be hour and second will be min
+            if (len(hour_min) == 2):
+                duration = (int(hour_min[0]) * 60 + int(hour_min[1]))
+            # if hour_min array has 1 elements, then it could be minute or hour
+            if (len(hour_min) == 1):
+                # if hour_min has hour element like ["3h"], then last char would be h
+                if(duration[-1:] == "h"):
+                    duration = (int(hour_min[0])*60)
+                # else it would be min
+                else:
+                    duration = (int(hour_min[0]))
 
         imdb_ratingValue = self.input2num(imdb_ratingValue)
         imdb_ratingCount = self.input2num(imdb_ratingCount)
         imdb_bestRating = self.input2num(imdb_bestRating)
 
+        # convert description unicode into string
+        description = description.encode('ascii', 'ignore')
         description = description.strip() if description and type(description) is str else ''
+
+        # convert storyline unicode into string
+        storyline = storyline.encode('ascii', 'ignore')
         storyline = storyline.strip() if storyline and type(storyline) is str else ''
 
         # Output
-
         item = ImdbScraperItem()
 
         item['movie_id'] = movie_id
         item['title'] = title
         item['film_rating'] = film_rating
+        item['poster'] = "https://www.imdb.com/"+poster
         item['duration'] = duration
         item['genre'] = genre
         item['release_date'] = release_date
@@ -155,6 +198,7 @@ class imdb_spider(CrawlSpider):
         item['imdb_bestRating'] = imdb_bestRating
         item['imdb_ratingCount'] = imdb_ratingCount
         item['description'] = description
+        item['release_date_unix_time'] = release_date_unix_time
         item['storyline'] = storyline
         item['director'] = credits.get('director', '')
         item['writer'] = credits.get('writer', '')

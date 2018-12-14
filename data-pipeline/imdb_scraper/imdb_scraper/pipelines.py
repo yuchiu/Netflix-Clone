@@ -44,10 +44,12 @@ class ImdbscraperPipeline(object):
         movie = Movie()
         movie.meta['id'] = item['movie_id']
         movie.title = item['title']
+        movie.release_date_unix_time = item['release_date_unix_time']
         movie.film_rating = item['film_rating']
         movie.duration = item['duration']
         movie.genre = item['genre']
         movie.release_date = item['release_date']
+        movie.poster = item['poster']
         movie.imdb_ratingValue = item['imdb_ratingValue']
         movie.imdb_bestRating = item['imdb_bestRating']
         movie.imdb_ratingCount = item['imdb_ratingCount']
@@ -75,11 +77,13 @@ class Movie(Document):
     duration = Text()
     genre = Keyword(multi=True)
     release_date = Text()
+    release_date_unix_time = Float()
     imdb_ratingValue = Float()
     imdb_bestRating = Float()
     imdb_ratingCount = Float()
     description = Text()
     storyline = Text()
+    poster = Text()
     director = Keyword(multi=True)
     creator = Keyword(multi=True)
     writer = Keyword(multi=True)

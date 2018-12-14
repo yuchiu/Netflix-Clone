@@ -16,6 +16,7 @@ class ImdbScraperItem(scrapy.Item):
     duration = scrapy.Field()
     genre = scrapy.Field()
     release_date = scrapy.Field()
+    release_date_unix_time = scrapy.Field()
 
     imdb_ratingValue = scrapy.Field()
     imdb_bestRating = scrapy.Field()
@@ -28,6 +29,7 @@ class ImdbScraperItem(scrapy.Item):
     creator = scrapy.Field()
     writer = scrapy.Field()
     stars = scrapy.Field()
+    poster = scrapy.Field()
 
     taglines = scrapy.Field()
 
