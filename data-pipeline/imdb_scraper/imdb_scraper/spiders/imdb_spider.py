@@ -122,7 +122,10 @@ class imdb_spider(CrawlSpider):
         url = response.request.url
 
         poster = response.xpath(
-            '//div[@class="poster"]//a/@href').extract_first()
+            '//div[@class="poster"]//a/img/@src').extract_first()
+
+        trailer_img = response.xpath(
+            '//div[@class="slate"]//a/img/@src').extract_first()
         req_headers = self.headers_format(response.request.headers)
         res_headers = self.headers_format(response.headers)
 
@@ -148,7 +151,8 @@ class imdb_spider(CrawlSpider):
                 release_date_unix_time.timetuple())
         # if it's a TV series, it will be in "TV SERIES (2013 - ?)"format
         # split string into only 4 digit year, then convert into datetime and unix time
-        else:
+        if release_date.split("(")[1][0:4].isdigit():
+            print(release_date)
             release_date_unix_time = parser.parse(
                 "1, Jan "+release_date.split("(")[1][0:4])
             release_date_unix_time = time.mktime(
@@ -190,7 +194,8 @@ class imdb_spider(CrawlSpider):
         item['movie_id'] = movie_id
         item['title'] = title
         item['film_rating'] = film_rating
-        item['poster'] = "https://www.imdb.com/"+poster
+        item['poster'] = poster
+        item['trailer_img'] = trailer_img
         item['duration'] = duration
         item['genre'] = genre
         item['release_date'] = release_date

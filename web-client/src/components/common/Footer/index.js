@@ -5,8 +5,7 @@ import "./index.scss";
 const Footer = () => (
   <footer className="footer-wrapper">
     <a
-      id="footer-github-link"
-      classNmae="footer-item"
+      className="footer-item footer-item--link"
       href="https://github.com/yuchiu/Netflix-Clone"
       target="_blank"
       rel="noopener noreferrer"

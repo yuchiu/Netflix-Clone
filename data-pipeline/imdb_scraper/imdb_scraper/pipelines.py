@@ -59,6 +59,7 @@ class ImdbscraperPipeline(object):
         movie.creator = item['creator']
         movie.writer = item['writer']
         movie.stars = item['stars']
+        movie.trailer_img = item['trailer_img']
         movie.taglines = item['taglines']
         movie.url = item['url']
         movie.req_headers = json.loads(item['req_headers'])
@@ -84,6 +85,7 @@ class Movie(Document):
     description = Text()
     storyline = Text()
     poster = Text()
+    trailer_img = Text()
     director = Keyword(multi=True)
     creator = Keyword(multi=True)
     writer = Keyword(multi=True)

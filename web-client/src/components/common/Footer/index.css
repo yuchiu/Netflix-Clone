@@ -10,6 +10,5 @@
   text-align: center;
   margin: 10px; }
 
-#footer-github-link {
-  color: #e50914;
-  margin: 10px; }
+.footer-item--link {
+  color: #e50914; }

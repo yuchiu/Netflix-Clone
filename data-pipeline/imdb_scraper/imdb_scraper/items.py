@@ -30,6 +30,7 @@ class ImdbScraperItem(scrapy.Item):
     writer = scrapy.Field()
     stars = scrapy.Field()
     poster = scrapy.Field()
+    trailer_img = scrapy.Field()
 
     taglines = scrapy.Field()
 
