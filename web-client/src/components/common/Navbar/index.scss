@@ -1,0 +1,40 @@
+@import "../../../assets/css/vars.scss";
+
+.navbar-wrapper {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0px;
+}
+.navbar-start {
+  margin: auto;
+  padding: 0 10px;
+  height: 40px;
+}
+.navbar-end {
+  margin: auto;
+  padding: 0 10px;
+  &__item {
+    padding: 5px 0px;
+  }
+}
+
+@media screen and (min-width: $MQ600) {
+  .navbar-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .navbar-start {
+    margin: 0 0 0 15px;
+    width: 160px;
+  }
+  .navbar-end {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    &__item {
+      padding: 0 10px;
+    }
+  }
+}

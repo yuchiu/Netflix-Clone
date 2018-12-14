@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import { movieAction } from "../../actions";
 import { movieSelector } from "../../selectors";
+import MovieCollection from "./MovieCollection";
 
 class LandingPage extends React.Component {
   componentDidMount() {
@@ -21,31 +22,18 @@ class LandingPage extends React.Component {
     } = this.props;
     return (
       <div className="landing-page">
-        Netflix Clone
-        <br />
-        <h1>Trending</h1>
-        {trendingCollectionList.map((movie, i) => (
-          <div key={`collection-trending-${i}`}>
-            <h4>{movie.data.title}</h4>
-            <div>{movie.data.taglines}</div>
-          </div>
-        ))}
-        <br />
-        <h1>Popular</h1>
-        {popularCollectionList.map((movie, i) => (
-          <div key={`collection-popular-${i}`}>
-            <h4>{movie.data.title}</h4>
-            <div>{movie.data.taglines}</div>
-          </div>
-        ))}
-        <br />
-        <h1>Top Rating</h1>
-        {topRatingCollectionList.map((movie, i) => (
-          <div key={`collection-rating-${i}`}>
-            <h4>{movie.data.title}</h4>
-            <div>{movie.data.taglines}</div>
-          </div>
-        ))}
+        <MovieCollection
+          movieCollectionList={trendingCollectionList}
+          collectionName="Trending"
+        />
+        <MovieCollection
+          movieCollectionList={popularCollectionList}
+          collectionName="Popular"
+        />
+        <MovieCollection
+          movieCollectionList={topRatingCollectionList}
+          collectionName="Top Rating"
+        />
       </div>
     );
   }
