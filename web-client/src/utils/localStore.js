@@ -13,7 +13,7 @@ export default {
    *
    * @returns {boolean}
    */
-  isUserLoggedIn: () => localStorage.getItem("token") !== null,
+  isUserAuthenticated: () => localStorage.getItem("token") !== null,
 
   /**
    * Deauthenticate a user. Remove token and email from Local Storage.

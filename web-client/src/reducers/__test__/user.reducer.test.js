@@ -4,7 +4,7 @@ import actionTypes from "../../actionTypes";
 import userReducer from "../user.reducer";
 
 const initialState = {
-  isUserLoggedIn: false,
+  isUserAuthenticated: false,
   currentUser: {},
   isLoading: false
 };
@@ -27,12 +27,12 @@ describe("user.reducer initial state", () => {
       }
     };
     const state = {
-      isUserLoggedIn: false,
+      isUserAuthenticated: false,
       currentUser: {},
       isLoading: false
     };
     const result = {
-      isUserLoggedIn: true,
+      isUserAuthenticated: true,
       currentUser: { id: 2, email: "tester@email.com", username: "tester" },
       isLoading: false
     };
@@ -47,7 +47,7 @@ describe("user.reducer initial state", () => {
       type: actionTypes.USER_FETCH_LOGIN
     };
     const result = {
-      isUserLoggedIn: false,
+      isUserAuthenticated: false,
       currentUser: {},
       isLoading: true
     };
@@ -69,12 +69,12 @@ describe("user.reducer initial state", () => {
       }
     };
     const state = {
-      isUserLoggedIn: false,
+      isUserAuthenticated: false,
       currentUser: {},
       isLoading: true
     };
     const result = {
-      isUserLoggedIn: true,
+      isUserAuthenticated: true,
       currentUser: { id: 2, email: "tester@email.com", username: "tester" },
       isLoading: false
     };
@@ -89,12 +89,12 @@ describe("user.reducer initial state", () => {
       type: actionTypes.USER_LOGOUT
     };
     const state = {
-      isUserLoggedIn: true,
+      isUserAuthenticated: true,
       currentUser: { id: 2, email: "tester@email.com", username: "tester" },
       isLoading: false
     };
     const result = {
-      isUserLoggedIn: false,
+      isUserAuthenticated: false,
       currentUser: {},
       isLoading: false
     };

@@ -3,7 +3,7 @@ import localStore from "../utils/localStore";
 import sessionStore from "../utils/sessionStore";
 
 const initialState = {
-  isUserLoggedIn: false,
+  isUserAuthenticated: false,
   currentUser: {},
   isLoading: false
 };
@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
     case actionTypes.USER_FETCH_TRY_AUTO_LOGIN:
       newState.currentUser = action.payload.user;
       sessionStore.setUserLoggedIn();
-      newState.isUserLoggedIn = sessionStore.getLoginStatus();
+      newState.isUserAuthenticated = sessionStore.getLoginStatus();
       return newState;
 
     case actionTypes.USER_FETCH_LOGIN:
@@ -26,7 +26,7 @@ export default (state = initialState, action) => {
       localStore.authenticateUser(action.payload);
       newState.currentUser = action.payload.user;
       sessionStore.setUserLoggedIn();
-      newState.isUserLoggedIn = sessionStore.getLoginStatus();
+      newState.isUserAuthenticated = sessionStore.getLoginStatus();
       return newState;
 
     case actionTypes.USER_FETCH_LOGIN_ERROR:

@@ -5,23 +5,26 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
-  padding: 15px 0px; }
+  padding: 15px 0px;
+  height: 160px; }
 
 .navbar-start {
   margin: auto;
   padding: 0 10px;
-  height: 40px; }
+  height: 50px; }
 
 .navbar-end {
   margin: auto;
   padding: 0 10px; }
-  .navbar-end__item {
-    padding: 5px 0px; }
+
+.navbar-end__item {
+  padding: 5px 0px; }
 
 @media screen and (min-width: 600px) {
   .navbar-wrapper {
     flex-direction: row;
-    justify-content: space-between; }
+    justify-content: space-between;
+    height: 70px; }
   .navbar-start {
     margin: 0 0 0 15px;
     width: 160px; }
@@ -29,5 +32,5 @@
     margin: 0;
     display: flex;
     align-items: center; }
-    .navbar-end__item {
-      padding: 0 10px; } }
+  .navbar-end__item {
+    padding: 0 10px; } }
