@@ -38,6 +38,8 @@ if (process.env.WEB_SERVER_PORT) {
 }
 export const SERVER_PORT = server_port;
 
+export const { JWT_SECRET } = process.env;
+
 export const { SERVICE_USER_NAME } = process.env;
 export const { SERVICE_USER_HOST } = process.env;
 export const { SERVICE_USER_URL } = process.env;

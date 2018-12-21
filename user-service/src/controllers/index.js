@@ -5,11 +5,18 @@ import registerRule from "../utils/registerRule";
 
 import models from "../models";
 
+const comparePassword = async (credentialsPassword, userPassword) => {
+  const isPasswordMatch = await bcrypt.compare(
+    credentialsPassword,
+    userPassword
+  );
+  return isPasswordMatch;
+};
+
 const jwtSignUser = user => {
   try {
-    const userJson = user.toJSON();
     const ONE_WEEK = 60 * 60 * 24 * 7;
-    return jwt.sign(userJson, process.env.JWT_SECRET, {
+    return jwt.sign(user, process.env.JWT_SECRET, {
       expiresIn: ONE_WEEK
     });
   } catch (err) {
@@ -18,6 +25,7 @@ const jwtSignUser = user => {
 };
 const normalizeUser = user => {
   const summary = {
+    id: user.id,
     username: user.username,
     email: user.email,
     timestamp: user.timestamp
@@ -26,6 +34,47 @@ const normalizeUser = user => {
 };
 
 export default {
+  async authenticateJWT(args, callback) {
+    try {
+      let response;
+      const user = await models.User.findOne({
+        where: { id: args.id },
+        raw: true
+      });
+      if (!user) {
+        response = {
+          meta: {
+            type: "error",
+            status: 403,
+            message: "not authenticated"
+          },
+          verified: false
+        };
+        callback(null, response);
+        return;
+      }
+
+      response = {
+        meta: {
+          type: "success",
+          status: 200,
+          message: ""
+        },
+        user: normalizeUser(user),
+        verified: true
+      };
+      callback(null, response);
+    } catch (err) {
+      console.log(err);
+      callback(null, {
+        meta: {
+          type: "error",
+          status: 500,
+          message: "server error"
+        }
+      });
+    }
+  },
   async signUpUser(args, callback) {
     try {
       const credentials = args;
@@ -59,7 +108,6 @@ export default {
       }
 
       /* credential is validated */
-      credentials.password = await bcrypt.hash(credentials.password, 10);
       const user = await models.User.create(credentials);
       response = {
         meta: {
@@ -88,7 +136,6 @@ export default {
         where: { email: credentials.email },
         raw: true
       });
-
       /* user not registered */
       if (!user) {
         response = {
@@ -101,11 +148,10 @@ export default {
         callback(null, response);
         return;
       }
-
       /* validate password */
-      const isPasswordValid = await bcrypt.compare(
+      const isPasswordValid = await comparePassword(
         credentials.password,
-        user.toJSON().password
+        user.password
       );
 
       /* invalid password */
@@ -120,7 +166,6 @@ export default {
         callback(null, response);
         return;
       }
-      console.log(user);
       /* password is validated */
       response = {
         meta: {
@@ -150,7 +195,8 @@ export default {
         type: "success",
         status: 200,
         message: ""
-      }
+      },
+      user: normalizeUser(user)
     };
     callback(null, response);
   }

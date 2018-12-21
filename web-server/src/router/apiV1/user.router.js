@@ -27,14 +27,23 @@ router.post("/signin", (req, res) => {
   });
 });
 
-router.post("/auth", (req, res) => {
+router.get("/auth", (req, res) => {
   const { user } = req;
-  userService.request("tryAutoSignIn", user, (err, response) => {
-    if (err) {
-      throwRPCErrors(err, res);
-    }
-    res.status(response.result.meta.status).send(response.result);
-  });
+  if (user) {
+    userService.request("tryAutoSignIn", user, (err, response) => {
+      if (err) {
+        throwRPCErrors(err, res);
+      }
+      res.status(response.result.meta.status).send(response.result);
+    });
+  } else
+    res.status(403).send({
+      meta: {
+        type: "failed",
+        status: 403,
+        message: "not authenticated"
+      }
+    });
 });
 
 export default router;

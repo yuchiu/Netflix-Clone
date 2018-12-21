@@ -6,6 +6,8 @@ import helmet from "helmet";
 import compression from "compression";
 import bodyParser from "body-parser";
 
+// Passport configuration & middlewares
+import "./config/passport";
 import apiV1Routes from "./router/apiV1";
 import { SERVER_PORT, NODE_ENV } from "./config/secrets";
 
@@ -17,7 +19,7 @@ if (process.env.NODE_ENV === "development") {
   app.use(logger("dev"));
 }
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(helmet());

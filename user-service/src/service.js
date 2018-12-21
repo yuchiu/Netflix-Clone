@@ -6,16 +6,16 @@ import secrets from "./config/secrets";
 
 // create a server
 const server = jayson.server({
+  authenticateJWT(credentials, callback) {
+    controller.authenticateJWT(credentials, callback);
+  },
   signUpUser(credentials, callback) {
-    console.log("signUpUser called");
     controller.signUpUser(credentials, callback);
   },
   signInUser(credentials, callback) {
-    console.log("signInUser called");
     controller.signInUser(credentials, callback);
   },
   tryAutoSignIn(user, callback) {
-    console.log("tryAutoSignIn called");
     controller.tryAutoSignIn(user, callback);
   }
 });
