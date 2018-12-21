@@ -1,7 +1,7 @@
 import { Reducer } from "redux-testkit";
 
-import actionTypes from "../../actionTypes";
-import movieReducer from "../movie.reducer";
+import actionTypes from "@/actionTypes";
+import { movieReducer } from "@/reducers";
 
 const initialState = {
   selectedMovie: {},

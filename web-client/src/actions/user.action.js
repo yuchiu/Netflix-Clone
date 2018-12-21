@@ -1,4 +1,4 @@
-import actionTypes from "../actionTypes";
+import actionTypes from "@/actionTypes";
 import { userService } from "./services";
 
 export default {

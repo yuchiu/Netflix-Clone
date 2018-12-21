@@ -1,6 +1,6 @@
-@import "../assets/css/mixins.scss";
 @import "../assets/css/vars.scss";
 
+html,
 body {
   margin: 0;
   padding: 0;
@@ -14,21 +14,29 @@ body {
   color: $netflixWhite;
   background: $netflixBlack;
 }
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
 
 #root {
   height: 100%;
   width: 100%;
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
+.page-wrapper {
+  min-height: calc(100% - (#{$navbarHeight} + #{$footerHeight}));
 }
+
 .pointer-cursor {
   cursor: pointer;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.no-highlight {
+  user-select: none;
+}
+
+@media screen and (min-width: $MQ600Min) {
+  .page-wrapper {
+    min-height: calc(100% - (#{$navbarHeightMQ600Min} + #{$footerHeight}));
+  }
 }

@@ -1,7 +1,7 @@
 import { Thunk } from "redux-testkit";
-import actionTypes from "../../actionTypes";
-import { userAction } from "..";
-import { userService } from "../services";
+import actionTypes from "@/actionTypes";
+import { userAction } from "@/actions";
+import { userService } from "@/actions/services";
 
 jest.mock("../services/user.service");
 

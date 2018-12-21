@@ -1,5 +1,5 @@
 import axios from "axios";
-import localStore from "../../utils/localStore";
+import localStore from "@/utils/localStore";
 
 const apiV1 = () =>
   axios.create({

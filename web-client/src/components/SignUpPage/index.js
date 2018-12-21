@@ -74,7 +74,7 @@ class SignUpPage extends React.Component {
       handleFieldChange
     } = this.props;
     return (
-      <main className="signup-page">
+      <main className="signup-page page-wrapper">
         {isUserAuthenticated && <Redirect to="/" />}
         <div className="signup-section">
           <SignUpForm

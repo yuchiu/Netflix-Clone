@@ -1,6 +1,6 @@
-import actionTypes from "../actionTypes";
-import localStore from "../utils/localStore";
-import sessionStore from "../utils/sessionStore";
+import actionTypes from "@/actionTypes";
+import localStore from "@/utils/localStore";
+import sessionStore from "@/utils/sessionStore";
 
 const initialState = {
   isUserAuthenticated: false,

@@ -1,6 +1,6 @@
 import { Selector } from "redux-testkit";
 
-import { movieSelector } from "..";
+import { movieSelector } from "@/selectors";
 
 describe("movie.selector", () => {
   it("should select one movie", () => {

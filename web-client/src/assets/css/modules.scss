@@ -1,0 +1,33 @@
+@import "./vars.scss";
+
+@mixin button(
+  $size: 14px,
+  $color: $black,
+  $bgColor: $white,
+  $padding: 5px,
+  $borderColor: $lightgrey,
+  $radius: 3px
+) {
+  padding: $padding;
+  background-color: $bgColor;
+  border-radius: $radius;
+  border: 1px solid $borderColor;
+  font-size: $size;
+  color: $color;
+  text-align: center;
+  line-height: 1;
+  display: inline-block;
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus,
+  &:active & {
+    outline: none;
+  }
+}
+
+@mixin list($direction: column, $inline: block) {
+  display: if($inline == block, flex, inline-flex);
+  flex-direction: $direction;
+  flex-wrap: wrap;
+}

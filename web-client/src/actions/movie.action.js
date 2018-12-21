@@ -1,4 +1,4 @@
-import actionTypes from "../actionTypes";
+import actionTypes from "@/actionTypes";
 import { movieService } from "./services";
 
 export default {

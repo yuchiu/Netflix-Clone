@@ -21,7 +21,7 @@ class LandingPage extends React.Component {
       topRatingCollectionList
     } = this.props;
     return (
-      <div className="landing-page">
+      <div className="landing-page page-wrapper">
         <MovieCollection
           movieCollectionList={trendingCollectionList}
           collectionName="Trending"

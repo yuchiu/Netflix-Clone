@@ -3,12 +3,12 @@ import { createStore, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import { FlushThunks } from "redux-testkit";
 
-import { movieReducer } from "../../reducers";
-import { movieAction } from "../../actions";
-import { movieSelector } from "../../selectors";
-import { movieService } from "../../actions/services";
+import { movieReducer } from "@/reducers";
+import { movieAction } from "@/actions";
+import { movieSelector } from "@/selectors";
+import { movieService } from "@/actions/services";
 
-jest.mock("../../actions/services/movie.service");
+jest.mock("@/actions/services/movie.service");
 
 describe("store/movies integration", () => {
   let flushThunks;

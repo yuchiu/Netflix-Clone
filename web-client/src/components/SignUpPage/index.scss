@@ -1,7 +1,6 @@
 @import "../../assets/css/vars.scss";
 
 .signup-page {
-  height: calc(100% - (#{$navbarHeight} + #{$footerHeight}));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,10 +10,4 @@
   background-color: $black;
   display: flex;
   flex-direction: column;
-}
-
-@media screen and (min-width: $MQ600Min) {
-  .signup-page {
-    height: calc(100% - (#{$navbarHeightMQ600Min} + #{$footerHeight}));
-  }
 }

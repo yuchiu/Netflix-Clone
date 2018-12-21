@@ -4,17 +4,18 @@ import dotenv from "dotenv";
 import { Provider } from "react-redux";
 
 import store from "./store";
-import Router from "./components";
+import Routes from "./components";
 import * as serviceWorker from "./serviceWorker";
 
 dotenv.config({ path: "../.env" });
 
-const app = (
+const App = (
   <Provider store={store}>
-    <Router />
+    <Routes />
   </Provider>
 );
-ReactDOM.render(app, document.getElementById("root"));
+
+ReactDOM.render(App, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

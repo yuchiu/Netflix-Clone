@@ -1,7 +1,7 @@
 import { Reducer } from "redux-testkit";
 
-import actionTypes from "../../actionTypes";
-import userReducer from "../user.reducer";
+import actionTypes from "@/actionTypes";
+import { userReducer } from "@/reducers";
 
 const initialState = {
   isUserAuthenticated: false,

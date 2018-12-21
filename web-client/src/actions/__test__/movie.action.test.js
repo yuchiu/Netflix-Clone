@@ -1,7 +1,7 @@
 import { Thunk } from "redux-testkit";
-import actionTypes from "../../actionTypes";
-import { movieAction } from "..";
-import { movieService } from "../services";
+import actionTypes from "@/actionTypes";
+import { movieAction } from "@/actions";
+import { movieService } from "@/actions/services";
 
 jest.mock("../services/movie.service");
 

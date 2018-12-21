@@ -1,11 +1,12 @@
 import validator from "validator";
 
 export default (fieldName, data) => {
-  let error;
+  let error = "";
+  console.log(data);
   switch (fieldName) {
     case "username":
       if (!data) {
-        error = "rsername can't be blank";
+        error = "username can't be blank";
       }
       if (data.length < 4 || data.length > 32) {
         error = "length of username have to be between 4 to 32";
@@ -26,6 +27,9 @@ export default (fieldName, data) => {
       return error;
 
     case "email":
+      if (!data) {
+        error = "email can't be blank";
+      }
       if (!validator.isEmail(data)) {
         error = "invalid email";
       }
