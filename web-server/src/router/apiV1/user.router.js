@@ -5,7 +5,7 @@ import { userService } from "../../config/serviceClient.config";
 
 const router = express.Router();
 
-router.get("/auth", (req, res) => {
+router.post("/signup", (req, res) => {
   const credentials = req.body;
 
   userService.request("signUpUser", credentials, (err, response) => {
@@ -16,7 +16,7 @@ router.get("/auth", (req, res) => {
   });
 });
 
-router.post("/signup", (req, res) => {
+router.post("/signin", (req, res) => {
   const credentials = req.body;
 
   userService.request("signInUser", credentials, (err, response) => {
@@ -27,7 +27,7 @@ router.post("/signup", (req, res) => {
   });
 });
 
-router.post("/signin", (req, res) => {
+router.post("/auth", (req, res) => {
   const { user } = req;
   userService.request("tryAutoSignIn", user, (err, response) => {
     if (err) {

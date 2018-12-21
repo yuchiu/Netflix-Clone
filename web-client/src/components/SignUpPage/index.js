@@ -5,9 +5,8 @@ import { Redirect } from "react-router-dom";
 
 import "./index.scss";
 import { userAction, errorAction } from "../../actions";
-import { GOOGLE_CLIENT_ID } from "../../utils/secrets";
 import { userSelector, errorSelector } from "../../selectors";
-import { SocialButton, HOCForm, InlineError } from "../common";
+import { HOCForm, InlineError } from "../common";
 import SignUpForm from "./SignUpForm";
 
 class SignUpPage extends React.Component {
@@ -43,26 +42,6 @@ class SignUpPage extends React.Component {
     }
   };
 
-  handleSocialLogin = res => {
-    const { fetchOAuthLogin, clearAllError } = this.props;
-    console.log(res);
-    const user = {
-      provider: res.provider,
-      username: res.profile.firstName + res.profile.lastName,
-      email: res.profile.email,
-      avatarurl: res.profile.profilePicURL,
-      access_token: res.token.accessToken
-    };
-    fetchOAuthLogin(user);
-    clearAllError();
-  };
-
-  handleSocialLoginFailure = err => {
-    console.error(err);
-    const { createError, error } = this.props;
-    createError(error);
-  };
-
   render() {
     const {
       isUserAuthenticated,
@@ -74,9 +53,9 @@ class SignUpPage extends React.Component {
       handleFieldChange
     } = this.props;
     return (
-      <main className="signup-page page-wrapper">
+      <main className="signup-page auth-page page-wrapper">
         {isUserAuthenticated && <Redirect to="/" />}
-        <div className="signup-section">
+        <div className="signup-section auth-section">
           <SignUpForm
             fieldErrors={fieldErrors}
             formFields={formFields}
@@ -88,20 +67,7 @@ class SignUpPage extends React.Component {
             Sign In
           </span>
           <br />
-          <br />
           Or Sign In With:
-          <br />
-          <div className="social-btn-group">
-            <SocialButton
-              provider="google"
-              appId={GOOGLE_CLIENT_ID}
-              onLoginSuccess={this.handleSocialLogin}
-              onLoginFailure={this.handleSocialLoginFailure}
-            >
-              <i className="fab fa-google-plus-g fa-2x" />
-              Google
-            </SocialButton>
-          </div>
           <br />
           <div className="inline-error--center">
             {error && <InlineError text={`Error: ${error}`} />}

@@ -1,5 +1,5 @@
-const dotenv = require("dotenv");
-const fs = require("fs");
+import dotenv from "dotenv";
+import fs from "fs";
 
 if (fs.existsSync("../.env")) {
   console.log("Using .env file to supply config environment variables");
@@ -25,22 +25,20 @@ const { SERVICE_USER_NAME } = process.env;
 const { SERVICE_USER_HOST } = process.env;
 const { SERVICE_USER_URL } = process.env;
 const { SERVICE_USER_PORT } = process.env;
-
-const MONGODB_URI = process.env.SERVICE_USER_DB_MONGO_URI;
-
-if (!MONGODB_URI) {
-  console.log(
-    "No mongo connection string. Set SERVICE_USER_DB_MONGO_URI environment variable."
-  );
-  process.exit(1);
-}
+const { SERVICE_MOVIE_PSQL_DB_NAME } = process.env;
+const { SERVICE_MOVIE_PSQL_DB_HOST } = process.env;
+const { SERVICE_MOVIE_PSQL_DB_USER } = process.env;
+const { SERVICE_MOVIE_PSQL_DB_PASS } = process.env;
 
 module.exports = {
   NODE_ENV,
   JWT_SECRET,
-  MONGODB_URI,
   SERVICE_USER_NAME,
   SERVICE_USER_HOST,
   SERVICE_USER_URL,
-  SERVICE_USER_PORT
+  SERVICE_USER_PORT,
+  SERVICE_MOVIE_PSQL_DB_NAME,
+  SERVICE_MOVIE_PSQL_DB_HOST,
+  SERVICE_MOVIE_PSQL_DB_USER,
+  SERVICE_MOVIE_PSQL_DB_PASS
 };

@@ -4,21 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/service.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cross-env nodemon --exec babel-node src/service.js",
+    "build": "babel src -d build",
+    "test": "cross-env echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cross-env": "^5.2.0",
     "dotenv": "^6.1.0",
     "jayson": "^2.1.0",
     "joi": "^14.3.0",
     "jsonwebtoken": "^8.3.0",
-    "mongoose": "^5.3.10",
+    "pg": "^7.7.1",
+    "sequelize": "^4.42.0",
+    "uuid": "^3.3.2",
     "winston": "^3.1.0"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1",
     "nodemon": "^1.18.6",
     "eslint": "^5.2.0",
     "eslint-config-airbnb": "^17.0.0",
@@ -27,6 +35,21 @@
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-prettier": "^2.6.2",
     "prettier": "^1.14.0"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "stage-3"
+    ],
+    "plugins": [
+      [
+        "transform-runtime",
+        {
+          "polyfill": false,
+          "regenerator": true
+        }
+      ]
+    ]
   },
   "eslintConfig": {
     "env": {

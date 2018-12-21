@@ -1,8 +1,8 @@
-const jayson = require("jayson");
-const mongoose = require("mongoose");
+import jayson from "jayson";
 
-const controller = require("./controllers");
-const secrets = require("./config/secrets");
+import models from "./models";
+import controller from "./controllers";
+import secrets from "./config/secrets";
 
 // create a server
 const server = jayson.server({
@@ -20,24 +20,14 @@ const server = jayson.server({
   }
 });
 
-mongoose.connect(
-  secrets.MONGODB_URI,
-  { useNewUrlParser: true },
-  err => {
-    if (err) {
-      console.log(`DB Connection failed:${err}`);
-    } else {
-      console.log(`DB Connection Success, connected to ${secrets.MONGODB_URI}`);
-    }
-  }
-);
-
-server
-  .http()
-  .listen(secrets.SERVICE_USER_PORT, () =>
-    console.log(
-      `user service listenning on port ${secrets.SERVICE_USER_PORT} in "${
-        secrets.NODE_ENV
-      }" mode`
-    )
-  );
+models.sequelize.sync().then(() => {
+  server
+    .http()
+    .listen(secrets.SERVICE_USER_PORT, () =>
+      console.log(
+        `user service listenning on port ${secrets.SERVICE_USER_PORT} in "${
+          secrets.NODE_ENV
+        }" mode`
+      )
+    );
+});

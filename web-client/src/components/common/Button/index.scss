@@ -1,0 +1,13 @@
+@import "../../../assets/css/vars.scss";
+@import "../../../assets/css/modules.scss";
+
+.button {
+  @include button(
+    $size: 15px,
+    $color: $black,
+    $bgColor: $white,
+    $padding: 5px,
+    $borderColor: $lightgrey,
+    $radius: 3px
+  );
+}

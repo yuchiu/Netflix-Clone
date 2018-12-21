@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import "./SignInForm.scss";
-import { InlineError } from "../common";
+import { InlineError, Button } from "../common";
 
 const SignInForm = ({
   fieldErrors,
@@ -11,39 +11,41 @@ const SignInForm = ({
   handleSignIn,
   handleFieldChange
 }) => (
-  <form className="signin-form">
-    <h3 as="h2">Sign In</h3>
-    <div>
-      <label className="form-label">Email:</label>
+  <form className="auth-form signin-form">
+    <h3 className="auth-form__header signin-form__header">Sign In</h3>
+    <div className="auth-form__email signin-form__email">
+      <label className="auth-form__email__label signin-form__email__label">
+        Email:
+      </label>
       {fieldErrors.email && <InlineError text={fieldErrors.email} />}
       <input
-        id="email"
         type="text"
         name="email"
         value={formFields.email}
-        className=""
+        className="auth-form__email__input signin-form__email__input"
         onChange={handleFieldChange}
         placeholder="email"
-        size="large"
       />
     </div>
-    <div>
-      <label className="form-label">Password:</label>
+    <div className="auth-form__password signin-form__password">
+      <label className="auth-form__password__labe signin-form__password__label">
+        Password:
+      </label>
       {fieldErrors.password && <InlineError text={fieldErrors.password} />}
       <input
-        id="password"
+        className="auth-form__password__input signin-form__password__input"
         type="password"
         name="password"
         value={formFields.password}
-        className="validate"
         onChange={handleFieldChange}
         placeholder="password"
-        size="large"
       />
     </div>
-    <button className="" onClick={handleSignIn}>
-      Log In
-    </button>
+    <Button
+      className="auth-form__btn signin-form__btn"
+      text="Log In"
+      handleClick={handleSignIn}
+    />
   </form>
 );
 

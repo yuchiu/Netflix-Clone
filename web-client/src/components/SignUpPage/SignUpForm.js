@@ -11,71 +11,71 @@ const SignUpForm = ({
   handleSignUp,
   handleFieldChange
 }) => (
-  <form className="signup-form">
-    <h3 as="h2">Sign Up</h3>
-    <div>
-      <label className="form-label">Username:</label>
+  <form className="auth-form signup-form">
+    <h3 className="auth-form__header signup-form__header">Sign Up</h3>
+    <div className="auth-form__username signup-form__username">
+      <label className="auth-form__username__label signup-form__username__label">
+        Username:
+      </label>
       {fieldErrors.username && <InlineError text={fieldErrors.username} />}
       <input
-        id="username"
         type="username"
         name="username"
         value={formFields.username}
-        className=""
+        className="auth-form__username__input signup-form__username__input"
         onChange={handleFieldChange}
         placeholder="username"
-        size="large"
       />
     </div>
 
-    <div>
-      <label className="form-label">Email:</label>
+    <div className="auth-form__email signup-form__email">
+      <label className="auth-form__email__label signup-form__email__label">
+        Email:
+      </label>
       {fieldErrors.email && <InlineError text={fieldErrors.email} />}
       <input
-        id="email"
         type="email"
         name="email"
         value={formFields.email}
-        className=""
+        className="auth-form__email__input signup-form__email__input"
         onChange={handleFieldChange}
         placeholder="email"
-        size="large"
       />
     </div>
 
-    <div>
-      <label className="form-label">Password:</label>
+    <div className="auth-form__password signup-form__password">
+      <label className="auth-form__password__label signup-form__password__label">
+        Password:
+      </label>
       {fieldErrors.password && <InlineError text={fieldErrors.password} />}
       <input
-        id="password"
         type="password"
         name="password"
         value={formFields.password}
-        className="validate"
+        className="auth-form__password__input signup-form__password__input"
         onChange={handleFieldChange}
         placeholder="password"
-        size="large"
       />
     </div>
 
-    <div>
-      <label className="form-label">Confirm Password:</label>
+    <div className="auth-form__confirm-password signup-form__confirm-password">
+      <label className="auth-form__confirm-password__label signup-form__confirm-password__label">
+        Confirm Password:
+      </label>
       {fieldErrors.confirmPassword && (
         <InlineError text={fieldErrors.confirmPassword} />
       )}
       <input
-        id="confirm_password"
         type="password"
         name="confirmPassword"
         value={formFields.confirmPassword}
-        className="validate"
+        className="auth-form__confirm-password__input signup-form__confirm-password__input"
         onChange={handleFieldChange}
         placeholder="confirm password"
-        size="large"
       />
     </div>
 
-    <button className="" onClick={handleSignUp}>
+    <button className="auth-form__btn signup-form__btn" onClick={handleSignUp}>
       Register
     </button>
   </form>

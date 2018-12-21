@@ -1,9 +1,9 @@
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 
-const registerRule = require("../utils/registerRule");
+import registerRule from "../utils/registerRule";
 
-const User = require("../models/User");
+import models from "../models";
 
 const jwtSignUser = user => {
   try {
@@ -25,7 +25,7 @@ const normalizeUser = user => {
   return summary;
 };
 
-module.exports = {
+export default {
   async signUpUser(args, callback) {
     try {
       const credentials = args;
@@ -40,25 +40,9 @@ module.exports = {
         return;
       }
 
-      const isUsernameRegistered = await User.findOne({
-        username: credentials.username
-      });
-
-      /* username already registered */
-      if (isUsernameRegistered) {
-        response = {
-          meta: {
-            type: "error",
-            status: 403,
-            message: `username: ${credentials.username} is already registered`
-          }
-        };
-        callback(null, response);
-        return;
-      }
-
-      const isEmailRegistered = await User.findOne({
-        email: credentials.email
+      const isEmailRegistered = await models.User.findOne({
+        where: { email: credentials.email },
+        raw: true
       });
 
       /* email already registered */
@@ -76,7 +60,7 @@ module.exports = {
 
       /* credential is validated */
       credentials.password = await bcrypt.hash(credentials.password, 10);
-      const user = await User.create(credentials);
+      const user = await models.User.create(credentials);
       response = {
         meta: {
           type: "success",
@@ -100,7 +84,10 @@ module.exports = {
   async signInUser(credentials, callback) {
     try {
       let response;
-      const user = await User.findOne({ username: credentials.username });
+      const user = await models.User.findOne({
+        where: { email: credentials.email },
+        raw: true
+      });
 
       /* user not registered */
       if (!user) {
@@ -108,9 +95,7 @@ module.exports = {
           meta: {
             type: "error",
             status: 403,
-            message: `this account ${
-              credentials.username
-            } is not yet registered`
+            message: `this account ${credentials.email} is not yet registered`
           }
         };
         callback(null, response);
@@ -135,7 +120,7 @@ module.exports = {
         callback(null, response);
         return;
       }
-
+      console.log(user);
       /* password is validated */
       response = {
         meta: {
@@ -165,8 +150,7 @@ module.exports = {
         type: "success",
         status: 200,
         message: ""
-      },
-      user: normalizeUser(user)
+      }
     };
     callback(null, response);
   }
