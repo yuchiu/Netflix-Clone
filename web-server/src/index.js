@@ -10,6 +10,7 @@ import bodyParser from "body-parser";
 import "./config/passport";
 import apiV1Routes from "./router/apiV1";
 import { SERVER_PORT, NODE_ENV } from "./config/secrets";
+import authenticateJWT from "./middlewares/authenticateJWT";
 
 const app = express();
 
@@ -19,13 +20,13 @@ if (process.env.NODE_ENV === "development") {
   app.use(logger("dev"));
 }
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(helmet());
 app.use(compression());
 app.use(logger("dev"));
-app.use(bodyParser.json());
+app.use(authenticateJWT());
 app.use("/api/v1", apiV1Routes);
 
 /* listen to port */
