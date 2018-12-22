@@ -15,7 +15,7 @@ class AuthRoute extends React.Component {
           isUserAuthenticated ? (
             <Component {...props} />
           ) : (
-            <Redirect to={{ pathname: "/singin" }} />
+            <Redirect to={{ pathname: "/" }} />
           )
         }
       />

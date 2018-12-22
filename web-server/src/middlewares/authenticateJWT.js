@@ -1,4 +1,4 @@
-const jwt = require("jsonwebtoken");
+import jwt from "jsonwebtoken";
 
 export default () => (req, res, next) => {
   const authorizationHeaader = req.headers.authorization;
@@ -16,7 +16,8 @@ export default () => (req, res, next) => {
       next();
     } catch (err) {
       // Throw an error just in case anything goes wrong with verification
-      throw new Error(err);
+      console.log(err);
+      next();
     }
   } else {
     next();

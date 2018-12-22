@@ -6,9 +6,11 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./index.scss";
 import { userAction } from "@/actions";
 import { Navbar, Footer } from "./common";
+import AuthRoute from "./AuthRoute";
 import LandingPage from "./LandingPage";
 import SignUpPage from "./SignUpPage";
 import SignInPage from "./SignInPage";
+import MyProfilePage from "./MyProfilePage";
 import NotFoundPage from "./NotFoundPage";
 
 class Routes extends React.Component {
@@ -27,6 +29,7 @@ class Routes extends React.Component {
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/signin" component={SignInPage} />
             <Route exact path="/signup" component={SignUpPage} />
+            <AuthRoute exact path="/my-profile" component={MyProfilePage} />
             <Route component={NotFoundPage} />
           </Switch>
           <Footer />

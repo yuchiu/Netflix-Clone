@@ -1,8 +1,11 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
+import { userSelector } from "@/selectors";
 import NetflixLogoSVG from "./NetflixLogo";
 import "./index.scss";
+import { userAction } from "../../../actions";
 
 class Navbar extends React.Component {
   routeToLanding = () => {
@@ -10,9 +13,28 @@ class Navbar extends React.Component {
     history.push("/");
   };
 
-  render() {
+  routeToSignin = () => {
     const { history } = this.props;
-    const isUserAuthenticated = false;
+    history.push("/signin");
+  };
+
+  routeToSignup = () => {
+    const { history } = this.props;
+    history.push("/signup");
+  };
+
+  routeToMyProfile = () => {
+    const { history } = this.props;
+    history.push("/my-profile");
+  };
+
+  handleSignout = () => {
+    const { signOutUser } = this.props;
+    signOutUser();
+  };
+
+  render() {
+    const { isUserAuthenticated } = this.props;
     return (
       <nav className="navbar-wrapper">
         <div className="navbar-start">
@@ -22,23 +44,31 @@ class Navbar extends React.Component {
         <div className="navbar-end">
           <div className="navbar-end__item">Search</div>
           {isUserAuthenticated ? (
-            <div
-              className="navbar-end__item pointer-cursor"
-              onClick={() => history.push("/")}
-            >
-              My Profile
-            </div>
+            <React.Fragment>
+              <div
+                className="navbar-end__item pointer-cursor"
+                onClick={this.routeToMyProfile}
+              >
+                My Profile
+              </div>
+              <div
+                className="navbar-end__item pointer-cursor"
+                onClick={this.handleSignout}
+              >
+                Sign Out
+              </div>
+            </React.Fragment>
           ) : (
             <React.Fragment>
               <div
                 className="navbar-end__item pointer-cursor"
-                onClick={() => history.push("/signin")}
+                onClick={this.routeToSignin}
               >
                 Sign In
               </div>
               <div
                 className="navbar-end__item pointer-cursor"
-                onClick={() => history.push("/signup")}
+                onClick={this.routeToSignup}
               >
                 Sign Up
               </div>
@@ -49,4 +79,21 @@ class Navbar extends React.Component {
     );
   }
 }
-export default withRouter(Navbar);
+
+const dispatchToProps = dispatch => ({
+  signOutUser: () => {
+    dispatch(userAction.signOutUser());
+  }
+});
+
+const stateToProps = state => ({
+  isLoading: userSelector.getUserIsLoading(state),
+  isUserAuthenticated: userSelector.getIsUserAuthenticated(state)
+});
+
+export default withRouter(
+  connect(
+    stateToProps,
+    dispatchToProps
+  )(Navbar)
+);

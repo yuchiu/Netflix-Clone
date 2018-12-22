@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
   const newState = { ...state };
   switch (action.type) {
     case actionTypes.USER_FETCH_TRY_AUTO_LOGIN:
-      if (action.payload.verified) {
+      if (action.payload.user) {
         newState.currentUser = action.payload.user;
         sessionStore.setUserLoggedIn();
         newState.isUserAuthenticated = sessionStore.getLoginStatus();
