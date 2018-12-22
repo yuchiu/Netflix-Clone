@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
+import "./index.scss";
 import { movieAction } from "../../actions";
 import { movieSelector } from "../../selectors";
 import MovieCollection from "./MovieCollection";

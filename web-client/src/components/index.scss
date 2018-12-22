@@ -14,6 +14,13 @@ body {
   color: $netflixWhite;
   background: $netflixBlack;
 }
+
+/* hide x axis for netflix-like carousel effects */
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -23,6 +30,8 @@ code {
   height: 100%;
   width: 100%;
 }
+
+/* set each page content min height to 100% combining footer and navbar*/
 .page-wrapper {
   min-height: calc(100% - (#{$navbarHeight} + #{$footerHeight}));
 }

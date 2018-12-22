@@ -8,11 +8,9 @@ const NotFoundPage = ({
     params: { unfoundLocation }
   }
 }) => (
-  <React.Fragment>
-    <main className="not-found-page page-wrapper">
-      <p>404! The page `{unfoundLocation}` is not found.</p>
-    </main>
-  </React.Fragment>
+  <div className="not-found-page page-wrapper">
+    <p>404! The page `{unfoundLocation}` is not found.</p>
+  </div>
 );
 
 NotFoundPage.propTypes = {

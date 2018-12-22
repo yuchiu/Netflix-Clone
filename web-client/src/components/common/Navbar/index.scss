@@ -3,18 +3,19 @@
 .navbar-wrapper {
   display: flex;
   flex-direction: column;
-  height: $navbarHeight;
+  min-height: $navbarHeight;
 }
 .navbar-start {
+  width: 160px;
   margin: auto;
   padding: 0 10px;
-  height: 100%;
 }
 .navbar-end {
   margin: auto;
   padding: 0 10px;
   &__item {
     padding: 5px 0px;
+    text-align: center;
   }
 }
 
@@ -22,11 +23,10 @@
   .navbar-wrapper {
     flex-direction: row;
     justify-content: space-between;
-    height: $navbarHeightMQ600Min;
+    min-height: $navbarHeightMQ600Min;
   }
   .navbar-start {
     margin: 0 0 0 15px;
-    width: 160px;
   }
   .navbar-end {
     margin: 0;
