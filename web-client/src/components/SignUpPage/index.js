@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 import "./index.scss";
+import "../../assets/css/components/authForm.scss";
 import { userAction, errorAction } from "../../actions";
 import { userSelector, errorSelector } from "../../selectors";
 import { HOCForm, InlineError } from "../common";
@@ -63,7 +64,10 @@ class SignUpPage extends React.Component {
             handleFieldChange={handleFieldChange}
           />
           Already have an account?{" "}
-          <span className="pointer-cursor" onClick={this.RedirectToSignIn}>
+          <span
+            className="pointer-cursor auth-section__link "
+            onClick={this.RedirectToSignIn}
+          >
             Sign In
           </span>
           <br />

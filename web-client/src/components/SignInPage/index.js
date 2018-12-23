@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 import "./index.scss";
+import "../../assets/css/components/authForm.scss";
 import { userAction, errorAction } from "../../actions";
 import { userSelector, errorSelector } from "../../selectors";
 import { HOCForm, InlineError } from "../common";
@@ -52,8 +53,11 @@ class SignInPage extends React.Component {
             handleSignIn={this.handleSignIn}
             handleFieldChange={handleFieldChange}
           />
-          New to Slack Clone?{" "}
-          <span className="pointer-cursor" onClick={this.redirectToSignUp}>
+          New to Netflix Clone?{" "}
+          <span
+            className="auth-section__link pointer-cursor"
+            onClick={this.redirectToSignUp}
+          >
             Sign Up
           </span>
           <br />

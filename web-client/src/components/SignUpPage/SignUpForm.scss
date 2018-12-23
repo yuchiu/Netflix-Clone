@@ -1,1 +1,34 @@
 @import "../../assets/css/vars.scss";
+
+.signup-form {
+  width: 400px;
+  height: 600px;
+  &__header {
+  }
+  &__username {
+    &__label {
+    }
+    &__input {
+    }
+  }
+  &__email {
+    &__label {
+    }
+    &__input {
+    }
+  }
+  &__password {
+    &__label {
+    }
+    &__input {
+    }
+  }
+  &__confirm-password {
+    &__label {
+    }
+    &__input {
+    }
+  }
+  &__btn {
+  }
+}
