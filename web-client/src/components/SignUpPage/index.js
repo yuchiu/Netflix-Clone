@@ -17,6 +17,7 @@ class SignUpPage extends React.Component {
   };
 
   handleSignUp = e => {
+    e.preventDefault();
     const {
       fetchSignUpUser,
       clearAllError,
@@ -24,7 +25,6 @@ class SignUpPage extends React.Component {
       fieldsValidation,
       formFields
     } = this.props;
-    e.preventDefault();
     const fieldErrors = fieldsValidation();
     if (formFields.password !== formFields.confirmPassword) {
       // display error if confirm password does not match password
@@ -63,15 +63,15 @@ class SignUpPage extends React.Component {
             handleSignUp={this.handleSignUp}
             handleFieldChange={handleFieldChange}
           />
-          Already have an account?{" "}
-          <span
-            className="pointer-cursor auth-section__link "
-            onClick={this.RedirectToSignIn}
-          >
-            Sign In
-          </span>
-          <br />
-          Or Sign In With:
+          <div className="auth-section__route-to">
+            Already have an account?{" "}
+            <span
+              className="pointer-cursor auth-section__route-to__link "
+              onClick={this.RedirectToSignIn}
+            >
+              Sign In Now
+            </span>
+          </div>
           <br />
           <div className="inline-error--center">
             {error && <InlineError text={`Error: ${error}`} />}

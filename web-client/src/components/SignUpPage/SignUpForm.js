@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import "./SignUpForm.scss";
-import { InlineError } from "../common";
+import { InlineError, Button } from "../common";
 
 const SignUpForm = ({
   fieldErrors,
@@ -14,52 +14,46 @@ const SignUpForm = ({
   <form className="auth-form signup-form">
     <h3 className="auth-form__header signup-form__header">Sign Up</h3>
     <div className="auth-form__username signup-form__username">
-      <label className="auth-form__username__label signup-form__username__label">
-        Username:
-      </label>
+      <label className="auth-form-label signup-form-label">Username:</label>
       {fieldErrors.username && <InlineError text={fieldErrors.username} />}
       <input
         type="username"
         name="username"
         value={formFields.username}
-        className="auth-form__username__input signup-form__username__input"
+        className="auth-form-input signup-form-input"
         onChange={handleFieldChange}
         placeholder="username"
       />
     </div>
 
     <div className="auth-form__email signup-form__email">
-      <label className="auth-form__email__label signup-form__email__label">
-        Email:
-      </label>
+      <label className="auth-form-label signup-form-label">Email:</label>
       {fieldErrors.email && <InlineError text={fieldErrors.email} />}
       <input
         type="email"
         name="email"
         value={formFields.email}
-        className="auth-form__email__input signup-form__email__input"
+        className="auth-form-input signup-form-input"
         onChange={handleFieldChange}
         placeholder="email"
       />
     </div>
 
     <div className="auth-form__password signup-form__password">
-      <label className="auth-form__password__label signup-form__password__label">
-        Password:
-      </label>
+      <label className="auth-form-label signup-form-label">Password:</label>
       {fieldErrors.password && <InlineError text={fieldErrors.password} />}
       <input
         type="password"
         name="password"
         value={formFields.password}
-        className="auth-form__password__input signup-form__password__input"
+        className="auth-form-input signup-form-input"
         onChange={handleFieldChange}
         placeholder="password"
       />
     </div>
 
     <div className="auth-form__confirm-password signup-form__confirm-password">
-      <label className="auth-form__confirm-password__label signup-form__confirm-password__label">
+      <label className="auth-form-label signup-form-label">
         Confirm Password:
       </label>
       {fieldErrors.confirmPassword && (
@@ -69,15 +63,17 @@ const SignUpForm = ({
         type="password"
         name="confirmPassword"
         value={formFields.confirmPassword}
-        className="auth-form__confirm-password__input signup-form__confirm-password__input"
+        className="auth-form-input signup-form-input"
         onChange={handleFieldChange}
         placeholder="confirm password"
       />
     </div>
 
-    <button className="auth-form__btn signup-form__btn" onClick={handleSignUp}>
-      Register
-    </button>
+    <Button
+      text="Sign Up"
+      cssClass="auth-form__btn signup-form__btn"
+      handleClick={handleSignUp}
+    />
   </form>
 );
 

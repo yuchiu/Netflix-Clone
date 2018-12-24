@@ -5,30 +5,19 @@
   height: 600px;
   &__header {
   }
-  &__username {
-    &__label {
-    }
-    &__input {
-    }
-  }
-  &__email {
-    &__label {
-    }
-    &__input {
-    }
-  }
-  &__password {
-    &__label {
-    }
-    &__input {
-    }
-  }
-  &__confirm-password {
-    &__label {
-    }
-    &__input {
-    }
-  }
   &__btn {
   }
+  &__username {
+  }
+  &__password {
+  }
+  &__email {
+  }
+  &__confirm-password {
+  }
+}
+
+.signup-form-label {
+}
+.signup-form-input {
 }

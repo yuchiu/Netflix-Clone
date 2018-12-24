@@ -17,6 +17,7 @@ class SignInPage extends React.Component {
   };
 
   handleSignIn = e => {
+    e.preventDefault();
     const {
       fieldsValidation,
       clearAllError,
@@ -25,7 +26,6 @@ class SignInPage extends React.Component {
     } = this.props;
     const fieldErrors = fieldsValidation();
 
-    e.preventDefault();
     // fetch login if there are no errors
     if (Object.keys(fieldErrors).length === 0) {
       fetchSignInUser(formFields);
@@ -53,15 +53,15 @@ class SignInPage extends React.Component {
             handleSignIn={this.handleSignIn}
             handleFieldChange={handleFieldChange}
           />
-          New to Netflix Clone?{" "}
-          <span
-            className="auth-section__link pointer-cursor"
-            onClick={this.redirectToSignUp}
-          >
-            Sign Up
-          </span>
-          <br />
-          Or Sign In With:
+          <div className="auth-section__route-to">
+            New to Netflix Clone?{" "}
+            <span
+              className="auth-section__route-to__link pointer-cursor"
+              onClick={this.redirectToSignUp}
+            >
+              Sign Up Now
+            </span>
+          </div>
           <br />
           <div className="inline-error--center">
             {error && <InlineError text={`Error: ${error}`} />}

@@ -1,33 +1,57 @@
+@import "../vars.scss";
+
 .auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../images/movie_poster_bg-min.jpg");
 }
 
 .auth-section {
-  &__link {
-    color: grey;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.8);
+  &__route-to {
+    color: $grey;
+    &__link {
+      color: $white;
+    }
   }
+  padding: 20px;
 }
 
 .auth-form {
+  display: flex;
+  flex-direction: column;
   &__header {
-  }
-  &__email {
-    &__label {
-    }
-    &__input {
-    }
-  }
-  &__password {
-    &__label {
-    }
-    &__input {
-    }
-  }
-  &__confirm-password {
-    &__label {
-    }
-    &__input {
-    }
+    font-size: 2em;
   }
   &__btn {
+    color: $white;
+    background-color: $netflixRed;
+    padding: 15px;
+    margin: 10px 0;
+    font-size: 1.3em;
+    border: none;
   }
+  &__username {
+    padding: 10px 0;
+  }
+  &__password {
+    padding: 10px 0;
+  }
+  &__email {
+    padding: 10px 0;
+  }
+  &__confirm-password {
+    padding: 10px 0;
+  }
+}
+
+.auth-form-label {
+}
+.auth-form-input {
+  margin-top: 5px;
+  padding: 10px 10px;
+  width: calc(100% - 25px);
 }
