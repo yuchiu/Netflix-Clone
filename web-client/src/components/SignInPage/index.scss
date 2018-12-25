@@ -1,11 +1,9 @@
-@import "../../assets/css/vars.scss";
+@import "../../assets/css/components/authPage.scss";
 
 .signin-page {
+  @include authPage();
 }
 
 .signin-section {
-  &__route-to {
-    &__link {
-    }
-  }
+  @include authSection();
 }

@@ -1,23 +1,12 @@
-@import "../../assets/css/vars.scss";
+@import "../../assets/css/components/authPage.scss";
 
 .signup-form {
-  width: 400px;
-  height: 600px;
-  &__header {
-  }
-  &__btn {
-  }
-  &__username {
-  }
-  &__password {
-  }
-  &__email {
-  }
-  &__confirm-password {
-  }
+  @include authForm;
 }
 
 .signup-form-label {
+  @include authFormLabel;
 }
 .signup-form-input {
+  @include authFormInput;
 }

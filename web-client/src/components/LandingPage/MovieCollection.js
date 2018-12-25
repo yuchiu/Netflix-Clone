@@ -1,6 +1,7 @@
 import React from "react";
 import { findDOMNode } from "react-dom";
 import $ from "jquery";
+import PropTypes from "prop-types";
 
 import "./MovieCollection.scss";
 import MovieTile from "./MovieTile";
@@ -98,5 +99,10 @@ class MovieCollection extends React.Component {
     );
   }
 }
+
+MovieCollection.propTypes = {
+  movieCollectionList: PropTypes.array.isRequired,
+  collectionName: PropTypes.string.isRequired
+};
 
 export default MovieCollection;

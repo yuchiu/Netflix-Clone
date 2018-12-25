@@ -1,19 +1,12 @@
-@import "../../assets/css/vars.scss";
+@import "../../assets/css/components/authPage.scss";
 
 .signin-form {
-  width: 400px;
-  height: 600px;
-  &__header {
-  }
-  &__btn {
-  }
-  &__email {
-  }
-  &__password {
-  }
+  @include authForm();
 }
 
 .signin-form-label {
+  @include authFormLabel();
 }
 .signin-form-input {
+  @include authFormInput();
 }

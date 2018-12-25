@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 import "./index.scss";
-import "../../assets/css/components/authForm.scss";
 import { userAction, errorAction } from "../../actions";
 import { userSelector, errorSelector } from "../../selectors";
 import { HOCForm, InlineError } from "../common";
@@ -44,19 +43,19 @@ class SignInPage extends React.Component {
       handleFieldChange
     } = this.props;
     return (
-      <main className="signin-page auth-page page-wrapper">
+      <main className="signin-page page-wrapper">
         {isUserAuthenticated && <Redirect to="/" />}
-        <div className="signin-section auth-section">
+        <div className="signin-section">
           <SignInForm
             fieldErrors={fieldErrors}
             formFields={formFields}
             handleSignIn={this.handleSignIn}
             handleFieldChange={handleFieldChange}
           />
-          <div className="auth-section__route-to">
+          <div className="signin-section__route-to">
             New to Netflix Clone?{" "}
             <span
-              className="auth-section__route-to__link pointer-cursor"
+              className="signin-section__route-to__link pointer-cursor"
               onClick={this.redirectToSignUp}
             >
               Sign Up Now

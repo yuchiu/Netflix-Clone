@@ -1,13 +1,12 @@
 @import "../vars.scss";
 
-.auth-page {
+@mixin authPage {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../../images/movie_poster_bg-min.jpg");
+  background-image: url("../../assets/images/movie_poster_bg-min.jpg");
 }
-
-.auth-section {
+@mixin authSection() {
   display: flex;
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.8);
@@ -19,10 +18,11 @@
   }
   padding: 20px;
 }
-
-.auth-form {
+@mixin authForm() {
   display: flex;
   flex-direction: column;
+  width: 400px;
+  height: 600px;
   &__header {
     font-size: 2em;
   }
@@ -48,9 +48,10 @@
   }
 }
 
-.auth-form-label {
+@mixin authFormLabel() {
+  font-size: 1.1em;
 }
-.auth-form-input {
+@mixin authFormInput() {
   margin-top: 5px;
   padding: 10px 10px;
   width: calc(100% - 25px);

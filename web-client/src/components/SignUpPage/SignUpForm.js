@@ -11,51 +11,49 @@ const SignUpForm = ({
   handleSignUp,
   handleFieldChange
 }) => (
-  <form className="auth-form signup-form">
-    <h3 className="auth-form__header signup-form__header">Sign Up</h3>
-    <div className="auth-form__username signup-form__username">
-      <label className="auth-form-label signup-form-label">Username:</label>
+  <form className="signup-form">
+    <h3 className="signup-form__header">Sign Up</h3>
+    <div className="signup-form__username">
+      <label className="signup-form-label">Username:</label>
       {fieldErrors.username && <InlineError text={fieldErrors.username} />}
       <input
         type="username"
         name="username"
         value={formFields.username}
-        className="auth-form-input signup-form-input"
+        className="signup-form-input"
         onChange={handleFieldChange}
         placeholder="username"
       />
     </div>
 
-    <div className="auth-form__email signup-form__email">
-      <label className="auth-form-label signup-form-label">Email:</label>
+    <div className="_email signup-form__email">
+      <label className="signup-form-label">Email:</label>
       {fieldErrors.email && <InlineError text={fieldErrors.email} />}
       <input
         type="email"
         name="email"
         value={formFields.email}
-        className="auth-form-input signup-form-input"
+        className="signup-form-input"
         onChange={handleFieldChange}
         placeholder="email"
       />
     </div>
 
-    <div className="auth-form__password signup-form__password">
-      <label className="auth-form-label signup-form-label">Password:</label>
+    <div className="signup-form__password">
+      <label className="signup-form-label">Password:</label>
       {fieldErrors.password && <InlineError text={fieldErrors.password} />}
       <input
         type="password"
         name="password"
         value={formFields.password}
-        className="auth-form-input signup-form-input"
+        className="signup-form-input"
         onChange={handleFieldChange}
         placeholder="password"
       />
     </div>
 
-    <div className="auth-form__confirm-password signup-form__confirm-password">
-      <label className="auth-form-label signup-form-label">
-        Confirm Password:
-      </label>
+    <div className="signup-form__confirm-password">
+      <label className="signup-form-label">Confirm Password:</label>
       {fieldErrors.confirmPassword && (
         <InlineError text={fieldErrors.confirmPassword} />
       )}
@@ -63,7 +61,7 @@ const SignUpForm = ({
         type="password"
         name="confirmPassword"
         value={formFields.confirmPassword}
-        className="auth-form-input signup-form-input"
+        className="signup-form-input"
         onChange={handleFieldChange}
         placeholder="confirm password"
       />
@@ -71,7 +69,7 @@ const SignUpForm = ({
 
     <Button
       text="Sign Up"
-      cssClass="auth-form__btn signup-form__btn"
+      cssClass="signup-form__btn"
       handleClick={handleSignUp}
     />
   </form>

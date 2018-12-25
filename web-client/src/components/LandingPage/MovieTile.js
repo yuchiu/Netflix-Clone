@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 
 import "./MovieTile.scss";
@@ -31,5 +32,10 @@ class MovieTile extends React.Component {
     );
   }
 }
+
+MovieTile.propTypes = {
+  history: PropTypes.object.isRequired,
+  movie: PropTypes.object.isRequired
+};
 
 export default withRouter(MovieTile);

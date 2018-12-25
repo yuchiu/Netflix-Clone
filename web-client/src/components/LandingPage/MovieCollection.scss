@@ -41,7 +41,7 @@
     &__icon {
       font-size: 2em;
       transform: scaleY(1.2);
-      text-shadow: 0px 0px 4px $black, 0px 0px 20px $black, 0px 0px 40px $black;
+      text-shadow: 0px 0px 20px $black, 0px 0px 40px $black;
       &--disable {
         color: $grey;
         opacity: 0.8;
