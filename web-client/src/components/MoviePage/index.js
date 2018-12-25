@@ -20,7 +20,11 @@ class MoviePage extends React.Component {
         params: { movieId }
       }
     } = this.props;
-    return <div id="moviePage-container">movie page id {movieId}</div>;
+    return (
+      <div className="movie-page-wrapper page-wrapper">
+        movie page id {movieId}
+      </div>
+    );
   }
 }
 

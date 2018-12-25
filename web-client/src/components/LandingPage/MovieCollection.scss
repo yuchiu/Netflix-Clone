@@ -9,8 +9,6 @@
   width: 100%;
   display: flex;
   max-width: 100%;
-  @include cubicTransition;
-
   &__slider-btn {
     position: absolute;
     top: inherit;
@@ -22,12 +20,17 @@
     text-align: center;
     display: flex;
     align-items: center;
-    color: #fff;
+    color: $white;
     justify-content: center;
     font-size: 1.5em;
     @include cubicTransition;
     &:hover {
       transform: scale(1.3);
+    }
+    &:hover & {
+      &__icon {
+        text-shadow: 0px 0px 4px $white, 0px 0px 20px $white;
+      }
     }
     &--left {
       left: 0;
@@ -35,34 +38,13 @@
     &--right {
       right: 0;
     }
-  }
-  &__item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    text-align: left;
-    padding: 10px;
-    min-width: 320px;
-    height: 180px;
-    background-repeat: no-repeat;
-    background-blend-mode: overlay;
-    background-size: cover;
-    @include cubicTransition;
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-    &:hover & {
-      &__overlay {
-        opacity: 1;
-      }
-    }
-    &__overlay {
-      @include cubicTransition;
-      opacity: 0;
-      &--title {
-      }
-      &--desc {
+    &__icon {
+      font-size: 2em;
+      transform: scaleY(1.2);
+      text-shadow: 0px 0px 4px $black, 0px 0px 20px $black, 0px 0px 40px $black;
+      &--disable {
+        color: $grey;
+        opacity: 0.8;
       }
     }
   }
