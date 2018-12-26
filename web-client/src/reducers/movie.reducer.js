@@ -23,7 +23,8 @@ export default (state = initialState, action) => {
     /* Fetch Success */
     case actionTypes.MOVIE_FETCH_SUCCESS:
       newState.isLoading = false;
-      newState.selectedMovie = action.payload.selectedMovie;
+      if (action.payload.movie.length > 0)
+        newState.selectedMovie = action.payload.movie[0];
       return newState;
 
     case actionTypes.MOVIE_COLLECTION_FETCH_SUCCESS:
@@ -50,6 +51,11 @@ export default (state = initialState, action) => {
 
     case actionTypes.MOVIE_COLLECTION_FETCH_ERROR:
       newState.isLoading = false;
+      return newState;
+
+    /* clear data */
+    case actionTypes.CLEAR_SELECTED_MOVIE:
+      newState.selectedMovie = {};
       return newState;
 
     default:

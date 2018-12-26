@@ -40,5 +40,11 @@ export default {
         payload: data.meta.message
       });
     }
+  },
+
+  clearSelectedMovie: () => dispatch => {
+    dispatch({
+      type: actionTypes.CLEAR_SELECTED_MOVIE
+    });
   }
 };

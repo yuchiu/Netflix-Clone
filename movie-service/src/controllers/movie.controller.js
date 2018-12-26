@@ -17,7 +17,7 @@ export default {
     const { movieId } = reqData;
     const response = await ESClient.search({
       index: "imdb",
-      body: queryBody.testSearchAll(25)
+      body: queryBody.findById(movieId)
     });
     callback(null, {
       meta: {
@@ -26,8 +26,9 @@ export default {
         message: ""
       },
       data: {
-        movieId,
-        response
+        total: response.hits.total,
+        timeSpent: response.took,
+        movie: normalizeData(response)
       }
     });
   },
@@ -39,7 +40,7 @@ export default {
         response = await ESClient.search({
           index: "imdb",
           sort: "imdb_ratingCount:desc",
-          body: queryBody.testSearchAll(25)
+          body: queryBody.searchAll(25)
         });
         callback(null, {
           meta: {
@@ -60,7 +61,7 @@ export default {
         response = await ESClient.search({
           index: "imdb",
           sort: "imdb_ratingValue:desc",
-          body: queryBody.testSearchAll(25)
+          body: queryBody.searchAll(25)
         });
 
         callback(null, {
@@ -82,7 +83,7 @@ export default {
         // not scrape movie's release date yet,it will return by index's default order
         response = await ESClient.search({
           index: "imdb",
-          body: queryBody.testSearchAll(25)
+          body: queryBody.searchAll(25)
         });
         callback(null, {
           meta: {

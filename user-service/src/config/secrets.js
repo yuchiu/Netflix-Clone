@@ -17,28 +17,16 @@ if (process.env.NODE_ENV) {
 } else {
   node_env = "development";
 }
-const NODE_ENV = node_env;
+export const NODE_ENV = node_env;
 
-const { JWT_SECRET } = process.env;
+export const { JWT_SECRET } = process.env;
 
-const { SERVICE_USER_NAME } = process.env;
-const { SERVICE_USER_HOST } = process.env;
-const { SERVICE_USER_URL } = process.env;
-const { SERVICE_USER_PORT } = process.env;
-const { SERVICE_MOVIE_PSQL_DB_NAME } = process.env;
-const { SERVICE_MOVIE_PSQL_DB_HOST } = process.env;
-const { SERVICE_MOVIE_PSQL_DB_USER } = process.env;
-const { SERVICE_MOVIE_PSQL_DB_PASS } = process.env;
+export const { SERVICE_USER_NAME } = process.env;
+export const { SERVICE_USER_HOST } = process.env;
+export const { SERVICE_USER_URL } = process.env;
+export const { SERVICE_USER_PORT } = process.env;
 
-module.exports = {
-  NODE_ENV,
-  JWT_SECRET,
-  SERVICE_USER_NAME,
-  SERVICE_USER_HOST,
-  SERVICE_USER_URL,
-  SERVICE_USER_PORT,
-  SERVICE_MOVIE_PSQL_DB_NAME,
-  SERVICE_MOVIE_PSQL_DB_HOST,
-  SERVICE_MOVIE_PSQL_DB_USER,
-  SERVICE_MOVIE_PSQL_DB_PASS
-};
+export const { SERVICE_USER_PSQL_DB_NAME } = process.env;
+export const { SERVICE_USER_PSQL_DB_HOST } = process.env;
+export const { SERVICE_USER_PSQL_DB_USER } = process.env;
+export const { SERVICE_USER_PSQL_DB_PASS } = process.env;

@@ -5,7 +5,7 @@ import "./index.scss";
 
 const MyProfilePage = () => (
   <div className="my-profile-page page-wrapper">
-    <p>my profile page</p>
+    <p className="my-profile-title">my profile page</p>
   </div>
 );
 

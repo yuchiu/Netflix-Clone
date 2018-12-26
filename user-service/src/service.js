@@ -2,7 +2,7 @@ import jayson from "jayson";
 
 import models from "./models";
 import controller from "./controllers";
-import secrets from "./config/secrets";
+import { SERVICE_USER_PORT, NODE_ENV } from "./config/secrets";
 
 // create a server
 const server = jayson.server({
@@ -23,11 +23,9 @@ const server = jayson.server({
 models.sequelize.sync().then(() => {
   server
     .http()
-    .listen(secrets.SERVICE_USER_PORT, () =>
+    .listen(SERVICE_USER_PORT, () =>
       console.log(
-        `user service listenning on port ${secrets.SERVICE_USER_PORT} in "${
-          secrets.NODE_ENV
-        }" mode`
+        `user service listenning on port ${SERVICE_USER_PORT} in "${NODE_ENV}" mode`
       )
     );
 });

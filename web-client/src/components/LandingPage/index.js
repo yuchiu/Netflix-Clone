@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import "./index.scss";
-import { movieAction } from "../../actions";
-import { movieSelector } from "../../selectors";
+import { movieAction } from "@/actions";
+import { movieSelector } from "@/selectors";
 import MovieCollection from "./MovieCollection";
 
 class LandingPage extends React.Component {
@@ -41,17 +41,15 @@ class LandingPage extends React.Component {
 }
 
 LandingPage.propTypes = {
-  selectedMovie: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
   trendingCollectionList: PropTypes.array.isRequired,
   popularCollectionList: PropTypes.array.isRequired,
   topRatingCollectionList: PropTypes.array.isRequired,
 
-  fetchMovie: PropTypes.func.isRequired,
   fetchMovieCollection: PropTypes.func.isRequired
 };
 
 const stateToProps = state => ({
-  selectedMovie: movieSelector.getSelectedMovie(state),
   isLoading: movieSelector.getMovieIsLoading(state),
   trendingCollectionList: movieSelector.getTrendingCollectionList(state),
   popularCollectionList: movieSelector.getPopularCollectionList(state),
@@ -59,9 +57,6 @@ const stateToProps = state => ({
 });
 
 const dispatchToProps = dispatch => ({
-  fetchMovie: movieId => {
-    dispatch(movieAction.fetchMovie(movieId));
-  },
   fetchMovieCollection: collectionName => {
     dispatch(movieAction.fetchMovieCollection(collectionName));
   }
