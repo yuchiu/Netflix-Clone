@@ -14,11 +14,13 @@ const SelectedMovie = ({ movie }) => (
     <div>{movie.data.taglines}</div>
     <div>{movie.data.imdb_ratingValue}</div>
     <div>{movie.data.storyline}</div>
-    <div>
-      {movie.data.stars.map((star, i) => (
-        <div>{star}</div>
-      ))}
-    </div>
+    {movie.data.stars && (
+      <div>
+        {movie.data.stars.map((star, i) => (
+          <div>{star}</div>
+        ))}
+      </div>
+    )}
     <div>{movie.data.genre}</div>
     <div>{movie.data.trailer_img}</div>
     <div>{movie.data.duration}</div>
