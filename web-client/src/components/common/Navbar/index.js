@@ -2,10 +2,11 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
+import { userAction } from "@/actions";
 import { userSelector } from "@/selectors";
 import NetflixLogoSVG from "./NetflixLogo";
 import "./index.scss";
-import { userAction } from "../../../actions";
+import SearchBar from "../SearchBar";
 
 class Navbar extends React.Component {
   routeToLanding = () => {
@@ -42,7 +43,7 @@ class Navbar extends React.Component {
         </div>
 
         <div className="navbar-end">
-          <div className="navbar-end__item">Search</div>
+          <SearchBar cssClass="navbar-end__item" />
           {isUserAuthenticated ? (
             <React.Fragment>
               <div

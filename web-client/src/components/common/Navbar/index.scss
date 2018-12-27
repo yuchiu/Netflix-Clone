@@ -19,11 +19,11 @@
   }
 }
 
-@media screen and (min-width: $MQ600Min) {
+@media screen and (min-width: $MinMQBreakPointOne) {
   .navbar-wrapper {
     flex-direction: row;
     justify-content: space-between;
-    min-height: $navbarHeightMQ600Min;
+    min-height: $navbarHeightMinMQBreakPointOne;
   }
   .navbar-start {
     margin: 0 0 0 15px;

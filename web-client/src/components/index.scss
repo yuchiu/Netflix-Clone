@@ -44,8 +44,10 @@ code {
   user-select: none;
 }
 
-@media screen and (min-width: $MQ600Min) {
+@media screen and (min-width: $MinMQBreakPointOne) {
   .page-wrapper {
-    min-height: calc(100% - (#{$navbarHeightMQ600Min} + #{$footerHeight}));
+    min-height: calc(
+      100% - (#{$navbarHeightMinMQBreakPointOne} + #{$footerHeight})
+    );
   }
 }

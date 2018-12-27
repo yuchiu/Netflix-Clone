@@ -1,4 +1,4 @@
-const { NODE_ENV } = require("../config/secrets");
+import { NODE_ENV } from "../config/secrets";
 
 const catchExceptions = func => (req, res, next) => {
   Promise.resolve(func(req, res)).catch(err => {
@@ -13,4 +13,5 @@ const catchExceptions = func => (req, res, next) => {
     next();
   });
 };
-module.exports = catchExceptions;
+
+export default catchExceptions;

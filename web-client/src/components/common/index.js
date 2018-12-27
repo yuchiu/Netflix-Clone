@@ -3,5 +3,6 @@ import HOCForm from "./HOCForm";
 import InlineError from "./InlineError";
 import Navbar from "./Navbar";
 import Button from "./Button";
+import SearchBar from "./SearchBar";
 
-export { Footer, HOCForm, InlineError, Navbar, Button };
+export { Footer, HOCForm, InlineError, Navbar, Button, SearchBar };

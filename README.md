@@ -73,6 +73,7 @@
 ### Future Expansions
 
 - microservices?
+- MongoDB as persisted database for movie, sync data with ElasticSearch?
 - Message Queue for all inter service communications?
 - Machine Learning recommendation system?
 - Machine Learning classification for movie collections?

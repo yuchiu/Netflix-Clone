@@ -1,6 +1,7 @@
 import express from "express";
 
 import throwRPCErrors from "../../utils/throwRPCErrors";
+import handleRPCResponse from "../../utils/handleRPCResponse";
 import { userService } from "../../config/serviceClient.config";
 
 const router = express.Router();
@@ -11,8 +12,9 @@ router.post("/signup", (req, res) => {
   userService.request("signUpUser", credentials, (err, response) => {
     if (err) {
       throwRPCErrors(err, res);
+    } else {
+      handleRPCResponse(response, res);
     }
-    res.status(response.result.meta.status).send(response.result);
   });
 });
 
@@ -22,8 +24,9 @@ router.post("/signin", (req, res) => {
   userService.request("signInUser", credentials, (err, response) => {
     if (err) {
       throwRPCErrors(err, res);
+    } else {
+      handleRPCResponse(response, res);
     }
-    res.status(response.result.meta.status).send(response.result);
   });
 });
 
@@ -33,8 +36,9 @@ router.get("/auth", (req, res) => {
     userService.request("tryAutoSignIn", user, (err, response) => {
       if (err) {
         throwRPCErrors(err, res);
+      } else {
+        handleRPCResponse(response, res);
       }
-      res.status(response.result.meta.status).send(response.result);
     });
   } else
     res.status(403).send({

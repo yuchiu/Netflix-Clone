@@ -1,6 +1,7 @@
 import express from "express";
-import throwRPCErrors from "../../utils/throwRPCErrors";
 
+import throwRPCErrors from "../../utils/throwRPCErrors";
+import handleRPCResponse from "../../utils/handleRPCResponse";
 import { movieService } from "../../config/serviceClient.config";
 
 const router = express.Router();
@@ -11,7 +12,7 @@ router.get("/:movieId", (req, res) => {
     if (err) {
       throwRPCErrors(err, res);
     }
-    res.status(response.result.meta.status).send(response.result);
+    handleRPCResponse(response, res);
   });
 });
 
@@ -20,8 +21,9 @@ router.get("/collections/:collectionName", (req, res) => {
   movieService.request("getMovieCollections", reqData, (err, response) => {
     if (err) {
       throwRPCErrors(err, res);
+    } else {
+      handleRPCResponse(response, res);
     }
-    res.status(response.result.meta.status).send(response.result);
   });
 });
 
