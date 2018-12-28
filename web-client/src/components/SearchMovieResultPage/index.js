@@ -40,7 +40,7 @@ class SearchMovieResultPage extends React.Component {
         params: { searchTerm }
       }
     } = this.props;
-    console.log("fetchNewsSearch(searchTerm);");
+    console.log("fetchMovieSearch(searchTerm);");
     this.setState({ currentParam: searchTerm });
   };
 

@@ -1,5 +1,6 @@
 import queryBody from "./queryBody";
 import ESClient from "../config/ESClient.config";
+import handleInvalidReq from "../utils/handleInvalidReq";
 
 const normalizeData = ESResponse =>
   ESResponse.hits.hits.map((hit, index) => {
@@ -15,6 +16,13 @@ const normalizeData = ESResponse =>
 export default {
   getMovie: async (reqData, callback) => {
     const { movieId } = reqData;
+    if (!movieId) {
+      handleInvalidReq(
+        "invalid format, object contain movieId attribute is required",
+        callback
+      );
+      return;
+    }
     const response = await ESClient.search({
       index: "imdb",
       body: queryBody.findById(movieId)
@@ -32,8 +40,43 @@ export default {
       }
     });
   },
+
+  getMovieSearchResult: async (reqData, callback) => {
+    const { searchTerm } = reqData;
+    if (!searchTerm) {
+      handleInvalidReq(
+        "invalid format, object contain searchTerm attribute is required",
+        callback
+      );
+      return;
+    }
+    const response = await ESClient.search({
+      index: "imdb",
+      body: queryBody.searchTermQuery(searchTerm, 50)
+    });
+    callback(null, {
+      meta: {
+        type: "success",
+        status: 200,
+        message: ""
+      },
+      data: {
+        total: response.hits.total,
+        timeSpent: response.took,
+        movie: normalizeData(response)
+      }
+    });
+  },
+
   getMovieCollections: async (reqData, callback) => {
     const { collectionName } = reqData;
+    if (!collectionName) {
+      handleInvalidReq(
+        "invalid format, object contain collectionName attribute is required",
+        callback
+      );
+      return;
+    }
     let response;
     switch (collectionName) {
       case "popular":

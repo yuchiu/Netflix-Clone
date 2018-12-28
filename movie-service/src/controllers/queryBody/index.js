@@ -14,5 +14,17 @@ export default {
         _id: [id]
       }
     }
+  }),
+
+  searchTermQuery: (searchTerm, size) => ({
+    size,
+    from: 0,
+    query: {
+      multi_match: {
+        query: searchTerm,
+        fuzziness: 1,
+        fields: ["title", "description", "storyline"]
+      }
+    }
   })
 };

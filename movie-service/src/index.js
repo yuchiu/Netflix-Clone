@@ -11,7 +11,6 @@ import movieController from "./controllers/movie.controller";
 // create a server
 const server = jayson.server({
   heartbeat(args, callback) {
-    console.log("heartbeat called");
     callback(null, {
       success: true,
       config: {
@@ -22,11 +21,12 @@ const server = jayson.server({
     });
   },
   getMovie(reqData, callback) {
-    console.log("getMovie called");
     movieController.getMovie(reqData, callback);
   },
+  getMovieSearchResult(reqData, callback) {
+    movieController.getMovieSearchResult(reqData, callback);
+  },
   getMovieCollections(reqData, callback) {
-    console.log("getMovieCollections called");
     movieController.getMovieCollections(reqData, callback);
   }
 });

@@ -1,29 +1,43 @@
 import express from "express";
 
 import throwRPCErrors from "../../utils/throwRPCErrors";
-import handleRPCResponse from "../../utils/handleRPCResponse";
+import handleRPCRes from "../../utils/handleRPCRes";
 import { movieService } from "../../config/serviceClient.config";
 
 const router = express.Router();
 
-router.get("/:movieId", (req, res) => {
-  const reqData = { movieId: req.params.movieId };
-  movieService.request("getMovie", reqData, (err, response) => {
+router.get("/filters", (req, res) => {
+  const { search_term } = req.query;
+  const reqData = { searchTerm: search_term };
+  movieService.request("getMovieSearchResult", reqData, (err, response) => {
     if (err) {
       throwRPCErrors(err, res);
+    } else {
+      handleRPCRes(response, res);
     }
-    handleRPCResponse(response, res);
   });
 });
 
 router.get("/collections/:collectionName", (req, res) => {
-  const reqData = { collectionName: req.params.collectionName };
+  const { collectionName } = req.params;
+  const reqData = { collectionName };
   movieService.request("getMovieCollections", reqData, (err, response) => {
     if (err) {
       throwRPCErrors(err, res);
     } else {
-      handleRPCResponse(response, res);
+      handleRPCRes(response, res);
     }
+  });
+});
+
+router.get("/:movieId", (req, res) => {
+  const { movieId } = req.params;
+  const reqData = { movieId };
+  movieService.request("getMovie", reqData, (err, response) => {
+    if (err) {
+      throwRPCErrors(err, res);
+    }
+    handleRPCRes(response, res);
   });
 });
 
