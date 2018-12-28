@@ -3,6 +3,7 @@ import express from "express";
 import throwRPCErrors from "../../utils/throwRPCErrors";
 import handleRPCRes from "../../utils/handleRPCRes";
 import { userService } from "../../config/serviceClient.config";
+import requireAuthentication from "../../middlewares/requireAuthentication";
 
 const router = express.Router();
 
@@ -46,6 +47,38 @@ router.get("/auth", (req, res) => {
         message: "not authenticated"
       }
     });
+});
+
+router.post("/histories", requireAuthentication, (req, res) => {
+  const userId = req.user.id;
+  const { movieId } = req.body;
+  const reqData = {
+    userId,
+    movieId
+  };
+  userService.request("createMovieBookmark", reqData, (err, response) => {
+    if (err) {
+      throwRPCErrors(err, res);
+    } else {
+      handleRPCRes(response, res);
+    }
+  });
+});
+
+router.post("/bookmarks", (req, res) => {
+  const userId = req.user.id;
+  const { movieId } = req.body;
+  const reqData = {
+    userId,
+    movieId
+  };
+  userService.request("createMovieBookmark", reqData, (err, response) => {
+    if (err) {
+      throwRPCErrors(err, res);
+    } else {
+      handleRPCRes(response, res);
+    }
+  });
 });
 
 export default router;

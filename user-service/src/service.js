@@ -1,22 +1,32 @@
 import jayson from "jayson";
 
 import models from "./models";
-import controller from "./controllers";
+import {
+  userController,
+  historyController,
+  bookmarkController
+} from "./controllers";
 import { SERVICE_USER_PORT, NODE_ENV } from "./config/secrets";
 
 // create a server
 const server = jayson.server({
   authenticateJWT(credentials, callback) {
-    controller.authenticateJWT(credentials, callback);
+    userController.authenticateJWT(credentials, callback);
   },
   signUpUser(credentials, callback) {
-    controller.signUpUser(credentials, callback);
+    userController.signUpUser(credentials, callback);
   },
   signInUser(credentials, callback) {
-    controller.signInUser(credentials, callback);
+    userController.signInUser(credentials, callback);
   },
   tryAutoSignIn(user, callback) {
-    controller.tryAutoSignIn(user, callback);
+    userController.tryAutoSignIn(user, callback);
+  },
+  createMovieBookmark(reqData, callback) {
+    bookmarkController.createMovieBookmark(reqData, callback);
+  },
+  createBrowsingHistory(reqData, callback) {
+    historyController.createBrowsingHistory(reqData, callback);
   }
 });
 

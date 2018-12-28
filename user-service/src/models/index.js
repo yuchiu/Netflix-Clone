@@ -1,6 +1,8 @@
 import Sequelize from "sequelize";
 
 import { UserFactory } from "./User";
+import { BrowsingHistoryFactory } from "./BrowsingHistory";
+import { MovieBookmarkFactory } from "./MovieBookmark";
 import sequelizeConfig from "../config/sequelizeConfig";
 
 const createModels = config => {
@@ -9,7 +11,9 @@ const createModels = config => {
   const models = {
     sequelize,
     Sequelize,
-    User: UserFactory(sequelize, Sequelize)
+    User: UserFactory(sequelize, Sequelize),
+    BrowsingHistory: BrowsingHistoryFactory(sequelize, Sequelize),
+    MovieBookmark: MovieBookmarkFactory(sequelize, Sequelize)
   };
 
   Object.keys(models).forEach(modelName => {
