@@ -1,6 +1,7 @@
 import actionTypes from "@/actionTypes";
 
 const initialState = {
+  searchMovieResult: [],
   selectedMovie: {},
   trendingCollectionList: [],
   popularCollectionList: [],
@@ -56,6 +57,10 @@ export default (state = initialState, action) => {
     /* clear data */
     case actionTypes.CLEAR_SELECTED_MOVIE:
       newState.selectedMovie = {};
+      return newState;
+
+    case actionTypes.MOVIE_SEARCH_RESULT_CLEAR:
+      newState.searchMovieResult = [];
       return newState;
 
     default:

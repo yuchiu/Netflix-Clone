@@ -12,6 +12,7 @@ import MoviePage from "./MoviePage";
 import SignUpPage from "./SignUpPage";
 import SignInPage from "./SignInPage";
 import MyProfilePage from "./MyProfilePage";
+import SearchMovieResultPage from "./SearchMovieResultPage";
 import NotFoundPage from "./NotFoundPage";
 
 class Routes extends React.Component {
@@ -31,6 +32,11 @@ class Routes extends React.Component {
             <Route exact path="/signin" component={SignInPage} />
             <Route exact path="/signup" component={SignUpPage} />
             <Route exact path="/movie/:movieId" component={MoviePage} />
+            <Route
+              exact
+              path="/movie-search/:searchTerm"
+              component={SearchMovieResultPage}
+            />
             <AuthRoute exact path="/my-profile" component={MyProfilePage} />
             <Route component={NotFoundPage} />
           </Switch>

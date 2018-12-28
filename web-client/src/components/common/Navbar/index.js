@@ -81,15 +81,15 @@ class Navbar extends React.Component {
   }
 }
 
+const stateToProps = state => ({
+  isLoading: userSelector.getUserIsLoading(state),
+  isUserAuthenticated: userSelector.getIsUserAuthenticated(state)
+});
+
 const dispatchToProps = dispatch => ({
   signOutUser: () => {
     dispatch(userAction.signOutUser());
   }
-});
-
-const stateToProps = state => ({
-  isLoading: userSelector.getUserIsLoading(state),
-  isUserAuthenticated: userSelector.getIsUserAuthenticated(state)
 });
 
 export default withRouter(
