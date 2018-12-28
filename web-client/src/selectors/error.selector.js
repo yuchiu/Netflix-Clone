@@ -1,6 +1,3 @@
-/* state selectors */
-export const getError = state => state.errorReducer.error;
-
 export default {
-  getError
+  getError: state => state.errorReducer.error
 };

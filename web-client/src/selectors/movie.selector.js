@@ -1,17 +1,9 @@
-/* state selectors */
-export const getMovieIsLoading = state => state.movieReducer.isLoading;
-export const getSelectedMovie = state => state.movieReducer.selectedMovie;
-export const getTrendingCollectionList = state =>
-  state.movieReducer.trendingCollectionList;
-export const getPopularCollectionList = state =>
-  state.movieReducer.popularCollectionList;
-export const getTopRatingCollectionList = state =>
-  state.movieReducer.topRatingCollectionList;
-
 export default {
-  getMovieIsLoading,
-  getSelectedMovie,
-  getTrendingCollectionList,
-  getPopularCollectionList,
-  getTopRatingCollectionList
+  getMovieIsLoading: state => state.movieReducer.isLoading,
+  getSelectedMovie: state => state.movieReducer.selectedMovie,
+  getSearchMovieResult: state => state.movieReducer.searchMovieResult,
+  getTrendingCollectionList: state => state.movieReducer.trendingCollectionList,
+  getPopularCollectionList: state => state.movieReducer.popularCollectionList,
+  getTopRatingCollectionList: state =>
+    state.movieReducer.topRatingCollectionList
 };

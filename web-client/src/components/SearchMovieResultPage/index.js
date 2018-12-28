@@ -36,11 +36,14 @@ class SearchMovieResultPage extends React.Component {
 
   handleSearch = () => {
     const {
+      fetchSearchMovie,
       match: {
         params: { searchTerm }
       }
     } = this.props;
-    console.log("fetchMovieSearch(searchTerm);");
+    fetchSearchMovie({
+      searchTerm
+    });
     this.setState({ currentParam: searchTerm });
   };
 
@@ -48,23 +51,45 @@ class SearchMovieResultPage extends React.Component {
     const {
       match: {
         params: { searchTerm }
-      }
+      },
+      isLoading,
+      searchMovieResult
     } = this.props;
     return (
       <div className="search-movie-result-page-wrapper page-wrapper">
-        SearchMovieResultPage, search for {searchTerm}
+        {isLoading && <div>loading search</div>}
+        Search for {searchTerm}, found {searchMovieResult.length} results
+        {!isLoading &&
+          searchMovieResult.map((movie, i) => (
+            <div key={`search-result-id-${i}`}>
+              <div>{movie.data.title}</div>
+              <div>{movie.data.description}</div>
+              <br />
+            </div>
+          ))}
       </div>
     );
   }
 }
 SearchMovieResultPage.propTypes = {
   history: PropTypes.object.isRequired,
-  match: PropTypes.object.isRequired
+  match: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  searchMovieResult: PropTypes.array.isRequired,
+
+  fetchSearchMovie: PropTypes.func.isRequired
 };
 
-const stateToProps = state => ({});
+const stateToProps = state => ({
+  isLoading: movieSelector.getMovieIsLoading(state),
+  searchMovieResult: movieSelector.getSearchMovieResult(state)
+});
 
-const dispatchToProps = dispatch => ({});
+const dispatchToProps = dispatch => ({
+  fetchSearchMovie: queryFilters => {
+    dispatch(movieAction.fetchSearchMovie(queryFilters));
+  }
+});
 
 export default connect(
   stateToProps,

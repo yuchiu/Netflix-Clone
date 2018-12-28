@@ -13,12 +13,17 @@ export default (state = initialState, action) => {
   const newState = { ...state };
   switch (action.type) {
     /* Fetch initiated */
-    case actionTypes.MOVIE_FETCH:
+    case actionTypes.MOVIE_FETCH ||
+      actionTypes.MOVIE_COLLECTION_FETCH ||
+      actionTypes.MOVIE_SEARCH_FETCH:
       newState.isLoading = true;
       return newState;
 
-    case actionTypes.MOVIE_COLLECTION_FETCH:
-      newState.isLoading = true;
+    /* Fetch Errors */
+    case actionTypes.MOVIE_FETCH_ERROR ||
+      actionTypes.MOVIE_COLLECTION_FETCH_ERROR ||
+      actionTypes.MOVIE_SEARCH_FETCH_ERROR:
+      newState.isLoading = false;
       return newState;
 
     /* Fetch Success */
@@ -26,6 +31,11 @@ export default (state = initialState, action) => {
       newState.isLoading = false;
       if (action.payload.movie.length > 0)
         newState.selectedMovie = action.payload.movie[0];
+      return newState;
+
+    case actionTypes.MOVIE_SEARCH_FETCH_SUCCESS:
+      newState.isLoading = false;
+      newState.searchMovieResult = action.payload.searchMovieResult;
       return newState;
 
     case actionTypes.MOVIE_COLLECTION_FETCH_SUCCESS:
@@ -45,17 +55,8 @@ export default (state = initialState, action) => {
       }
       return newState;
 
-    /* Fetch Errors */
-    case actionTypes.MOVIE_FETCH_ERROR:
-      newState.isLoading = false;
-      return newState;
-
-    case actionTypes.MOVIE_COLLECTION_FETCH_ERROR:
-      newState.isLoading = false;
-      return newState;
-
     /* clear data */
-    case actionTypes.CLEAR_SELECTED_MOVIE:
+    case actionTypes.MOVIE_CLEAR_SELECTED:
       newState.selectedMovie = {};
       return newState;
 

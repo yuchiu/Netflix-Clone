@@ -63,7 +63,7 @@ export default {
       data: {
         total: response.hits.total,
         timeSpent: response.took,
-        movie: normalizeData(response)
+        searchMovieResult: normalizeData(response)
       }
     });
   },
