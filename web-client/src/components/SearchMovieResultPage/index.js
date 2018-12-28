@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { movieAction } from "@/actions";
-import { movieSelector } from "@/selectors";
+import { searchAction } from "@/actions";
+import { searchSelector } from "@/selectors";
 import "./index.scss";
 
 class SearchMovieResultPage extends React.Component {
@@ -53,12 +53,14 @@ class SearchMovieResultPage extends React.Component {
         params: { searchTerm }
       },
       isLoading,
+      searchMatchTotal,
+      currentMovieResultIndex,
       searchMovieResult
     } = this.props;
     return (
       <div className="search-movie-result-page-wrapper page-wrapper">
         {isLoading && <div>loading search</div>}
-        Search for {searchTerm}, found {searchMovieResult.length} results
+        Search for {searchTerm}, found {searchMatchTotal} results.
         {!isLoading &&
           searchMovieResult.map((movie, i) => (
             <div key={`search-result-id-${i}`}>
@@ -76,18 +78,22 @@ SearchMovieResultPage.propTypes = {
   match: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   searchMovieResult: PropTypes.array.isRequired,
+  currentMovieResultIndex: PropTypes.number.isRequired,
+  searchMatchTotal: PropTypes.number.isRequired,
 
   fetchSearchMovie: PropTypes.func.isRequired
 };
 
 const stateToProps = state => ({
-  isLoading: movieSelector.getMovieIsLoading(state),
-  searchMovieResult: movieSelector.getSearchMovieResult(state)
+  isLoading: searchSelector.getSearchIsLoading(state),
+  searchMatchTotal: searchSelector.getSearchMatchTotal(state),
+  currentMovieResultIndex: searchSelector.getCurrentMovieResultIndex(state),
+  searchMovieResult: searchSelector.getSearchMovieResult(state)
 });
 
 const dispatchToProps = dispatch => ({
   fetchSearchMovie: queryFilters => {
-    dispatch(movieAction.fetchSearchMovie(queryFilters));
+    dispatch(searchAction.fetchSearchMovie(queryFilters));
   }
 });
 

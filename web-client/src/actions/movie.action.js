@@ -42,35 +42,9 @@ export default {
     }
   },
 
-  fetchSearchMovie: queryFilters => async dispatch => {
-    dispatch({
-      type: actionTypes.MOVIE_SEARCH_FETCH
-    });
-    try {
-      const response = await movieService.fetchSearchMovie(queryFilters);
-      const { data } = response.data;
-      dispatch({
-        type: actionTypes.MOVIE_SEARCH_FETCH_SUCCESS,
-        payload: data
-      });
-    } catch (err) {
-      const { data } = err.response;
-      dispatch({
-        type: actionTypes.MOVIE_SEARCH_FETCH_ERROR,
-        payload: data.meta.message
-      });
-    }
-  },
-
   clearSelectedMovie: () => dispatch => {
     dispatch({
       type: actionTypes.MOVIE_CLEAR_SELECTED
-    });
-  },
-
-  clearMovieSearchResult: () => dispatch => {
-    dispatch({
-      type: actionTypes.MOVIE_SEARCH_RESULT_CLEAR
     });
   }
 };

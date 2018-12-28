@@ -1,7 +1,6 @@
 import actionTypes from "@/actionTypes";
 
 const initialState = {
-  searchMovieResult: [],
   selectedMovie: {},
   trendingCollectionList: [],
   popularCollectionList: [],
@@ -13,16 +12,13 @@ export default (state = initialState, action) => {
   const newState = { ...state };
   switch (action.type) {
     /* Fetch initiated */
-    case actionTypes.MOVIE_FETCH ||
-      actionTypes.MOVIE_COLLECTION_FETCH ||
-      actionTypes.MOVIE_SEARCH_FETCH:
+    case actionTypes.MOVIE_FETCH || actionTypes.MOVIE_COLLECTION_FETCH:
       newState.isLoading = true;
       return newState;
 
     /* Fetch Errors */
     case actionTypes.MOVIE_FETCH_ERROR ||
-      actionTypes.MOVIE_COLLECTION_FETCH_ERROR ||
-      actionTypes.MOVIE_SEARCH_FETCH_ERROR:
+      actionTypes.MOVIE_COLLECTION_FETCH_ERROR:
       newState.isLoading = false;
       return newState;
 
@@ -31,11 +27,6 @@ export default (state = initialState, action) => {
       newState.isLoading = false;
       if (action.payload.movie.length > 0)
         newState.selectedMovie = action.payload.movie[0];
-      return newState;
-
-    case actionTypes.MOVIE_SEARCH_FETCH_SUCCESS:
-      newState.isLoading = false;
-      newState.searchMovieResult = action.payload.searchMovieResult;
       return newState;
 
     case actionTypes.MOVIE_COLLECTION_FETCH_SUCCESS:
@@ -58,10 +49,6 @@ export default (state = initialState, action) => {
     /* clear data */
     case actionTypes.MOVIE_CLEAR_SELECTED:
       newState.selectedMovie = {};
-      return newState;
-
-    case actionTypes.MOVIE_SEARCH_RESULT_CLEAR:
-      newState.searchMovieResult = [];
       return newState;
 
     default:

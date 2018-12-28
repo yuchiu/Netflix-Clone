@@ -6,6 +6,7 @@ export default {
       match_all: {}
     }
   }),
+
   findById: id => ({
     size: 1,
     from: 0,
@@ -16,9 +17,19 @@ export default {
     }
   }),
 
-  searchTermQuery: (searchTerm, size) => ({
+  countMatchSearchTerm: searchTerm => ({
+    query: {
+      multi_match: {
+        query: searchTerm,
+        fuzziness: 1,
+        fields: ["title", "description", "storyline"]
+      }
+    }
+  }),
+
+  searchTermQuery: (searchTerm, size, from) => ({
     size,
-    from: 0,
+    from,
     query: {
       multi_match: {
         query: searchTerm,

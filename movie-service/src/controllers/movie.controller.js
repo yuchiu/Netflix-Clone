@@ -50,9 +50,17 @@ export default {
       );
       return;
     }
+    let fromIndex = 0;
+    if (reqData.fromIndex) {
+      fromIndex = reqData.fromIndex;
+    }
+    const searchCount = await ESClient.count({
+      index: "imdb",
+      body: queryBody.countMatchSearchTerm(searchTerm)
+    });
     const response = await ESClient.search({
       index: "imdb",
-      body: queryBody.searchTermQuery(searchTerm, 50)
+      body: queryBody.searchTermQuery(searchTerm, 20, fromIndex)
     });
     callback(null, {
       meta: {
@@ -61,7 +69,9 @@ export default {
         message: ""
       },
       data: {
-        total: response.hits.total,
+        total: searchCount.count,
+        fromIndex,
+        toIndex: fromIndex + response.hits.hits.length - 1,
         timeSpent: response.took,
         searchMovieResult: normalizeData(response)
       }
