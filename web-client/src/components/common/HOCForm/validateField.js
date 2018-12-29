@@ -2,7 +2,6 @@ import validator from "validator";
 
 export default (fieldName, data) => {
   let error = "";
-  console.log(data);
   switch (fieldName) {
     case "username":
       if (!data) {

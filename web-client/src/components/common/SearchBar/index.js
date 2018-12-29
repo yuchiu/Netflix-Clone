@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import { movieAction } from "@/actions";
+import { searchAction } from "@/actions";
 import "./index.scss";
 
 class SearchBar extends React.Component {
@@ -94,7 +94,7 @@ class SearchBar extends React.Component {
 
 const dispatchToProps = dispatch => ({
   clearMovieSearchResult: () => {
-    dispatch(movieAction.clearMovieSearchResult());
+    dispatch(searchAction.clearMovieSearchResult());
   }
 });
 

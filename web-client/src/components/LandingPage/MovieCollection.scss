@@ -30,7 +30,11 @@
     }
     &:hover & {
       &__icon {
-        text-shadow: 0px 0px 4px $white, 0px 0px 20px $white;
+        text-shadow: 0px 0px 4px $white, 0px 0px 20px $white,
+          0px 0px 40px $white;
+        &--disable {
+          text-shadow: none;
+        }
       }
     }
     &--left {
@@ -40,10 +44,11 @@
       right: 0;
     }
     &__icon {
-      font-size: 2em;
+      font-size: 2.2em;
       transform: scaleY(1.2);
-      text-shadow: 0px 0px 20px $black, 0px 0px 40px $black;
+      text-shadow: 0px 0px 40px $black;
       &--disable {
+        text-shadow: none;
         color: $grey;
         opacity: 0.8;
       }

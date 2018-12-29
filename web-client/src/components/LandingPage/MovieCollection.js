@@ -55,7 +55,7 @@ class MovieCollection extends React.Component {
   };
 
   render() {
-    const { margin } = this.state;
+    const { margin, TOTAL_MARGIN } = this.state;
     const { movieCollectionList, collectionName } = this.props;
     return (
       <React.Fragment>
@@ -89,10 +89,17 @@ class MovieCollection extends React.Component {
             className="collection-list__slider-btn collection-list__slider-btn--right"
             role="button"
           >
-            <i
-              className="fa fa-angle-right collection-list__slider-btn__icon"
-              aria-hidden="true"
-            />
+            {margin > -TOTAL_MARGIN ? (
+              <i
+                className="fa fa-angle-right collection-list__slider-btn__icon"
+                aria-hidden="true"
+              />
+            ) : (
+              <i
+                className="fa fa-angle-right collection-list__slider-btn__icon collection-list__slider-btn__icon--disable"
+                aria-hidden="true"
+              />
+            )}
           </span>
         </div>
       </React.Fragment>
