@@ -79,8 +79,6 @@ class SearchMovieResultPage extends React.Component {
       </div>
     );
   }
-
-  currentMovieResultPage;
 }
 SearchMovieResultPage.propTypes = {
   history: PropTypes.object.isRequired,

@@ -29,7 +29,6 @@ export default (state = initialState, action) => {
       newState.searchMatchTotal = parseInt(action.payload.total, 10);
       newState.resultToIndex = parseInt(action.payload.toIndex, 10);
       newState.resultFromIndex = parseInt(action.payload.fromIndex, 10);
-      newState.searchTerm = action.payload.searchTerm;
       return newState;
 
     /* clear data */
@@ -37,7 +36,6 @@ export default (state = initialState, action) => {
       newState.searchMovieResult = [];
       newState.searchMatchTotal = 0;
       newState.resultToIndex = 0;
-      newState.searchTerm = "";
       return newState;
 
     default:
