@@ -12,8 +12,6 @@ class SearchBar extends React.Component {
     super(props);
     this.state = {
       ENTER_KEY: 13,
-      PATH_PREFIX: "movie-search",
-      SEARCH_QUERY_PREFIX: "search_term=",
       searchForm: {
         searchText: ""
       }
@@ -37,13 +35,12 @@ class SearchBar extends React.Component {
 
   changeSearchParam = () => {
     const {
-      PATH_PREFIX,
       searchForm: { searchText }
     } = this.state;
     const { history, clearMovieSearchResult, resultFromIndex } = this.props;
     if (searchText) {
       history.push(
-        `/${PATH_PREFIX}/filter?search_term=${searchText}&from_index=${resultFromIndex}`
+        `/movie-search/filter?search_term=${searchText}&from_index=${resultFromIndex}`
       );
     } else {
       clearMovieSearchResult();

@@ -26,10 +26,10 @@ const ResultHeader = ({
           <br />
           Displaying{" "}
           {resultToIndex <= 19 ? (
-            <React.Fragment>{resultToIndex + 1} results</React.Fragment>
+            <React.Fragment>1 - {resultToIndex + 1} results</React.Fragment>
           ) : (
             <React.Fragment>
-              {resultFromIndex + 1} - {resultToIndex} results
+              {resultFromIndex + 1} - {resultToIndex + 1} results
             </React.Fragment>
           )}
         </div>

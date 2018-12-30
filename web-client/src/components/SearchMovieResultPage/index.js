@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import queryString from "query-string";
 import isEqual from "lodash/isEqual";
 
+import extractQueryString from "@/utils/extractQueryString";
 import { searchAction } from "@/actions";
 import { searchSelector } from "@/selectors";
 import ResultHeader from "./ResultHeader";
@@ -25,49 +25,33 @@ class SearchMovieResultPage extends React.Component {
 
   componentDidUpdate() {
     const { currentParams } = this.state;
+    const { location } = this.props;
     /* fetch search if param has changed */
-    const extractedParams = this.extractQueryString();
-    if (currentParams.search_term !== extractedParams.search_term)
+    const extractedParams = extractQueryString(location.search);
+    if (!isEqual(currentParams, extractedParams)) {
       this.handleSearch();
+    }
   }
 
   componentWillUnmount() {
-    this.setState({ currentParams: "" });
+    this.setState({ currentParams: {} });
   }
 
-  extractQueryString = () => {
-    const params = queryString.parse(this.props.location.search);
-    return params;
-  };
-
   handleSearch = () => {
-    const {
-      fetchSearchMovie,
-      currentSearchTerm,
-      resultToIndex,
-      resultFromIndex
-    } = this.props;
-    const extractedParams = this.extractQueryString();
-    /**
-     * if user updated searchquery
-     */
-    if (isEqual(currentSearchTerm, extractedParams)) {
-      fetchSearchMovie({
-        searchTerm: extractedParams.search_term,
-        nextPageFromIndex: resultToIndex + 1
-      });
-    } else {
-      fetchSearchMovie({
-        searchTerm: extractedParams.search_term,
-        nextPageFromIndex: resultFromIndex
-      });
-    }
+    const { fetchSearchMovie, location } = this.props;
+    const extractedParams = extractQueryString(location.search);
+    fetchSearchMovie({
+      searchTerm: extractedParams.search_term,
+      nextPageFromIndex: parseInt(extractedParams.from_index, 10)
+    });
     this.setState({ currentParams: extractedParams });
   };
 
   render() {
     const {
       isLoading,
+      location,
+      history,
       searchMatchTotal,
       resultFromIndex,
       resultToIndex,
@@ -75,7 +59,7 @@ class SearchMovieResultPage extends React.Component {
       totalMovieResultPage,
       currentMovieResultPage
     } = this.props;
-    const extractedParams = this.extractQueryString();
+    const extractedParams = extractQueryString(location.search);
     return (
       <div className="search-movie-result-page-wrapper page-wrapper">
         <ResultHeader
@@ -89,7 +73,8 @@ class SearchMovieResultPage extends React.Component {
         <PageIndex
           totalMovieResultPage={totalMovieResultPage}
           currentMovieResultPage={currentMovieResultPage}
-          resultLength={searchMovieResult.length}
+          extractedParams={extractedParams}
+          history={history}
         />
       </div>
     );
@@ -99,11 +84,10 @@ class SearchMovieResultPage extends React.Component {
 }
 SearchMovieResultPage.propTypes = {
   history: PropTypes.object.isRequired,
-  match: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   searchMovieResult: PropTypes.array.isRequired,
   resultToIndex: PropTypes.number.isRequired,
-  currentSearchTerm: PropTypes.string.isRequired,
   resultFromIndex: PropTypes.number.isRequired,
   searchMatchTotal: PropTypes.number.isRequired,
   totalMovieResultPage: PropTypes.number.isRequired,
@@ -117,7 +101,6 @@ const stateToProps = state => ({
   searchMatchTotal: searchSelector.getSearchMatchTotal(state),
   resultToIndex: searchSelector.getResultToIndex(state),
   resultFromIndex: searchSelector.getResultFromIndex(state),
-  currentSearchTerm: searchSelector.getCurrentSearchTerm(state),
   totalMovieResultPage: searchSelector.getTotalMovieResultPages(state),
   currentMovieResultPage: searchSelector.getCurrentMovieResultPage(state),
   searchMovieResult: searchSelector.getSearchMovieResult(state)
