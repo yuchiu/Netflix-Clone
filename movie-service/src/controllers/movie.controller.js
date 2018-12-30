@@ -43,6 +43,7 @@ export default {
 
   getMovieSearchResult: async (reqData, callback) => {
     const { searchTerm } = reqData;
+    let { fromIndex } = reqData;
     if (!searchTerm) {
       handleInvalidReq(
         "invalid format, object contain searchTerm attribute is required",
@@ -50,9 +51,8 @@ export default {
       );
       return;
     }
-    let fromIndex = 0;
-    if (reqData.fromIndex) {
-      fromIndex = reqData.fromIndex;
+    if (!fromIndex) {
+      fromIndex = 0;
     }
     const searchCount = await ESClient.count({
       index: "imdb",
@@ -69,9 +69,11 @@ export default {
         message: ""
       },
       data: {
+        searchTerm,
         total: searchCount.count,
         fromIndex,
-        toIndex: fromIndex + response.hits.hits.length - 1,
+        toIndex:
+          parseInt(fromIndex, 10) + parseInt(response.hits.hits.length, 10) - 1,
         timeSpent: response.took,
         searchMovieResult: normalizeData(response)
       }

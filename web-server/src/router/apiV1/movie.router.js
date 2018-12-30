@@ -7,8 +7,8 @@ import { movieService } from "../../config/serviceClient.config";
 const router = express.Router();
 
 router.get("/filters", (req, res) => {
-  const { search_term } = req.query;
-  const reqData = { searchTerm: search_term };
+  const { search_term, from_index } = req.query;
+  const reqData = { searchTerm: search_term, fromIndex: from_index };
   movieService.request("getMovieSearchResult", reqData, (err, response) => {
     if (err) {
       throwRPCErrors(err, res);

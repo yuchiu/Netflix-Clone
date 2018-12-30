@@ -34,7 +34,7 @@ class Routes extends React.Component {
             <Route exact path="/movie/:movieId" component={MoviePage} />
             <Route
               exact
-              path="/movie-search/:searchTerm"
+              path="/movie-search/:filter"
               component={SearchMovieResultPage}
             />
             <AuthRoute exact path="/my-profile" component={MyProfilePage} />

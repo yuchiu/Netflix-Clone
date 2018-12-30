@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import { searchAction } from "@/actions";
+import { searchSelector } from "@/selectors";
 import "./index.scss";
 
 class SearchBar extends React.Component {
@@ -11,27 +12,12 @@ class SearchBar extends React.Component {
     super(props);
     this.state = {
       ENTER_KEY: 13,
-      PATHPREFIX: "movie-search/",
+      PATH_PREFIX: "movie-search",
+      SEARCH_QUERY_PREFIX: "search_term=",
       searchForm: {
         searchText: ""
       }
     };
-  }
-
-  componentDidMount() {
-    const {
-      location: { pathname }
-    } = this.props;
-    const { PATHPREFIX } = this.state;
-
-    /* extract and set search term to state from current path */
-    const paramIndex = pathname.indexOf(PATHPREFIX);
-    const searchTerm = pathname.substring(paramIndex + PATHPREFIX.length);
-    this.setState({
-      searchForm: {
-        searchText: searchTerm
-      }
-    });
   }
 
   handleFocusOnSearch = () => {
@@ -51,12 +37,14 @@ class SearchBar extends React.Component {
 
   changeSearchParam = () => {
     const {
-      PATHPREFIX,
+      PATH_PREFIX,
       searchForm: { searchText }
     } = this.state;
-    const { history, clearMovieSearchResult } = this.props;
+    const { history, clearMovieSearchResult, resultFromIndex } = this.props;
     if (searchText) {
-      history.push(`/${PATHPREFIX}${searchText}`);
+      history.push(
+        `/${PATH_PREFIX}/filter?search_term=${searchText}&from_index=${resultFromIndex}`
+      );
     } else {
       clearMovieSearchResult();
       history.push(`/`);
@@ -91,6 +79,9 @@ class SearchBar extends React.Component {
     );
   }
 }
+const stateToProps = state => ({
+  resultFromIndex: searchSelector.getResultFromIndex(state)
+});
 
 const dispatchToProps = dispatch => ({
   clearMovieSearchResult: () => {
@@ -108,7 +99,7 @@ SearchBar.propTypes = {
 
 export default withRouter(
   connect(
-    null,
+    stateToProps,
     dispatchToProps
   )(SearchBar)
 );

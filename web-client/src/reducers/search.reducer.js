@@ -1,9 +1,11 @@
 import actionTypes from "@/actionTypes";
 
 const initialState = {
+  searchTerm: "",
   searchMatchTotal: 0,
   searchMovieResult: [],
-  currentMovieResultIndex: 0,
+  resultFromIndex: 0,
+  resultToIndex: 0,
   isLoading: false
 };
 
@@ -24,15 +26,18 @@ export default (state = initialState, action) => {
     case actionTypes.SEARCH_MOVIE_FETCH_SUCCESS:
       newState.isLoading = false;
       newState.searchMovieResult = action.payload.searchMovieResult;
-      newState.searchMatchTotal = action.payload.total;
-      newState.currentMovieResultIndex = action.payload.toIndex;
+      newState.searchMatchTotal = parseInt(action.payload.total, 10);
+      newState.resultToIndex = parseInt(action.payload.toIndex, 10);
+      newState.resultFromIndex = parseInt(action.payload.fromIndex, 10);
+      newState.searchTerm = action.payload.searchTerm;
       return newState;
 
     /* clear data */
     case actionTypes.SEARCH_MOVIE_RESULT_CLEAR:
       newState.searchMovieResult = [];
       newState.searchMatchTotal = 0;
-      newState.currentMovieResultIndex = 0;
+      newState.resultToIndex = 0;
+      newState.searchTerm = "";
       return newState;
 
     default:

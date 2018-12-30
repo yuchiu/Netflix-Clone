@@ -72,16 +72,15 @@
 
 ### Future Expansions
 
-- microservices?
-- MongoDB as persisted database for movie, sync data with ElasticSearch?
-- Message Queue for all inter service communications?
+- MongoDB as persisted database for movie-service, create search-service with ElasticSearch that sync MongoDB's data?
+- Message Queue for inter service communications?
 - Machine Learning recommendation system?
 - Machine Learning classification for movie collections?
 - scrape videos for movies?
 - stream videos?
 - rating system?
 - payment system?
-- CI pipeline with Jenkins?
+- continuous integration and continuous deployment pipeline?
 
 ---
 

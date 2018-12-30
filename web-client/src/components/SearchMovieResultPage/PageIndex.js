@@ -3,11 +3,19 @@ import PropTypes from "prop-types";
 
 class PageIndex extends React.Component {
   render() {
-    const { totalMovieResultPage, currentMovieResultPage } = this.props;
+    const {
+      totalMovieResultPage,
+      currentMovieResultPage,
+      resultLength
+    } = this.props;
     return (
       <div className="search-result-page-index">
-        current page= {currentMovieResultPage}, total page=
-        {totalMovieResultPage}
+        {resultLength > 0 && (
+          <React.Fragment>
+            current page= {currentMovieResultPage}, total page=
+            {totalMovieResultPage}
+          </React.Fragment>
+        )}
       </div>
     );
   }

@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 const ResultHeader = ({
   isLoading,
   searchTerm,
-  currentMovieResultIndex,
+  resultFromIndex,
+  resultToIndex,
   searchMatchTotal
 }) => (
   <div className="search-result-header">
@@ -24,14 +25,11 @@ const ResultHeader = ({
           ", found {searchMatchTotal} movies.
           <br />
           Displaying{" "}
-          {currentMovieResultIndex <= 19 ? (
-            <React.Fragment>
-              1 - {currentMovieResultIndex + 1} results
-            </React.Fragment>
+          {resultToIndex <= 19 ? (
+            <React.Fragment>{resultToIndex + 1} results</React.Fragment>
           ) : (
             <React.Fragment>
-              {currentMovieResultIndex - 20} - {currentMovieResultIndex + 1}{" "}
-              results
+              {resultFromIndex + 1} - {resultToIndex} results
             </React.Fragment>
           )}
         </div>

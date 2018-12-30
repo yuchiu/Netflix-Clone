@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import queryString from "query-string";
+import isEqual from "lodash/isEqual";
 
 import { searchAction } from "@/actions";
 import { searchSelector } from "@/selectors";
@@ -13,7 +15,7 @@ class SearchMovieResultPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentParam: ""
+      currentParams: {}
     };
   }
 
@@ -22,71 +24,87 @@ class SearchMovieResultPage extends React.Component {
   }
 
   componentDidUpdate() {
-    const {
-      match: {
-        params: { searchTerm }
-      }
-    } = this.props;
-    const { currentParam } = this.state;
-
+    const { currentParams } = this.state;
     /* fetch search if param has changed */
-    if (currentParam !== searchTerm) this.handleSearch();
+    const extractedParams = this.extractQueryString();
+    if (currentParams.search_term !== extractedParams.search_term)
+      this.handleSearch();
   }
 
   componentWillUnmount() {
-    this.setState({ currentParam: "" });
+    this.setState({ currentParams: "" });
   }
+
+  extractQueryString = () => {
+    const params = queryString.parse(this.props.location.search);
+    return params;
+  };
 
   handleSearch = () => {
     const {
       fetchSearchMovie,
-      currentMovieResultIndex,
-      match: {
-        params: { searchTerm }
-      }
+      currentSearchTerm,
+      resultToIndex,
+      resultFromIndex
     } = this.props;
-    fetchSearchMovie({
-      searchTerm,
-      currentMovieResultIndex
-    });
-    this.setState({ currentParam: searchTerm });
+    const extractedParams = this.extractQueryString();
+    /**
+     * if user updated searchquery
+     */
+    if (isEqual(currentSearchTerm, extractedParams)) {
+      fetchSearchMovie({
+        searchTerm: extractedParams.search_term,
+        nextPageFromIndex: resultToIndex + 1
+      });
+    } else {
+      fetchSearchMovie({
+        searchTerm: extractedParams.search_term,
+        nextPageFromIndex: resultFromIndex
+      });
+    }
+    this.setState({ currentParams: extractedParams });
   };
 
   render() {
     const {
-      match: {
-        params: { searchTerm }
-      },
       isLoading,
       searchMatchTotal,
-      currentMovieResultIndex,
+      resultFromIndex,
+      resultToIndex,
       searchMovieResult,
       totalMovieResultPage,
       currentMovieResultPage
     } = this.props;
+    const extractedParams = this.extractQueryString();
     return (
       <div className="search-movie-result-page-wrapper page-wrapper">
         <ResultHeader
           isLoading={isLoading}
-          searchTerm={searchTerm}
+          searchTerm={extractedParams.search_term}
           searchMatchTotal={searchMatchTotal}
-          currentMovieResultIndex={currentMovieResultIndex}
+          resultFromIndex={resultFromIndex}
+          resultToIndex={resultToIndex}
         />
         <SearchResult searchMovieResult={searchMovieResult} />
         <PageIndex
           totalMovieResultPage={totalMovieResultPage}
           currentMovieResultPage={currentMovieResultPage}
+          resultLength={searchMovieResult.length}
         />
       </div>
     );
   }
+
+  currentMovieResultPage;
 }
 SearchMovieResultPage.propTypes = {
   history: PropTypes.object.isRequired,
   match: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired,
   searchMovieResult: PropTypes.array.isRequired,
-  currentMovieResultIndex: PropTypes.number.isRequired,
+  resultToIndex: PropTypes.number.isRequired,
+  currentSearchTerm: PropTypes.string.isRequired,
+  resultFromIndex: PropTypes.number.isRequired,
   searchMatchTotal: PropTypes.number.isRequired,
   totalMovieResultPage: PropTypes.number.isRequired,
   currentMovieResultPage: PropTypes.number.isRequired,
@@ -97,7 +115,9 @@ SearchMovieResultPage.propTypes = {
 const stateToProps = state => ({
   isLoading: searchSelector.getSearchIsLoading(state),
   searchMatchTotal: searchSelector.getSearchMatchTotal(state),
-  currentMovieResultIndex: searchSelector.getCurrentMovieResultIndex(state),
+  resultToIndex: searchSelector.getResultToIndex(state),
+  resultFromIndex: searchSelector.getResultFromIndex(state),
+  currentSearchTerm: searchSelector.getCurrentSearchTerm(state),
   totalMovieResultPage: searchSelector.getTotalMovieResultPages(state),
   currentMovieResultPage: searchSelector.getCurrentMovieResultPage(state),
   searchMovieResult: searchSelector.getSearchMovieResult(state)
