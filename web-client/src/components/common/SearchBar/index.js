@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import { searchAction } from "@/actions";
-import { searchSelector } from "@/selectors";
 import "./index.scss";
 
 class SearchBar extends React.Component {
@@ -37,12 +36,14 @@ class SearchBar extends React.Component {
     const {
       searchForm: { searchText }
     } = this.state;
-    const { history, clearMovieSearchResult, resultFromIndex } = this.props;
+    const { history, clearMovieSearchResult, location } = this.props;
+    // fetch search if there is search text in our input
     if (searchText) {
       history.push(
-        `/movie-search/filter?search_term=${searchText}&from_index=${resultFromIndex}`
+        `/movie-search/filter?search_term=${searchText}&from_index=0`
       );
     } else {
+      // route to landing page and clear result data if there are no text in our search input
       clearMovieSearchResult();
       history.push(`/`);
     }
@@ -76,9 +77,6 @@ class SearchBar extends React.Component {
     );
   }
 }
-const stateToProps = state => ({
-  resultFromIndex: searchSelector.getResultFromIndex(state)
-});
 
 const dispatchToProps = dispatch => ({
   clearMovieSearchResult: () => {
@@ -96,7 +94,7 @@ SearchBar.propTypes = {
 
 export default withRouter(
   connect(
-    stateToProps,
+    null,
     dispatchToProps
   )(SearchBar)
 );
