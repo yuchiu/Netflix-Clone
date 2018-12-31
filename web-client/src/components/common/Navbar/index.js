@@ -47,13 +47,13 @@ class Navbar extends React.Component {
           {isUserAuthenticated ? (
             <React.Fragment>
               <div
-                className="navbar-end__item pointer-cursor"
+                className="navbar-end__item cursor-pointer"
                 onClick={this.routeToMyProfile}
               >
                 My Profile
               </div>
               <div
-                className="navbar-end__item pointer-cursor"
+                className="navbar-end__item cursor-pointer"
                 onClick={this.handleSignout}
               >
                 Sign Out
@@ -62,13 +62,13 @@ class Navbar extends React.Component {
           ) : (
             <React.Fragment>
               <div
-                className="navbar-end__item pointer-cursor"
+                className="navbar-end__item cursor-pointer"
                 onClick={this.routeToSignin}
               >
                 Sign In
               </div>
               <div
-                className="navbar-end__item pointer-cursor"
+                className="navbar-end__item cursor-pointer"
                 onClick={this.routeToSignup}
               >
                 Sign Up

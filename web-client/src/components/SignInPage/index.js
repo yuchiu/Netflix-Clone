@@ -55,7 +55,7 @@ class SignInPage extends React.Component {
           <div className="signin-section__route-to">
             New to Netflix Clone?{" "}
             <span
-              className="signin-section__route-to__link pointer-cursor"
+              className="signin-section__route-to__link cursor-pointer"
               onClick={this.redirectToSignUp}
             >
               Sign Up Now

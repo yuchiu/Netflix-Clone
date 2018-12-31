@@ -56,7 +56,7 @@ class SearchBar extends React.Component {
       <div className={`searchbar-wrapper ${cssClass}`}>
         <div className="searchbar-focus">
           <i
-            className="fas fa-search searchbar-icon pointer-cursor"
+            className="fas fa-search searchbar-icon cursor-pointer"
             onClick={this.handleFocusOnSearch}
           />
           <input

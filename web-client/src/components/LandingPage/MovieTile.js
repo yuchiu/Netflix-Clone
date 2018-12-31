@@ -14,7 +14,7 @@ class MovieTile extends React.Component {
     const { movie } = this.props;
     return (
       <div
-        className="movie-tile pointer-cursor"
+        className="movie-tile cursor-pointer"
         style={{
           backgroundImage: `url(${
             movie.data.trailer_img ? movie.data.trailer_img : movie.data.poster

@@ -17,7 +17,7 @@ const SelectedMovie = ({ movie }) => (
     {movie.data.stars && (
       <div>
         {movie.data.stars.map((star, i) => (
-          <div>{star}</div>
+          <div key={`movie-star-${i}`}>{star}</div>
         ))}
       </div>
     )}

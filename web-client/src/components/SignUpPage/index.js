@@ -65,7 +65,7 @@ class SignUpPage extends React.Component {
           <div className="signup-section__route-to">
             Already have an account?{" "}
             <span
-              className="pointer-cursor signup-section__route-to__link "
+              className="cursor-pointer signup-section__route-to__link "
               onClick={this.RedirectToSignIn}
             >
               Sign In Now
