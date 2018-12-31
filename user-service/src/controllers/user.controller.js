@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 import registerRule from "../utils/registerRule";
-
+import historyController from "./history.controller";
 import models from "../models";
 
 const comparePassword = async (credentialsPassword, userPassword) => {
@@ -109,6 +109,7 @@ export default {
 
       /* credential is validated */
       const user = await models.User.create(credentials);
+      const histories = await historyController.getUserHistory(user.id);
       response = {
         meta: {
           type: "success",
@@ -116,6 +117,7 @@ export default {
           message: ""
         },
         user: normalizeUser(user),
+        histories,
         token: jwtSignUser(user)
       };
       callback(null, response);
@@ -167,6 +169,7 @@ export default {
         return;
       }
       /* password is validated */
+      const histories = await historyController.getUserHistory(user.id);
       response = {
         meta: {
           type: "success",
@@ -174,6 +177,7 @@ export default {
           message: ""
         },
         user: normalizeUser(user),
+        histories,
         token: jwtSignUser(user)
       };
       callback(null, response);
@@ -189,13 +193,15 @@ export default {
     }
   },
 
-  tryAutoSignIn(user, callback) {
+  async tryAutoSignIn(user, callback) {
+    const histories = await historyController.getUserHistory(user.id);
     const response = {
       meta: {
         type: "success",
         status: 200,
         message: ""
       },
+      histories,
       user: normalizeUser(user)
     };
     callback(null, response);

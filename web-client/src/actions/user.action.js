@@ -55,5 +55,25 @@ export default {
     dispatch({
       type: actionTypes.USER_LOGOUT
     });
+  },
+
+  createMovieHistory: movieData => async dispatch => {
+    dispatch({
+      type: actionTypes.USER_CREATE_MOVIE_HISTORY
+    });
+    try {
+      const response = await userService.createMovieHistory(movieData);
+      const { data } = response;
+      dispatch({
+        type: actionTypes.USER_CREATE_MOVIE_HISTORY_SUCCESS,
+        payload: data
+      });
+    } catch (err) {
+      const { data } = err.response;
+      dispatch({
+        type: actionTypes.USER_CREATE_MOVIE_HISTORY_ERROR,
+        payload: data.meta.message
+      });
+    }
   }
 };

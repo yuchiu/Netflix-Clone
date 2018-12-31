@@ -13,5 +13,10 @@ export default {
   fetchSignInUser: async credentials => {
     const response = await apiV1().post(`/users/signin`, credentials);
     return response;
+  },
+
+  createMovieHistory: async movieData => {
+    const response = await apiV1().post(`/users/histories`, movieData);
+    return response;
   }
 };

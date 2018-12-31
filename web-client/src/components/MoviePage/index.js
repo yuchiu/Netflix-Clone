@@ -2,8 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { movieAction } from "@/actions";
-import { movieSelector } from "@/selectors";
+import { movieAction, userAction } from "@/actions";
+import { movieSelector, userSelector } from "@/selectors";
 import LoadingMovie from "./LoadingMovie";
 import NotFoundMovie from "./NotFoundMovie";
 import SelectedMovie from "./SelectedMovie";
@@ -17,6 +17,20 @@ class MoviePage extends React.Component {
       }
     } = this.props;
     fetchMovie(movieId);
+  }
+
+  componentDidUpdate() {
+    const { createMovieHistory, selectedMovie } = this.props;
+    if (selectedMovie.data) {
+      const movieData = {
+        movieId: selectedMovie.id,
+        movieDescription: selectedMovie.data.description,
+        moviePoster: selectedMovie.data.poster,
+        movieTrailerImg: selectedMovie.data.trailer_img,
+        movieTitle: selectedMovie.data.title
+      };
+      createMovieHistory(movieData);
+    }
   }
 
   componentWillUnmount() {
@@ -46,17 +60,23 @@ class MoviePage extends React.Component {
 
 MoviePage.propTypes = {
   isLoading: PropTypes.bool.isRequired,
+  isUserAuthenticated: PropTypes.bool.isRequired,
   selectedMovie: PropTypes.object.isRequired,
 
-  fetchMovie: PropTypes.func.isRequired
+  fetchMovie: PropTypes.func.isRequired,
+  createMovieHistory: PropTypes.func.isRequired
 };
 
 const stateToProps = state => ({
+  isUserAuthenticated: userSelector.getIsUserAuthenticated(state),
   isLoading: movieSelector.getMovieIsLoading(state),
   selectedMovie: movieSelector.getSelectedMovie(state)
 });
 
 const dispatchToProps = dispatch => ({
+  createMovieHistory: movieId => {
+    dispatch(userAction.createMovieHistory(movieId));
+  },
   fetchMovie: movieId => {
     dispatch(movieAction.fetchMovie(movieId));
   },

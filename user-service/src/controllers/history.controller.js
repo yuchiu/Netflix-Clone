@@ -1,20 +1,25 @@
 import models from "../models";
 
 export default {
-  async createBrowsingHistory(reqData, callback) {
-    const { userId, movieId } = reqData;
+  async createMovieHistory(reqData, callback) {
+    const { userId, movieData } = reqData;
     try {
-      const history = await models.BrowsingHistory.create({
-        movie_id: movieId,
-        user_id: userId
+      await models.MovieHistory.create({
+        user_id: userId,
+        movie_id: movieData.movieId,
+        movie_poster: movieData.moviePoster,
+        movie_trailer_img: movieData.movieTrailerImg,
+        movie_title: movieData.movieTitle,
+        movie_description: movieData.movieDescription
       });
+      const histories = await this.getUserHistory(userId);
       const response = {
         meta: {
           type: "success",
           status: 200,
           message: ""
         },
-        history
+        histories
       };
       callback(null, response);
     } catch (err) {
@@ -27,5 +32,26 @@ export default {
         }
       });
     }
+  },
+  async getUserHistory(userId) {
+    const histories = await models.MovieHistory.findAll({
+      order: [["created_at", "DESC"]],
+      where: { user_id: userId },
+      limit: 100,
+      offset: 0,
+      raw: true
+    });
+    // removed duplicated movie history
+    const uniqueHistoryList = histories.reduce((unique, o) => {
+      if (
+        !unique.some(
+          obj => obj.movie_id === o.movie_id && obj.value === o.value
+        )
+      ) {
+        unique.push(o);
+      }
+      return unique;
+    }, []);
+    return uniqueHistoryList;
   }
 };

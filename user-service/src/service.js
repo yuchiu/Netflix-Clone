@@ -25,8 +25,8 @@ const server = jayson.server({
   createMovieBookmark(reqData, callback) {
     bookmarkController.createMovieBookmark(reqData, callback);
   },
-  createBrowsingHistory(reqData, callback) {
-    historyController.createBrowsingHistory(reqData, callback);
+  createMovieHistory(reqData, callback) {
+    historyController.createMovieHistory(reqData, callback);
   }
 });
 

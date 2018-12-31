@@ -51,12 +51,12 @@ router.get("/auth", (req, res) => {
 
 router.post("/histories", requireAuthentication, (req, res) => {
   const userId = req.user.id;
-  const { movieId } = req.body;
+  const movieData = req.body;
   const reqData = {
     userId,
-    movieId
+    movieData
   };
-  userService.request("createMovieBookmark", reqData, (err, response) => {
+  userService.request("createMovieHistory", reqData, (err, response) => {
     if (err) {
       throwRPCErrors(err, res);
     } else {
@@ -67,10 +67,10 @@ router.post("/histories", requireAuthentication, (req, res) => {
 
 router.post("/bookmarks", (req, res) => {
   const userId = req.user.id;
-  const { movieId } = req.body;
+  const movieData = req.body;
   const reqData = {
     userId,
-    movieId
+    movieData
   };
   userService.request("createMovieBookmark", reqData, (err, response) => {
     if (err) {

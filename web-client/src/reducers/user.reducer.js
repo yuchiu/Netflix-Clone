@@ -5,7 +5,8 @@ import sessionStore from "@/utils/sessionStore";
 const initialState = {
   isUserAuthenticated: false,
   currentUser: {},
-  isLoading: false
+  isLoading: false,
+  histories: []
 };
 
 export default (state = initialState, action) => {
@@ -16,6 +17,7 @@ export default (state = initialState, action) => {
         newState.currentUser = action.payload.user;
         sessionStore.setUserLoggedIn();
         newState.isUserAuthenticated = sessionStore.getLoginStatus();
+        newState.histories = action.payload.histories;
         return newState;
       }
       return state;
@@ -30,6 +32,10 @@ export default (state = initialState, action) => {
       newState.currentUser = action.payload.user;
       sessionStore.setUserLoggedIn();
       newState.isUserAuthenticated = sessionStore.getLoginStatus();
+      return newState;
+
+    case actionTypes.USER_CREATE_MOVIE_HISTORY_SUCCESS:
+      newState.histories = action.payload.histories;
       return newState;
 
     case actionTypes.USER_FETCH_LOGIN_ERROR:

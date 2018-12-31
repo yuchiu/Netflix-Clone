@@ -1,6 +1,6 @@
 import getNewId from "./common/getNewId";
 
-export const MovieBookmarkFactory = (sequelize, DataTypes) => {
+export const MovieHistoryFactory = (sequelize, DataTypes) => {
   const attributes = {
     id: {
       type: DataTypes.STRING,
@@ -28,14 +28,14 @@ export const MovieBookmarkFactory = (sequelize, DataTypes) => {
       defaultValue: ""
     }
   };
-  const MovieBookmark = sequelize.define("movie_bookmark", attributes);
-  MovieBookmark.associate = models => {
-    MovieBookmark.belongsTo(models.User, {
+  const MovieHistory = sequelize.define("movie_history", attributes);
+  MovieHistory.associate = models => {
+    MovieHistory.belongsTo(models.User, {
       foreignKey: {
         name: "user_id",
         field: "user_id"
       }
     });
   };
-  return MovieBookmark;
+  return MovieHistory;
 };
