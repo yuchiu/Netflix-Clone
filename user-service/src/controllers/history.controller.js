@@ -10,7 +10,9 @@ export default {
         movie_poster: movieData.moviePoster,
         movie_trailer_img: movieData.movieTrailerImg,
         movie_title: movieData.movieTitle,
-        movie_description: movieData.movieDescription
+        movie_description: movieData.movieDescription,
+        movie_rating: parseFloat(movieData.movieRating),
+        movie_rating_count: parseInt(movieData.movieRatingCount, 10)
       });
       const histories = await this.getUserHistory(userId);
       const response = {

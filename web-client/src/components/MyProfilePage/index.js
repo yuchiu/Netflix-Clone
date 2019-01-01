@@ -23,6 +23,7 @@ class MyProfilePage extends React.Component {
           <div key={`movie-history-${i}`} className="history-list__wrapper">
             <div>{history.movie_title}</div>
             <div>{history.movie_description}</div>
+            <div>{history.movie_rating}</div>
             <div
               className="cursor-pointer"
               onClick={this.routeToMoviePage.bind(this, history.movie_id)}

@@ -27,7 +27,9 @@ class MoviePage extends React.Component {
         movieDescription: selectedMovie.data.description,
         moviePoster: selectedMovie.data.poster,
         movieTrailerImg: selectedMovie.data.trailer_img,
-        movieTitle: selectedMovie.data.title
+        movieTitle: selectedMovie.data.title,
+        movieRating: selectedMovie.data.imdb_ratingValue,
+        movieRatingCount: selectedMovie.data.imdb_ratingCount
       };
       createMovieHistory(movieData);
     }

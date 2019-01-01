@@ -35,7 +35,7 @@ models.sequelize.sync().then(() => {
     .http()
     .listen(SERVICE_USER_PORT, () =>
       console.log(
-        `user service listenning on port ${SERVICE_USER_PORT} in "${NODE_ENV}" mode`
+        `  User Service listenning on port ${SERVICE_USER_PORT} in "${NODE_ENV}" mode`
       )
     );
 });

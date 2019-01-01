@@ -26,6 +26,14 @@ export const MovieBookmarkFactory = (sequelize, DataTypes) => {
     movie_description: {
       type: DataTypes.STRING,
       defaultValue: ""
+    },
+    movie_rating: {
+      type: DataTypes.FLOAT,
+      defaultValue: 0.0
+    },
+    movie_rating_count: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
     }
   };
   const MovieBookmark = sequelize.define("movie_bookmark", attributes);

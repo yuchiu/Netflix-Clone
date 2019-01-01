@@ -28,11 +28,15 @@ export default (state = initialState, action) => {
 
     case actionTypes.USER_FETCH_LOGIN_SUCCESS:
       newState.isLoading = false;
-      localStore.authenticateUser(action.payload);
-      newState.currentUser = action.payload.user;
-      sessionStore.setUserLoggedIn();
-      newState.isUserAuthenticated = sessionStore.getLoginStatus();
-      newState.histories = action.payload.histories;
+      if (action.payload.token) {
+        localStore.authenticateUser(action.payload);
+        newState.currentUser = action.payload.user;
+        sessionStore.setUserLoggedIn();
+        newState.isUserAuthenticated = sessionStore.getLoginStatus();
+      }
+      if (action.payload.histories) {
+        newState.histories = action.payload.histories;
+      }
       return newState;
 
     case actionTypes.USER_CREATE_MOVIE_HISTORY_SUCCESS:

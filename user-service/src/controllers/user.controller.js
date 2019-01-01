@@ -75,9 +75,8 @@ export default {
       });
     }
   },
-  async signUpUser(args, callback) {
+  async signUpUser(credentials, callback) {
     try {
-      const credentials = args;
       let response;
 
       /* check is register format is correct */
@@ -108,8 +107,8 @@ export default {
       }
 
       /* credential is validated */
-      const user = await models.User.create(credentials);
-      const histories = await historyController.getUserHistory(user.id);
+      const userRaw = await models.User.create(credentials);
+      const user = userRaw.get({ plain: true });
       response = {
         meta: {
           type: "success",
@@ -117,7 +116,6 @@ export default {
           message: ""
         },
         user: normalizeUser(user),
-        histories,
         token: jwtSignUser(user)
       };
       callback(null, response);

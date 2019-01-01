@@ -32,6 +32,6 @@ app.use("/api/v1", apiV1Routes);
 /* listen to port */
 app.listen(SERVER_PORT, () => {
   console.log(
-    `Web Server listenning on port ${SERVER_PORT} in "${NODE_ENV}" mode`
+    `  Web Server listenning on port ${SERVER_PORT} in "${NODE_ENV}" mode`
   );
 });

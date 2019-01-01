@@ -26,6 +26,14 @@ export const MovieHistoryFactory = (sequelize, DataTypes) => {
     movie_description: {
       type: DataTypes.STRING,
       defaultValue: ""
+    },
+    movie_rating: {
+      type: DataTypes.FLOAT,
+      defaultValue: 0.0
+    },
+    movie_rating_count: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
     }
   };
   const MovieHistory = sequelize.define("movie_history", attributes);

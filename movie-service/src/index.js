@@ -43,6 +43,6 @@ server
   .http()
   .listen(SERVICE_MOVIE_PORT, () =>
     console.log(
-      `Movie Service listenning on port ${SERVICE_MOVIE_PORT} in "${NODE_ENV}" mode`
+      `  Movie Service listenning on port ${SERVICE_MOVIE_PORT} in "${NODE_ENV}" mode`
     )
   );
