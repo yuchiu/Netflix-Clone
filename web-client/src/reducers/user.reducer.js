@@ -32,6 +32,7 @@ export default (state = initialState, action) => {
       newState.currentUser = action.payload.user;
       sessionStore.setUserLoggedIn();
       newState.isUserAuthenticated = sessionStore.getLoginStatus();
+      newState.histories = action.payload.histories;
       return newState;
 
     case actionTypes.USER_CREATE_MOVIE_HISTORY_SUCCESS:

@@ -74,6 +74,7 @@
 
 - MongoDB as persisted database for movie-service, create search-service with ElasticSearch that sync MongoDB's data?
 - Message Queue for inter service communications?
+- Redis Caching?
 - Machine Learning recommendation system?
 - Machine Learning classification for movie collections?
 - scrape videos for movies?
