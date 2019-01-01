@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import { userAction } from "@/actions";
+import { movieSelector } from "@/selectors";
 
 class SelectedMovie extends React.Component {
   handleAddToBookmark = movie => {
@@ -21,8 +22,13 @@ class SelectedMovie extends React.Component {
     }
   };
 
+  handleRemoveBookmark = bookmarkId => {
+    const { removeMovieBookmark } = this.props;
+    removeMovieBookmark(bookmarkId);
+  };
+
   render() {
-    const { movie } = this.props;
+    const { movie, selectedMovieBookmarkId } = this.props;
     return (
       <div className="movie-page-title">
         <div>
@@ -32,12 +38,24 @@ class SelectedMovie extends React.Component {
           <img src={movie.data.trailer_img} alt="movie-poster" />
         </div>
         <br />
-        <div
-          className="cursor-pointer"
-          onClick={this.handleAddToBookmark.bind(this, movie)}
-        >
-          Add To Bookmark
-        </div>
+        {selectedMovieBookmarkId ? (
+          <div
+            className="cursor-pointer"
+            onClick={this.handleRemoveBookmark.bind(
+              this,
+              selectedMovieBookmarkId
+            )}
+          >
+            remove bookmark
+          </div>
+        ) : (
+          <div
+            className="cursor-pointer"
+            onClick={this.handleAddToBookmark.bind(this, movie)}
+          >
+            Add To Bookmark
+          </div>
+        )}
         <br />
         <div>{movie.id}</div>
         <div>{movie.data.title}</div>
@@ -69,13 +87,20 @@ SelectedMovie.propTypes = {
   movie: PropTypes.object.isRequired
 };
 
+const stateToProps = state => ({
+  selectedMovieBookmarkId: movieSelector.getSelectedMovieBookmarkId(state)
+});
+
 const dispatchToProps = dispatch => ({
   createMovieBookmark: movieData => {
     dispatch(userAction.createMovieBookmark(movieData));
+  },
+  removeMovieBookmark: bookmarkId => {
+    dispatch(userAction.removeMovieBookmark(bookmarkId));
   }
 });
 
 export default connect(
-  null,
+  stateToProps,
   dispatchToProps
 )(SelectedMovie);

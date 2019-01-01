@@ -95,5 +95,25 @@ export default {
         payload: data.meta.message
       });
     }
+  },
+
+  removeMovieBookmark: bookmarkId => async dispatch => {
+    dispatch({
+      type: actionTypes.USER_REMOVE_MOVIE_BOOKMARK
+    });
+    try {
+      const response = await userService.removeMovieBookmark(bookmarkId);
+      const { data } = response;
+      dispatch({
+        type: actionTypes.USER_REMOVE_MOVIE_BOOKMARK_SUCCESS,
+        payload: data
+      });
+    } catch (err) {
+      const { data } = err.response;
+      dispatch({
+        type: actionTypes.USER_REMOVE_MOVIE_BOOKMARK_ERROR,
+        payload: data.meta.message
+      });
+    }
   }
 };

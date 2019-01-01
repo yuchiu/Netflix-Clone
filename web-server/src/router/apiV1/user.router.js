@@ -88,7 +88,7 @@ router.delete("/bookmarks/:bookmarkId", requireAuthentication, (req, res) => {
     userId,
     bookmarkId
   };
-  userService.request("deleteMovieBookmark", reqData, (err, response) => {
+  userService.request("removeMovieBookmark", reqData, (err, response) => {
     if (err) {
       throwRPCErrors(err, res);
     } else {

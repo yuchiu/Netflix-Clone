@@ -23,5 +23,10 @@ export default {
   createMovieBookmark: async movieData => {
     const response = await apiV1().post(`/users/bookmarks`, movieData);
     return response;
+  },
+
+  removeMovieBookmark: async bookmarkId => {
+    const response = await apiV1().delete(`/users/bookmarks/${bookmarkId}`);
+    return response;
   }
 };

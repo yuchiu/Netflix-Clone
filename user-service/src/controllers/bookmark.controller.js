@@ -8,7 +8,6 @@ export default {
         where: { user_id: userId, movie_id: movieData.movieId },
         raw: true
       });
-      console.log(isBookmarkCreated);
       if (isBookmarkCreated) {
         const response = {
           meta: {
@@ -32,14 +31,14 @@ export default {
         movie_rating: parseFloat(movieData.movieRating),
         movie_rating_count: parseInt(movieData.movieRatingCount, 10)
       });
-      const bookmark = await this.getUserBookmark(userId);
+      const bookmarks = await this.getUserBookmark(userId);
       const response = {
         meta: {
           type: "success",
           status: 200,
           message: ""
         },
-        bookmark
+        bookmarks
       };
       callback(null, response);
     } catch (err) {
@@ -64,7 +63,7 @@ export default {
     return bookmark;
   },
 
-  async deleteMovieBookmark(reqData, callback) {
+  async removeMovieBookmark(reqData, callback) {
     const { userId, bookmarkId } = reqData;
     try {
       const bookmark = await models.MovieBookmark.findOne({
@@ -85,12 +84,14 @@ export default {
         return;
       }
       await bookmark.destroy();
+      const bookmarks = await this.getUserBookmark(userId);
       const response = {
         meta: {
           type: "success",
           status: 200,
           message: ""
-        }
+        },
+        bookmarks
       };
       callback(null, response);
     } catch (err) {

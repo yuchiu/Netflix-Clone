@@ -55,6 +55,10 @@ export default (state = initialState, action) => {
       newState.bookmarks = action.payload.bookmarks;
       return newState;
 
+    case actionTypes.USER_REMOVE_MOVIE_BOOKMARK_SUCCESS:
+      newState.bookmarks = action.payload.bookmarks;
+      return newState;
+
     case actionTypes.USER_FETCH_LOGIN_ERROR:
       newState.isLoading = false;
       return newState;

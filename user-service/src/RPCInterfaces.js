@@ -38,7 +38,7 @@ export default {
   createMovieBookmark(reqData, callback) {
     bookmarkController.createMovieBookmark(reqData, callback);
   },
-  deleteMovieBookmark(reqData, callback) {
-    bookmarkController.deleteMovieBookmark(reqData, callback);
+  removeMovieBookmark(reqData, callback) {
+    bookmarkController.removeMovieBookmark(reqData, callback);
   }
 };
