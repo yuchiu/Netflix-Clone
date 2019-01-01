@@ -1,34 +1,11 @@
 import jayson from "jayson";
 
 import models from "./models";
-import {
-  userController,
-  historyController,
-  bookmarkController
-} from "./controllers";
+import RPCInterfaces from "./RPCInterfaces";
 import { SERVICE_USER_PORT, NODE_ENV } from "./config/secrets";
 
 // create a server
-const server = jayson.server({
-  authenticateJWT(credentials, callback) {
-    userController.authenticateJWT(credentials, callback);
-  },
-  signUpUser(credentials, callback) {
-    userController.signUpUser(credentials, callback);
-  },
-  signInUser(credentials, callback) {
-    userController.signInUser(credentials, callback);
-  },
-  tryAutoSignIn(user, callback) {
-    userController.tryAutoSignIn(user, callback);
-  },
-  createMovieBookmark(reqData, callback) {
-    bookmarkController.createMovieBookmark(reqData, callback);
-  },
-  createMovieHistory(reqData, callback) {
-    historyController.createMovieHistory(reqData, callback);
-  }
-});
+const server = jayson.server(RPCInterfaces);
 
 models.sequelize.sync().then(() => {
   server

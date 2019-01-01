@@ -65,7 +65,7 @@ router.post("/histories", requireAuthentication, (req, res) => {
   });
 });
 
-router.post("/bookmarks", (req, res) => {
+router.post("/bookmarks", requireAuthentication, (req, res) => {
   const userId = req.user.id;
   const movieData = req.body;
   const reqData = {
@@ -73,6 +73,22 @@ router.post("/bookmarks", (req, res) => {
     movieData
   };
   userService.request("createMovieBookmark", reqData, (err, response) => {
+    if (err) {
+      throwRPCErrors(err, res);
+    } else {
+      handleRPCRes(response, res);
+    }
+  });
+});
+
+router.delete("/bookmarks/:bookmarkId", requireAuthentication, (req, res) => {
+  const userId = req.user.id;
+  const { bookmarkId } = req.params;
+  const reqData = {
+    userId,
+    bookmarkId
+  };
+  userService.request("deleteMovieBookmark", reqData, (err, response) => {
     if (err) {
       throwRPCErrors(err, res);
     } else {
