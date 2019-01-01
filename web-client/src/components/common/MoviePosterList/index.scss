@@ -1,0 +1,41 @@
+@import "../../../assets/css/vars.scss";
+@import "../../../assets/css/effects.scss";
+
+.movie-poster-list {
+  font-size: 1.1em;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.movie-list-item {
+  margin: 20px;
+  width: 185px;
+  @include easeTransition();
+  &__img-wrapper {
+    &__rating-wrapper {
+      position: absolute;
+      top: inherit;
+      display: flex;
+      width: 175px;
+      justify-content: flex-end;
+      &__text {
+        color: $black;
+        font-weight: 400;
+        box-shadow: 1px 1px 15px $darkgrey;
+        font-size: 0.9em;
+        width: 30px;
+        text-align: center;
+        background: $imdbYellow;
+        padding: 2px;
+        border-radius: 5px;
+      }
+    }
+    &__img {
+    }
+  }
+  &__title {
+    text-align: center;
+  }
+}

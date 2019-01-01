@@ -95,8 +95,8 @@ class imdb_spider(CrawlSpider):
         credits = dict.fromkeys(['director', 'creator', 'writer', 'stars'])
         k = 0
         for x in lables:
-            persons = response.xpath('//div[contains(@class, "plot_summary")]/div['+str(
-                k)+'][@class="credit_summary_item"]/a/text()').extract()
+            persons = response.xpath('//div[contains(@class, "plot_summary")]/div[' + str(
+                k) + '][@class="credit_summary_item"]/a/text()').extract()
 
             if 'See full cast & crew' in persons:
                 persons.remove('See full cast & crew')
@@ -152,9 +152,8 @@ class imdb_spider(CrawlSpider):
         # if it's a TV series, it will be in "TV SERIES (2013 - ?)"format
         # split string into only 4 digit year, then convert into datetime and unix time
         if release_date.split("(")[1][0:4].isdigit():
-            print(release_date)
             release_date_unix_time = parser.parse(
-                "1, Jan "+release_date.split("(")[1][0:4])
+                "1, Jan " + release_date.split("(")[1][0:4])
             release_date_unix_time = time.mktime(
                 release_date_unix_time.timetuple())
 
@@ -171,7 +170,7 @@ class imdb_spider(CrawlSpider):
             if (len(hour_min) == 1):
                 # if hour_min has hour element like ["3h"], then last char would be h
                 if(duration[-1:] == "h"):
-                    duration = (int(hour_min[0])*60)
+                    duration = (int(hour_min[0]) * 60)
                 # else it would be min
                 else:
                     duration = (int(hour_min[0]))

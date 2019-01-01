@@ -29,6 +29,7 @@ class SelectedMovie extends React.Component {
 
   render() {
     const { movie, selectedMovieBookmarkId } = this.props;
+    console.log(selectedMovieBookmarkId);
     return (
       <div className="movie-page-title">
         <div>

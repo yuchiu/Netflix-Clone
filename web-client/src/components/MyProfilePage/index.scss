@@ -1,3 +1,21 @@
-.my-profile-title {
-  margin: 0;
+.my-profile-page {
+}
+.profile-greeting {
+  width: 100%;
+  text-align: center;
+  &__p {
+    font-weight: 600;
+    font-size: 1.5em;
+  }
+}
+
+.profile-movie-list {
+  width: 90%;
+  margin: auto;
+  &__title {
+    font-size: 1.3em;
+  }
+  &__desc {
+    font-size: 1.1em;
+  }
 }

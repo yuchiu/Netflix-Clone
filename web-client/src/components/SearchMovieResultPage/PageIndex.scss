@@ -1,17 +1,35 @@
 @import "../../assets/css/modules.scss";
+@import "../../assets/css/vars.scss";
+
+.search-result-page-index {
+  width: 100%;
+  margin: auto;
+}
 
 .page-btn-wrapper {
   display: flex;
+  justify-content: center;
+  user-select: none;
   &__next-previous {
     @include button;
+    background: transparent;
+    color: $white;
+    border: none;
+    &--disabled {
+      color: $grey;
+      &:hover {
+        cursor: default;
+      }
+    }
   }
   &__index {
-    margin: 0 5px;
+    margin: auto 5px;
     &:hover {
       cursor: pointer;
     }
     &--current {
       font-weight: 600;
+      font-size: 1.1em;
       &:hover {
         cursor: default;
       }

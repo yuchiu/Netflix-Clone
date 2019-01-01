@@ -18,17 +18,24 @@ class PageIndex extends React.Component {
     const { currentMovieResultPage } = this.props;
     const list = [];
 
-    if (currentMovieResultPage !== 1) {
-      list.push(
-        <button
-          className="page-btn-wrapper__next-previous"
-          key={`page-index-previous}`}
-          onClick={this.routeToPageNum.bind(this, currentMovieResultPage - 1)}
-        >
-          previous page
-        </button>
-      );
-    }
+    currentMovieResultPage !== 1
+      ? list.push(
+          <button
+            className="page-btn-wrapper__next-previous"
+            key={`page-index-previous}`}
+            onClick={this.routeToPageNum.bind(this, currentMovieResultPage - 1)}
+          >
+            previous page
+          </button>
+        )
+      : list.push(
+          <button
+            className="page-btn-wrapper__next-previous page-btn-wrapper__next-previous--disabled"
+            key={`page-index-previous}`}
+          >
+            previous page
+          </button>
+        );
     // if currentMovieResultPage is less than 5, we only need to render until we hit page 1
     // for ex: currentMovieResultPage===3, list = [1,2,3]
     if (currentMovieResultPage < 6) {
@@ -45,7 +52,7 @@ class PageIndex extends React.Component {
       }
     }
     // if currentMovieResultPage is larger than 5, we need to render previous 4 pages of currentMovieResultPage and additional of first page
-    // for ex: currentMovieResultPage===25, list = [1,21,22,23,24]
+    // for ex: currentMovieResultPage===25, list = [1,22,23,24]
     else {
       list.push(
         <div
@@ -53,10 +60,10 @@ class PageIndex extends React.Component {
           key={`page-index-0}`}
           onClick={this.routeToPageNum.bind(this, 1)}
         >
-          1
+          1...
         </div>
       );
-      for (let i = 4; i > 0; i--) {
+      for (let i = 3; i > 0; i--) {
         list.push(
           <div
             className="page-btn-wrapper__index"
@@ -94,12 +101,12 @@ class PageIndex extends React.Component {
         );
       }
     }
-    // if currentMovieResultPage is less than totalpage number - 5, than we will render next 4 pages and last page
-    // for ex: currentMovieResultPage===265, totalMovieResultPage===276, list = [266,267,268,269,276]
+    // if currentMovieResultPage is less than totalpage number - 4, than we will render next 3 pages and last page
+    // for ex: currentMovieResultPage===265, totalMovieResultPage===276, list = [266,267,268,269]
     else {
       for (
         let i = currentMovieResultPage + 1;
-        i < currentMovieResultPage + 5;
+        i < currentMovieResultPage + 4;
         i++
       ) {
         list.push(
@@ -118,21 +125,29 @@ class PageIndex extends React.Component {
           key={`page-index-${totalMovieResultPage}`}
           onClick={this.routeToPageNum.bind(this, totalMovieResultPage)}
         >
+          ...
           {totalMovieResultPage}
         </div>
       );
     }
-    if (currentMovieResultPage !== totalMovieResultPage) {
-      list.push(
-        <button
-          className="page-btn-wrapper__next-previous"
-          key={`page-index-next}`}
-          onClick={this.routeToPageNum.bind(this, currentMovieResultPage + 1)}
-        >
-          next page
-        </button>
-      );
-    }
+    currentMovieResultPage !== totalMovieResultPage
+      ? list.push(
+          <button
+            className="page-btn-wrapper__next-previous"
+            key={`page-index-next}`}
+            onClick={this.routeToPageNum.bind(this, currentMovieResultPage + 1)}
+          >
+            next page
+          </button>
+        )
+      : list.push(
+          <button
+            className="page-btn-wrapper__next-previous page-btn-wrapper__next-previous--disabled"
+            key={`page-index-next}`}
+          >
+            next page
+          </button>
+        );
     return list;
   };
 

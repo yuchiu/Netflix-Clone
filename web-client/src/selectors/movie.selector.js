@@ -17,7 +17,7 @@ const getSelectedMovieBookmarkId = createSelector(
   (selectedMovie, userBookmarks) => {
     let selectedMovieBookmarkId = "";
     userBookmarks.forEach(bookmark => {
-      if (bookmark.movie_id === selectedMovie.id) {
+      if (bookmark.movieId === selectedMovie.id) {
         selectedMovieBookmarkId = bookmark.id;
       }
     });

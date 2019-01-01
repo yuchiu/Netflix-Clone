@@ -119,7 +119,7 @@ pip install -r requirements.txt
 - start scraper pipeline for fetching raw data from IMDB, process and store to ElasticSearch
 
 ```terminal
-cd imdb_scraper
+cd data-pipeline/imdb_scraper
 scrapy crawl "imdb_spider"
 ```
 
