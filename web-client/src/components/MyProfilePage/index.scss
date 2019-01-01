@@ -1,3 +1,6 @@
+@import "../../assets/css/modules.scss";
+@import "../../assets/css/vars.scss";
+
 .my-profile-page {
 }
 .profile-greeting {
@@ -17,5 +20,20 @@
   }
   &__desc {
     font-size: 1.1em;
+  }
+  &__toggle-expand {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid $darkgrey;
+    margin-top: 20px;
+    &__btn {
+      @include button();
+      margin-top: -15px;
+      color: $netflixWhite;
+      background-color: $netflixBlack;
+      font-size: 1.1em;
+      border: none;
+    }
   }
 }
