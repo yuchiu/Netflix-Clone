@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 
 import registerRule from "../utils/registerRule";
 import historyController from "./history.controller";
+import bookmarkController from "./bookmark.controller";
 import models from "../models";
 
 const comparePassword = async (credentialsPassword, userPassword) => {
@@ -168,6 +169,7 @@ export default {
       }
       /* password is validated */
       const histories = await historyController.getUserHistory(user.id);
+      const bookmarks = await bookmarkController.getUserBookmark(user.id);
       response = {
         meta: {
           type: "success",
@@ -176,6 +178,7 @@ export default {
         },
         user: normalizeUser(user),
         histories,
+        bookmarks,
         token: jwtSignUser(user)
       };
       callback(null, response);
@@ -193,6 +196,7 @@ export default {
 
   async tryAutoSignIn(user, callback) {
     const histories = await historyController.getUserHistory(user.id);
+    const bookmarks = await bookmarkController.getUserBookmark(user.id);
     const response = {
       meta: {
         type: "success",
@@ -200,6 +204,7 @@ export default {
         message: ""
       },
       histories,
+      bookmarks,
       user: normalizeUser(user)
     };
     callback(null, response);

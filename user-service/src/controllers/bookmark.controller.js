@@ -4,10 +4,11 @@ export default {
   async createMovieBookmark(reqData, callback) {
     const { userId, movieData } = reqData;
     try {
-      const isBookmarkCreated = await models.MovieBookmark.findAll({
+      const isBookmarkCreated = await models.MovieBookmark.findOne({
         where: { user_id: userId, movie_id: movieData.movieId },
         raw: true
       });
+      console.log(isBookmarkCreated);
       if (isBookmarkCreated) {
         const response = {
           meta: {

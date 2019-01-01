@@ -75,5 +75,25 @@ export default {
         payload: data.meta.message
       });
     }
+  },
+
+  createMovieBookmark: movieData => async dispatch => {
+    dispatch({
+      type: actionTypes.USER_CREATE_MOVIE_BOOKMARK
+    });
+    try {
+      const response = await userService.createMovieBookmark(movieData);
+      const { data } = response;
+      dispatch({
+        type: actionTypes.USER_CREATE_MOVIE_BOOKMARK_SUCCESS,
+        payload: data
+      });
+    } catch (err) {
+      const { data } = err.response;
+      dispatch({
+        type: actionTypes.USER_CREATE_MOVIE_BOOKMARK_ERROR,
+        payload: data.meta.message
+      });
+    }
   }
 };

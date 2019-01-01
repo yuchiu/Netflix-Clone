@@ -18,5 +18,10 @@ export default {
   createMovieHistory: async movieData => {
     const response = await apiV1().post(`/users/histories`, movieData);
     return response;
+  },
+
+  createMovieBookmark: async movieData => {
+    const response = await apiV1().post(`/users/bookmarks`, movieData);
+    return response;
   }
 };
