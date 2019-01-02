@@ -1,18 +1,23 @@
 # Netflix Clone
 
-- **Checkout branch "React-View" for web-client only Netflix Clone with React Redux**
-- **Currently under rework for full-stack expansion**
+- **Checkout branch "React-View" for frontend only Netflix Clone with React Redux**
 
 ---
 
 ## Quick Links
 
+[Demo](#demo)
+
+- [Live Site Demo](#live-site-demo)
+- [Video Demo](#video-demo)
+
 [Tech Stack](#tech-stack)
 
 [Objectives](#objectives)
 
-- [Current Plan for Full-Stack Expansions](#current-plan-for-full-stack-expansions)
-- [Future Expansions](#future-expansions)
+- [User Stories](#user-stories)
+- [Current Plan for Expansions](#current-plan-for-expansions)
+- [Future Plan for Expansions](#future-plan-for-expansions)
 
 [Getting Started](#getting-started)
 
@@ -39,6 +44,18 @@
 
 ---
 
+## Demo
+
+### Live Site Demo
+
+not deployed yet
+
+### Video Demo
+
+![demogif](https://github.com/yuchiu/netflix-clone/blob/master/netflix-clone-optimize-gif-demo.gif)
+
+---
+
 ## Tech Stack
 
 - [React](https://github.com/facebook/react) ∙ [Redux](https://github.com/reduxjs/redux)
@@ -53,34 +70,41 @@
   - persisted database for users
 - [Kibana](https://github.com/elastic/kibana)
   - ElasticSearch analytics data visualization
-- [Docker](https://github.com/docker)
-  - containerization
 
 ---
 
 ## Objectives
 
-### Current Plan for Full-Stack Expansions
+- single page application web client with React & Redux
+- service oriented architecure backend
+- REST for client server communication, JSON RPC for inter service communication
+- scrape raw movie data from imdb
+- provides processed imdb movies data with our movie service API
+- persisted ElasticSearch for movie's database for optimized searching capability
+- PostgreSQL for user's database
 
-- service oriented architecure
-- REST for client service communication, JSON RPC for inter service communication
-- scrape raw data from imdb
-- provides processed movies data with our movie service API
-- persisted ElasticSearch for movie's database for optimized search functionality
-- display stats with Kibana
+### User Stories
+
+- users can register and log in to their account
+- landing page has collections of movie for recommendations
+- users can search for movies
+- users can browse search result by pages
+- users can select and view details of a movie
+- users can see his/her history of browsed movie
+- users can add or remove movie to his/her bookmark
+
+### Current Plans for Expansion
+
+- Redis Caching
 - containerize services and database with Docker
 
-### Future Expansions
+### Future Plans for Expansion
 
-- MongoDB as persisted database for movie-service, create search-service with ElasticSearch that sync MongoDB's data?
+- seperate search into its own service that utilize ElasticSearch, use MongoDB as persisted database for movie-service and sync data between ElasticSearch and MongoDB
 - Message Queue for inter service communications?
-- Redis Caching?
 - Machine Learning recommendation system?
-- Machine Learning classification for movie collections?
-- scrape videos for movies?
-- stream videos?
-- rating system?
-- payment system?
+- Machine Learning classification for recommended movie collections?
+- scrape and stream videos for movies?
 - continuous integration and continuous deployment pipeline?
 
 ---
@@ -94,17 +118,14 @@
 
 #### Tools & Versions
 
-| Tools                                  | Versions   |
-| -------------------------------------- | ---------- |
-| npm                                    | 6.1.0      |
-| pip                                    | 9.0.1      |
-| nodejs                                 | 10.7.0     |
-| python                                 | 2.7        |
-| elasticsearch                          | 6.3.1      |
-| postgres                               | 10.5       |
-| **Optional for production deployment** |
-| docker                                 | 18.06.1-ce |
-| docker-compose                         | 1.22.0     |
+| Tools         | Versions |
+| ------------- | -------- |
+| npm           | 6.1.0    |
+| pip           | 9.0.1    |
+| nodejs        | 10.7.0   |
+| python        | 2.7      |
+| elasticsearch | 6.3.1    |
+| postgres      | 10.5     |
 
 ### Building Data Pipeline
 
@@ -181,7 +202,7 @@ Application will be serving on http://localhost:3000
 
 ## Deployment
 
-- Not set up yet
+- Not setup yet
 
 ---
 
@@ -199,6 +220,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgments
 
-- Not set up yet
+- Not setup yet
 
 ---
