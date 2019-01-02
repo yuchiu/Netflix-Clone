@@ -5,54 +5,22 @@ import { connect } from "react-redux";
 import "./SelectedMovie.scss";
 import { userAction } from "@/actions";
 import { movieSelector } from "@/selectors";
+import { BookmarkButton } from "@/components/common";
 
 class SelectedMovie extends React.Component {
-  handleAddToBookmark = movie => {
-    const { createMovieBookmark } = this.props;
-    if (movie.data) {
-      const movieData = {
-        movieId: movie.id,
-        movieDescription: movie.data.description,
-        moviePoster: movie.data.poster,
-        movieTrailerImg: movie.data.trailer_img,
-        movieTitle: movie.data.title,
-        movieRating: movie.data.imdb_ratingValue,
-        movieRatingCount: movie.data.imdb_ratingCount
-      };
-      createMovieBookmark(movieData);
-    }
-  };
-
-  handleRemoveBookmark = bookmarkId => {
-    const { removeMovieBookmark } = this.props;
-    removeMovieBookmark(bookmarkId);
-  };
-
   render() {
     const { movie, selectedMovieBookmarkId } = this.props;
-    console.log(selectedMovieBookmarkId);
     return (
       <div className="selected-movie-wrapper">
         <div className="selected-movie-top">
           <div className="selected-movie-top__title">{movie.data.title}</div>
-          {selectedMovieBookmarkId ? (
-            <div
-              className="cursor-pointer selected-movie-top__bookmark-btn"
-              onClick={this.handleRemoveBookmark.bind(
-                this,
-                selectedMovieBookmarkId
-              )}
-            >
-              remove bookmark
-            </div>
-          ) : (
-            <div
-              className="cursor-pointer selected-movie-top__bookmark-btn"
-              onClick={this.handleAddToBookmark.bind(this, movie)}
-            >
-              Add To Bookmark
-            </div>
-          )}
+          <BookmarkButton
+            cssClass="selected-movie-top__bookmark-btn"
+            selectedMovieBookmarkId={selectedMovieBookmarkId}
+            movie={movie}
+            removeBookmarkText=" Remove Bookmark"
+            addBookmarkText=" Add To Bookmark"
+          />
         </div>
         <div className="movie-img-wrapper">
           <img
@@ -68,9 +36,6 @@ class SelectedMovie extends React.Component {
         </div>
 
         <div className="movie-details">
-          <div className="movie-details__item movie-details__genre">
-            {movie.data.genre}
-          </div>
           <div className="movie-details__item movie-details__item movie-details__desc">
             {movie.data.description}
           </div>
