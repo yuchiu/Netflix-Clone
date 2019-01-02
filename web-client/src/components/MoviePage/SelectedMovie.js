@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
+import "./SelectedMovie.scss";
 import { userAction } from "@/actions";
 import { movieSelector } from "@/selectors";
 
@@ -31,54 +32,74 @@ class SelectedMovie extends React.Component {
     const { movie, selectedMovieBookmarkId } = this.props;
     console.log(selectedMovieBookmarkId);
     return (
-      <div className="movie-page-title">
-        <div>
-          <img src={movie.data.poster} alt="movie-poster" />
+      <div className="selected-movie-wrapper">
+        <div className="selected-movie-top">
+          <div className="selected-movie-top__title">{movie.data.title}</div>
+          {selectedMovieBookmarkId ? (
+            <div
+              className="cursor-pointer selected-movie-top__bookmark-btn"
+              onClick={this.handleRemoveBookmark.bind(
+                this,
+                selectedMovieBookmarkId
+              )}
+            >
+              remove bookmark
+            </div>
+          ) : (
+            <div
+              className="cursor-pointer selected-movie-top__bookmark-btn"
+              onClick={this.handleAddToBookmark.bind(this, movie)}
+            >
+              Add To Bookmark
+            </div>
+          )}
         </div>
-        <div>
-          <img src={movie.data.trailer_img} alt="movie-poster" />
+        <div className="movie-img-wrapper">
+          <img
+            className="movie-img-wrapper__poster"
+            src={movie.data.poster}
+            alt="image not avaliable"
+          />
+          <img
+            className="movie-img-wrapper__trailer-img"
+            src={movie.data.trailer_img}
+            alt="image not avaliable"
+          />
         </div>
-        <br />
-        {selectedMovieBookmarkId ? (
-          <div
-            className="cursor-pointer"
-            onClick={this.handleRemoveBookmark.bind(
-              this,
-              selectedMovieBookmarkId
-            )}
-          >
-            remove bookmark
+
+        <div className="movie-details">
+          <div className="movie-details__item movie-details__genre">
+            {movie.data.genre}
           </div>
-        ) : (
-          <div
-            className="cursor-pointer"
-            onClick={this.handleAddToBookmark.bind(this, movie)}
-          >
-            Add To Bookmark
+          <div className="movie-details__item movie-details__item movie-details__desc">
+            {movie.data.description}
           </div>
-        )}
-        <br />
-        <div>{movie.id}</div>
-        <div>{movie.data.title}</div>
-        <div>{movie.data.description}</div>
-        <div>{movie.data.url}</div>
-        <div>{movie.data.poster}</div>
-        <div>{movie.data.release_date}</div>
-        <div>{movie.data.imdb_ratingCount}</div>
-        <div>{movie.data.release_date_unix_time}</div>
-        <div>{movie.data.taglines}</div>
-        <div>{movie.data.imdb_ratingValue}</div>
-        <div>{movie.data.storyline}</div>
-        {movie.data.stars && (
-          <div>
-            {movie.data.stars.map((star, i) => (
-              <div key={`movie-star-${i}`}>{star}</div>
-            ))}
+          <div className="movie-details__item movie-details__release-date">
+            <b>Released Date</b>: {movie.data.release_date}
           </div>
-        )}
-        <div>{movie.data.genre}</div>
-        <div>{movie.data.trailer_img}</div>
-        <div>{movie.data.duration}</div>
+          <div className="movie-details__item movie-details__duration">
+            <b>Duration</b>: {movie.data.duration} minutes
+          </div>
+          <div className="movie-details__item movie-details__imdb-rating">
+            <b>Rating</b>: {movie.data.imdb_ratingValue}
+          </div>
+          <div className="movie-details__item movie-details__imdb-count">
+            <b>Rating Count</b>: {movie.data.imdb_ratingCount}
+          </div>
+          <div className="movie-details__item movie-details__imdb-href">
+            <b>IMDB</b>:{" "}
+            <a
+              href={movie.data.url}
+              className="movie-details__imdb-href__link"
+              target="blank"
+            >
+              IMDB link
+            </a>
+          </div>
+          <div className="movie-details__item movie-details__storyline">
+            <b>Storyline</b>: {movie.data.storyline}
+          </div>
+        </div>
       </div>
     );
   }

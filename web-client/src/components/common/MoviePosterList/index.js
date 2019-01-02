@@ -36,7 +36,7 @@ class SearchResult extends React.Component {
                 </div>
                 <img
                   className="cursor-pointer movie-list-item__img-wrapper__img"
-                  alt="movie-poster"
+                  alt="image not available"
                   onClick={this.routeToMoviePage.bind(
                     this,
                     movie.movieId ? movie.movieId : movie.id

@@ -1,0 +1,76 @@
+@import "../../assets/css/vars.scss";
+@import "../../assets/css/effects.scss";
+
+.selected-movie-wrapper {
+  @include easeTransition();
+  width: 490px;
+  margin: auto;
+  background-color: $verydarkgrey;
+  box-shadow: 0 0 30px $black;
+}
+
+.selected-movie-top {
+  display: flex;
+  padding: 30px;
+  justify-content: space-between;
+  align-items: center;
+  &__title {
+    font-size: 2em;
+  }
+  &__bookmark-btn {
+  }
+}
+
+.movie-img-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background: $black;
+  &__poster {
+    padding: 3px;
+  }
+  &__trailer-img {
+    padding: 3px;
+  }
+}
+
+.movie-details {
+  padding: 30px;
+  &__item {
+    padding: 5px;
+  }
+  &__desc {
+  }
+  &__release-date {
+  }
+  &__imdb-rating {
+  }
+  &__imdb-count {
+  }
+  &__imdb-href {
+    &__link {
+      color: $netflixWhite;
+    }
+  }
+  &__storyline {
+  }
+  &__genre {
+  }
+  &__duration {
+  }
+}
+
+@media screen and (min-width: $MinMQBreakPointOne) {
+  .selected-movie-wrapper {
+    width: 600px;
+  }
+}
+
+@media screen and (min-width: $MinMQBreakPointTwo) {
+  .selected-movie-wrapper {
+    width: 900px;
+  }
+}

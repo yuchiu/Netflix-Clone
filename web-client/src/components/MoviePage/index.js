@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+
+import "./index.scss";
 import { movieAction, userAction } from "@/actions";
 import { movieSelector, userSelector } from "@/selectors";
 import LoadingMovie from "./LoadingMovie";
