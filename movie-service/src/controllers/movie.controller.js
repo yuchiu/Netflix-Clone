@@ -2,7 +2,7 @@ import queryBody from "./queryBody";
 import ESClient from "../config/ESClient.config";
 import handleInvalidReq from "../utils/handleInvalidReq";
 
-const normalizeData = ESResponse =>
+const normalizeMovie = ESResponse =>
   ESResponse.hits.hits.map((hit, index) => {
     const newHit = {};
     newHit.id = hit._id;
@@ -12,6 +12,19 @@ const normalizeData = ESResponse =>
     delete newHit.data.res_headers;
     return newHit;
   });
+
+const normalizeSuggestion = ESResponse => {
+  const suggestionList = ESResponse.hits.hits.slice(0, 10);
+  return suggestionList.map((hit, index) => {
+    const newHit = {};
+    newHit.id = hit._id;
+    newHit.score = hit._score;
+    newHit.data = { ...hit._source };
+    delete newHit.data.req_headers;
+    delete newHit.data.res_headers;
+    return newHit;
+  });
+};
 
 export default {
   getMovie: async (reqData, callback) => {
@@ -36,7 +49,7 @@ export default {
       data: {
         total: response.hits.total,
         timeSpent: response.took,
-        movie: normalizeData(response)
+        movie: normalizeMovie(response)
       }
     });
   },
@@ -56,7 +69,7 @@ export default {
     }
     const searchCount = await ESClient.count({
       index: "imdb",
-      body: queryBody.countMatchSearchTerm(searchTerm)
+      body: queryBody.countMatchSearchTerm(searchTerm, 10)
     });
     const response = await ESClient.search({
       index: "imdb",
@@ -75,7 +88,33 @@ export default {
         toIndex:
           parseInt(fromIndex, 10) + parseInt(response.hits.hits.length, 10) - 1,
         timeSpent: response.took,
-        searchMovieResult: normalizeData(response)
+        searchMovieResult: normalizeMovie(response)
+      }
+    });
+  },
+
+  getMovieSearchSuggestion: async (reqData, callback) => {
+    const { searchTerm } = reqData;
+    if (!searchTerm) {
+      handleInvalidReq(
+        "invalid format, object contain searchTerm attribute is required",
+        callback
+      );
+      return;
+    }
+    const response = await ESClient.search({
+      index: "imdb",
+      body: queryBody.searchSuggestionQuery(searchTerm, 20)
+    });
+    callback(null, {
+      meta: {
+        type: "success",
+        status: 200,
+        message: ""
+      },
+      data: {
+        searchTerm,
+        suggestionList: normalizeSuggestion(response)
       }
     });
   },
@@ -108,7 +147,7 @@ export default {
             collectionName,
             timeSpent: response.took,
             collectionLength: response.hits.hits.length,
-            movieCollection: normalizeData(response)
+            movieCollection: normalizeMovie(response)
           }
         });
         break;
@@ -130,7 +169,7 @@ export default {
             collectionName,
             timeSpent: response.took,
             collectionLength: response.hits.hits.length,
-            movieCollection: normalizeData(response)
+            movieCollection: normalizeMovie(response)
           }
         });
         break;
@@ -151,7 +190,7 @@ export default {
             collectionName,
             timeSpent: response.took,
             collectionLength: response.hits.hits.length,
-            movieCollection: normalizeData(response)
+            movieCollection: normalizeMovie(response)
           }
         });
         break;

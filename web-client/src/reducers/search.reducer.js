@@ -4,6 +4,7 @@ const initialState = {
   searchTerm: "",
   searchMatchTotal: 0,
   searchMovieResult: [],
+  searchSuggestionList: [],
   resultFromIndex: 0,
   resultToIndex: 0,
   isLoading: false
@@ -12,17 +13,10 @@ const initialState = {
 export default (state = initialState, action) => {
   const newState = { ...state };
   switch (action.type) {
-    /* Fetch initiated */
     case actionTypes.SEARCH_MOVIE_FETCH:
       newState.isLoading = true;
       return newState;
 
-    /* Fetch Errors */
-    case actionTypes.SEARCH_MOVIE_FETCH_ERROR:
-      newState.isLoading = false;
-      return newState;
-
-    /* Fetch Success */
     case actionTypes.SEARCH_MOVIE_FETCH_SUCCESS:
       newState.isLoading = false;
       newState.searchMovieResult = action.payload.searchMovieResult;
@@ -31,7 +25,23 @@ export default (state = initialState, action) => {
       newState.resultFromIndex = parseInt(action.payload.fromIndex, 10);
       return newState;
 
-    /* clear data */
+    case actionTypes.SEARCH_MOVIE_FETCH_ERROR:
+      newState.isLoading = false;
+      return newState;
+
+    case actionTypes.SEARCH_MOVIE_SEARCH:
+      newState.isLoading = true;
+      return newState;
+
+    case actionTypes.SEARCH_MOVIE_SEARCH_SUCCESS:
+      newState.isLoading = false;
+      newState.searchSuggestionList = action.payload.suggestionList;
+      return newState;
+
+    case actionTypes.SEARCH_MOVIE_SEARCH_ERROR:
+      newState.isLoading = false;
+      return newState;
+
     case actionTypes.SEARCH_MOVIE_RESULT_CLEAR:
       newState.searchMovieResult = [];
       newState.searchMatchTotal = 0;

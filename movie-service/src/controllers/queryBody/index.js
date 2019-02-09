@@ -37,5 +37,24 @@ export default {
         fields: ["title", "description", "storyline"]
       }
     }
+  }),
+
+  searchSuggestionQuery: (searchTerm, size) => ({
+    size,
+    query: {
+      multi_match: {
+        query: searchTerm,
+        fuzziness: 1,
+        fields: ["title", "description", "storyline"]
+      }
+    },
+    suggest: {
+      "my-suggestion": {
+        text: searchTerm,
+        term: {
+          field: "title"
+        }
+      }
+    }
   })
 };

@@ -8,5 +8,9 @@ export default {
       }`
     );
     return response;
+  },
+  fetchSearchSuggestion: async searchTerm => {
+    const response = await apiV1().get(`/movies/suggestions/${searchTerm}`);
+    return response;
   }
 };

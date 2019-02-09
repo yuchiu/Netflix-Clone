@@ -29,10 +29,18 @@ class SearchBar extends React.Component {
     this.setState({
       searchForm
     });
-    setTimeout(this.changeSearchParam, 300);
+    this.handleSuggestion();
   };
 
-  changeSearchParam = () => {
+  handleSuggestion = e => {
+    const {
+      searchForm: { searchText }
+    } = this.state;
+    const { fetchSearchSuggestion } = this.props;
+    fetchSearchSuggestion(searchText);
+  };
+
+  handleSearch = () => {
     const {
       searchForm: { searchText }
     } = this.state;
@@ -69,7 +77,7 @@ class SearchBar extends React.Component {
             className="searchbar-focus__input"
             placeholder="Search for Movies"
             onKeyDown={e => {
-              if (e.keyCode === ENTER_KEY) this.changeSearchParam();
+              if (e.keyCode === ENTER_KEY) this.handleSearch();
             }}
           />
         </div>
@@ -81,6 +89,9 @@ class SearchBar extends React.Component {
 const dispatchToProps = dispatch => ({
   clearMovieSearchResult: () => {
     dispatch(searchAction.clearMovieSearchResult());
+  },
+  fetchSearchSuggestion: searchTerm => {
+    dispatch(searchAction.fetchSearchSuggestion(searchTerm));
   }
 });
 

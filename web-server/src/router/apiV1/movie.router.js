@@ -6,6 +6,18 @@ import { movieService } from "../../config/serviceClient.config";
 
 const router = express.Router();
 
+router.get("/suggestions/:searchTerm", (req, res) => {
+  const { searchTerm } = req.params;
+  const reqData = { searchTerm };
+  movieService.request("getMovieSearchSuggestion", reqData, (err, response) => {
+    if (err) {
+      throwRPCErrors(err, res);
+    } else {
+      handleRPCRes(response, res);
+    }
+  });
+});
+
 router.get("/filters", (req, res) => {
   const { search_term, from_index } = req.query;
   const reqData = { searchTerm: search_term, fromIndex: from_index };

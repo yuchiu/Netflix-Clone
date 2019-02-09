@@ -22,6 +22,9 @@ export default {
   getMovieSearchResult(reqData, callback) {
     movieController.getMovieSearchResult(reqData, callback);
   },
+  getMovieSearchSuggestion(reqData, callback) {
+    movieController.getMovieSearchSuggestion(reqData, callback);
+  },
   getMovieCollections(reqData, callback) {
     movieController.getMovieCollections(reqData, callback);
   }

@@ -16,8 +16,8 @@
 [Objectives](#objectives)
 
 - [User Stories](#user-stories)
-- [Current Plan for Expansions](#current-plan-for-expansions)
-- [Future Plan for Expansions](#future-plan-for-expansions)
+- [Current Plans for Expansion](#current-plans-for-expansion)
+- [Future Plans for Expansion](#future-plans-for-expansion)
 
 [Getting Started](#getting-started)
 

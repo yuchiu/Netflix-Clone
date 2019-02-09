@@ -18,7 +18,6 @@ class SearchResult extends React.Component {
       const displayLength = maxDisplayLength || movieList.length;
       for (let i = 0; i < displayLength; i++) {
         const movie = movieList[i];
-        console.log(movie);
         if (movie) {
           list.push(
             <div className="movie-list-item" key={`movie-poster-id-${i}`}>
