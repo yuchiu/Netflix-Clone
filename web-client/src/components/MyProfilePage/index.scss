@@ -25,13 +25,13 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    border-top: 1px solid $darkgrey;
+    border-top: 1px solid $dark-grey;
     margin-top: 20px;
     &__btn {
       @include button();
       margin-top: -15px;
-      color: $netflixWhite;
-      background-color: $netflixBlack;
+      color: $netflix-white;
+      background-color: $netflix-black;
       font-size: 1.1em;
       border: none;
     }

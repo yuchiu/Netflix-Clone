@@ -1,26 +1,47 @@
 /* Media Queries Break Point*/
 
-$MinMQBreakPointOne: 660px;
-$MinMQBreakPointTwo: 1200px;
+$MQ-sm: 450px;
+$MQ-md: 600px;
+$MQ-lg: 800px;
+$MQ-xl: 1000px;
+$MQ-xxl: 1000px;
 
 /* Sizes */
 
-$footerHeight: 40px;
-$navbarHeight: 160px;
-$navbarHeightMinMQBreakPointOne: 65px;
+$font-size-sm: 16px;
+$font-size-md: 20px;
+$font-size-lg: 24px;
+$font-size-xl: 28px;
+$font-size-xxl: 32px;
+$font-size-xxxl: 36px;
+
+$footer-height: 40px;
+$navbar-height: 160px;
+$navbar-height-MQ-lg: 65px;
+
+$spacing-sm: 4px;
+$spacing-md: 8px;
+$spacing-lg: 12px;
+$spacing-xl: 16px;
+
+$font-size-sm: 12px;
+$font-size-md: 16px;
+$font-size-lg: 20px;
+$font-size-xl: 24px;
 
 /* Colors */
 
 $white: #fff;
-$verylightgrey: #e0e0e0;
-$lightgrey: #b1b1b1;
+$very-light-grey: #e0e0e0;
+$light-grey: #b1b1b1;
 $grey: #8b8b8b;
-$darkgrey: #535353;
-$verydarkgrey: #292929;
+$dark-grey: #535353;
+$very-dark-grey: #292929;
 $black: #000;
 
-$netflixRed: #e50914;
-$netflixBlack: #221f1f;
-$netflixWhite: #ecf0f1;
-$whiteGrey: #a3a3a1;
-$imdbYellow: #f3ce13;
+$netflix-red: #e50914;
+$netflix-black: #221f1f;
+$netflix-white: #ecf0f1;
+$white-grey: #a3a3a1;
+$imdb-yellow: #f3ce13;
+$netflix-black-opa: rgba(34, 31, 31, 0.9);

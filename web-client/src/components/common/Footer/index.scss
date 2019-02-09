@@ -3,7 +3,7 @@
 .footer-wrapper {
   width: 100%;
   display: flex;
-  height: $footerHeight;
+  height: $footer-height;
   justify-content: space-between;
 }
 .footer-item {
@@ -11,6 +11,6 @@
   text-align: center;
   margin: 10px;
   &--link {
-    color: $netflixRed;
+    color: $netflix-red;
   }
 }

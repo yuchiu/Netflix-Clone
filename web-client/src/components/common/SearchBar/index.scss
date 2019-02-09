@@ -7,6 +7,7 @@
 .searchbar-icon {
   margin-right: 10px;
   font-size: 1.2em;
+  margin-top: 5px;
   &--inactive {
     margin-right: 0;
   }
@@ -15,43 +16,51 @@
 .searchbar-focus {
   display: flex;
   justify-content: center;
-  &__input {
-    width: 0px;
-    opacity: 0;
-    background: transparent;
-    border: none;
-    @include easeTransition;
-    &:focus {
-      outline: none; // this one
-      color: $white;
-      width: 350px;
-      opacity: 1;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid $white;
-      text-align: right;
-      font-size: 1.2em;
-    }
-  }
-}
-
-@media screen and (min-width: $MinMQBreakPointOne) {
-  .searchbar-focus {
+  &__search {
+    display: flex;
+    justify-content: center;
     &__input {
       width: 0px;
+      opacity: 0;
+      background: transparent;
+      border: none;
+      @include easeTransition;
       &:focus {
-        width: 200px;
+        outline: none; // this one
+        color: $white;
+        width: 350px;
+        opacity: 1;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid $white;
+        text-align: right;
+        font-size: 1.2em;
       }
     }
   }
 }
 
-@media screen and (min-width: $MinMQBreakPointTwo) {
+@media screen and (min-width: $MQ-lg) {
   .searchbar-focus {
-    &__input {
-      width: 0px;
-      &:focus {
-        width: 400px;
+    &__search {
+      &__input {
+        width: 0px;
+        &:focus {
+          width: 200px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $MQ-xxl) {
+  .searchbar-focus {
+    &__search {
+      &__input {
+        width: 0px;
+        &:focus {
+          width: 400px;
+        }
       }
     }
   }

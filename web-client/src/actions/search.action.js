@@ -46,5 +46,11 @@ export default {
     dispatch({
       type: actionTypes.SEARCH_MOVIE_RESULT_CLEAR
     });
+  },
+
+  clearSearchSuggestion: () => dispatch => {
+    dispatch({
+      type: actionTypes.SEARCH_SUGGESTION_CLEAR
+    });
   }
 };

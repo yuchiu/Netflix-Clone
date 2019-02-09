@@ -11,6 +11,13 @@ import NotFoundMovie from "./NotFoundMovie";
 import SelectedMovie from "./SelectedMovie";
 
 class MoviePage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentParams: ""
+    };
+  }
+
   componentDidMount() {
     const {
       fetchMovie,
@@ -22,7 +29,15 @@ class MoviePage extends React.Component {
   }
 
   componentDidUpdate() {
-    const { createMovieHistory, selectedMovie } = this.props;
+    const { currentParams } = this.state;
+    const {
+      createMovieHistory,
+      selectedMovie,
+      fetchMovie,
+      match: {
+        params: { movieId }
+      }
+    } = this.props;
     if (selectedMovie.data) {
       const movieData = {
         movieId: selectedMovie.id,
@@ -34,6 +49,11 @@ class MoviePage extends React.Component {
         movieRatingCount: selectedMovie.data.imdb_ratingCount
       };
       createMovieHistory(movieData);
+    }
+    /* fetch search if param has changed */
+    if (currentParams !== movieId) {
+      fetchMovie(movieId);
+      this.setState({ currentParams: movieId });
     }
   }
 

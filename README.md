@@ -95,17 +95,14 @@ not deployed yet
 
 ### Current Plans for Expansion
 
-- Redis Caching
 - containerize services and database with Docker
 
 ### Future Plans for Expansion
 
 - seperate search into its own service that utilize ElasticSearch, use MongoDB as persisted database for movie-service and sync data between ElasticSearch and MongoDB
-- Message Queue for inter service communications?
 - Machine Learning recommendation system?
 - Machine Learning classification for recommended movie collections?
 - scrape and stream videos for movies?
-- continuous integration and continuous deployment pipeline?
 
 ---
 

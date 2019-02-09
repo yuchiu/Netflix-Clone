@@ -3,11 +3,13 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Route, Redirect } from "react-router-dom";
 
+import sessionStore from "@/utils/sessionStore";
 import { userSelector } from "@/selectors";
 
 class AuthRoute extends React.Component {
   render() {
-    const { isUserAuthenticated, component: Component, ...rest } = this.props;
+    const isUserAuthenticated = sessionStore.getLoginStatus();
+    const { component: Component, ...rest } = this.props;
     return (
       <Route
         {...rest}

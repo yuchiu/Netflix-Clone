@@ -1,0 +1,55 @@
+@import "../../../assets/css/vars.scss";
+@import "../../../assets/css/effects.scss";
+
+.search-suggestion-wrapper {
+  position: absolute;
+  margin-top: 30px;
+  padding: 10px;
+  background: $netflix-black-opa;
+  z-index: 2;
+}
+
+.movie-suggest-item {
+  border: 1px dotted $black;
+  width: 300px;
+  height: 120px;
+  display: flex;
+  margin: 5px 0;
+  &:hover {
+    cursor: pointer;
+  }
+  &--all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    font-size: $font-size-lg;
+    background: $netflix-red;
+  }
+  &__meta {
+    padding-left: 10px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    &__title {
+      font-size: $font-size-md;
+    }
+    &__rating {
+      width: 75px;
+      font-size: $font-size-md;
+      color: $black;
+      background: $imdb-yellow;
+      border-radius: 5px;
+    }
+  }
+  &__img {
+    height: 120px;
+  }
+}
+
+@media screen and (min-width: $MQ-lg) {
+}
+
+@media screen and (min-width: $MQ-xxl) {
+}

@@ -14,7 +14,7 @@ const normalizeMovie = ESResponse =>
   });
 
 const normalizeSuggestion = ESResponse => {
-  const suggestionList = ESResponse.hits.hits.slice(0, 10);
+  const suggestionList = ESResponse.hits.hits.slice(0, 5);
   return suggestionList.map((hit, index) => {
     const newHit = {};
     newHit.id = hit._id;

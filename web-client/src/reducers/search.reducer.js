@@ -29,16 +29,16 @@ export default (state = initialState, action) => {
       newState.isLoading = false;
       return newState;
 
-    case actionTypes.SEARCH_MOVIE_SEARCH:
+    case actionTypes.SEARCH_SUGGESTION_FETCH:
       newState.isLoading = true;
       return newState;
 
-    case actionTypes.SEARCH_MOVIE_SEARCH_SUCCESS:
+    case actionTypes.SEARCH_SUGGESTION_FETCH_SUCCESS:
       newState.isLoading = false;
       newState.searchSuggestionList = action.payload.suggestionList;
       return newState;
 
-    case actionTypes.SEARCH_MOVIE_SEARCH_ERROR:
+    case actionTypes.SEARCH_SUGGESTION_FETCH_ERROR:
       newState.isLoading = false;
       return newState;
 
@@ -46,6 +46,10 @@ export default (state = initialState, action) => {
       newState.searchMovieResult = [];
       newState.searchMatchTotal = 0;
       newState.resultToIndex = 0;
+      return newState;
+
+    case actionTypes.SEARCH_SUGGESTION_CLEAR:
+      newState.searchSuggestionList = [];
       return newState;
 
     default:

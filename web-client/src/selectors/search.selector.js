@@ -5,6 +5,8 @@ const getSearchMatchTotal = state => state.searchReducer.searchMatchTotal;
 const getSearchMovieResult = state => state.searchReducer.searchMovieResult;
 const getResultToIndex = state => state.searchReducer.resultToIndex;
 const getResultFromIndex = state => state.searchReducer.resultFromIndex;
+const getSearchSuggestionList = state =>
+  state.searchReducer.searchSuggestionList;
 
 // calculate total pages by rounding up result of the formula:
 // total movies/movies per page = total pages
@@ -36,5 +38,6 @@ export default {
   getResultToIndex,
   getResultFromIndex,
   getTotalMovieResultPages,
-  getCurrentMovieResultPage
+  getCurrentMovieResultPage,
+  getSearchSuggestionList
 };

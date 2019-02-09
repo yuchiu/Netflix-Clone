@@ -11,8 +11,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: $netflixWhite;
-  background: $netflixBlack;
+  color: $netflix-white;
+  background: $netflix-black;
 }
 
 /* hide x axis for netflix-like carousel effects */
@@ -32,7 +32,7 @@ code {
 
 /* set each page content min height to 100% combining footer and navbar*/
 .page-wrapper {
-  min-height: calc(100% - (#{$navbarHeight} + #{$footerHeight}));
+  min-height: calc(100% - (#{$navbar-height} + #{$footer-height}));
 }
 
 .cursor-pointer {
@@ -43,10 +43,8 @@ code {
   user-select: none;
 }
 
-@media screen and (min-width: $MinMQBreakPointOne) {
+@media screen and (min-width: $MQ-lg) {
   .page-wrapper {
-    min-height: calc(
-      100% - (#{$navbarHeightMinMQBreakPointOne} + #{$footerHeight})
-    );
+    min-height: calc(100% - (#{$navbar-height-MQ-lg} + #{$footer-height}));
   }
 }

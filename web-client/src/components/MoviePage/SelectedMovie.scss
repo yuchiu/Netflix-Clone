@@ -5,7 +5,7 @@
   @include easeTransition();
   width: 490px;
   margin: auto;
-  background-color: $verydarkgrey;
+  background-color: $very-dark-grey;
   box-shadow: 0 0 30px $black;
 }
 
@@ -52,7 +52,7 @@
   }
   &__imdb-href {
     &__link {
-      color: $netflixWhite;
+      color: $netflix-white;
     }
   }
   &__storyline {
@@ -63,13 +63,13 @@
   }
 }
 
-@media screen and (min-width: $MinMQBreakPointOne) {
+@media screen and (min-width: $MQ-lg) {
   .selected-movie-wrapper {
     width: 600px;
   }
 }
 
-@media screen and (min-width: $MinMQBreakPointTwo) {
+@media screen and (min-width: $MQ-xxl) {
   .selected-movie-wrapper {
     width: 900px;
   }

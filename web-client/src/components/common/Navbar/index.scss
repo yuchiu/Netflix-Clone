@@ -3,7 +3,7 @@
 .navbar-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: $navbarHeight;
+  min-height: $navbar-height;
 }
 .navbar-start {
   width: 160px;
@@ -19,11 +19,11 @@
   }
 }
 
-@media screen and (min-width: $MinMQBreakPointOne) {
+@media screen and (min-width: $MQ-lg) {
   .navbar-wrapper {
     flex-direction: row;
     justify-content: space-between;
-    min-height: $navbarHeightMinMQBreakPointOne;
+    min-height: $navbar-height-MQ-lg;
   }
   .navbar-start {
     margin: 0 0 0 15px;
