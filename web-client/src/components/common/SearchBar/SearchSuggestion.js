@@ -60,7 +60,7 @@ class SearchSuggestion extends React.Component {
               className="movie-suggest-item movie-suggest-item--all"
               onClick={handleSearch}
             >
-              Find All
+              View All
             </div>
           </React.Fragment>
         )}
