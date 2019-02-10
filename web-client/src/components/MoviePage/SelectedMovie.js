@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import "./SelectedMovie.scss";
-import { userAction } from "@/actions";
 import { movieSelector } from "@/selectors";
 import { BookmarkButton } from "@/components/common";
 
@@ -78,16 +77,7 @@ const stateToProps = state => ({
   selectedMovieBookmarkId: movieSelector.getSelectedMovieBookmarkId(state)
 });
 
-const dispatchToProps = dispatch => ({
-  createMovieBookmark: movieData => {
-    dispatch(userAction.createMovieBookmark(movieData));
-  },
-  removeMovieBookmark: bookmarkId => {
-    dispatch(userAction.removeMovieBookmark(bookmarkId));
-  }
-});
-
 export default connect(
   stateToProps,
-  dispatchToProps
+  null
 )(SelectedMovie);

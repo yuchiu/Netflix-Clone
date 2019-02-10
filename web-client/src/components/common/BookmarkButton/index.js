@@ -4,11 +4,18 @@ import { connect } from "react-redux";
 
 import "./index.scss";
 import { userAction } from "@/actions";
-import { movieSelector } from "@/selectors";
+import { movieSelector, userSelector } from "@/selectors";
 
 class BookmarkButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hint: ""
+    };
+  }
+
   handleAddToBookmark = movie => {
-    const { createMovieBookmark } = this.props;
+    const { createMovieBookmark, isUserAuthenticated } = this.props;
     if (movie.data) {
       const movieData = {
         movieId: movie.id,
@@ -19,7 +26,11 @@ class BookmarkButton extends React.Component {
         movieRating: movie.data.imdb_ratingValue,
         movieRatingCount: movie.data.imdb_ratingCount
       };
-      createMovieBookmark(movieData);
+      if (isUserAuthenticated) {
+        createMovieBookmark(movieData);
+      } else {
+        this.setState({ hint: "Please sign in to bookmark movies" });
+      }
     }
   };
 
@@ -29,6 +40,7 @@ class BookmarkButton extends React.Component {
   };
 
   render() {
+    const { hint } = this.state;
     const {
       cssClass,
       movie,
@@ -54,6 +66,7 @@ class BookmarkButton extends React.Component {
             className={`cursor-pointer bookmark-btn ${cssClass}`}
             onClick={this.handleAddToBookmark.bind(this, movie)}
           >
+            <span className={`bookmark-btn__hint`}>{hint} </span>
             <i className="far fa-plus-square bookmark-btn__icon" />
             {addBookmarkText}
           </div>
@@ -68,7 +81,8 @@ BookmarkButton.propTypes = {
 };
 
 const stateToProps = state => ({
-  selectedMovieBookmarkId: movieSelector.getSelectedMovieBookmarkId(state)
+  selectedMovieBookmarkId: movieSelector.getSelectedMovieBookmarkId(state),
+  isUserAuthenticated: userSelector.getIsUserAuthenticated(state)
 });
 
 const dispatchToProps = dispatch => ({

@@ -1,5 +1,11 @@
+@import "../../../assets/css/vars.scss";
+
 .bookmark-btn {
   font-size: 1.1em;
   &__icons {
+  }
+  &__hint {
+    font-size: $font-size-sm;
+    color: $grey;
   }
 }
