@@ -13,7 +13,7 @@
 
 [Tech Stack](#tech-stack)
 
-[Objectives](#objectives)
+[Implementation Hightlights](#Implementation-Hightlights)
 
 - [User Stories](#user-stories)
 - [Current Plans for Expansion](#current-plans-for-expansion)
@@ -48,7 +48,7 @@
 
 ### Live Site Demo
 
-not deployed yet
+Demo: [Link](http://yuchiu-netflix.surge.sh/)
 
 ### Video Demo
 
@@ -73,7 +73,7 @@ not deployed yet
 
 ---
 
-## Objectives
+## Implementation Highlights
 
 - single page application web client with React & Redux
 - service oriented architecure backend
