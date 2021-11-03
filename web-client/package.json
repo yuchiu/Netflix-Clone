@@ -34,7 +34,7 @@
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "resolve": "1.6.0",
-    "validator": "^10.9.0",
+    "validator": "^13.7.0",
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
