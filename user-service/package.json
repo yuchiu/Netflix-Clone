@@ -16,7 +16,7 @@
     "dotenv": "^6.1.0",
     "jayson": "^2.1.0",
     "joi": "^14.3.0",
-    "jsonwebtoken": "^8.3.0",
+    "jsonwebtoken": "^9.0.0",
     "pg": "^7.7.1",
     "sequelize": "^4.42.0",
     "uuid": "^3.3.2",
